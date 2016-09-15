@@ -22,7 +22,7 @@ repositories {
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
-description = 'EPAM Report portal. Domain model'
+description = 'EPAM Report portal. REST API model'
 
 dependencies {
     compile 'io.swagger:swagger-annotations:1.5.3'
@@ -64,10 +64,12 @@ artifacts {
 
 publishing {
     publications {
-        ReportPortal(MavenPublication) {
+        mavenJava(MavenPublication) {
             from components.java
             groupId 'com.epam.reportportal'
             artifactId 'commons-model'
+            artifact sourcesJar
+            artifact javadocJar
         }
     }
 }
@@ -75,13 +77,21 @@ publishing {
 bintray {
     user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
     key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
-    publications = ['ReportPortal']
+    publications = ['mavenJava']
     pkg {
         repo = 'reportportal'
         name = 'commons-model'
+        desc = "$description"
+        websiteUrl = 'https://reportportal.github.io/'
+        issueTrackerUrl = 'https://github.com/eportportal/commons-model/issues'
+        vcsUrl = 'https://github.com/reportportal/commons-model'
+        githubRepo = 'reportportal/commons-model'
+        githubReleaseNotesFile = 'CHANGELOG.md'
+
         userOrg = 'reportportal'
         licenses = ['GPL-3.0']
-        vcsUrl = 'https://github.com/reportportal/commons-model'
+
+
     }
 }
 //afterReleaseBuild.dependsOn bintrayUpload
