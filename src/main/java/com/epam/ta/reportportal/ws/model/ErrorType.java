@@ -404,7 +404,7 @@ public enum ErrorType {
 	/**
 	 * Get instance by code
 	 * 
-	 * @param code
+	 * @param code Error Code
 	 * @return ErrorType
 	 */
 	public static ErrorType getByCode(int code) {

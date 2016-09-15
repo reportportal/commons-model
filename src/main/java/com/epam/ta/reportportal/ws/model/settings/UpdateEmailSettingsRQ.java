@@ -29,7 +29,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Update project EMail Configuration request model
- * {@link ProjectEmailConfiguration}<br>
  * 
  * Used for project settings update and for Report Portal Server configuration.
  * 

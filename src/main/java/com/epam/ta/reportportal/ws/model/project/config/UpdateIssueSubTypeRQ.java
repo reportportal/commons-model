@@ -48,7 +48,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Request model for existing issue sub type update for specified project.<br>
- * {@see com.epam.ta.reportportal.database.entity.project.StatisticSubType}
  *
  * @author Andrei_Ramanchuk
  */
