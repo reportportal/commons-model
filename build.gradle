@@ -80,7 +80,7 @@ bintray {
         repo = 'reportportal'
         name = 'commons-model'
         userOrg = 'reportportal'
-        licenses = ['GPLv3']
+        licenses = ['GPL-3.0']
         vcsUrl = 'https://github.com/reportportal/commons-model'
     }
 }
