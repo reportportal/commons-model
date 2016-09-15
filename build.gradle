@@ -79,7 +79,7 @@ bintray {
     pkg {
         repo = 'reportportal'
         name = 'commons-model'
-        userOrg = reportportal
+        userOrg = 'reportportal'
         licenses = ['GPLv3']
         vcsUrl = 'https://github.com/reportportal/commons-model'
     }
