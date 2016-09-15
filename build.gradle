@@ -4,6 +4,10 @@ buildscript {
     }
 }
 
+plugins {
+    id 'net.researchgate.release' version '2.4.1'
+}
+
 apply plugin: 'java'
 apply plugin: 'maven'
 
@@ -30,4 +34,12 @@ dependencies {
         exclude(module: 'spring-webmvc')
     }
     compile 'javax.validation:validation-api:1.1.0.Final'
+}
+
+release {
+    preTagCommitMessage = 'Release commit: '
+    tagCommitMessage = 'Creating tag: '
+    newVersionCommitMessage = "New version commit: "
+    tagCommitMessage = ''
+    includeProjectNameInTag = false
 }
