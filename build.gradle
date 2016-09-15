@@ -5,6 +5,14 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'maven'
+
+
+repositories {
+    mavenCentral()
+}
+
+
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
