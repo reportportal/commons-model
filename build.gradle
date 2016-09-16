@@ -88,7 +88,7 @@ bintray {
         githubRepo = "reportportal/$project.name"
         githubReleaseNotesFile = 'CHANGELOG.md'
 
-        userOrg = 'reportportal'
+        userOrg = 'epam'
         licenses = ['GPL-3.0']
     }
 }
