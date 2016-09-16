@@ -67,7 +67,7 @@ publishing {
         mavenJava(MavenPublication) {
             from components.java
             groupId 'com.epam.reportportal'
-            artifactId 'commons-model'
+            artifactId "$project.name"
             artifact sourcesJar
             artifact javadocJar
         }
