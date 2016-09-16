@@ -80,18 +80,16 @@ bintray {
     publications = ['mavenJava']
     pkg {
         repo = 'reportportal'
-        name = 'commons-model'
+        name = "$project.name"
         desc = "$description"
         websiteUrl = 'https://reportportal.github.io/'
-        issueTrackerUrl = 'https://github.com/eportportal/commons-model/issues'
-        vcsUrl = 'https://github.com/reportportal/commons-model'
-        githubRepo = 'reportportal/commons-model'
+        issueTrackerUrl = "https://github.com/eportportal/$project.name/issues"
+        vcsUrl = "https://github.com/reportportal/$project.name"
+        githubRepo = "reportportal/$project.name"
         githubReleaseNotesFile = 'CHANGELOG.md'
 
-        userOrg = 'reportportal'
+        userOrg = 'epam'
         licenses = ['GPL-3.0']
-
-
     }
 }
-//afterReleaseBuild.dependsOn bintrayUpload
+afterReleaseBuild.dependsOn bintrayUpload
