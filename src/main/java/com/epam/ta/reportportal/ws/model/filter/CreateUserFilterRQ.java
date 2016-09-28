@@ -17,9 +17,11 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model.filter;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -30,11 +32,11 @@ import javax.validation.constraints.Size;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
-import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import io.swagger.annotations.ApiModelProperty;
 
 /**
@@ -48,7 +50,7 @@ public class CreateUserFilterRQ extends SharableEntityRQ {
 
 	@NotNull
 	@NotEmpty
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_USER_FILTER_NAME_LENGTH)
+	@Size(min = MIN_NAME_LENGTH, max = MAX_USER_FILTER_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	@ApiModelProperty(required = true)
 	private String name;
@@ -61,7 +63,7 @@ public class CreateUserFilterRQ extends SharableEntityRQ {
 
 	@NotNull
 	@Valid
-	@Size(min = ValidationConstraints.MIN_COLLECTION_SIZE, max = ValidationConstraints.MAX_NUMBER_OF_FILTER_ENTITIES)
+	@Size(min = MIN_COLLECTION_SIZE, max = MAX_NUMBER_OF_FILTER_ENTITIES)
 	@JsonProperty(value = "entities", required = true)
 	@JsonDeserialize(as = LinkedHashSet.class)
 	@ApiModelProperty(required = true)
@@ -72,10 +74,21 @@ public class CreateUserFilterRQ extends SharableEntityRQ {
 	@JsonProperty(value = "selection_parameters", required = true)
 	@ApiModelProperty(required = true)
 	private SelectionParameters selectionParameters;
-	
+
 	@NotNull
 	@JsonProperty(value = "is_link", required = true)
 	private boolean isLink;
+
+	@Size(min = MIN_FILTER_DESCRIPTION, max = MAX_FILTER_DESCRIPTION)
+	private String description;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public String getName() {
 		return name;
@@ -119,13 +132,7 @@ public class CreateUserFilterRQ extends SharableEntityRQ {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("CreateUserFilterRQ{");
-		sb.append("name='").append(name).append('\'');
-		sb.append(", objectType='").append(objectType).append('\'');
-		sb.append(", entities=").append(entities);
-		sb.append(", selectionParameters=").append(selectionParameters);
-		sb.append(", isLink=").append(isLink);
-		sb.append('}');
-		return sb.toString();
+		return "CreateUserFilterRQ{" + "name='" + name + '\'' + ", objectType='" + objectType + '\'' + ", entities=" + entities
+				+ ", selectionParameters=" + selectionParameters + ", isLink=" + isLink + ", description='" + description + '\'' + '}';
 	}
 }

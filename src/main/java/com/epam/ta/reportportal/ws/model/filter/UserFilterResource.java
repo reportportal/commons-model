@@ -17,9 +17,11 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model.filter;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 
 import java.util.Set;
 
@@ -27,11 +29,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.epam.ta.reportportal.ws.model.OwnedResource;
 import org.springframework.hateoas.ResourceSupport;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
-import com.epam.ta.reportportal.ws.model.ValidationConstraints;
+import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -56,29 +57,39 @@ public class UserFilterResource extends OwnedResource {
 
 	@NotNull
 	@NotEmpty
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, 
-	max = ValidationConstraints.MAX_USER_FILTER_NAME_LENGTH)
+	@Size(min = MIN_NAME_LENGTH, max = MAX_USER_FILTER_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	private String name;
 
 	@NotNull
 	@Valid
-	@Size(min = ValidationConstraints.MIN_COLLECTION_SIZE)
+	@Size(min = MIN_COLLECTION_SIZE)
 	@JsonProperty(value = "entities", required = true)
 	private Set<UserFilterEntity> entities;
 
 	@JsonProperty(value = "selection_parameters")
 	private SelectionParameters selectionParameters;
-	
+
 	// possible object types: launch; testItem; log
 	@NotNull
 	@JsonProperty(value = "type", required = true)
 	private String objectType;
-	
+
 	@NotNull
 	@JsonProperty(value = "owner", required = true)
 	private String owner;
-	
+
+	@Size(min = MIN_FILTER_DESCRIPTION, max = MAX_FILTER_DESCRIPTION)
+	private String description;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public String getOwner() {
 		return owner;
 	}
@@ -129,14 +140,8 @@ public class UserFilterResource extends OwnedResource {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("UserFilterResource{");
-		sb.append("filterId='").append(filterId).append('\'');
-		sb.append(", name='").append(name).append('\'');
-		sb.append(", entities=").append(entities);
-		sb.append(", selectionParameters=").append(selectionParameters);
-		sb.append(", objectType='").append(objectType).append('\'');
-		sb.append(", owner='").append(owner).append('\'');
-		sb.append('}');
-		return sb.toString();
+		return "UserFilterResource{" + "filterId='" + filterId + '\'' + ", name='" + name + '\'' + ", entities=" + entities
+				+ ", selectionParameters=" + selectionParameters + ", objectType='" + objectType + '\'' + ", owner='" + owner + '\''
+				+ ", description='" + description + '\'' + '}';
 	}
 }
