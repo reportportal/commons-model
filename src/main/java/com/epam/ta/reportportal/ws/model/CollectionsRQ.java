@@ -17,8 +17,8 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
 
 import java.util.List;
@@ -29,8 +29,9 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * @author Dzmitry_Kavalets
+ * @deprecated use {@link BulkRQ} instead
  */
+@Deprecated
 public class CollectionsRQ<T> {
 
 	@Valid

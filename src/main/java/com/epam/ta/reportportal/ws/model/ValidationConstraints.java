@@ -101,4 +101,7 @@ public class ValidationConstraints {
 	public static final int MIN_SUBTYPE_LONG_NAME = 3;
 	public static final int MAX_SUBTYPE_LONG_NAME = 55;
 
+	public static final int MAX_FILTER_DESCRIPTION = 256;
+	public static final int MIN_FILTER_DESCRIPTION = 1;
+
 }
