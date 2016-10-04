@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Dzmitry_Kavalets
- * @param <T>
+ * @param <T> Type of Entity
  */
 public class BulkRQ<T> {
 
