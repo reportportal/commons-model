@@ -197,9 +197,14 @@ public enum ErrorType {
 	UNABLE_TO_UPDATE_DEFAULT_PROJECT(4009, "Unable to update or delete DEFAULT project of Report Portal. {}"),
 
 	/**
+	 * Unable to change demo project of RP
+	 */
+	UNABLE_TO_DELETE_PERSONAL_PROJECT(40010, "Unable to remove Personal project. Remove user to delete his personal project"),
+
+	/**
 	 * Impossible operation on server side
 	 */
-	FORBIDDEN_OPERATION(40010, "Forbidden operation. {}"),
+	FORBIDDEN_OPERATION(40011, "Forbidden operation. {}"),
 
 	/**
 	 * If resource with specified settings already exists and should be unique
