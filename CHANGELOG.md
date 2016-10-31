@@ -21,3 +21,11 @@
 * Added new error type for personal projects
 
 
+## 2.7.0
+##### Released: XXX November 2016
+
+### Bugfixes
+
+* Remove exceptions related to default_project. Use personal project instead of default_project for all users
+
+
