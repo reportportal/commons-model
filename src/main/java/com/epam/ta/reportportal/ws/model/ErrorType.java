@@ -194,7 +194,7 @@ public enum ErrorType {
 	/**
 	 * Unable to change demo project of RP
 	 */
-	UNABLE_TO_UPDATE_DEFAULT_PROJECT(4009, "Unable to update or delete DEFAULT project of Report Portal. {}"),
+	UNABLE_TO_UPDATE_PERSONAL_PROJECT(4009, "Unable to update Personal project. {}"),
 
 	/**
 	 * Unable to change demo project of RP
