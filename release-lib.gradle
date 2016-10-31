@@ -30,7 +30,7 @@ publishing {
             artifact javadocJar
             pom.withXml {
                 asNode().children().last() + {
-                    url projectUrl
+                    url 'https://www.epam.com/'
                     licenses {
                         license {
                             name 'GNU General Public License (GPL) Version 3'
