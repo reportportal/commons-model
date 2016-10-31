@@ -28,6 +28,17 @@ publishing {
             artifactId "$project.name"
             artifact sourcesJar
             artifact javadocJar
+            pom.withXml {
+                asNode().children().last() + {
+                    url projectUrl
+                    licenses {
+                        license {
+                            name 'GNU General Public License (GPL) Version 3'
+                            url 'https://www.gnu.org/licenses/gpl.html'
+                        }
+                    }
+                }
+            }
         }
     }
 }
