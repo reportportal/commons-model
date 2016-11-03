@@ -17,11 +17,12 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model.filter;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PAGE_NUMBER;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_PAGE_NUMBER;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @JsonInclude(Include.NON_NULL)
 public class SelectionParameters {
-	
+
 	@NotNull
 	@JsonProperty(value = "sorting_column", required = true)
 	private String sortingColumnName;
@@ -50,23 +51,17 @@ public class SelectionParameters {
 	@JsonProperty(value = "is_asc", required = true)
 	private boolean isAsc;
 
-	@NotNull
-	@Min(value = MIN_FILTER_LIMIT)
-	@Max(value = MAX_FILTER_LIMIT)
-	@JsonProperty(value = "quantity", required = true)
-	private int quantity;
-
 	@Min(value = MIN_PAGE_NUMBER)
 	@Max(value = MAX_PAGE_NUMBER)
 	@JsonProperty(value = "page_number")
 	private int pageNumber;
-	
+
 	public SelectionParameters() {
-		// by default page number shouldn't be 0 because 
+		// by default page number shouldn't be 0 because
 		// spring paging model can't load page with number 0
 		this.pageNumber = 1;
 	}
-	
+
 	public String getSortingColumnName() {
 		return sortingColumnName;
 	}
@@ -83,14 +78,6 @@ public class SelectionParameters {
 		this.isAsc = isAsc;
 	}
 
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
 	public int getPageNumber() {
 		return pageNumber;
 	}
@@ -105,7 +92,6 @@ public class SelectionParameters {
 		int result = 1;
 		result = prime * result + (isAsc ? 1231 : 1237);
 		result = prime * result + pageNumber;
-		result = prime * result + quantity;
 		result = prime * result + ((sortingColumnName == null) ? 0 : sortingColumnName.hashCode());
 		return result;
 	}
@@ -123,8 +109,6 @@ public class SelectionParameters {
 			return false;
 		if (pageNumber != other.pageNumber)
 			return false;
-		if (quantity != other.quantity)
-			return false;
 		if (sortingColumnName == null) {
 			if (other.sortingColumnName != null)
 				return false;
@@ -138,7 +122,6 @@ public class SelectionParameters {
 		final StringBuilder sb = new StringBuilder("SelectionParameters{");
 		sb.append("sortingColumnName='").append(sortingColumnName).append('\'');
 		sb.append(", isAsc=").append(isAsc);
-		sb.append(", quantity=").append(quantity);
 		sb.append(", pageNumber=").append(pageNumber);
 		sb.append('}');
 		return sb.toString();

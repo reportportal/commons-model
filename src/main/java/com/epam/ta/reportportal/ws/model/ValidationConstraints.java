@@ -3,7 +3,7 @@
  * 
  * 
  * This file is part of EPAM Report Portal.
- * https://github.com/epam/ReportPortal
+ * https://github.com/reportportal/commons-model
  * 
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,22 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
  */ 
-/*
- * This file is part of Report Portal.
- *
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */
+
 package com.epam.ta.reportportal.ws.model;
 
 /**
@@ -74,7 +59,7 @@ public class ValidationConstraints {
 	public static final int MIN_HISTORY_DEPTH_BOUND = 0;
 	public static final int MAX_HISTORY_SIZE_BOUND = 31;
 
-	public static final int MIN_LOGIN_LENGTH = 4;
+	public static final int MIN_LOGIN_LENGTH = 1;
 	public static final int MAX_LOGIN_LENGTH = 128;
 
 	public static final int MIN_PASSWORD_LENGTH = 4;
