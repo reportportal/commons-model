@@ -187,19 +187,14 @@ public enum ErrorType {
 	UNABLE_ASSIGN_UNASSIGN_USER_TO_PROJECT(4034, "Unable assign/unassign user to/from project. {}"),
 
 	/**
+	 * Project update not allowed. This restriction is applied to Personal projects and internal EPAM's project type
+	 */
+	PROJECT_UPDATE_NOT_ALLOWED(4007, "Update/Delete of project with type {} is not allowed"),
+
+	/**
 	 * Unable to update yourself role
 	 */
 	UNABLE_TO_UPDATE_YOURSELF_ROLE(4008, "Unable to update yourself role."),
-
-	/**
-	 * Unable to change demo project of RP
-	 */
-	UNABLE_TO_UPDATE_PERSONAL_PROJECT(4009, "Unable to update Personal project. {}"),
-
-	/**
-	 * Unable to change demo project of RP
-	 */
-	UNABLE_TO_DELETE_PERSONAL_PROJECT(4007, "Unable to remove Personal project. Remove user to delete his personal project"),
 
 	/**
 	 * Impossible operation on server side
