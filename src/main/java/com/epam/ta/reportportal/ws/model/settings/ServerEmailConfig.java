@@ -136,12 +136,16 @@ public class ServerEmailConfig implements Serializable {
 		this.startTlsEnabled = startTlsEnabled;
 	}
 
-	public void setDebug(boolean debug) {
-		this.debug = debug;
+	public Boolean getAuthEnabled() {
+		return authEnabled;
 	}
 
-	public boolean getDebug() {
+	public boolean isDebug() {
 		return debug;
+	}
+
+	public void setDebug(boolean debug) {
+		this.debug = debug;
 	}
 
 	@Override
