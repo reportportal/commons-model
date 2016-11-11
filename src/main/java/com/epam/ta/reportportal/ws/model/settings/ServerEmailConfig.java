@@ -56,7 +56,7 @@ public class ServerEmailConfig implements Serializable {
 	private Boolean authEnabled = false;
 
 	@JsonProperty
-	private Boolean startTlsEnabled = false;
+	private boolean starTlsEnabled;
 
 	@JsonProperty(value = "username")
 	private String username;
@@ -71,13 +71,13 @@ public class ServerEmailConfig implements Serializable {
 	public ServerEmailConfig() {
 	}
 
-	public ServerEmailConfig(String host, int port, String protocol, Boolean authEnabled, Boolean startTlsEnabled,
+	public ServerEmailConfig(String host, int port, String protocol, Boolean authEnabled, boolean starTlsEnabled,
 			String username, String password, boolean debug) {
 		this.host = host;
 		this.port = port;
 		this.protocol = protocol;
 		this.authEnabled = authEnabled;
-		this.startTlsEnabled = startTlsEnabled;
+		this.starTlsEnabled = starTlsEnabled;
 		this.username = username;
 		this.password = password;
 		this.debug = debug;
@@ -128,12 +128,12 @@ public class ServerEmailConfig implements Serializable {
 		this.authEnabled = authEnabled;
 	}
 
-	public Boolean getStartTlsEnabled() {
-		return startTlsEnabled;
+	public boolean isStarTlsEnabled() {
+		return starTlsEnabled;
 	}
 
-	public void setStartTlsEnabled(Boolean startTlsEnabled) {
-		this.startTlsEnabled = startTlsEnabled;
+	public void setStarTlsEnabled(boolean starTlsEnabled) {
+		this.starTlsEnabled = starTlsEnabled;
 	}
 
 	public Boolean getAuthEnabled() {
