@@ -26,6 +26,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 /**
  * Update project EMail Configuration request model
@@ -36,6 +37,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  */
 @JsonInclude(Include.NON_NULL)
+//[avarabyeu]TODO remove this. Change to ServerEmailConfig
 public class UpdateEmailSettingsRQ {
 
 	@NotNull
@@ -59,6 +61,9 @@ public class UpdateEmailSettingsRQ {
 
 	@JsonProperty(value = "debug")
 	private boolean debug;
+
+	@JsonProperty
+	private Boolean starTlsEnabled;
 
 	/* Setters and getters */
 	public void setHost(String host) {
@@ -115,6 +120,14 @@ public class UpdateEmailSettingsRQ {
 
 	public boolean getDebug() {
 		return debug;
+	}
+
+	public Boolean getStarTlsEnabled() {
+		return starTlsEnabled;
+	}
+
+	public void setStarTlsEnabled(Boolean starTlsEnabled) {
+		this.starTlsEnabled = starTlsEnabled;
 	}
 
 	/* Password field excluded from toString() method */
