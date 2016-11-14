@@ -26,6 +26,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.base.MoreObjects;
 
 /**
  * Update project EMail Configuration request model
@@ -63,6 +64,9 @@ public class UpdateEmailSettingsRQ {
 
 	@JsonProperty
 	private Boolean starTlsEnabled;
+
+	@JsonProperty
+	private Boolean sslEnabled;
 
 	/* Setters and getters */
 	public void setHost(String host) {
@@ -129,10 +133,20 @@ public class UpdateEmailSettingsRQ {
 		this.starTlsEnabled = starTlsEnabled;
 	}
 
+	public Boolean getSslEnabled() {
+		return sslEnabled;
+	}
+
+	public void setSslEnabled(Boolean sslEnabled) {
+		this.sslEnabled = sslEnabled;
+	}
+
 	/* Password field excluded from toString() method */
+
 	@Override
 	public String toString() {
-		return "UpdateEmailSettingsRQ [host=" + host + ", port=" + port + ", protocol=" + protocol + ", authEnabled=" + authEnabled
-				+ ", username=" + username + ", debug=" + debug + "]";
+		return MoreObjects.toStringHelper(this).add("host", host).add("port", port).add("protocol", protocol)
+				.add("authEnabled", authEnabled).add("username", username).add("debug", debug).add("starTlsEnabled", starTlsEnabled)
+				.add("sslEnabled", sslEnabled).toString();
 	}
 }

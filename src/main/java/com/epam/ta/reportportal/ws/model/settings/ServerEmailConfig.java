@@ -29,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.base.MoreObjects;
 
 /**
  * Configurable email setting for project object
@@ -58,6 +59,9 @@ public class ServerEmailConfig implements Serializable {
 	@JsonProperty
 	private boolean starTlsEnabled;
 
+	@JsonProperty
+	private boolean sslEnabled;
+
 	@JsonProperty(value = "username")
 	private String username;
 
@@ -71,13 +75,14 @@ public class ServerEmailConfig implements Serializable {
 	public ServerEmailConfig() {
 	}
 
-	public ServerEmailConfig(String host, int port, String protocol, Boolean authEnabled, boolean starTlsEnabled,
+	public ServerEmailConfig(String host, int port, String protocol, Boolean authEnabled, boolean starTlsEnabled, boolean sslEnabled,
 			String username, String password, boolean debug) {
 		this.host = host;
 		this.port = port;
 		this.protocol = protocol;
 		this.authEnabled = authEnabled;
 		this.starTlsEnabled = starTlsEnabled;
+		this.sslEnabled = sslEnabled;
 		this.username = username;
 		this.password = password;
 		this.debug = debug;
@@ -148,9 +153,18 @@ public class ServerEmailConfig implements Serializable {
 		this.debug = debug;
 	}
 
+	public boolean isSslEnabled() {
+		return sslEnabled;
+	}
+
+	public void setSslEnabled(boolean sslEnabled) {
+		this.sslEnabled = sslEnabled;
+	}
+
 	@Override
 	public String toString() {
-		return "ServerEmailConfig [host=" + host + ", port=" + port + ", protocol=" + protocol + ", authEnabled=" + authEnabled
-				+ ", username=" + username + ", debug=" + debug + "]";
+		return MoreObjects.toStringHelper(this).add("host", host).add("port", port).add("protocol", protocol)
+				.add("authEnabled", authEnabled).add("starTlsEnabled", starTlsEnabled).add("sslEnabled", sslEnabled)
+				.add("username", username).add("debug", debug).toString();
 	}
 }
