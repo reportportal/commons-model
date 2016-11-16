@@ -373,6 +373,11 @@ public enum ErrorType {
 	BAD_UPDATE_PREFERENCE_REQUEST(40032, "Incorrect update widget request {}"),
 
 	/**
+	 * Unsupported merge strategy type
+	 */
+	UNSUPPORTED_MERGE_STRATEGY_TYPE(40033, "Merge Strategy type {} is unsupported"),
+
+	/**
 	 * Use it If there are no any other exceptions. There should by no such
 	 * exception
 	 */
