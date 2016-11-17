@@ -65,9 +65,6 @@ public class CreateProjectRQ {
 	@JsonProperty(value = "addInfo")
 	private String addInfo;
 
-	@JsonProperty
-	private String statsCalculationStrategy;
-
 	public String getProjectName() {
 		return projectName;
 	}
@@ -100,17 +97,13 @@ public class CreateProjectRQ {
 		this.addInfo = addInfo;
 	}
 
-	public String getStatsCalculationStrategy() {
-		return statsCalculationStrategy;
-	}
-
-	public void setStatsCalculationStrategy(String statsCalculationStrategy) {
-		this.statsCalculationStrategy = statsCalculationStrategy;
-	}
-
 	@Override
 	public String toString() {
-		return toStringHelper(this).add("projectName", projectName).add("entryType", entryType).add("customer", customer)
-				.add("addInfo", addInfo).add("statsCalculationStrategy", statsCalculationStrategy).toString();
+		return toStringHelper(this)
+				.add("projectName", projectName)
+				.add("entryType", entryType)
+				.add("customer", customer)
+				.add("addInfo", addInfo)
+				.toString();
 	}
 }
