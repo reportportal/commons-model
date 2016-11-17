@@ -30,7 +30,10 @@ import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.base.MoreObjects;
 import io.swagger.annotations.ApiModelProperty;
+
+import static com.google.common.base.MoreObjects.toStringHelper;
 
 /**
  * Create project request initial model
@@ -61,6 +64,9 @@ public class CreateProjectRQ {
 
 	@JsonProperty(value = "addInfo")
 	private String addInfo;
+
+	@JsonProperty
+	private String statsCalculationStrategy;
 
 	public String getProjectName() {
 		return projectName;
@@ -94,14 +100,17 @@ public class CreateProjectRQ {
 		this.addInfo = addInfo;
 	}
 
+	public String getStatsCalculationStrategy() {
+		return statsCalculationStrategy;
+	}
+
+	public void setStatsCalculationStrategy(String statsCalculationStrategy) {
+		this.statsCalculationStrategy = statsCalculationStrategy;
+	}
+
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("CreateProjectRQ{");
-		sb.append("projectName='").append(projectName).append('\'');
-		sb.append(", entryType='").append(entryType).append('\'');
-		sb.append(", customer='").append(customer).append('\'');
-		sb.append(", addInfo='").append(addInfo).append('\'');
-		sb.append('}');
-		return sb.toString();
+		return toStringHelper(this).add("projectName", projectName).add("entryType", entryType).add("customer", customer)
+				.add("addInfo", addInfo).add("statsCalculationStrategy", statsCalculationStrategy).toString();
 	}
 }
