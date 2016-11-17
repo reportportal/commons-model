@@ -44,6 +44,9 @@ public class ProjectSettingsResource extends ResourceSupport {
 	@JsonProperty(value = "subTypes", required = true)
 	private Map<String, List<IssueSubTypeResource>> subTypes;
 
+	@JsonProperty
+	private String statsCalculationStrategy;
+
 	public void setProjectId(String id) {
 		this.projectId = id;
 	}
@@ -58,5 +61,13 @@ public class ProjectSettingsResource extends ResourceSupport {
 
 	public Map<String, List<IssueSubTypeResource>> getSubTypes() {
 		return subTypes;
+	}
+
+	public String getStatsCalculationStrategy() {
+		return statsCalculationStrategy;
+	}
+
+	public void setStatsCalculationStrategy(String statsCalculationStrategy) {
+		this.statsCalculationStrategy = statsCalculationStrategy;
 	}
 }
