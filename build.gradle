@@ -42,7 +42,7 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    version = '3.2'
+    gradleVersion = '3.2'
 }
 
 

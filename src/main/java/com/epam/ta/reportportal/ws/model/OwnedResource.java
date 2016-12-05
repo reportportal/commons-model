@@ -17,9 +17,14 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_FILTER_DESCRIPTION;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_FILTER_DESCRIPTION;
+
+import javax.validation.constraints.Size;
 
 import org.springframework.hateoas.ResourceSupport;
 
@@ -42,6 +47,17 @@ public class OwnedResource extends ResourceSupport {
 
 	@JsonProperty(value = "isShared")
 	private boolean isShared;
+
+	@Size(min = MIN_FILTER_DESCRIPTION, max = MAX_FILTER_DESCRIPTION)
+	private String description;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public String getOwner() {
 		return owner;
