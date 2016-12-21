@@ -17,26 +17,42 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_FILTER_DESCRIPTION;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_FILTER_DESCRIPTION;
+
+import javax.validation.constraints.Size;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Base entity for manipulating sharable resources
- * 
+ *
  * @author Aliaksei_Makayed
- * 
+ *
  */
 @JsonInclude(Include.NON_NULL)
 public class SharableEntityRQ {
 
 	@JsonProperty(value = "share")
 	private Boolean share;
-	
+
+	@Size(min = MIN_FILTER_DESCRIPTION, max = MAX_FILTER_DESCRIPTION)
+	private String description;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public Boolean getShare() {
 		return share;
 	}
@@ -44,6 +60,5 @@ public class SharableEntityRQ {
 	public void setShare(Boolean share) {
 		this.share = share;
 	}
-
 
 }

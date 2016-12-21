@@ -79,17 +79,6 @@ public class CreateUserFilterRQ extends SharableEntityRQ {
 	@JsonProperty(value = "is_link", required = true)
 	private boolean isLink;
 
-	@Size(min = MIN_FILTER_DESCRIPTION, max = MAX_FILTER_DESCRIPTION)
-	private String description;
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -133,6 +122,6 @@ public class CreateUserFilterRQ extends SharableEntityRQ {
 	@Override
 	public String toString() {
 		return "CreateUserFilterRQ{" + "name='" + name + '\'' + ", objectType='" + objectType + '\'' + ", entities=" + entities
-				+ ", selectionParameters=" + selectionParameters + ", isLink=" + isLink + ", description='" + description + '\'' + '}';
+				+ ", selectionParameters=" + selectionParameters + ", isLink=" + isLink + '}';
 	}
 }

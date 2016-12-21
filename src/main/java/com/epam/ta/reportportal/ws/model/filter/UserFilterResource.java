@@ -79,17 +79,6 @@ public class UserFilterResource extends OwnedResource {
 	@JsonProperty(value = "owner", required = true)
 	private String owner;
 
-	@Size(min = MIN_FILTER_DESCRIPTION, max = MAX_FILTER_DESCRIPTION)
-	private String description;
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public String getOwner() {
 		return owner;
 	}
@@ -141,7 +130,6 @@ public class UserFilterResource extends OwnedResource {
 	@Override
 	public String toString() {
 		return "UserFilterResource{" + "filterId='" + filterId + '\'' + ", name='" + name + '\'' + ", entities=" + entities
-				+ ", selectionParameters=" + selectionParameters + ", objectType='" + objectType + '\'' + ", owner='" + owner + '\''
-				+ ", description='" + description + '\'' + '}';
+				+ ", selectionParameters=" + selectionParameters + ", objectType='" + objectType + '\'' + ", owner='" + owner + '\'' + '}';
 	}
 }
