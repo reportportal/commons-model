@@ -381,12 +381,6 @@ public enum ErrorType {
 	 * Use it If there are no any other exceptions. There should by no such
 	 * exception
 	 */
-	SESSION_EXPIRED(42000, "User session has expired"),
-
-	/**
-	 * Use it If there are no any other exceptions. There should by no such
-	 * exception
-	 */
 	UNCLASSIFIED_ERROR(5000, "Unclassified error");
 
 	private final int code;
