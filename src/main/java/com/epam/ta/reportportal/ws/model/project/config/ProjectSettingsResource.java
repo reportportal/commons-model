@@ -45,7 +45,7 @@ public class ProjectSettingsResource extends ResourceSupport {
 	private Map<String, List<IssueSubTypeResource>> subTypes;
 
 	@JsonProperty
-	private String statsCalculationStrategy;
+	private String statisticsStrategy;
 
 	public void setProjectId(String id) {
 		this.projectId = id;
@@ -63,11 +63,11 @@ public class ProjectSettingsResource extends ResourceSupport {
 		return subTypes;
 	}
 
-	public String getStatsCalculationStrategy() {
-		return statsCalculationStrategy;
+	public String getStatisticsStrategy() {
+		return statisticsStrategy;
 	}
 
-	public void setStatsCalculationStrategy(String statsCalculationStrategy) {
-		this.statsCalculationStrategy = statsCalculationStrategy;
+	public void setStatisticsStrategy(String statisticsStrategy) {
+		this.statisticsStrategy = statisticsStrategy;
 	}
 }
