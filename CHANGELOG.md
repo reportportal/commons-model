@@ -22,10 +22,10 @@
 
 
 ## 2.7.0
-##### Released: XXX November 2016
+##### Released: 28 November 2016
 
 ### Bugfixes
 
 * Remove exceptions related to default_project. Use personal project instead of default_project for all users
-
+* New error types
 
