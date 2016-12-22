@@ -1,0 +1,29 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.12"
+    }
+}
+
+apply plugin: org.jfrog.gradle.plugin.artifactory.ArtifactoryPlugin
+
+artifactory {
+    artifactory {
+        contextUrl = 'https://artifactory.epam.com/artifactory/'
+        publish {
+            repository {
+                repoKey = 'EPMC-TST'
+                username = "${project.properties.artifactoryLogin}"
+                password = "${project.properties.artifactoryPassword}"
+                maven = true
+            }
+            defaults {
+                publications('mavenJava')
+            }
+        }
+    }
+}

@@ -13,6 +13,7 @@ plugins {
 apply plugin: 'java'
 apply from: 'release-lib.gradle'
 apply from: 'build-quality.gradle'
+apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/master/release-lib-snapshot.gradle'
 
 
 repositories {
