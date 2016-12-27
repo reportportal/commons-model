@@ -115,7 +115,7 @@ public class OAuthDetailsResource implements Serializable {
 		this.tokenName = tokenName;
 	}
 
-	public Map<String, ?> getRestrictions() {
+	public Map<String, String> getRestrictions() {
 		return restrictions;
 	}
 
