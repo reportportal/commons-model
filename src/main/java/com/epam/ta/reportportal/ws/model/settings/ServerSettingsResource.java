@@ -27,6 +27,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Map;
+
 /**
  * Global server settings response of stored properties
  * 
@@ -44,6 +46,8 @@ public class ServerSettingsResource extends ResourceSupport {
 
 	@JsonProperty(value = "serverEmailConfig")
 	private ServerEmailConfig serverEmailConfig;
+
+	private Map<String, OAuthDetailsResource> oauthConfigs;
 
 	/* ~~~~~ Getters and setters block ~~~~~ */
 	public void setProfile(String id) {
@@ -68,5 +72,13 @@ public class ServerSettingsResource extends ResourceSupport {
 
 	public ServerEmailConfig getServerEmailConfig() {
 		return serverEmailConfig;
+	}
+
+	public Map<String, OAuthDetailsResource> getOauthConfigs() {
+		return oauthConfigs;
+	}
+
+	public void setOauthConfigs(Map<String, OAuthDetailsResource> oauthConfigs) {
+		this.oauthConfigs = oauthConfigs;
 	}
 }
