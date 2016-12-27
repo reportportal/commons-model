@@ -1,7 +1,9 @@
 package com.epam.ta.reportportal.ws.model.settings;
 
+import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.google.common.base.MoreObjects;
 
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
@@ -11,10 +13,15 @@ import java.util.Map;
  */
 public class OAuthDetailsResource implements Serializable {
 
+	private static final String URL_PATTERN = "^(http:\\/\\/|https:\\/\\/)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*.[a-z]{3}.?([a-z]+)?$\n";
+
+	@NotEmpty
 	private String clientId;
 
+	@Pattern(regexp = URL_PATTERN)
 	private String accessTokenUri;
 
+	@Pattern(regexp = URL_PATTERN)
 	private String userAuthorizationUri;
 
 	private List<String> scope;
