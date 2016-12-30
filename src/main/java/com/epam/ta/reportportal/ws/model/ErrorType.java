@@ -146,6 +146,11 @@ public enum ErrorType {
 	TICKET_NOT_FOUND(40418, "Ticket with ID '{}' not found. Did you use correct Ticket ID?"),
 
 	/**
+	 * If specified by id Activity not found
+	 */
+	OAUTH_INTEGRATION_NOT_FOUND(40419, "OAuth integration '{}' not found. Did you use correct name?"),
+
+	/**
 	 * If provided filtering parameters are incorrect
 	 */
 	INCORRECT_FILTER_PARAMETERS(40011, "Incorrect filtering parameters. {}"),
