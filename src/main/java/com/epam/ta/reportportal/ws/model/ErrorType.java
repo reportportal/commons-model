@@ -178,18 +178,23 @@ public enum ErrorType {
 	/**
 	 * Impossible post ticket to external system
 	 */
-	UNABLE_POST_TICKET(4030, "Impossible post ticket to external system. {}"),
+	UNABLE_POST_TICKET(40301, "Impossible post ticket to external system. {}"),
 
 	/**
 	 * Impossible interact with external system
 	 */
-	UNABLE_INTERACT_WITH_EXTRERNAL_SYSTEM(4032, "Impossible interact with external system. {}"),
+	UNABLE_INTERACT_WITH_EXTRERNAL_SYSTEM(40302, "Impossible interact with external system. {}"),
 
 	/**
 	 * "Unable assign/unassign user to/from project
 	 * 
 	 */
-	UNABLE_ASSIGN_UNASSIGN_USER_TO_PROJECT(4034, "Unable assign/unassign user to/from project. {}"),
+	UNABLE_ASSIGN_UNASSIGN_USER_TO_PROJECT(40304, "Unable assign/unassign user to/from project. {}"),
+
+	/**
+	 * Impossible operation on server side
+	 */
+	EMAIL_CONFIGURATION_IS_INCORRECT(40305, "Email server is not configured or configuration is incorrect. {}"),
 
 	/**
 	 * Project update not allowed. This restriction is applied to Personal projects and internal EPAM's project type
