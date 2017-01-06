@@ -17,30 +17,30 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.annotations;
 
+import javax.validation.Constraint;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import javax.validation.Constraint;
-
 /**
  * Can be used with string fields.
  * Check If string is empty or contains only whitespaces.(this values are invalid).
  * null - valid value
- * 
- * @author Aliaksei_Makayed
  *
+ * @author Aliaksei_Makayed
+ * @author Andrei Varabyeu
  */
-@Target({ElementType.METHOD, ElementType.FIELD})
+@Target({ ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy=NotEmptyValidator.class)
+@Constraint(validatedBy = NotEmptyValidator.class)
 public @interface NotEmpty {
-	 String message() default "com.epam.ta.reportportal.ws.model.annotations.NotEmpty";
-	 Class<?>[] groups() default {};
-	 Class<?>[] payload() default {};
+
+	String message() default "Value should not be empty";
+	Class<?>[] groups() default {};
+	Class<?>[] payload() default {};
 }
