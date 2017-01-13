@@ -68,6 +68,9 @@ public class ServerEmailConfig implements Serializable {
 	@JsonProperty(value = "password")
 	private String password;
 
+	@JsonProperty(value = "from")
+	private String from;
+
 	@JsonProperty(value = "debug")
 	@JsonIgnore
 	private boolean debug;
@@ -76,7 +79,7 @@ public class ServerEmailConfig implements Serializable {
 	}
 
 	public ServerEmailConfig(String host, int port, String protocol, Boolean authEnabled, boolean starTlsEnabled, boolean sslEnabled,
-			String username, String password, boolean debug) {
+			String username, String password, String from, boolean debug) {
 		this.host = host;
 		this.port = port;
 		this.protocol = protocol;
@@ -85,6 +88,7 @@ public class ServerEmailConfig implements Serializable {
 		this.sslEnabled = sslEnabled;
 		this.username = username;
 		this.password = password;
+		this.from = from;
 		this.debug = debug;
 	}
 
@@ -161,10 +165,18 @@ public class ServerEmailConfig implements Serializable {
 		this.sslEnabled = sslEnabled;
 	}
 
+	public String getFrom() {
+		return from;
+	}
+
+	public void setFrom(String from) {
+		this.from = from;
+	}
+
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(this).add("host", host).add("port", port).add("protocol", protocol)
 				.add("authEnabled", authEnabled).add("starTlsEnabled", starTlsEnabled).add("sslEnabled", sslEnabled)
-				.add("username", username).add("debug", debug).toString();
+				.add("username", username).add("password", password).add("from", from).add("debug", debug).toString();
 	}
 }
