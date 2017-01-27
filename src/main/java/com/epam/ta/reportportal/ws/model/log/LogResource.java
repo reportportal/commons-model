@@ -32,13 +32,17 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * JSON Representation of Report Portal domain object
+ * JSON Representation of Report Portal domain object. Extends Spring's
+ * {@link ResourceSupport} class which contains several fields related to
+ * HATEAOS constraint
+ *
+ * @see <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS Description</a>
  * 
  * @author Andrei Varabyeu
  * 
  */
 @JsonInclude(Include.NON_NULL)
-public class LogResource {
+public class LogResource extends ResourceSupport {
 
 	@JsonInclude(Include.NON_NULL)
 	public static class BinaryContent {
