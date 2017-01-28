@@ -23,6 +23,7 @@ package com.epam.ta.reportportal.ws.model;
 import com.google.common.base.Preconditions;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 /**
  * Paged response  representation
@@ -30,7 +31,7 @@ import java.util.Collection;
  *
  * @author Andrei Varabyeu
  */
-public class Page<T> {
+public class Page<T> implements Iterable<T>{
 
     private final Collection<T> content;
     private final PageMetadata page;
@@ -56,6 +57,11 @@ public class Page<T> {
 
     public PageMetadata getPage() {
         return page;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return content.iterator();
     }
 
     public static class PageMetadata {
