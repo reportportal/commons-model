@@ -28,7 +28,6 @@ import javax.validation.constraints.Size;
 
 import com.epam.ta.reportportal.ws.model.OwnedResource;
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.hateoas.ResourceSupport;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
@@ -38,10 +37,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Domain model DashBoard resource object. JSON Representation of Report Portal
- * domain object. Extends Spring's {@link ResourceSupport} class which contains
- * several fields related to HATEAOS constraint
- * 
- * @see <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS Description</a>
+ * domain object.
  * 
  * @author Aliaksei_Makayed
  */

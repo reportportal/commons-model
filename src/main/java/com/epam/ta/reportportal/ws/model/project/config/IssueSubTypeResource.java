@@ -21,8 +21,6 @@
 
 package com.epam.ta.reportportal.ws.model.project.config;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -33,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class IssueSubTypeResource extends ResourceSupport {
+public class IssueSubTypeResource {
 
 	@JsonProperty(value = "locator")
 	private String locator;

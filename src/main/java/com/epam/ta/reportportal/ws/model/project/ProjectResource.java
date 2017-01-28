@@ -27,8 +27,6 @@ import java.util.Map;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -40,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class ProjectResource extends ResourceSupport {
+public class ProjectResource {
 
 	@NotNull
 	@JsonProperty(value = "projectId", required = true)

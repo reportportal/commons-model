@@ -24,8 +24,6 @@ package com.epam.ta.reportportal.ws.model.project.config;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -36,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProjectSettingsResource extends ResourceSupport {
+public class ProjectSettingsResource {
 
 	@JsonProperty(value = "project", required = true)
 	private String projectId;

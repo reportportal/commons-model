@@ -21,8 +21,6 @@
 
 package com.epam.ta.reportportal.ws.model.settings;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,7 +34,7 @@ import java.util.Map;
  *
  */
 @JsonInclude(Include.NON_NULL)
-public class ServerSettingsResource extends ResourceSupport {
+public class ServerSettingsResource {
 
 	@JsonProperty(value = "profile")
 	private String profile;

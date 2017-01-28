@@ -1,0 +1,80 @@
+package com.epam.ta.reportportal.ws.model;
+
+import com.google.common.base.Preconditions;
+
+import java.util.Collection;
+
+/**
+ * Paged response  representation
+ * Re-implementation of Spring's HATEAOS Page implementation to get rid of Spring's deps in model package
+ *
+ * @author Andrei Varabyeu
+ */
+public class Page<T> {
+
+    private final Collection<T> content;
+    private final PageMetadata page;
+
+    public Page(Collection<T> content, PageMetadata page) {
+        this.content = content;
+        this.page = page;
+    }
+
+    public Page(Collection<T> content, long size, long number, long totalElements, long totalPages) {
+        this.content = content;
+        this.page = new PageMetadata(size, number, totalElements, totalPages);
+    }
+
+    public Page(Collection<T> content, long size, long number, long totalElements) {
+        this.content = content;
+        this.page = new PageMetadata(size, number, totalElements);
+    }
+
+    public Collection<T> getContent() {
+        return content;
+    }
+
+    public PageMetadata getPage() {
+        return page;
+    }
+
+    public static class PageMetadata {
+        long number;
+        long size;
+        long totalElements;
+        long totalPages;
+
+        public PageMetadata(long size, long number, long totalElements, long totalPages) {
+            Preconditions.checkArgument(size > -1, "Size must not be negative!");
+            Preconditions.checkArgument(number > -1, "Number must not be negative!");
+            Preconditions.checkArgument(totalElements > -1, "Total elements must not be negative!");
+            Preconditions.checkArgument(totalPages > -1, "Total pages must not be negative!");
+
+            this.number = number;
+            this.size = size;
+            this.totalElements = totalElements;
+            this.totalPages = totalPages;
+
+        }
+
+        public PageMetadata(long size, long number, long totalElements) {
+            this(size, number, totalElements, size == 0 ? 0 : (long) Math.ceil((double) totalElements / (double) size));
+        }
+
+        public long getNumber() {
+            return number;
+        }
+
+        public long getSize() {
+            return size;
+        }
+
+        public long getTotalElements() {
+            return totalElements;
+        }
+
+        public long getTotalPages() {
+            return totalPages;
+        }
+    }
+}

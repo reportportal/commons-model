@@ -26,8 +26,6 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_FILTER
 
 import javax.validation.constraints.Size;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -40,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  */
 @JsonInclude(Include.NON_NULL)
-public class OwnedResource extends ResourceSupport {
+public class OwnedResource {
 
 	@JsonProperty(value = "owner")
 	private String owner;

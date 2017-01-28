@@ -17,15 +17,9 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
-
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
-
-import org.springframework.hateoas.ResourceSupport;
 
 import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.epam.ta.reportportal.ws.model.statistics.Statistics;
@@ -33,18 +27,20 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Date;
+import java.util.Map;
+import java.util.Set;
+
 /**
- * JSON Representation of Report Portal domain object. Extends Spring's
- * {@link ResourceSupport} class which contains several fields related to
- * HATEAOS constraint
- * 
+ * JSON Representation of Report Portal domain object
+ *
  * @see <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS Description</a>
- * 
+ *
  * @author Andrei Varabyeu
- * 
+ *
  */
 @JsonInclude(Include.NON_NULL)
-public class TestItemResource extends ResourceSupport {
+public class TestItemResource {
 
 	@JsonProperty(value = "id")
 	private String itemId;
@@ -54,7 +50,7 @@ public class TestItemResource extends ResourceSupport {
 
 	@JsonProperty(value = "description")
 	private String description;
-	
+
 	@JsonProperty(value = "tags")
 	private Set<String> tags;
 
@@ -75,10 +71,10 @@ public class TestItemResource extends ResourceSupport {
 
 	@JsonProperty(value = "parent")
 	private String parent;
-	
+
 	@JsonProperty(value = "path_names")
 	private Map<String, String> pathNames;
-	
+
 	@JsonProperty(value = "launchStatus")
 	private String launchStatus;
 
@@ -87,7 +83,7 @@ public class TestItemResource extends ResourceSupport {
 
 	@JsonProperty(value = "has_childs")
 	private boolean hasChilds;
-	
+
 	@JsonProperty(value = "launchId")
 	private String launchId;
 
@@ -130,11 +126,11 @@ public class TestItemResource extends ResourceSupport {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public Set<String> getTags() {
 		return tags;
 	}
-	
+
 	public void setTags(Set<String> value) {
 		this.tags = value;
 	}
@@ -178,19 +174,19 @@ public class TestItemResource extends ResourceSupport {
 	public void setParent(String parent) {
 		this.parent = parent;
 	}
-	
+
 	public Map<String, String> getPathNames() {
 		return pathNames;
 	}
-	
+
 	public void setPathNames(Map<String, String> value) {
 		this.pathNames = value;
 	}
-	
+
 	public void setLaunchStatus(String value) {
 		this.launchStatus = value;
 	}
-	
+
 	public String getLaunchStatus() {
 		return launchStatus;
 	}

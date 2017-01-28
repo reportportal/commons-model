@@ -26,8 +26,6 @@ import java.util.Map;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.epam.ta.reportportal.ws.model.ModelViews;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -40,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonView;
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class UserResource extends ResourceSupport {
+public class UserResource {
 
 	@NotNull
 	@JsonProperty(value = "userId", required = true)
