@@ -31,6 +31,7 @@ import javax.validation.constraints.Size;
 
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
+import com.epam.ta.reportportal.ws.model.SharedEntity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -43,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 
 @JsonInclude(Include.NON_NULL)
-public class UserFilterResource {
+public class UserFilterResource extends SharedEntity{
 
 	@NotNull
 	@JsonProperty(value = "id", required = true)
