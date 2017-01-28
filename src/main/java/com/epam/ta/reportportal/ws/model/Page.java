@@ -31,7 +31,7 @@ import java.util.Iterator;
  *
  * @author Andrei Varabyeu
  */
-public class Page<T> implements Iterable<T>{
+public class Page<T> implements Iterable<T> {
 
     private final Collection<T> content;
     private final PageMetadata page;
