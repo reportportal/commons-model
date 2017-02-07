@@ -68,6 +68,9 @@ public class UpdateEmailSettingsRQ {
 	@JsonProperty
 	private Boolean sslEnabled;
 
+	@JsonProperty(value = "from")
+	private String from;
+
 	/* Setters and getters */
 	public void setHost(String host) {
 		this.host = host;
@@ -141,12 +144,28 @@ public class UpdateEmailSettingsRQ {
 		this.sslEnabled = sslEnabled;
 	}
 
+	public String getFrom() {
+		return from;
+	}
+
+	public void setFrom(String from) {
+		this.from = from;
+	}
+
 	/* Password field excluded from toString() method */
 
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(this).add("host", host).add("port", port).add("protocol", protocol)
-				.add("authEnabled", authEnabled).add("username", username).add("debug", debug).add("starTlsEnabled", starTlsEnabled)
-				.add("sslEnabled", sslEnabled).toString();
+		return MoreObjects.toStringHelper(this)
+				.add("host", host)
+				.add("port", port)
+				.add("protocol", protocol)
+				.add("authEnabled", authEnabled)
+				.add("username", username)
+				.add("password", password)
+				.add("debug", debug)
+				.add("starTlsEnabled", starTlsEnabled)
+				.add("sslEnabled", sslEnabled)
+				.add("from", from).toString();
 	}
 }
