@@ -32,10 +32,6 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-databind:2.7.3'
     compile('com.google.guava:guava:19.0')
 
-    compile('org.springframework.hateoas:spring-hateoas:0.18.0.RELEASE') {
-        exclude(module: 'spring-core')
-        exclude(module: 'spring-webmvc')
-    }
     compile 'javax.validation:validation-api:1.1.0.Final'
 
     testCompile 'junit:junit:4.12'

@@ -25,8 +25,6 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -38,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class ExternalSystemResource extends ResourceSupport {
+public class ExternalSystemResource {
 
 	@NotNull
 	@JsonProperty(value = "id", required = true)

@@ -24,6 +24,7 @@ package com.epam.ta.reportportal.ws.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.google.common.base.MoreObjects;
 
 /**
  * Shared entity can used for sending information to client about shared resource.
@@ -41,6 +42,8 @@ public class SharedEntity {
 	@JsonProperty(value = "owner")
 	private String owner;
 
+	private String description;
+
 	public String getName() {
 		return name;
 	}
@@ -57,12 +60,20 @@ public class SharedEntity {
 		this.owner = owner;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("SharedEntity{");
-		sb.append("name='").append(name).append('\'');
-		sb.append(", owner='").append(owner).append('\'');
-		sb.append('}');
-		return sb.toString();
+		return MoreObjects.toStringHelper(this)
+				.add("name", name)
+				.add("owner", owner)
+				.add("description", description)
+				.toString();
 	}
 }

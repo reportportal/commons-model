@@ -26,8 +26,6 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.ModelViews;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -45,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonView;
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProjectInfoResource extends ResourceSupport {
+public class ProjectInfoResource {
 
 	@NotNull
 	@NotEmpty

@@ -23,8 +23,6 @@ package com.epam.ta.reportportal.ws.model.preference;
 
 import java.util.List;
 
-import org.springframework.hateoas.ResourceSupport;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -34,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Dzmitry_Kavalets
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class PreferenceResource extends ResourceSupport {
+public class PreferenceResource {
 
 	@JsonProperty(value = "userRef")
 	private String userRef;

@@ -28,21 +28,17 @@ import java.util.Map;
 import javax.validation.constraints.NotNull;
 
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.hateoas.ResourceSupport;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * JSON Representation of Report Portal domain object. Extends Spring's
- * {@link org.springframework.hateoas.ResourceSupport} class which contains
- * several fields related to HATEAOS constraint
+ * JSON Representation of Report Portal's Activity domain object.
  * 
  * @see <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS Description</a>
  */
 @JsonInclude(Include.NON_NULL)
-public class ActivityResource extends ResourceSupport {
+public class ActivityResource {
 
 	@NotNull
 	@JsonProperty(value = "activityId", required = true)
