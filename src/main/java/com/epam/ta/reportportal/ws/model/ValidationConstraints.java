@@ -27,6 +27,7 @@ package com.epam.ta.reportportal.ws.model;
  * @author Aliaksei_Makayed
  *
  */
+//TODO review and move to API service
 public class ValidationConstraints {
 
 	private ValidationConstraints() {
@@ -55,7 +56,7 @@ public class ValidationConstraints {
 
 	public static final int MIN_PAGE_NUMBER = 1;
 	public static final int MAX_PAGE_NUMBER = 1024;
-	public static final int MAX_HISTORY_DEPTH_BOUND = 11;
+	public static final int MAX_HISTORY_DEPTH_BOUND = 31;
 	public static final int MIN_HISTORY_DEPTH_BOUND = 0;
 	public static final int MAX_HISTORY_SIZE_BOUND = 31;
 
