@@ -20,6 +20,7 @@
  */
 package com.epam.ta.reportportal.ws.model;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 
 import java.util.Collection;
@@ -33,74 +34,99 @@ import java.util.Iterator;
  */
 public class Page<T> implements Iterable<T> {
 
-    private final Collection<T> content;
-    private final PageMetadata page;
+	private final Collection<T> content;
+	private final PageMetadata page;
 
-    public Page(Collection<T> content, PageMetadata page) {
-        this.content = content;
-        this.page = page;
-    }
+	/**
+	 * Visible for deserializer
+	 */
+	Page() {
+		this(null, null);
+	}
 
-    public Page(Collection<T> content, long size, long number, long totalElements, long totalPages) {
-        this.content = content;
-        this.page = new PageMetadata(size, number, totalElements, totalPages);
-    }
+	public Page(Collection<T> content, PageMetadata page) {
+		this.content = content;
+		this.page = page;
+	}
 
-    public Page(Collection<T> content, long size, long number, long totalElements) {
-        this.content = content;
-        this.page = new PageMetadata(size, number, totalElements);
-    }
+	public Page(Collection<T> content, long size, long number, long totalElements, long totalPages) {
+		this.content = content;
+		this.page = new PageMetadata(size, number, totalElements, totalPages);
+	}
 
-    public Collection<T> getContent() {
-        return content;
-    }
+	public Page(Collection<T> content, long size, long number, long totalElements) {
+		this.content = content;
+		this.page = new PageMetadata(size, number, totalElements);
+	}
 
-    public PageMetadata getPage() {
-        return page;
-    }
+	public Collection<T> getContent() {
+		return content;
+	}
 
-    @Override
-    public Iterator<T> iterator() {
-        return content.iterator();
-    }
+	public PageMetadata getPage() {
+		return page;
+	}
 
-    public static class PageMetadata {
-        long number;
-        long size;
-        long totalElements;
-        long totalPages;
+	@Override
+	public Iterator<T> iterator() {
+		return content.iterator();
+	}
 
-        public PageMetadata(long size, long number, long totalElements, long totalPages) {
-            Preconditions.checkArgument(size > -1, "Size must not be negative!");
-            Preconditions.checkArgument(number > -1, "Number must not be negative!");
-            Preconditions.checkArgument(totalElements > -1, "Total elements must not be negative!");
-            Preconditions.checkArgument(totalPages > -1, "Total pages must not be negative!");
+	public static class PageMetadata {
+		long number;
+		long size;
+		long totalElements;
+		long totalPages;
 
-            this.number = number;
-            this.size = size;
-            this.totalElements = totalElements;
-            this.totalPages = totalPages;
+		/**
+		 * Visible for deserializer
+		 */
+		PageMetadata(){
 
-        }
+		}
 
-        public PageMetadata(long size, long number, long totalElements) {
-            this(size, number, totalElements, size == 0 ? 0 : (long) Math.ceil((double) totalElements / (double) size));
-        }
+		public PageMetadata(long size, long number, long totalElements, long totalPages) {
+			Preconditions.checkArgument(size > -1, "Size must not be negative!");
+			Preconditions.checkArgument(number > -1, "Number must not be negative!");
+			Preconditions.checkArgument(totalElements > -1, "Total elements must not be negative!");
+			Preconditions.checkArgument(totalPages > -1, "Total pages must not be negative!");
 
-        public long getNumber() {
-            return number;
-        }
+			this.number = number;
+			this.size = size;
+			this.totalElements = totalElements;
+			this.totalPages = totalPages;
 
-        public long getSize() {
-            return size;
-        }
+		}
 
-        public long getTotalElements() {
-            return totalElements;
-        }
+		public PageMetadata(long size, long number, long totalElements) {
+			this(size, number, totalElements, size == 0 ? 0 : (long) Math.ceil((double) totalElements / (double) size));
+		}
 
-        public long getTotalPages() {
-            return totalPages;
-        }
-    }
+		public long getNumber() {
+			return number;
+		}
+
+		public long getSize() {
+			return size;
+		}
+
+		public long getTotalElements() {
+			return totalElements;
+		}
+
+		public long getTotalPages() {
+			return totalPages;
+		}
+
+		@Override
+		public String toString() {
+			return MoreObjects.toStringHelper(this).add("number", number).add("size", size).add("totalElements", totalElements)
+					.add("totalPages", totalPages).toString();
+		}
+	}
+
+	@Override
+	public String toString() {
+		return MoreObjects.toStringHelper(this).add("content", content).add("page", page).toString();
+	}
 }
