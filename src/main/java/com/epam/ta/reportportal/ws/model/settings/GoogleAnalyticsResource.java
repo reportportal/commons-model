@@ -1,30 +1,29 @@
 package com.epam.ta.reportportal.ws.model.settings;
 
+import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @JsonInclude(Include.NON_NULL)
-public class GoogleAnalyticsConfig implements Serializable{
+public class GoogleAnalyticsResource implements Serializable{
 
     @NotNull
-    @JsonProperty(value = "id")
+    @NotEmpty
     private String id;
 
-    @JsonProperty(value = "enabled")
     private Boolean enabled;
 
     static final String TYPE = "google";
 
 
-    public GoogleAnalyticsConfig() {
+    public GoogleAnalyticsResource() {
     }
 
-    public GoogleAnalyticsConfig(String id, Boolean enabled) {
+    public GoogleAnalyticsResource(String id, Boolean enabled) {
         this.id = id;
         this.enabled = enabled;
     }
