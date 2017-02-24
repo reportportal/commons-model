@@ -23,6 +23,7 @@ package com.epam.ta.reportportal.ws.model.settings;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
 
@@ -39,10 +40,12 @@ public class ServerSettingsResource {
 
 	private boolean active;
 
+	@JsonProperty(value = "serverEmailConfig")
 	private ServerEmailResource serverEmailResource;
 
 	private Map<String, OAuthDetailsResource> oauthConfigs;
 
+	@JsonProperty(value = "googleAnalyticsConfig")
 	private GoogleAnalyticsResource googleAnalyticsResource;
 
 	public void setProfile(String id) {
