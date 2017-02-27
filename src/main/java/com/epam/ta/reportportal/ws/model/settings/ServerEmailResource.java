@@ -21,57 +21,65 @@
 
 package com.epam.ta.reportportal.ws.model.settings;
 
-import javax.validation.constraints.NotNull;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+
 /**
- * Update project EMail Configuration request model
- * 
- * Used for project settings update and for Report Portal Server configuration.
+ * Configurable email setting for project object
  * 
  * @author Andrei_Ramanchuk
- *
  */
 @JsonInclude(Include.NON_NULL)
-//[avarabyeu]TODO remove this. Change to ServerEmailConfig
-public class UpdateEmailSettingsRQ {
+public class ServerEmailResource implements Serializable {
+	/**
+	 * Generated SVUID
+	 */
+	private static final long serialVersionUID = 2573744596368345366L;
 
 	@NotNull
-	@JsonProperty(value = "host")
 	private String host;
 
-	@JsonProperty(value = "port")
-	private String port;
+	private int port = 25;
 
-	@JsonProperty(value = "protocol")
-	private String protocol;
+	private String protocol = "smtp";
 
-	@JsonProperty(value = "authEnabled")
-	private boolean authEnabled;
+	private Boolean authEnabled = false;
 
-	@JsonProperty(value = "username")
+	private boolean starTlsEnabled;
+
+	private boolean sslEnabled;
+
 	private String username;
 
-	@JsonProperty(value = "password")
 	private String password;
 
-	@JsonProperty(value = "debug")
-	private boolean debug;
-
-	@JsonProperty
-	private Boolean starTlsEnabled;
-
-	@JsonProperty
-	private Boolean sslEnabled;
-
-	@JsonProperty(value = "from")
 	private String from;
 
-	/* Setters and getters */
+	@JsonIgnore
+	private boolean debug;
+
+	public ServerEmailResource() {
+	}
+
+	public ServerEmailResource(String host, int port, String protocol, Boolean authEnabled, boolean starTlsEnabled, boolean sslEnabled,
+                               String username, String password, String from, boolean debug) {
+		this.host = host;
+		this.port = port;
+		this.protocol = protocol;
+		this.authEnabled = authEnabled;
+		this.starTlsEnabled = starTlsEnabled;
+		this.sslEnabled = sslEnabled;
+		this.username = username;
+		this.password = password;
+		this.from = from;
+		this.debug = debug;
+	}
+
 	public void setHost(String host) {
 		this.host = host;
 	}
@@ -80,11 +88,11 @@ public class UpdateEmailSettingsRQ {
 		return host;
 	}
 
-	public void setPort(String port) {
+	public void setPort(int port) {
 		this.port = port;
 	}
 
-	public String getPort() {
+	public int getPort() {
 		return port;
 	}
 
@@ -94,14 +102,6 @@ public class UpdateEmailSettingsRQ {
 
 	public String getProtocol() {
 		return protocol;
-	}
-
-	public void setAuthEnabled(boolean enable) {
-		this.authEnabled = enable;
-	}
-
-	public boolean getAuthEnabled() {
-		return authEnabled;
 	}
 
 	public void setUsername(String username) {
@@ -120,27 +120,35 @@ public class UpdateEmailSettingsRQ {
 		return password;
 	}
 
+	public void setAuthEnabled(Boolean authEnabled) {
+		this.authEnabled = authEnabled;
+	}
+
+	public boolean isStarTlsEnabled() {
+		return starTlsEnabled;
+	}
+
+	public void setStarTlsEnabled(boolean starTlsEnabled) {
+		this.starTlsEnabled = starTlsEnabled;
+	}
+
+	public Boolean getAuthEnabled() {
+		return authEnabled;
+	}
+
+	public boolean isDebug() {
+		return debug;
+	}
+
 	public void setDebug(boolean debug) {
 		this.debug = debug;
 	}
 
-	public boolean getDebug() {
-		return debug;
-	}
-
-	public Boolean getStarTlsEnabled() {
-		return starTlsEnabled;
-	}
-
-	public void setStarTlsEnabled(Boolean starTlsEnabled) {
-		this.starTlsEnabled = starTlsEnabled;
-	}
-
-	public Boolean getSslEnabled() {
+	public boolean isSslEnabled() {
 		return sslEnabled;
 	}
 
-	public void setSslEnabled(Boolean sslEnabled) {
+	public void setSslEnabled(boolean sslEnabled) {
 		this.sslEnabled = sslEnabled;
 	}
 
@@ -152,20 +160,10 @@ public class UpdateEmailSettingsRQ {
 		this.from = from;
 	}
 
-	/* Password field excluded from toString() method */
-
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(this)
-				.add("host", host)
-				.add("port", port)
-				.add("protocol", protocol)
-				.add("authEnabled", authEnabled)
-				.add("username", username)
-				.add("password", password)
-				.add("debug", debug)
-				.add("starTlsEnabled", starTlsEnabled)
-				.add("sslEnabled", sslEnabled)
-				.add("from", from).toString();
+		return MoreObjects.toStringHelper(this).add("host", host).add("port", port).add("protocol", protocol)
+				.add("authEnabled", authEnabled).add("starTlsEnabled", starTlsEnabled).add("sslEnabled", sslEnabled)
+				.add("username", username).add("password", password).add("from", from).add("debug", debug).toString();
 	}
 }

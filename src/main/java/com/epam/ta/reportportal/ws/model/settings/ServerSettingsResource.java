@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,18 +37,17 @@ import java.util.Map;
 @JsonInclude(Include.NON_NULL)
 public class ServerSettingsResource {
 
-	@JsonProperty(value = "profile")
 	private String profile;
 
-	@JsonProperty(value = "active")
 	private boolean active;
 
 	@JsonProperty(value = "serverEmailConfig")
-	private ServerEmailConfig serverEmailConfig;
+	private ServerEmailResource serverEmailResource;
 
 	private Map<String, OAuthDetailsResource> oauthConfigs;
 
-	/* ~~~~~ Getters and setters block ~~~~~ */
+	private List<AnalyticsResource> analyticsResource;
+
 	public void setProfile(String id) {
 		this.profile = id;
 	}
@@ -64,12 +64,12 @@ public class ServerSettingsResource {
 		return active;
 	}
 
-	public void setServerEmailConfig(ServerEmailConfig config) {
-		this.serverEmailConfig = config;
+	public void setServerEmailResource(ServerEmailResource config) {
+		this.serverEmailResource = config;
 	}
 
-	public ServerEmailConfig getServerEmailConfig() {
-		return serverEmailConfig;
+	public ServerEmailResource getServerEmailResource() {
+		return serverEmailResource;
 	}
 
 	public Map<String, OAuthDetailsResource> getOauthConfigs() {
@@ -79,4 +79,12 @@ public class ServerSettingsResource {
 	public void setOauthConfigs(Map<String, OAuthDetailsResource> oauthConfigs) {
 		this.oauthConfigs = oauthConfigs;
 	}
+
+    public List<AnalyticsResource> getAnalyticsResource() {
+        return analyticsResource;
+    }
+
+    public void setAnalyticsResource(List<AnalyticsResource> analyticsResource) {
+        this.analyticsResource = analyticsResource;
+    }
 }
