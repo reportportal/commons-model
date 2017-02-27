@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,7 +45,7 @@ public class ServerSettingsResource {
 
 	private Map<String, OAuthDetailsResource> oauthConfigs;
 
-	private List<AnalyticsResource> analyticsResource;
+	private Map<String, AnalyticsResource> analyticsResource;
 
 	public void setProfile(String id) {
 		this.profile = id;
@@ -80,11 +79,11 @@ public class ServerSettingsResource {
 		this.oauthConfigs = oauthConfigs;
 	}
 
-    public List<AnalyticsResource> getAnalyticsResource() {
+    public Map<String, AnalyticsResource> getAnalyticsResource() {
         return analyticsResource;
     }
 
-    public void setAnalyticsResource(List<AnalyticsResource> analyticsResource) {
+    public void setAnalyticsResource(Map<String, AnalyticsResource> analyticsResource) {
         this.analyticsResource = analyticsResource;
     }
 }
