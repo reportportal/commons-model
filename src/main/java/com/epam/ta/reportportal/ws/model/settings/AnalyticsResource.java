@@ -39,6 +39,7 @@ public class AnalyticsResource implements Serializable{
     private Boolean enabled;
 
     @NotNull
+    @NotEmpty
     private String type;
 
     public AnalyticsResource() {
