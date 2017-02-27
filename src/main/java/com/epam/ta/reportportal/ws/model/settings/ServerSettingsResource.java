@@ -46,7 +46,7 @@ public class ServerSettingsResource {
 	private Map<String, OAuthDetailsResource> oauthConfigs;
 
 	@JsonProperty(value = "googleAnalyticsConfig")
-	private GoogleAnalyticsResource googleAnalyticsResource;
+	private AnalyticsResource analyticsResource;
 
 	public void setProfile(String id) {
 		this.profile = id;
@@ -80,11 +80,11 @@ public class ServerSettingsResource {
 		this.oauthConfigs = oauthConfigs;
 	}
 
-    public GoogleAnalyticsResource getGoogleAnalyticsResource() {
-        return googleAnalyticsResource;
+    public AnalyticsResource getAnalyticsResource() {
+        return analyticsResource;
     }
 
-    public void setGoogleAnalyticsResource(GoogleAnalyticsResource googleAnalyticsResource) {
-        this.googleAnalyticsResource = googleAnalyticsResource;
+    public void setAnalyticsResource(AnalyticsResource analyticsResource) {
+        this.analyticsResource = analyticsResource;
     }
 }
