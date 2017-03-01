@@ -28,7 +28,7 @@ import java.util.Collection;
 
 public class ElementLengthValidator implements ConstraintValidator<ElementLength, Collection<String>> {
 
-    ElementLength length;
+    private ElementLength length;
 
     @Override
     public void initialize(ElementLength constraintAnnotation) {
@@ -37,11 +37,11 @@ public class ElementLengthValidator implements ConstraintValidator<ElementLength
 
     @Override
     public boolean isValid(Collection<String> value, ConstraintValidatorContext context) {
-        if (value == null || value.isEmpty()){
+        if (null == value || value.isEmpty()){
             return true;
         }
         for(String s: value){
-            if (s.length() < length.min() || s.length() > length.max()){
+            if (null == s || s.length() < length.min() || s.length() > length.max()){
                 return false;
             }
         }

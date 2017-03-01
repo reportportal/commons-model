@@ -33,7 +33,7 @@ import java.lang.annotation.Target;
  * The annotated collection's elements size must be between the specified boundaries (included).
  *
  * null, empty collection - valid value
- *
+ * null element - invalid value
  * @author Pavel Bortnik
  */
 @Constraint(validatedBy = {ElementLengthValidator.class})
