@@ -31,7 +31,7 @@ import java.util.Collection;
 /**
  * Length of the all tags shouldn't be over {@link ValidationConstraints#MAX_NAME_LENGTH}
  *
- * @author Pavel_Bortnik
+ * @author Pavel Bortnik
  */
 public class TagsValidator implements ConstraintValidator<Tags, Collection<String>> {
 
@@ -42,6 +42,9 @@ public class TagsValidator implements ConstraintValidator<Tags, Collection<Strin
 
     @Override
     public boolean isValid(Collection<String> value, ConstraintValidatorContext context) {
+        if (value == null){
+            return true;
+        }
         for(String tag: value){
             if (tag.length() > ValidationConstraints.MAX_NAME_LENGTH){
                 return false;

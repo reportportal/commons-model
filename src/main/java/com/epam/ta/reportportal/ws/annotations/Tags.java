@@ -28,11 +28,19 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Can be used with collection of strings.
+ * Check if strings in collection don't have too big length.
+ *
+ * null - valid value
+ *
+ * @author Pavel Bortnik
+ */
 @Constraint(validatedBy = {TagsValidator.class})
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(value = RetentionPolicy.RUNTIME)
 public @interface Tags {
-    String message() default "Invalid tag's size";
+    String message() default "One of the tags is too long";
 
     Class<?>[] groups() default {};
 
