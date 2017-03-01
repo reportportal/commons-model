@@ -20,8 +20,6 @@
  */
 package com.epam.ta.reportportal.ws.model;
 
-import com.google.common.base.MoreObjects;
-
 /**
  * @author Andrei Varabyeu
  */
@@ -39,6 +37,9 @@ public class WarningAwareRS {
 
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(this).add("warning", warning).toString();
+		final StringBuilder sb = new StringBuilder("WarningAwareRS{");
+		sb.append("warning='").append(warning).append('\'');
+		sb.append('}');
+		return sb.toString();
 	}
 }

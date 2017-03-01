@@ -20,8 +20,6 @@
  */
 package com.epam.ta.reportportal.ws.model;
 
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Preconditions;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -86,10 +84,10 @@ public class Page<T> implements Iterable<T> {
 		}
 
 		public PageMetadata(long size, long number, long totalElements, long totalPages) {
-			Preconditions.checkArgument(size > -1, "Size must not be negative!");
-			Preconditions.checkArgument(number > -1, "Number must not be negative!");
-			Preconditions.checkArgument(totalElements > -1, "Total elements must not be negative!");
-			Preconditions.checkArgument(totalPages > -1, "Total pages must not be negative!");
+			checkArgument(size > -1, "Size must not be negative!");
+			checkArgument(number > -1, "Number must not be negative!");
+			checkArgument(totalElements > -1, "Total elements must not be negative!");
+			checkArgument(totalPages > -1, "Total pages must not be negative!");
 
 			this.number = number;
 			this.size = size;
@@ -120,13 +118,28 @@ public class Page<T> implements Iterable<T> {
 
 		@Override
 		public String toString() {
-			return MoreObjects.toStringHelper(this).add("number", number).add("size", size).add("totalElements", totalElements)
-					.add("totalPages", totalPages).toString();
+			final StringBuilder sb = new StringBuilder("PageMetadata{");
+			sb.append("number=").append(number);
+			sb.append(", size=").append(size);
+			sb.append(", totalElements=").append(totalElements);
+			sb.append(", totalPages=").append(totalPages);
+			sb.append('}');
+			return sb.toString();
 		}
 	}
 
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(this).add("content", content).add("page", page).toString();
+		final StringBuilder sb = new StringBuilder("Page{");
+		sb.append("content=").append(content);
+		sb.append(", page=").append(page);
+		sb.append('}');
+		return sb.toString();
+	}
+
+	private static void checkArgument(boolean expression, String errorMessage) {
+		if (!expression) {
+			throw new IllegalArgumentException(errorMessage);
+		}
 	}
 }

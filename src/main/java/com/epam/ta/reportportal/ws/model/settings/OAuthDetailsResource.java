@@ -22,7 +22,6 @@
 package com.epam.ta.reportportal.ws.model.settings;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
-import com.google.common.base.MoreObjects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -149,29 +148,61 @@ public class OAuthDetailsResource implements Serializable {
 			return true;
 		if (o == null || getClass() != o.getClass())
 			return false;
+
 		OAuthDetailsResource that = (OAuthDetailsResource) o;
-		return com.google.common.base.Objects.equal(clientId, that.clientId) && com.google.common.base.Objects
-				.equal(accessTokenUri, that.accessTokenUri) && com.google.common.base.Objects
-				.equal(userAuthorizationUri, that.userAuthorizationUri) && com.google.common.base.Objects.equal(scope, that.scope)
-				&& com.google.common.base.Objects.equal(clientSecret, that.clientSecret) && com.google.common.base.Objects
-				.equal(authenticationScheme, that.authenticationScheme) && com.google.common.base.Objects
-				.equal(clientAuthenticationScheme, that.clientAuthenticationScheme) && com.google.common.base.Objects
-				.equal(grantType, that.grantType) && com.google.common.base.Objects.equal(tokenName, that.tokenName)
-				&& com.google.common.base.Objects.equal(restrictions, that.restrictions);
+
+		if (clientId != null ? !clientId.equals(that.clientId) : that.clientId != null)
+			return false;
+		if (accessTokenUri != null ? !accessTokenUri.equals(that.accessTokenUri) : that.accessTokenUri != null)
+			return false;
+		if (userAuthorizationUri != null ? !userAuthorizationUri.equals(that.userAuthorizationUri) : that.userAuthorizationUri != null)
+			return false;
+		if (scope != null ? !scope.equals(that.scope) : that.scope != null)
+			return false;
+		if (clientSecret != null ? !clientSecret.equals(that.clientSecret) : that.clientSecret != null)
+			return false;
+		if (authenticationScheme != null ? !authenticationScheme.equals(that.authenticationScheme) : that.authenticationScheme != null)
+			return false;
+		if (clientAuthenticationScheme != null ?
+				!clientAuthenticationScheme.equals(that.clientAuthenticationScheme) :
+				that.clientAuthenticationScheme != null)
+			return false;
+		if (grantType != null ? !grantType.equals(that.grantType) : that.grantType != null)
+			return false;
+		if (tokenName != null ? !tokenName.equals(that.tokenName) : that.tokenName != null)
+			return false;
+		return restrictions != null ? restrictions.equals(that.restrictions) : that.restrictions == null;
 	}
 
 	@Override
 	public int hashCode() {
-		return com.google.common.base.Objects
-				.hashCode(clientId, accessTokenUri, userAuthorizationUri, scope, clientSecret, authenticationScheme,
-						clientAuthenticationScheme, grantType, tokenName, restrictions);
+		int result = clientId != null ? clientId.hashCode() : 0;
+		result = 31 * result + (accessTokenUri != null ? accessTokenUri.hashCode() : 0);
+		result = 31 * result + (userAuthorizationUri != null ? userAuthorizationUri.hashCode() : 0);
+		result = 31 * result + (scope != null ? scope.hashCode() : 0);
+		result = 31 * result + (clientSecret != null ? clientSecret.hashCode() : 0);
+		result = 31 * result + (authenticationScheme != null ? authenticationScheme.hashCode() : 0);
+		result = 31 * result + (clientAuthenticationScheme != null ? clientAuthenticationScheme.hashCode() : 0);
+		result = 31 * result + (grantType != null ? grantType.hashCode() : 0);
+		result = 31 * result + (tokenName != null ? tokenName.hashCode() : 0);
+		result = 31 * result + (restrictions != null ? restrictions.hashCode() : 0);
+		return result;
 	}
 
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(this).add("clientId", clientId).add("accessTokenUri", accessTokenUri)
-				.add("userAuthorizationUri", userAuthorizationUri).add("scope", scope).add("clientSecret", clientSecret)
-				.add("authenticationScheme", authenticationScheme).add("clientAuthenticationScheme", clientAuthenticationScheme)
-				.add("grantType", grantType).add("tokenName", tokenName).add("restrictions", restrictions).toString();
+		final StringBuilder sb = new StringBuilder("OAuthDetailsResource{");
+		sb.append("clientId='").append(clientId).append('\'');
+		sb.append(", accessTokenUri='").append(accessTokenUri).append('\'');
+		sb.append(", userAuthorizationUri='").append(userAuthorizationUri).append('\'');
+		sb.append(", scope=").append(scope);
+		sb.append(", clientSecret='").append(clientSecret).append('\'');
+		sb.append(", authenticationScheme='").append(authenticationScheme).append('\'');
+		sb.append(", clientAuthenticationScheme='").append(clientAuthenticationScheme).append('\'');
+		sb.append(", grantType='").append(grantType).append('\'');
+		sb.append(", tokenName='").append(tokenName).append('\'');
+		sb.append(", restrictions=").append(restrictions);
+		sb.append('}');
+		return sb.toString();
 	}
 }

@@ -30,10 +30,8 @@ import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
 import io.swagger.annotations.ApiModelProperty;
 
-import static com.google.common.base.MoreObjects.toStringHelper;
 
 /**
  * Create project request initial model
@@ -99,11 +97,12 @@ public class CreateProjectRQ {
 
 	@Override
 	public String toString() {
-		return toStringHelper(this)
-				.add("projectName", projectName)
-				.add("entryType", entryType)
-				.add("customer", customer)
-				.add("addInfo", addInfo)
-				.toString();
+		final StringBuilder sb = new StringBuilder("CreateProjectRQ{");
+		sb.append("projectName='").append(projectName).append('\'');
+		sb.append(", entryType='").append(entryType).append('\'');
+		sb.append(", customer='").append(customer).append('\'');
+		sb.append(", addInfo='").append(addInfo).append('\'');
+		sb.append('}');
+		return sb.toString();
 	}
 }
