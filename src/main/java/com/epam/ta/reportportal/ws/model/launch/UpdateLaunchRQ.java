@@ -21,7 +21,8 @@
  
 package com.epam.ta.reportportal.ws.model.launch;
 
-import com.epam.ta.reportportal.ws.annotations.Tags;
+import com.epam.ta.reportportal.ws.annotations.ElementLength;
+import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -43,9 +44,9 @@ public class UpdateLaunchRQ {
 	@JsonProperty("description")
 	private String description;
 
-	@Tags
 	@JsonProperty("tags")
-	private Set<String> tags;
+    @ElementLength(max = ValidationConstraints.MAX_NAME_LENGTH)
+    private Set<String> tags;
 
 	public String getDescription() {
 		return description;

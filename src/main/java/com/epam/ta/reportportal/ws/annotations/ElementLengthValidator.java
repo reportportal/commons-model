@@ -21,28 +21,29 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+import java.util.Collection;
 
-/**
- * Can be used with collection of strings.
- * Check if strings in collection don't have too big length.
- *
- * null - valid value
- *
- * @author Pavel Bortnik
- */
-@Constraint(validatedBy = {TagsValidator.class})
-@Target({ElementType.FIELD, ElementType.PARAMETER})
-@Retention(value = RetentionPolicy.RUNTIME)
-public @interface Tags {
-    String message() default "One of the tags is too long";
 
-    Class<?>[] groups() default {};
+public class ElementLengthValidator implements ConstraintValidator<ElementLength, Collection<String>> {
 
-    Class<? extends Payload>[] payload() default {};
+    @Override
+    public void initialize(ElementLength constraintAnnotation) {
+
+    }
+
+    @Override
+    public boolean isValid(Collection<String> value, ConstraintValidatorContext context) {
+        if (value == null || value.isEmpty()){
+            return true;
+        }
+        ElementLength length = value.getClass().getAnnotation(ElementLength.class);
+        for(String s: value){
+            if (s.length() < length.min() || s.length() > length.max()){
+                return false;
+            }
+        }
+        return true;
+    }
 }

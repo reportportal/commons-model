@@ -21,35 +21,34 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
-import com.epam.ta.reportportal.ws.model.ValidationConstraints;
-
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
-import java.util.Collection;
-
+import javax.validation.Constraint;
+import javax.validation.constraints.Size;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * Length of the all tags shouldn't be over {@link ValidationConstraints#MAX_NAME_LENGTH}
+ * Can be used with collection of strings.
+ * The annotated collection's elements size must be between the specified boundaries (included).
+ *
+ * null, empty collection - valid value
  *
  * @author Pavel Bortnik
  */
-public class TagsValidator implements ConstraintValidator<Tags, Collection<String>> {
+@Constraint(validatedBy = {ElementLengthValidator.class})
+@Target({ElementType.FIELD, ElementType.PARAMETER})
+@Retention(value = RetentionPolicy.RUNTIME)
+@Size
+public @interface ElementLength {
 
-    @Override
-    public void initialize(Tags constraintAnnotation) {
+    String message() default "One of the tags is too long";
 
-    }
+    int min() default 0;
 
-    @Override
-    public boolean isValid(Collection<String> value, ConstraintValidatorContext context) {
-        if (value == null){
-            return true;
-        }
-        for(String tag: value){
-            if (tag.length() > ValidationConstraints.MAX_NAME_LENGTH){
-                return false;
-            }
-        }
-        return true;
-    }
+    int max() default Integer.MAX_VALUE;
+
+    Class<?>[] groups() default {};
+
+    Class<?>[] payload() default {};
 }
