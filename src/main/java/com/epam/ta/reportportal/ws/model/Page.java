@@ -80,7 +80,6 @@ public class Page<T> implements Iterable<T> {
 		 * Visible for deserializer
 		 */
 		PageMetadata(){
-
 		}
 
 		public PageMetadata(long size, long number, long totalElements, long totalPages) {
