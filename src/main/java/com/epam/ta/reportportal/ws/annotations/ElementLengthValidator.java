@@ -28,9 +28,11 @@ import java.util.Collection;
 
 public class ElementLengthValidator implements ConstraintValidator<ElementLength, Collection<String>> {
 
+    ElementLength length;
+
     @Override
     public void initialize(ElementLength constraintAnnotation) {
-
+        length = constraintAnnotation;
     }
 
     @Override
@@ -38,7 +40,6 @@ public class ElementLengthValidator implements ConstraintValidator<ElementLength
         if (value == null || value.isEmpty()){
             return true;
         }
-        ElementLength length = value.getClass().getAnnotation(ElementLength.class);
         for(String s: value){
             if (s.length() < length.min() || s.length() > length.max()){
                 return false;
