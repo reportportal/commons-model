@@ -21,6 +21,7 @@
  
 package com.epam.ta.reportportal.ws.model.log;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import javax.validation.constraints.NotNull;
@@ -29,7 +30,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.io.ByteSource;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
@@ -107,7 +107,7 @@ public class SaveLogRQ {
 		private String name;
 		
 		@JsonIgnore
-		private ByteSource content;
+		private byte[] content;
 
 		public void setName(String name) {
 			this.name = name;
@@ -117,11 +117,11 @@ public class SaveLogRQ {
 			return name;
 		}
 
-		public ByteSource getContent() {
+		public byte[] getContent() {
 			return content;
 		}
 
-		public void setContent(ByteSource content) {
+		public void setContent(byte[] content) {
 			this.content = content;
 		}
 
@@ -129,7 +129,7 @@ public class SaveLogRQ {
 		public String toString() {
 			final StringBuilder sb = new StringBuilder("File{");
 			sb.append("name='").append(name).append('\'');
-			sb.append(", content=").append(content);
+			sb.append(", content=").append(Arrays.toString(content));
 			sb.append('}');
 			return sb.toString();
 		}

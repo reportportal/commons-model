@@ -24,7 +24,6 @@ package com.epam.ta.reportportal.ws.model.settings;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.google.common.base.MoreObjects;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -162,8 +161,18 @@ public class ServerEmailResource implements Serializable {
 
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(this).add("host", host).add("port", port).add("protocol", protocol)
-				.add("authEnabled", authEnabled).add("starTlsEnabled", starTlsEnabled).add("sslEnabled", sslEnabled)
-				.add("username", username).add("password", password).add("from", from).add("debug", debug).toString();
+		final StringBuilder sb = new StringBuilder("ServerEmailResource{");
+		sb.append("host='").append(host).append('\'');
+		sb.append(", port=").append(port);
+		sb.append(", protocol='").append(protocol).append('\'');
+		sb.append(", authEnabled=").append(authEnabled);
+		sb.append(", starTlsEnabled=").append(starTlsEnabled);
+		sb.append(", sslEnabled=").append(sslEnabled);
+		sb.append(", username='").append(username).append('\'');
+		sb.append(", password='").append(password).append('\'');
+		sb.append(", from='").append(from).append('\'');
+		sb.append(", debug=").append(debug);
+		sb.append('}');
+		return sb.toString();
 	}
 }

@@ -24,7 +24,6 @@ package com.epam.ta.reportportal.ws.model.settings;
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.google.common.base.MoreObjects;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -76,7 +75,11 @@ public class AnalyticsResource implements Serializable{
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this).add("id", id).add("type", type)
-                .add("enabled", enabled).toString();
+        final StringBuilder sb = new StringBuilder("AnalyticsResource{");
+        sb.append("id='").append(id).append('\'');
+        sb.append(", enabled=").append(enabled);
+        sb.append(", type='").append(type).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

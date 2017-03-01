@@ -27,7 +27,6 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.Objects;
 
 /**
  * Basic representation of single post ticket form field<br>
@@ -154,17 +153,30 @@ public class PostFormField implements Comparable<PostFormField>, Serializable {
 			return true;
 		if (o == null || getClass() != o.getClass())
 			return false;
+
 		PostFormField that = (PostFormField) o;
-		return isRequired == that.isRequired &&
-				Objects.equal(fieldName, that.fieldName) &&
-				Objects.equal(id, that.id) &&
-				Objects.equal(fieldType, that.fieldType) &&
-				Objects.equal(value, that.value) &&
-				Objects.equal(definedValues, that.definedValues);
+
+		if (isRequired != that.isRequired)
+			return false;
+		if (fieldName != null ? !fieldName.equals(that.fieldName) : that.fieldName != null)
+			return false;
+		if (id != null ? !id.equals(that.id) : that.id != null)
+			return false;
+		if (fieldType != null ? !fieldType.equals(that.fieldType) : that.fieldType != null)
+			return false;
+		if (value != null ? !value.equals(that.value) : that.value != null)
+			return false;
+		return definedValues != null ? definedValues.equals(that.definedValues) : that.definedValues == null;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hashCode(fieldName, id, fieldType, isRequired, value, definedValues);
+		int result = fieldName != null ? fieldName.hashCode() : 0;
+		result = 31 * result + (id != null ? id.hashCode() : 0);
+		result = 31 * result + (fieldType != null ? fieldType.hashCode() : 0);
+		result = 31 * result + (isRequired ? 1 : 0);
+		result = 31 * result + (value != null ? value.hashCode() : 0);
+		result = 31 * result + (definedValues != null ? definedValues.hashCode() : 0);
+		return result;
 	}
 }
