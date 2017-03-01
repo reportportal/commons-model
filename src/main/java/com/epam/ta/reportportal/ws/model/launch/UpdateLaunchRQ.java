@@ -21,11 +21,12 @@
  
 package com.epam.ta.reportportal.ws.model.launch;
 
-import java.util.Set;
-
+import com.epam.ta.reportportal.ws.annotations.Tags;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Set;
 
 /**
  * Domain object for updating launch object.
@@ -42,6 +43,7 @@ public class UpdateLaunchRQ {
 	@JsonProperty("description")
 	private String description;
 
+	@Tags
 	@JsonProperty("tags")
 	private Set<String> tags;
 
