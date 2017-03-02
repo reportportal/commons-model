@@ -33,6 +33,8 @@ dependencies {
     compile 'javax.validation:validation-api:1.1.0.Final'
 
     testCompile 'junit:junit:4.12'
+    testCompile 'org.hibernate:hibernate-validator:5.4.0.Final'
+    testCompile 'org.glassfish.web:el-impl:2.2'
 }
 
 task wrapper(type: Wrapper) {
