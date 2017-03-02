@@ -49,7 +49,7 @@ public class ElementLengthValidatorTest {
         final char[] charArray = new char[270];
         Arrays.fill(charArray, 't');
         UpdateLaunchRQ rq = new UpdateLaunchRQ();
-        rq.setTags(new HashSet<String>(){{
+        rq.setTags(new HashSet<String>() {{
             add(new String(charArray));
         }});
         Set<ConstraintViolation<UpdateLaunchRQ>> constraints = validator.validate(rq);
@@ -57,11 +57,11 @@ public class ElementLengthValidatorTest {
     }
 
     @Test
-    public void testElementLengthValidator(){
+    public void testElementLengthValidator() {
         final char[] charArray = new char[120];
         Arrays.fill(charArray, 't');
         UpdateLaunchRQ rq = new UpdateLaunchRQ();
-        rq.setTags(new HashSet<String>(){{
+        rq.setTags(new HashSet<String>() {{
             add(new String(charArray));
         }});
         Set<ConstraintViolation<UpdateLaunchRQ>> constraints = validator.validate(rq);
