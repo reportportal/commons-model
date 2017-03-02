@@ -37,11 +37,11 @@ public class ElementLengthValidator implements ConstraintValidator<ElementLength
 
     @Override
     public boolean isValid(Collection<String> value, ConstraintValidatorContext context) {
-        if (null == value || value.isEmpty()){
+        if (null == value || value.isEmpty()) {
             return true;
         }
-        for(String s: value){
-            if (null == s || s.length() < length.min() || s.length() > length.max()){
+        for (String s : value) {
+            if (null == s || s.length() < length.min() || s.length() > length.max()) {
                 return false;
             }
         }
