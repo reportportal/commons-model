@@ -39,7 +39,7 @@ public class NotEmptyValidator implements ConstraintValidator<NotEmpty, String> 
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		return value == null? true: !value.trim().isEmpty();
+		return value == null || !value.trim().isEmpty();
 	}
 
 }

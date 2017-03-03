@@ -109,6 +109,8 @@ public class SaveLogRQ {
 		@JsonIgnore
 		private byte[] content;
 
+		private String contentType;
+
 		public void setName(String name) {
 			this.name = name;
 		}
@@ -125,11 +127,20 @@ public class SaveLogRQ {
 			this.content = content;
 		}
 
+		public String getContentType() {
+			return contentType;
+		}
+
+		public void setContentType(String contentType) {
+			this.contentType = contentType;
+		}
+
 		@Override
 		public String toString() {
 			final StringBuilder sb = new StringBuilder("File{");
 			sb.append("name='").append(name).append('\'');
 			sb.append(", content=").append(Arrays.toString(content));
+			sb.append(", contentType='").append(contentType).append('\'');
 			sb.append('}');
 			return sb.toString();
 		}
