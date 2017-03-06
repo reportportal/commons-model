@@ -109,6 +109,7 @@ public class SaveLogRQ {
 		@JsonIgnore
 		private byte[] content;
 
+		@JsonIgnore
 		private String contentType;
 
 		public void setName(String name) {
