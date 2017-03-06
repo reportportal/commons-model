@@ -29,11 +29,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @JsonInclude(Include.NON_NULL)
-public class AnalyticsResource implements Serializable{
-
-    @NotNull
-    @NotEmpty
-    private String id;
+public class AnalyticsResource implements Serializable {
 
     private Boolean enabled;
 
@@ -44,18 +40,10 @@ public class AnalyticsResource implements Serializable{
     public AnalyticsResource() {
     }
 
-    public AnalyticsResource(String id, Boolean enabled) {
-        this.id = id;
+    public AnalyticsResource(Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public Boolean getEnabled() {
         return enabled;
@@ -76,7 +64,6 @@ public class AnalyticsResource implements Serializable{
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("AnalyticsResource{");
-        sb.append("id='").append(id).append('\'');
         sb.append(", enabled=").append(enabled);
         sb.append(", type='").append(type).append('\'');
         sb.append('}');
