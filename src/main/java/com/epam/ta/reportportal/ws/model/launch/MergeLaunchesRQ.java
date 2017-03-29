@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.Set;
 
 @JsonInclude(Include.NON_NULL)
@@ -40,11 +39,6 @@ public class MergeLaunchesRQ extends StartLaunchRQ {
 
     @JsonProperty(value = "extendSuitesDescription", required = true)
     private boolean extendSuitesDescription;
-
-    @NotNull
-    @JsonProperty(value = "end_time", required = true)
-    @ApiModelProperty(required = true)
-    private Date endTime;
 
     public boolean isExtendSuitesDescription() {
         return extendSuitesDescription;
