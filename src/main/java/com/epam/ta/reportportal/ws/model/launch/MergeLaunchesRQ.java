@@ -21,14 +21,14 @@
 
 package com.epam.ta.reportportal.ws.model.launch;
 
-import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Date;
+import java.util.Set;
 
 @JsonInclude(Include.NON_NULL)
 public class MergeLaunchesRQ extends StartLaunchRQ {
@@ -40,6 +40,11 @@ public class MergeLaunchesRQ extends StartLaunchRQ {
 
     @JsonProperty(value = "extendSuitesDescription", required = true)
     private boolean extendSuitesDescription;
+
+    @NotNull
+    @JsonProperty(value = "end_time", required = true)
+    @ApiModelProperty(required = true)
+    private Date endTime;
 
     public boolean isExtendSuitesDescription() {
         return extendSuitesDescription;
