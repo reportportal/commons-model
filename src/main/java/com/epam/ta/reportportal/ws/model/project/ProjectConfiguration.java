@@ -21,19 +21,17 @@
 
 package com.epam.ta.reportportal.ws.model.project;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.validation.constraints.NotNull;
-
 import com.epam.ta.reportportal.ws.model.externalsystem.ExternalSystemResource;
 import com.epam.ta.reportportal.ws.model.project.config.IssueSubTypeResource;
 import com.epam.ta.reportportal.ws.model.project.email.ProjectEmailConfig;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Project configuration model
@@ -58,7 +56,7 @@ public class ProjectConfiguration {
 	private String projectSpecific;
 
 	@JsonProperty(value = "interruptedJob")
-	@ApiModelProperty(allowableValues = "ONE_HOUR, THREE_HOURS, SIX_HOURS, TWELVE_HOURS, ONE_DAY")
+	@ApiModelProperty(allowableValues = "ONE_HOUR, THREE_HOURS, SIX_HOURS, TWELVE_HOURS, ONE_DAY, ONE_WEEK")
 	private String interruptJobTime;
 
 	@JsonProperty(value = "keepLogs")
