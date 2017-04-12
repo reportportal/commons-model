@@ -21,11 +21,10 @@
 
 package com.epam.ta.reportportal.ws.model.settings;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -35,12 +34,15 @@ import java.io.Serializable;
  */
 @JsonInclude(Include.NON_NULL)
 public class ServerEmailResource implements Serializable {
+
 	/**
-	 * Generated SVUID
+	 * Generated sUID
 	 */
 	private static final long serialVersionUID = 2573744596368345366L;
 
-	@NotNull
+	private boolean enabled = true;
+
+	@NotEmpty
 	private String host;
 
 	private Integer port;
@@ -59,14 +61,12 @@ public class ServerEmailResource implements Serializable {
 
 	private String from;
 
-	@JsonIgnore
-	private boolean debug;
-
 	public ServerEmailResource() {
 	}
 
-	public ServerEmailResource(String host, Integer port, String protocol, Boolean authEnabled, Boolean starTlsEnabled, Boolean sslEnabled,
-                               String username, String password, String from, Boolean debug) {
+	public ServerEmailResource(Boolean enabled, String host, Integer port, String protocol, Boolean authEnabled, Boolean starTlsEnabled,
+			Boolean sslEnabled, String username, String password, String from) {
+		this.enabled = enabled;
 		this.host = host;
 		this.port = port;
 		this.protocol = protocol;
@@ -76,7 +76,14 @@ public class ServerEmailResource implements Serializable {
 		this.username = username;
 		this.password = password;
 		this.from = from;
-		this.debug = debug;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public String getHost() {
@@ -151,14 +158,6 @@ public class ServerEmailResource implements Serializable {
 		this.from = from;
 	}
 
-	public boolean isDebug() {
-		return debug;
-	}
-
-	public void setDebug(boolean debug) {
-		this.debug = debug;
-	}
-
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("ServerEmailResource{");
@@ -171,7 +170,6 @@ public class ServerEmailResource implements Serializable {
 		sb.append(", username='").append(username).append('\'');
 		sb.append(", password='").append(password).append('\'');
 		sb.append(", from='").append(from).append('\'');
-		sb.append(", debug=").append(debug);
 		sb.append('}');
 		return sb.toString();
 	}
