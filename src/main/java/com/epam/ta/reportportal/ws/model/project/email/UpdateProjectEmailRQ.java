@@ -34,13 +34,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class UpdateProjectEmailRQ {
 
 	@JsonProperty(value = "configuration")
-	private ProjectEmailConfig configuration;
+	private ProjectEmailConfigDTO configuration;
 
-	public void setConfiguration(ProjectEmailConfig value) {
+	public void setConfiguration(ProjectEmailConfigDTO value) {
 		this.configuration = value;
 	}
 
-	public ProjectEmailConfig getConfiguration() {
+	public ProjectEmailConfigDTO getConfiguration() {
 		return configuration;
 	}
 
