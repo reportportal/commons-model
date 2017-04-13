@@ -23,7 +23,7 @@ package com.epam.ta.reportportal.ws.model.project;
 
 import com.epam.ta.reportportal.ws.model.externalsystem.ExternalSystemResource;
 import com.epam.ta.reportportal.ws.model.project.config.IssueSubTypeResource;
-import com.epam.ta.reportportal.ws.model.project.email.ProjectEmailConfig;
+import com.epam.ta.reportportal.ws.model.project.email.ProjectEmailConfigDTO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -71,7 +71,7 @@ public class ProjectConfiguration {
 	private Boolean isAAEnabled;
 
 	@JsonProperty(value = "emailConfiguration")
-	private ProjectEmailConfig emailConfig;
+	private ProjectEmailConfigDTO emailConfig;
 
 	@JsonProperty(value = "subTypes")
 	private Map<String, List<IssueSubTypeResource>> subTypes;
@@ -140,11 +140,11 @@ public class ProjectConfiguration {
 		return isAAEnabled;
 	}
 
-	public void setEmailConfig(ProjectEmailConfig config) {
+	public void setEmailConfig(ProjectEmailConfigDTO config) {
 		this.emailConfig = config;
 	}
 
-	public ProjectEmailConfig getEmailConfig() {
+	public ProjectEmailConfigDTO getEmailConfig() {
 		return emailConfig;
 	}
 

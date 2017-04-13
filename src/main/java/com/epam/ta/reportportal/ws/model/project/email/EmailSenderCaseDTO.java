@@ -21,14 +21,13 @@
 
 package com.epam.ta.reportportal.ws.model.project.email;
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import io.swagger.annotations.ApiModelProperty;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Cases object for email sending declarations
@@ -36,7 +35,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class EmailSenderCase implements Serializable {
+public class EmailSenderCaseDTO implements Serializable {
 	/**
 	 * Generated SVUID
 	 */
@@ -55,10 +54,10 @@ public class EmailSenderCase implements Serializable {
 	@JsonProperty(value = "tags")
 	private List<String> tags;
 
-	public EmailSenderCase() {
+	public EmailSenderCaseDTO() {
 	}
 
-	public EmailSenderCase(List<String> recs, String sendMode, List<String> laNames, List<String> laTags) {
+	public EmailSenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, List<String> laTags) {
 		this.recipients = recs;
 		this.sendCase = sendMode;
 		this.launchNames = laNames;
@@ -101,7 +100,7 @@ public class EmailSenderCase implements Serializable {
 	/* Auto generated methods */
 	@Override
 	public String toString() {
-		return "EmailSenderCase [recipients=" + recipients + ", sendCase=" + sendCase + ", launchNames=" + launchNames + ", tags=" + tags
+		return "EmailSenderCaseDTO [recipients=" + recipients + ", sendCase=" + sendCase + ", launchNames=" + launchNames + ", tags=" + tags
 				+ "]";
 	}
 
@@ -124,7 +123,7 @@ public class EmailSenderCase implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		EmailSenderCase other = (EmailSenderCase) obj;
+		EmailSenderCaseDTO other = (EmailSenderCaseDTO) obj;
 		if (launchNames == null) {
 			if (other.launchNames != null)
 				return false;
