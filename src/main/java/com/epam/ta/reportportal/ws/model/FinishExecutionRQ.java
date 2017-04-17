@@ -21,14 +21,13 @@
  
 package com.epam.ta.reportportal.ws.model;
 
-import java.util.Date;
-
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * Finishes some entity execution in Report Portal<br>
@@ -46,6 +45,7 @@ public class FinishExecutionRQ {
 	private Date endTime;
 
 	@JsonProperty(value = "status")
+	@ApiModelProperty(allowableValues = "passed, failed, stopped, skipped, failed, rested, cancelled")
 	private String status;
 
 	public Date getEndTime() {
