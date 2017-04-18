@@ -62,10 +62,19 @@ public class MergeLaunchesRQ extends StartLaunchRQ {
         return launches;
     }
 
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
     @Override
     public String toString() {
         return "MergeLaunchesRQ{" +
                 "launches=" + launches +
+                ", endTime=" + endTime +
                 ", extendSuitesDescription=" + extendSuitesDescription +
                 '}';
     }
