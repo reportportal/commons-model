@@ -26,6 +26,7 @@ import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Set;
 
@@ -38,6 +39,7 @@ import java.util.Set;
 public class UpdateLaunchRQ {
 
     @JsonProperty("mode")
+    @ApiModelProperty(allowableValues = "DEFAULT, DEBUG")
     private Mode mode;
 
     @JsonProperty("description")
