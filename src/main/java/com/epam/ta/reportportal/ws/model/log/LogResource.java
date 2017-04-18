@@ -21,13 +21,13 @@
  
 package com.epam.ta.reportportal.ws.model.log;
 
-import java.util.Date;
-
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * JSON Representation of Report Portal's Log domain object
@@ -123,6 +123,7 @@ public class LogResource {
 	private String thumbnail;
 
 	@JsonProperty(value = "level")
+	@ApiModelProperty(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
 	private String level;
 
 	@JsonProperty(value = "test_item")
