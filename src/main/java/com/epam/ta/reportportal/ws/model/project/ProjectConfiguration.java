@@ -49,6 +49,7 @@ public class ProjectConfiguration {
 
 	@NotNull
 	@JsonProperty(value = "statisticCalculationStrategy")
+	@ApiModelProperty(allowableValues = "TEST_BASED, STEP_BASED")
 	private String statisticCalculationStrategy;
 
 	@NotNull
