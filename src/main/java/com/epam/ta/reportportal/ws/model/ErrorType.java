@@ -367,6 +367,11 @@ public enum ErrorType {
 	BAD_SAVE_USER_FILTER_REQUEST(40031, "Bad save user filter request. {}"),
 
 	/**
+	 * Unable to recognize provided authentication type
+	 */
+	DEMO_DATA_GENERATION_ERROR(40032, "Demo Data Generation error: {}"),
+
+	/**
 	 * Bad save user filter request
 	 */
 	PROJECT_DOESNT_CONTAIN_USER(4220, "Project '{}' doesn't contain user '{}'"),
