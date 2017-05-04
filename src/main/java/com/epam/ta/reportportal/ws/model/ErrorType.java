@@ -366,10 +366,6 @@ public enum ErrorType {
 	 */
 	BAD_SAVE_USER_FILTER_REQUEST(40031, "Bad save user filter request. {}"),
 
-	/**
-	 * Unable to recognize provided authentication type
-	 */
-	DEMO_DATA_GENERATION_ERROR(40032, "Demo Data Generation error: {}"),
 
 	/**
 	 * Bad save user filter request
@@ -391,6 +387,11 @@ public enum ErrorType {
 	 * Unsupported merge strategy type
 	 */
 	UNSUPPORTED_MERGE_STRATEGY_TYPE(40033, "Merge Strategy type {} is unsupported"),
+
+	/**
+	 * Unable to recognize provided authentication type
+	 */
+	DEMO_DATA_GENERATION_ERROR(40034, "Demo Data Generation error: {}"),
 
 	/**
 	 * Use it If there are no any other exceptions. There should by no such
