@@ -22,6 +22,7 @@ package com.epam.ta.reportportal.ws.model.launch;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
 
@@ -32,6 +33,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 public class DeepMergeLaunchesRQ extends MergeLaunchesRQ {
     @NotNull
     @JsonProperty("merge_type")
+    @ApiModelProperty(allowableValues = "BASIC, DEEP")
     private String mergeStrategyType;
 
     public String getMergeStrategyType() {
