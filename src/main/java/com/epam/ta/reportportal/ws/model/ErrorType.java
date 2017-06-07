@@ -369,7 +369,7 @@ public enum ErrorType {
 	/**
 	 * Bad format of importing file
 	 */
-	BAD_IMPORT_FILE_TYPE(40032, "Bad request. The importing file has invalid format. '{}'"),
+	BAD_IMPORT_FILE_TYPE(40035, "Bad request. The importing file has invalid format. '{}'"),
 
 	/**
 	 * Bad save user filter request
