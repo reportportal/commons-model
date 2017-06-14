@@ -21,14 +21,14 @@
 
 package com.epam.ta.reportportal.ws.model.externalsystem;
 
-import java.util.List;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.Size;
+import java.util.List;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_DOMAIN_SIZE;
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_DOMAIN_SIZE;
@@ -43,12 +43,15 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_DOMAIN
 public class UpdateExternalSystemRQ {
 
 	@JsonProperty(value = "url")
+	@ApiModelProperty(required = true)
 	private String url;
 
 	@JsonProperty(value = "systemType")
+	@ApiModelProperty(required = true, allowableValues = "JIRA, TFS, RALLY")
 	private String externalSystemType;
 
 	@JsonProperty(value = "systemAuth")
+	@ApiModelProperty(required = true, allowableValues = "OAUTH, NTLM, APIKEY, BASIC")
 	private String externalSystemAuth;
 
 	@JsonProperty(value = "username")

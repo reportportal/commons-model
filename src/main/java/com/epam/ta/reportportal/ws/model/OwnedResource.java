@@ -43,8 +43,8 @@ public class OwnedResource {
 	@JsonProperty(value = "owner")
 	private String owner;
 
-	@JsonProperty(value = "isShared")
-	private boolean isShared;
+	@JsonProperty(value = "share")
+	private boolean share;
 
 	@Size(min = MIN_FILTER_DESCRIPTION, max = MAX_FILTER_DESCRIPTION)
 	private String description;
@@ -65,19 +65,20 @@ public class OwnedResource {
 		this.owner = owner;
 	}
 
-	public void setIsShared(boolean value) {
-		this.isShared = value;
+	public boolean isShare() {
+		return share;
 	}
 
-	public boolean getIsShared() {
-		return isShared;
+	public void setShare(boolean share) {
+		this.share = share;
 	}
 
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("OwnedResource{");
 		sb.append("owner='").append(owner).append('\'');
-		sb.append(", isShared=").append(isShared);
+		sb.append(", share=").append(share);
+		sb.append(", description='").append(description).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}

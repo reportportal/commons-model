@@ -2,6 +2,9 @@ buildscript {
     repositories {
         mavenCentral()
     }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.2.RELEASE"
+    }
 }
 
 plugins {
@@ -14,6 +17,11 @@ apply plugin: 'java'
 apply from: 'release-lib.gradle'
 apply from: 'build-quality.gradle'
 
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:1.5.3.RELEASE"
+    }
+}
 
 repositories {
     mavenCentral()
@@ -26,11 +34,10 @@ targetCompatibility = 1.6
 description = 'EPAM Report portal. REST API model'
 
 dependencies {
-    compile 'io.swagger:swagger-annotations:1.5.12'
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.7.3'
-
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.3'
-    compile 'javax.validation:validation-api:1.1.0.Final'
+    compile 'io.swagger:swagger-annotations:1.5.13'
+    compile 'com.fasterxml.jackson.core:jackson-annotations'
+    compile 'com.fasterxml.jackson.core:jackson-databind'
+    compile 'javax.validation:validation-api'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.hibernate:hibernate-validator:5.4.0.Final'

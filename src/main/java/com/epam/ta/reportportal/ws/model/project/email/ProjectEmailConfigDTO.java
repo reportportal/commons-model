@@ -21,12 +21,12 @@
 
 package com.epam.ta.reportportal.ws.model.project.email;
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Project email configuration object
@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class ProjectEmailConfig implements Serializable {
+public class ProjectEmailConfigDTO implements Serializable {
 	/**
 	 * Generated SVUID
 	 */
@@ -47,12 +47,12 @@ public class ProjectEmailConfig implements Serializable {
 	private String from;
 
 	@JsonProperty(value = "emailCases")
-	private List<EmailSenderCase> emailCases;
+	private List<EmailSenderCaseDTO> emailCases;
 
-	public ProjectEmailConfig() {
+	public ProjectEmailConfigDTO() {
 	}
 
-	public ProjectEmailConfig(boolean isEnabled, String from, List<EmailSenderCase> cases) {
+	public ProjectEmailConfigDTO(boolean isEnabled, String from, List<EmailSenderCaseDTO> cases) {
 		this.emailEnabled = isEnabled;
 		this.from = from;
 		this.emailCases = cases;
@@ -75,16 +75,16 @@ public class ProjectEmailConfig implements Serializable {
 		return from;
 	}
 
-	public void setEmailCases(List<EmailSenderCase> cases) {
+	public void setEmailCases(List<EmailSenderCaseDTO> cases) {
 		this.emailCases = cases;
 	}
 
-	public List<EmailSenderCase> getEmailCases() {
+	public List<EmailSenderCaseDTO> getEmailCases() {
 		return emailCases;
 	}
 
 	@Override
 	public String toString() {
-		return "ProjectEmailConfig [emailEnabled=" + emailEnabled + ", from=" + from + ", emailCases=" + emailCases + "]";
+		return "ProjectEmailConfigDTO [emailEnabled=" + emailEnabled + ", from=" + from + ", emailCases=" + emailCases + "]";
 	}
 }

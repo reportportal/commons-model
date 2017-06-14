@@ -21,16 +21,15 @@
 
 package com.epam.ta.reportportal.ws.model.externalsystem;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Domain object for creating ticket in bug tracking system.
