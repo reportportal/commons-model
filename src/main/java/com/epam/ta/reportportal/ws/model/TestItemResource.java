@@ -28,6 +28,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -50,6 +51,9 @@ public class TestItemResource {
 
 	@JsonProperty(value = "description")
 	private String description;
+
+	@JsonProperty(value = "parameters")
+	private List<String> parameters;
 
 	@JsonProperty(value = "tags")
 	private Set<String> tags;
@@ -213,6 +217,7 @@ public class TestItemResource {
 				"itemId='" + itemId + '\'' +
 				", name='" + name + '\'' +
 				", description='" + description + '\'' +
+				", parameters='" + parameters + '\'' +
 				", tags=" + tags +
 				", type='" + type + '\'' +
 				", startTime=" + startTime +
