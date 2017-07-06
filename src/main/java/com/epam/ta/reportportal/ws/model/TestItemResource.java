@@ -131,6 +131,14 @@ public class TestItemResource {
 		this.description = description;
 	}
 
+	public List<String> getParameters() {
+		return parameters;
+	}
+
+	public void setParameters(List<String> parameters) {
+		this.parameters = parameters;
+	}
+
 	public Set<String> getTags() {
 		return tags;
 	}
