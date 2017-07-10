@@ -42,6 +42,9 @@ public class StartTestItemRQ extends StartRQ {
 	@JsonProperty(value = "parameters")
 	private List<String> parameters;
 
+	@JsonProperty(value = "uniqueId")
+	private String uniqueId;
+
 	@NotNull
 	@JsonProperty(value = "launch_id", required = true)
 	@ApiModelProperty(required = true)
@@ -69,6 +72,14 @@ public class StartTestItemRQ extends StartRQ {
 
 	public void setParameters(List<String> parameters) {
 		this.parameters = parameters;
+	}
+
+	public String getUniqueId() {
+		return uniqueId;
+	}
+
+	public void setUniqueId(String uniqueId) {
+		this.uniqueId = uniqueId;
 	}
 
 	public String getType() {
@@ -107,6 +118,7 @@ public class StartTestItemRQ extends StartRQ {
 		sb.append("launchId='").append(launchId).append('\'');
 		sb.append(", type='").append(type).append('\'');
 		sb.append(", parameters").append(parameters);
+		sb.append(", uniqueId").append(uniqueId);
 		sb.append('}');
 		return sb.toString();
 	}
