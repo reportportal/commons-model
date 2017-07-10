@@ -30,7 +30,6 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -51,9 +50,6 @@ public class StartRQ {
 
 	@JsonProperty(value = "description")
 	private String description;
-
-	@JsonProperty(value = "parameters")
-	private List<String> parameters;
 
 	@JsonProperty("tags")
 	private Set<String> tags;
@@ -79,14 +75,6 @@ public class StartRQ {
 		this.description = description;
 	}
 
-	public List<String> getParameters() {
-		return parameters;
-	}
-
-	public void setParameters(List<String> parameters) {
-		this.parameters = parameters;
-	}
-
 	public void setTags(Set<String> tags) {
 		this.tags = tags;
 	}
@@ -110,7 +98,6 @@ public class StartRQ {
 		sb.append(", description='").append(description).append('\'');
 		sb.append(", tags=").append(tags);
 		sb.append(", startTime=").append(startTime);
-		sb.append(", parameters").append(parameters);
 		sb.append('}');
 		return sb.toString();
 	}

@@ -91,6 +91,9 @@ public class TestItemResource {
 	@JsonProperty(value = "launchId")
 	private String launchId;
 
+	@JsonProperty(value = "uniqueId")
+	private String uniqueId;
+
 	public String getLaunchId() {
 		return launchId;
 	}
@@ -219,6 +222,14 @@ public class TestItemResource {
 		return hasChilds;
 	}
 
+	public String getUniqueId() {
+		return uniqueId;
+	}
+
+	public void setUniqueId(String uniqueId) {
+		this.uniqueId = uniqueId;
+	}
+
 	@Override
 	public String toString() {
 		return "TestItemResource{" +
@@ -238,6 +249,7 @@ public class TestItemResource {
 				", issue=" + issue +
 				", hasChilds=" + hasChilds +
 				", launchId='" + launchId + '\'' +
+				", uniqueId='" + uniqueId + '\'' +
 				'}';
 	}
 }
