@@ -48,6 +48,9 @@ public class FinishExecutionRQ {
 	@ApiModelProperty(allowableValues = "PASSED, FAILED, STOPPED, SKIPPED, RESETED, CANCELLED")
 	private String status;
 
+	@JsonProperty(value = "description")
+	private String description;
+
 	public Date getEndTime() {
 		return endTime;
 	}
