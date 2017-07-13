@@ -28,6 +28,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Finishes some entity execution in Report Portal<br>
@@ -51,12 +52,23 @@ public class FinishExecutionRQ {
 	@JsonProperty(value = "description")
 	private String description;
 
+	@JsonProperty
+	private Set<String> tags;
+
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Set<String> getTags() {
+		return tags;
+	}
+
+	public void setTags(Set<String> tags) {
+		this.tags = tags;
 	}
 
 	public Date getEndTime() {
@@ -80,6 +92,7 @@ public class FinishExecutionRQ {
 		final StringBuilder sb = new StringBuilder("FinishExecutionRQ{");
 		sb.append("endTime=").append(endTime);
 		sb.append(", description=").append(description).append("\'");
+		sb.append(", tags").append(tags).append("\'");
 		sb.append(", status='").append(status).append('\'');
 		sb.append('}');
 		return sb.toString();
