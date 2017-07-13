@@ -51,6 +51,14 @@ public class FinishExecutionRQ {
 	@JsonProperty(value = "description")
 	private String description;
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public Date getEndTime() {
 		return endTime;
 	}
@@ -71,6 +79,7 @@ public class FinishExecutionRQ {
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("FinishExecutionRQ{");
 		sb.append("endTime=").append(endTime);
+		sb.append(", description=").append(description).append("\'");
 		sb.append(", status='").append(status).append('\'');
 		sb.append('}');
 		return sb.toString();
