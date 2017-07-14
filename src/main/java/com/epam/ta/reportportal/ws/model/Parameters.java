@@ -76,9 +76,9 @@ public class Parameters {
 
     @Override
     public String toString() {
-        return "Parameters{" +
-                "key='" + key + '\'' +
-                ", value='" + value + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(key != null ? key + "=" : "");
+        sb.append(value);
+        return sb.toString();
     }
 }
