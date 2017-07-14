@@ -32,6 +32,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.List;
@@ -39,8 +40,9 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class StartTestItemRQ extends StartRQ {
 
+	@Valid
 	@JsonProperty(value = "parameters")
-	private List<String> parameters;
+	private List<Parameters> parameters;
 
 	@JsonProperty(value = "uniqueId")
 	private String uniqueId;
@@ -66,11 +68,11 @@ public class StartTestItemRQ extends StartRQ {
 		this.launchId = launchId;
 	}
 
-	public List<String> getParameters() {
+	public List<Parameters> getParameters() {
 		return parameters;
 	}
 
-	public void setParameters(List<String> parameters) {
+	public void setParameters(List<Parameters> parameters) {
 		this.parameters = parameters;
 	}
 
@@ -117,7 +119,7 @@ public class StartTestItemRQ extends StartRQ {
 		final StringBuilder sb = new StringBuilder("StartTestItemRQ{");
 		sb.append("launchId='").append(launchId).append('\'');
 		sb.append(", type='").append(type).append('\'');
-		sb.append(", parameters").append(parameters);
+		sb.append(", ").append(parameters);
 		sb.append(", uniqueId").append(uniqueId);
 		sb.append('}');
 		return sb.toString();
