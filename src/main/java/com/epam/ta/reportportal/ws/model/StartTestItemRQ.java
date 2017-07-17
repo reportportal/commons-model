@@ -42,7 +42,7 @@ public class StartTestItemRQ extends StartRQ {
 
 	@Valid
 	@JsonProperty(value = "parameters")
-	private List<ParametersResource> parameters;
+	private List<ParameterResource> parameters;
 
 	@JsonProperty(value = "uniqueId")
 	private String uniqueId;
@@ -68,11 +68,11 @@ public class StartTestItemRQ extends StartRQ {
 		this.launchId = launchId;
 	}
 
-	public List<ParametersResource> getParameters() {
+	public List<ParameterResource> getParameters() {
 		return parameters;
 	}
 
-	public void setParameters(List<ParametersResource> parameters) {
+	public void setParameters(List<ParameterResource> parameters) {
 		this.parameters = parameters;
 	}
 

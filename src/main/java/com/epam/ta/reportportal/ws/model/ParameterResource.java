@@ -30,7 +30,7 @@ import javax.validation.constraints.Size;
  *
  * @author Pavel_Bortnik
  */
-public class ParametersResource {
+public class ParameterResource {
 
     @JsonProperty(value = "key")
     @Size(min = ValidationConstraints.MIN_DESCRIPTION_LENGTH, max = ValidationConstraints.MAX_PARAMETERS_LENGTH)
@@ -61,7 +61,7 @@ public class ParametersResource {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ParametersResource that = (ParametersResource) o;
+        ParameterResource that = (ParameterResource) o;
 
         if (key != null ? !key.equals(that.key) : that.key != null) return false;
         return value != null ? value.equals(that.value) : that.value == null;
