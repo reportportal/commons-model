@@ -53,7 +53,7 @@ public class TestItemResource {
 	private String description;
 
 	@JsonProperty(value = "parameters")
-	private List<String> parameters;
+	private List<ParameterResource> parameters;
 
 	@JsonProperty(value = "tags")
 	private Set<String> tags;
@@ -134,11 +134,11 @@ public class TestItemResource {
 		this.description = description;
 	}
 
-	public List<String> getParameters() {
+	public List<ParameterResource> getParameters() {
 		return parameters;
 	}
 
-	public void setParameters(List<String> parameters) {
+	public void setParameters(List<ParameterResource> parameters) {
 		this.parameters = parameters;
 	}
 
