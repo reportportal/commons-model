@@ -315,7 +315,7 @@ public enum ErrorType {
 	/**
 	 * Is not allowed to finish item
 	 */
-	FINISH_ITEM_NOT_ALLOWED(40022, "Finish test item is not allowed. "),
+	FINISH_ITEM_NOT_ALLOWED(40022, "Finish test item is not allowed. {}"),
 
 	/**
 	 * Unable to finish in current status
