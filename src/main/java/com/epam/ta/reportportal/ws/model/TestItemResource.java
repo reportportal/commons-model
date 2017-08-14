@@ -28,6 +28,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -50,6 +51,9 @@ public class TestItemResource {
 
 	@JsonProperty(value = "description")
 	private String description;
+
+	@JsonProperty(value = "parameters")
+	private List<ParameterResource> parameters;
 
 	@JsonProperty(value = "tags")
 	private Set<String> tags;
@@ -86,6 +90,9 @@ public class TestItemResource {
 
 	@JsonProperty(value = "launchId")
 	private String launchId;
+
+	@JsonProperty(value = "uniqueId")
+	private String uniqueId;
 
 	public String getLaunchId() {
 		return launchId;
@@ -125,6 +132,14 @@ public class TestItemResource {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<ParameterResource> getParameters() {
+		return parameters;
+	}
+
+	public void setParameters(List<ParameterResource> parameters) {
+		this.parameters = parameters;
 	}
 
 	public Set<String> getTags() {
@@ -207,12 +222,21 @@ public class TestItemResource {
 		return hasChilds;
 	}
 
+	public String getUniqueId() {
+		return uniqueId;
+	}
+
+	public void setUniqueId(String uniqueId) {
+		this.uniqueId = uniqueId;
+	}
+
 	@Override
 	public String toString() {
 		return "TestItemResource{" +
 				"itemId='" + itemId + '\'' +
 				", name='" + name + '\'' +
 				", description='" + description + '\'' +
+				", parameters='" + parameters + '\'' +
 				", tags=" + tags +
 				", type='" + type + '\'' +
 				", startTime=" + startTime +
@@ -225,6 +249,7 @@ public class TestItemResource {
 				", issue=" + issue +
 				", hasChilds=" + hasChilds +
 				", launchId='" + launchId + '\'' +
+				", uniqueId='" + uniqueId + '\'' +
 				'}';
 	}
 }

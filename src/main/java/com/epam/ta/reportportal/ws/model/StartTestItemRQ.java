@@ -21,27 +21,31 @@
  
 package com.epam.ta.reportportal.ws.model;
 
-import java.io.IOException;
-
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.io.IOException;
+import java.util.List;
+
 @JsonInclude(Include.NON_NULL)
 public class StartTestItemRQ extends StartRQ {
+
+	@Valid
+	@JsonProperty(value = "parameters")
+	private List<ParameterResource> parameters;
+
+	@JsonProperty(value = "uniqueId")
+	private String uniqueId;
 
 	@NotNull
 	@JsonProperty(value = "launch_id", required = true)
@@ -62,6 +66,22 @@ public class StartTestItemRQ extends StartRQ {
 
 	public void setLaunchId(String launchId) {
 		this.launchId = launchId;
+	}
+
+	public List<ParameterResource> getParameters() {
+		return parameters;
+	}
+
+	public void setParameters(List<ParameterResource> parameters) {
+		this.parameters = parameters;
+	}
+
+	public String getUniqueId() {
+		return uniqueId;
+	}
+
+	public void setUniqueId(String uniqueId) {
+		this.uniqueId = uniqueId;
 	}
 
 	public String getType() {
@@ -99,6 +119,8 @@ public class StartTestItemRQ extends StartRQ {
 		final StringBuilder sb = new StringBuilder("StartTestItemRQ{");
 		sb.append("launchId='").append(launchId).append('\'');
 		sb.append(", type='").append(type).append('\'');
+		sb.append(", ").append(parameters);
+		sb.append(", uniqueId").append(uniqueId);
 		sb.append('}');
 		return sb.toString();
 	}
