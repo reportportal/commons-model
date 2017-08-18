@@ -121,6 +121,14 @@ public class ProjectResource {
 		@JsonProperty(value = "proposedRole")
 		private String proposedRole;
 
+		public String getLogin() {
+			return login;
+		}
+
+		public void setLogin(String login) {
+			this.login = login;
+		}
+
 		public void setProjectRole(String value) {
 			this.projectRole = value;
 		}
