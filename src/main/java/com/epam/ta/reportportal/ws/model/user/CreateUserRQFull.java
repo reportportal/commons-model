@@ -21,16 +21,16 @@
 
 package com.epam.ta.reportportal.ws.model.user;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  * Create User request for admin user creation functionality
@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class CreateUserRQFull {
 
 	@NotNull
-	@Pattern(regexp = "[a-zA-Z0-9-_]+")
+	@Pattern(regexp = "[a-zA-Z0-9-_.]+")
 	@Size(min = ValidationConstraints.MIN_LOGIN_LENGTH, max = ValidationConstraints.MAX_LOGIN_LENGTH)
 	@JsonProperty(value = "login", required = true)
 	@ApiModelProperty(required = true)

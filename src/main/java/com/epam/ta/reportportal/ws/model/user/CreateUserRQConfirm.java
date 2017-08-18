@@ -42,7 +42,7 @@ public class CreateUserRQConfirm {
 
 	@NotNull
 	@NotEmpty
-	@Pattern(regexp = "[a-zA-Z0-9-_]+")
+	@Pattern(regexp = "[a-zA-Z0-9-_.]+")
 	@Size(min = ValidationConstraints.MIN_LOGIN_LENGTH, max = ValidationConstraints.MAX_LOGIN_LENGTH)
 	@JsonProperty(value = "login", required = true)
 	@ApiModelProperty(required = true)
