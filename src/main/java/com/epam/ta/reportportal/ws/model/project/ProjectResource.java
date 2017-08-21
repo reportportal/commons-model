@@ -21,16 +21,15 @@
 
 package com.epam.ta.reportportal.ws.model.project;
 
-import java.util.Date;
-import java.util.Map;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Project resource representation for responses
@@ -57,7 +56,7 @@ public class ProjectResource {
 	private ProjectConfiguration configuration;
 
 	@JsonProperty(value = "users")
-	private Map<String, ProjectUser> users;
+	private List<ProjectUser> users;
 
 	@NotNull
 	@JsonProperty(value = "creationDate")
@@ -103,20 +102,32 @@ public class ProjectResource {
 		return configuration;
 	}
 
-	public void setUsers(Map<String, ProjectUser> users) {
-		this.users = users;
-	}
-
-	public Map<String, ProjectUser> getUsers() {
+	public List<ProjectUser> getUsers() {
 		return users;
 	}
 
+	public void setUsers(List<ProjectUser> users) {
+		this.users = users;
+	}
+
 	public static class ProjectUser {
+
+		@JsonProperty(value = "login")
+		private String login;
+
 		@JsonProperty(value = "projectRole")
 		private String projectRole;
 
 		@JsonProperty(value = "proposedRole")
 		private String proposedRole;
+
+		public String getLogin() {
+			return login;
+		}
+
+		public void setLogin(String login) {
+			this.login = login;
+		}
 
 		public void setProjectRole(String value) {
 			this.projectRole = value;
