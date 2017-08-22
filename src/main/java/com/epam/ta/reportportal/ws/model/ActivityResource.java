@@ -151,7 +151,15 @@ public class ActivityResource {
 		@JsonProperty(value = "newValue")
 		private String newValue;
 
-		public String getOldValue() {
+        public String getField() {
+            return field;
+        }
+
+        public void setField(String field) {
+            this.field = field;
+        }
+
+        public String getOldValue() {
 			return oldValue;
 		}
 
