@@ -21,20 +21,19 @@
 
 package com.epam.ta.reportportal.ws.model.widget;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
-
-import java.util.List;
-import java.util.Map;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.Map;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_WIDGET_LIMIT;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_WIDGET_LIMIT;
 
 /**
  * Part of widget domain object. Describe chart parameters
@@ -64,7 +63,6 @@ public class ContentParameters {
 	private List<String> metadataFields;
 
 	// fields for main data(for example: graphs at the chart)
-	@Size(min = MIN_COLLECTION_SIZE)
 	@JsonProperty(value = "content_fields", required = true)
 	private List<String> contentFields;
 
