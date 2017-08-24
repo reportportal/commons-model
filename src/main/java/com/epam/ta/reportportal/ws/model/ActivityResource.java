@@ -21,16 +21,13 @@
  
 package com.epam.ta.reportportal.ws.model;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.validation.constraints.NotNull;
-
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.NotNull;
+import java.util.*;
 
 /**
  * JSON Representation of Report Portal's Activity domain object.
@@ -76,7 +73,7 @@ public class ActivityResource {
 	private String projectRef;
 
 	@JsonProperty(value = "history")
-	private Map<String, FieldValues> history;
+	private List<FieldValues> history;
 
 	public String getProjectRef() {
 		return projectRef;
@@ -134,16 +131,19 @@ public class ActivityResource {
 		this.lastModifiedDate = lastModifiedDate;
 	}
 
-	public Map<String, FieldValues> getHistory() {
-		return null == history ? new HashMap<String, FieldValues>() : history;
+	public List<FieldValues> getHistory() {
+		return null == history ? new ArrayList<FieldValues>() : history;
 	}
 
-	public void setHistory(Map<String, FieldValues> history) {
+	public void setHistory(List<FieldValues> history) {
 		this.history = history;
 	}
 
 	@JsonInclude(Include.NON_NULL)
 	public static class FieldValues {
+
+	    @JsonProperty(value = "field")
+	    private String field;
 
 		@JsonProperty(value = "oldValue")
 		private String oldValue;
@@ -151,7 +151,15 @@ public class ActivityResource {
 		@JsonProperty(value = "newValue")
 		private String newValue;
 
-		public String getOldValue() {
+        public String getField() {
+            return field;
+        }
+
+        public void setField(String field) {
+            this.field = field;
+        }
+
+        public String getOldValue() {
 			return oldValue;
 		}
 
