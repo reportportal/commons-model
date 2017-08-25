@@ -27,7 +27,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * JSON Representation of Report Portal's Activity domain object.
@@ -75,7 +77,18 @@ public class ActivityResource {
 	@JsonProperty(value = "history")
 	private List<FieldValues> history;
 
-	public String getProjectRef() {
+	@JsonProperty(value = "objectName")
+    private String objectName;
+
+    public String getObjectName() {
+        return objectName;
+    }
+
+    public void setObjectName(String objectName) {
+        this.objectName = objectName;
+    }
+
+    public String getProjectRef() {
 		return projectRef;
 	}
 
