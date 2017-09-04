@@ -28,6 +28,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -39,6 +40,7 @@ public class NotEmptyValidatorTest {
 	public void testNotEmptyValidator() {
 		StartRQ startRQ = new StartRQ();
 		startRQ.setName("");
+		startRQ.setStartTime(new Date(0));
 
 		//Getting Validator instance with Annotations
 		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
