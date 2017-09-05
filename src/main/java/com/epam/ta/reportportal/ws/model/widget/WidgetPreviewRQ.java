@@ -21,6 +21,7 @@
 package com.epam.ta.reportportal.ws.model.widget;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.Valid;
@@ -32,7 +33,7 @@ import javax.validation.Valid;
  *
  */
 
-@JsonInclude
+@JsonInclude(Include.NON_NULL)
 public class WidgetPreviewRQ {
 
     @Valid
@@ -40,7 +41,7 @@ public class WidgetPreviewRQ {
     private ContentParameters contentParameters;
 
     @JsonProperty(value = "filter_id")
-    private String applyingFilter;
+    private String filterId;
 
     public ContentParameters getContentParameters() {
         return contentParameters;
@@ -50,12 +51,12 @@ public class WidgetPreviewRQ {
         this.contentParameters = contentParameters;
     }
 
-    public String getApplyingFilter() {
-        return applyingFilter;
+    public String getFilterId() {
+        return filterId;
     }
 
-    public void setApplyingFilter(String applyingFilter) {
-        this.applyingFilter = applyingFilter;
+    public void setFilterId(String filterId) {
+        this.filterId = filterId;
     }
 
     @Override
@@ -67,13 +68,13 @@ public class WidgetPreviewRQ {
 
         if (contentParameters != null ? !contentParameters.equals(that.contentParameters) : that.contentParameters != null)
             return false;
-        return applyingFilter != null ? applyingFilter.equals(that.applyingFilter) : that.applyingFilter == null;
+        return filterId != null ? filterId.equals(that.filterId) : that.filterId == null;
     }
 
     @Override
     public int hashCode() {
         int result = contentParameters != null ? contentParameters.hashCode() : 0;
-        result = 31 * result + (applyingFilter != null ? applyingFilter.hashCode() : 0);
+        result = 31 * result + (filterId != null ? filterId.hashCode() : 0);
         return result;
     }
 }
