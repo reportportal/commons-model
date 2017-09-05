@@ -101,4 +101,26 @@ public class StartRQ {
 		sb.append('}');
 		return sb.toString();
 	}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        StartRQ startRQ = (StartRQ) o;
+
+        if (!name.equals(startRQ.name)) return false;
+        if (description != null ? !description.equals(startRQ.description) : startRQ.description != null) return false;
+        if (tags != null ? !tags.equals(startRQ.tags) : startRQ.tags != null) return false;
+        return startTime.equals(startRQ.startTime);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (tags != null ? tags.hashCode() : 0);
+        result = 31 * result + startTime.hashCode();
+        return result;
+    }
 }

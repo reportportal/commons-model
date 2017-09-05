@@ -21,14 +21,13 @@
  
 package com.epam.ta.reportportal.ws.model;
 
-import java.io.IOException;
-
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.io.IOException;
 
 /**
  * Test Item custom serializer test
@@ -49,7 +48,7 @@ public class StartTestItemSerializerTest {
 	}
 
 	@Test
-	public void testDerializer() throws IOException {
+	public void testDeserializer() throws IOException {
 		StartTestItemRQ rq = om.readValue(START_ITEM_RQ.toLowerCase().getBytes(), StartTestItemRQ.class);
 		Assert.assertEquals("Incorrect deserialization result", rq.getType(), "LAUNCH");
 	}

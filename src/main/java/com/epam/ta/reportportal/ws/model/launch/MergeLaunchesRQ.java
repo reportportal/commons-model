@@ -43,6 +43,11 @@ public class MergeLaunchesRQ extends StartLaunchRQ {
     @ApiModelProperty(required = true)
     private Date endTime;
 
+    @NotNull
+    @JsonProperty("merge_type")
+    @ApiModelProperty(allowableValues = "BASIC, DEEP")
+    private String mergeStrategyType;
+
     @JsonProperty(value = "extendSuitesDescription", required = true)
     private boolean extendSuitesDescription;
 
@@ -70,12 +75,45 @@ public class MergeLaunchesRQ extends StartLaunchRQ {
         this.endTime = endTime;
     }
 
+    public String getMergeStrategyType() {
+        return mergeStrategyType;
+    }
+
+    public void setMergeStrategyType(String mergeStrategyType) {
+        this.mergeStrategyType = mergeStrategyType;
+    }
+
     @Override
     public String toString() {
         return "MergeLaunchesRQ{" +
                 "launches=" + launches +
                 ", endTime=" + endTime +
                 ", extendSuitesDescription=" + extendSuitesDescription +
+                ", mergeType=" + mergeStrategyType +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        MergeLaunchesRQ that = (MergeLaunchesRQ) o;
+
+        if (extendSuitesDescription != that.extendSuitesDescription) return false;
+        if (!launches.equals(that.launches)) return false;
+        if (!endTime.equals(that.endTime)) return false;
+        return mergeStrategyType.equals(that.mergeStrategyType);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + launches.hashCode();
+        result = 31 * result + endTime.hashCode();
+        result = 31 * result + mergeStrategyType.hashCode();
+        result = 31 * result + (extendSuitesDescription ? 1 : 0);
+        return result;
     }
 }
