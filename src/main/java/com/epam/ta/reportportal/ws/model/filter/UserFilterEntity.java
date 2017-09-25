@@ -48,18 +48,14 @@ public class UserFilterEntity {
 	@JsonProperty(value = "value", required = true)
 	private String value;
 
-	@NotNull
-	@JsonProperty(value = "is_negative", required = true)
-	private boolean isNegative;
 
 	public UserFilterEntity() {
 	}
 
-	public UserFilterEntity(String field, String condition, String value, boolean negative) {
+	public UserFilterEntity(String field, String condition, String value) {
 		this.filteringField = field;
 		this.condition = condition;
 		this.value = value;
-		this.isNegative = negative;
 	}
 
 	public String getCondition() {
@@ -78,14 +74,6 @@ public class UserFilterEntity {
 		this.value = value;
 	}
 
-	public boolean getIsNegative() {
-		return isNegative;
-	}
-
-	public void setIsNegative(boolean isNegative) {
-		this.isNegative = isNegative;
-	}
-
 	public String getFilteringField() {
 		return filteringField;
 	}
@@ -100,7 +88,6 @@ public class UserFilterEntity {
 		int result = 1;
 		result = prime * result + ((condition == null) ? 0 : condition.hashCode());
 		result = prime * result + ((filteringField == null) ? 0 : filteringField.hashCode());
-		result = prime * result + (isNegative ? 1231 : 1237);
 		result = prime * result + ((value == null) ? 0 : value.hashCode());
 		return result;
 	}
@@ -124,8 +111,6 @@ public class UserFilterEntity {
 				return false;
 		} else if (!filteringField.equals(other.filteringField))
 			return false;
-		if (isNegative != other.isNegative)
-			return false;
 		if (value == null) {
 			if (other.value != null)
 				return false;
@@ -140,7 +125,6 @@ public class UserFilterEntity {
 		sb.append("filteringField='").append(filteringField).append('\'');
 		sb.append(", condition='").append(condition).append('\'');
 		sb.append(", value='").append(value).append('\'');
-		sb.append(", isNegative=").append(isNegative);
 		sb.append('}');
 		return sb.toString();
 	}

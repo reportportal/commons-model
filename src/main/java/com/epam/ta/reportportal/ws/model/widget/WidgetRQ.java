@@ -21,15 +21,15 @@
  
 package com.epam.ta.reportportal.ws.model.widget;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
 
 /**
  * Domain model object for creating widget
@@ -53,7 +53,7 @@ public class WidgetRQ extends SharableEntityRQ {
 
 	// applying filter id
 	@JsonProperty(value = "filter_id")
-	private String applyingFilter;
+	private String filterId;
 
 	public String getName() {
 		return name;
@@ -71,12 +71,12 @@ public class WidgetRQ extends SharableEntityRQ {
 		this.contentParameters = contentParameters;
 	}
 
-	public String getApplyingFilter() {
-		return applyingFilter;
+	public String getFilterId() {
+		return filterId;
 	}
 
-	public void setApplyingFilter(String applyingFilter) {
-		this.applyingFilter = applyingFilter;
+	public void setFilterId(String filterId) {
+		this.filterId = filterId;
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class WidgetRQ extends SharableEntityRQ {
 		final StringBuilder sb = new StringBuilder("WidgetRQ{");
 		sb.append("name='").append(name).append('\'');
 		sb.append(", contentParameters=").append(contentParameters);
-		sb.append(", applyingFilter='").append(applyingFilter).append('\'');
+		sb.append(", filterId='").append(filterId).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}

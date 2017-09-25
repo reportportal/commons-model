@@ -21,17 +21,16 @@
 
 package com.epam.ta.reportportal.ws.model.widget;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Dzmitry_Kavalets
@@ -54,7 +53,7 @@ public class WidgetResource extends OwnedResource {
 	private ContentParameters contentParameters;
 
 	@JsonProperty(value = "filter_id")
-	private String applyingFilterID;
+	private String filterId;
 
 	@JsonProperty(value = "content")
 	private Map<String, List<ChartObject>> content;
@@ -75,12 +74,12 @@ public class WidgetResource extends OwnedResource {
 		this.name = name;
 	}
 
-	public String getApplyingFilterID() {
-		return applyingFilterID;
+	public String getFilterId() {
+		return filterId;
 	}
 
-	public void setApplyingFilterID(String applyingFilterID) {
-		this.applyingFilterID = applyingFilterID;
+	public void setFilterId(String filterId) {
+		this.filterId = filterId;
 	}
 
 	public ContentParameters getContentParameters() {
@@ -105,7 +104,7 @@ public class WidgetResource extends OwnedResource {
 		sb.append("widgetId='").append(widgetId).append('\'');
 		sb.append(", name='").append(name).append('\'');
 		sb.append(", contentParameters=").append(contentParameters);
-		sb.append(", applyingFilterID='").append(applyingFilterID).append('\'');
+		sb.append(", filterId='").append(filterId).append('\'');
 		sb.append(", content=").append(content);
 		sb.append('}');
 		return sb.toString();
