@@ -8,8 +8,8 @@ buildscript {
 }
 
 plugins {
-    id "io.spring.dependency-management" version "0.6.0.RELEASE"
-    id 'net.researchgate.release' version '2.4.1'
+    id "io.spring.dependency-management" version "1.0.3.RELEASE"
+    id 'net.researchgate.release' version '2.6.0'
     id "com.jfrog.bintray" version "1.7"
 }
 
@@ -19,7 +19,7 @@ apply from: 'build-quality.gradle'
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:1.5.3.RELEASE"
+        mavenBom "org.springframework.boot:spring-boot-dependencies:1.5.7.RELEASE"
     }
 }
 
@@ -45,7 +45,7 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.0.2'
+    gradleVersion = '4.2'
 }
 
 
