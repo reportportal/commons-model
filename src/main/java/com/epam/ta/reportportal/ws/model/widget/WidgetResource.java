@@ -29,7 +29,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -56,7 +55,7 @@ public class WidgetResource extends OwnedResource {
 	private String filterId;
 
 	@JsonProperty(value = "content")
-	private Map<String, List<ChartObject>> content;
+	private Map<String, ?> content;
 
 	public String getWidgetId() {
 		return widgetId;
@@ -90,11 +89,11 @@ public class WidgetResource extends OwnedResource {
 		this.contentParameters = contentParameters;
 	}
 
-	public Map<String, List<ChartObject>> getContent() {
+	public Map<String, ?> getContent() {
 		return content;
 	}
 
-	public void setContent(Map<String, List<ChartObject>> content) {
+	public void setContent(Map<String, ?> content) {
 		this.content = content;
 	}
 
