@@ -60,13 +60,14 @@ public class StartTestItemRQ extends StartRQ {
 			+ "BEFORE_METHOD, BEFORE_SUITE, BEFORE_TEST, AFTER_CLASS, AFTER_GROUPS, AFTER_METHOD, AFTER_SUITE, AFTER_TEST")
 	private String type;
 
-	private Boolean rerun;
+	@JsonProperty(value = "rerun")
+	private boolean rerun;
 
-	public Boolean getRerun() {
+	public boolean getRerun() {
 		return rerun;
 	}
 
-	public void setRerun(Boolean rerun) {
+	public void setRerun(boolean rerun) {
 		this.rerun = rerun;
 	}
 
