@@ -60,6 +60,16 @@ public class StartTestItemRQ extends StartRQ {
 			+ "BEFORE_METHOD, BEFORE_SUITE, BEFORE_TEST, AFTER_CLASS, AFTER_GROUPS, AFTER_METHOD, AFTER_SUITE, AFTER_TEST")
 	private String type;
 
+	private Boolean rerun;
+
+	public Boolean getRerun() {
+		return rerun;
+	}
+
+	public void setRerun(Boolean rerun) {
+		this.rerun = rerun;
+	}
+
 	public String getLaunchId() {
 		return launchId;
 	}
@@ -117,10 +127,11 @@ public class StartTestItemRQ extends StartRQ {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("StartTestItemRQ{");
-		sb.append("launchId='").append(launchId).append('\'');
+		sb.append("parameters=").append(parameters);
+		sb.append(", uniqueId='").append(uniqueId).append('\'');
+		sb.append(", launchId='").append(launchId).append('\'');
 		sb.append(", type='").append(type).append('\'');
-		sb.append(", ").append(parameters);
-		sb.append(", uniqueId").append(uniqueId);
+		sb.append(", rerun=").append(rerun);
 		sb.append('}');
 		return sb.toString();
 	}
