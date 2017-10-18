@@ -29,22 +29,22 @@ import com.epam.ta.reportportal.ws.model.EntryCreatedRS;
  */
 public class StartLaunchRS extends EntryCreatedRS {
 
-	private Integer number;
+	private Long number;
 
 	public StartLaunchRS() {
 
 	}
 
-	public StartLaunchRS(String id, Integer number) {
+	public StartLaunchRS(String id, Long number) {
 		super(id);
 		this.number = number;
 	}
 
-	public Integer getNumber() {
+	public Long getNumber() {
 		return number;
 	}
 
-	public void setNumber(Integer number) {
+	public void setNumber(Long number) {
 		this.number = number;
 	}
 
