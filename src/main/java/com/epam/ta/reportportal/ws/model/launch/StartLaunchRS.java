@@ -23,19 +23,19 @@ package com.epam.ta.reportportal.ws.model.launch;
 import com.epam.ta.reportportal.ws.model.EntryCreatedRS;
 
 /**
- * Response model of launch finish resource
+ * Response model of launch start resource
  *
  * @author Andrei Varabyeu
  */
-public class FinishLaunchRS extends EntryCreatedRS {
+public class StartLaunchRS extends EntryCreatedRS {
 
 	private Integer number;
 
-	public FinishLaunchRS() {
+	public StartLaunchRS() {
 
 	}
 
-	public FinishLaunchRS(String id, Integer number) {
+	public StartLaunchRS(String id, Integer number) {
 		super(id);
 		this.number = number;
 	}
@@ -50,7 +50,7 @@ public class FinishLaunchRS extends EntryCreatedRS {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("FinishLaunchRS{");
+		final StringBuilder sb = new StringBuilder("StartLaunchRS{");
 		sb.append("number=").append(number);
 		sb.append('}');
 		return sb.toString();
