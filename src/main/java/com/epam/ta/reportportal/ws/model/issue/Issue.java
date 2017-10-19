@@ -21,15 +21,14 @@
 
 package com.epam.ta.reportportal.ws.model.issue;
 
-import java.util.Set;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Set;
 
 /**
  * Test item issue
@@ -47,6 +46,9 @@ public class Issue {
 	@JsonProperty(value = "comment")
 	@Size(min = ValidationConstraints.MIN_DESCRIPTION_LENGTH, max = ValidationConstraints.MAX_DESCRIPTION_LENGTH)
 	private String comment;
+
+	@JsonProperty(value = "autoAnalyzed")
+	private String autoAnalyzed;
 
 	@JsonProperty(value = "externalSystemIssues")
 	private Set<ExternalSystemIssue> externalSystemIssues;
@@ -166,11 +168,20 @@ public class Issue {
 		this.comment = comment;
 	}
 
+	public String getAutoAnalyzed() {
+		return autoAnalyzed;
+	}
+
+	public void setAutoAnalyzed(String autoAnalyzed) {
+		this.autoAnalyzed = autoAnalyzed;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("Issue{");
 		sb.append("issueType='").append(issueType).append('\'');
 		sb.append(", comment='").append(comment).append('\'');
+		sb.append(", autoAnalyzed='").append(autoAnalyzed).append("\'");
 		sb.append(", externalSystemIssues=").append(externalSystemIssues);
 		sb.append('}');
 		return sb.toString();
