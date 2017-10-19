@@ -17,8 +17,8 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -31,15 +31,14 @@ import java.io.IOException;
 
 /**
  * Test Item custom serializer test
- * 
+ *
  * @author Andrei Varabyeu
- * 
  */
 public class StartTestItemSerializerTest {
 
 	private ObjectMapper om = getObjectMapper();
 
-	private static final String START_ITEM_RQ = "{\"description\":\"description\",\"launch_id\":\"some id\",\"type\":\"LAUNCH\"}";
+	private static final String START_ITEM_RQ = "{\"description\":\"description\",\"launch_id\":\"some id\",\"type\":\"LAUNCH\",\"rerun\":false}";
 
 	@Test
 	public void testSerializer() throws JsonProcessingException {
