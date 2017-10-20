@@ -71,8 +71,8 @@ public class ProjectConfiguration {
 	@JsonProperty(value = "isAutoAnalyzerEnabled")
 	private Boolean isAAEnabled;
 
-	@JsonProperty(value = "analyzeOnTheFly")
-	private Boolean analyzeOnTheFly;
+/*	@JsonProperty(value = "analyzeOnTheFly")
+	private Boolean analyzeOnTheFly;*/
 
 	@JsonProperty(value = "emailConfiguration")
 	private ProjectEmailConfigDTO emailConfig;
@@ -144,13 +144,13 @@ public class ProjectConfiguration {
 		return isAAEnabled;
 	}
 
-	public Boolean getAnalyzeOnTheFly() {
+/*	public Boolean getAnalyzeOnTheFly() {
 		return analyzeOnTheFly;
 	}
 
 	public void setAnalyzeOnTheFly(Boolean analyzeOnTheFly) {
 		this.analyzeOnTheFly = analyzeOnTheFly;
-	}
+	}*/
 
 	public void setEmailConfig(ProjectEmailConfigDTO config) {
 		this.emailConfig = config;
