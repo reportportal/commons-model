@@ -60,15 +60,15 @@ public class StartTestItemRQ extends StartRQ {
 			+ "BEFORE_METHOD, BEFORE_SUITE, BEFORE_TEST, AFTER_CLASS, AFTER_GROUPS, AFTER_METHOD, AFTER_SUITE, AFTER_TEST")
 	private String type;
 
-	@JsonProperty(value = "rerun")
-	private boolean rerun;
+	@JsonProperty(value = "retry")
+	private boolean retry;
 
-	public boolean getRerun() {
-		return rerun;
+	public boolean isRetry() {
+		return retry;
 	}
 
-	public void setRerun(boolean rerun) {
-		this.rerun = rerun;
+	public void setRetry(boolean retry) {
+		this.retry = retry;
 	}
 
 	public String getLaunchId() {
@@ -132,7 +132,7 @@ public class StartTestItemRQ extends StartRQ {
 		sb.append(", uniqueId='").append(uniqueId).append('\'');
 		sb.append(", launchId='").append(launchId).append('\'');
 		sb.append(", type='").append(type).append('\'');
-		sb.append(", rerun=").append(rerun);
+		sb.append(", retry=").append(retry);
 		sb.append('}');
 		return sb.toString();
 	}
