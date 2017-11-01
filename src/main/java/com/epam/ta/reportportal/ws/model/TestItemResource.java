@@ -94,6 +94,17 @@ public class TestItemResource {
 	@JsonProperty(value = "uniqueId")
 	private String uniqueId;
 
+	@JsonProperty(value = "retries")
+	private List<TestItemResource> retries;
+
+	public List<TestItemResource> getRetries() {
+		return retries;
+	}
+
+	public void setRetries(List<TestItemResource> retries) {
+		this.retries = retries;
+	}
+
 	public String getLaunchId() {
 		return launchId;
 	}
