@@ -38,7 +38,7 @@ public class StartTestItemSerializerTest {
 
 	private ObjectMapper om = getObjectMapper();
 
-	private static final String START_ITEM_RQ = "{\"description\":\"description\",\"launch_id\":\"some id\",\"type\":\"LAUNCH\",\"rerun\":false}";
+	private static final String START_ITEM_RQ = "{\"description\":\"description\",\"launch_id\":\"some id\",\"type\":\"LAUNCH\",\"retry\":false}";
 
 	@Test
 	public void testSerializer() throws JsonProcessingException {
