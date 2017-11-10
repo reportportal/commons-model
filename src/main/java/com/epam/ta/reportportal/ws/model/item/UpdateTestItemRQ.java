@@ -17,16 +17,14 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
-package com.epam.ta.reportportal.ws.model.item;
+ */
 
-import java.util.Set;
+package com.epam.ta.reportportal.ws.model.item;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
+import java.util.Set;
 
 /**
  * @author Dzmitry_Kavalets
@@ -39,6 +37,9 @@ public class UpdateTestItemRQ {
 
 	@JsonProperty(value = "description")
 	private String description;
+
+	@JsonProperty(value = "ignoreAnalyzer")
+	private boolean ignoreAnalyzer;
 
 	public Set<String> getTags() {
 		return tags;
@@ -54,5 +55,13 @@ public class UpdateTestItemRQ {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public boolean isIgnoreAnalyzer() {
+		return ignoreAnalyzer;
+	}
+
+	public void setIgnoreAnalyzer(boolean ignoreAnalyzer) {
+		this.ignoreAnalyzer = ignoreAnalyzer;
 	}
 }
