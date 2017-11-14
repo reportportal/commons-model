@@ -89,7 +89,7 @@ public class LaunchResource extends OwnedResource {
 	private double approximateDuration;
 
 	@JsonProperty("hasRetries")
-	private double hasRetries;
+	private boolean hasRetries;
 
 	public double getApproximateDuration() {
 		return approximateDuration;
@@ -187,11 +187,11 @@ public class LaunchResource extends OwnedResource {
 		return isProcessing;
 	}
 
-	public double getHasRetries() {
+	public boolean getHasRetries() {
 		return hasRetries;
 	}
 
-	public void setHasRetries(double hasRetries) {
+	public void setHasRetries(boolean hasRetries) {
 		this.hasRetries = hasRetries;
 	}
 
