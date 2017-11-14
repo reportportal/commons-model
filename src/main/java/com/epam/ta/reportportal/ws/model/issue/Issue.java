@@ -44,11 +44,14 @@ public class Issue {
 	private String issueType;
 
 	@JsonProperty(value = "comment")
-	@Size(min = ValidationConstraints.MIN_DESCRIPTION_LENGTH, max = ValidationConstraints.MAX_DESCRIPTION_LENGTH)
+	@Size(max = ValidationConstraints.MAX_DESCRIPTION_LENGTH)
 	private String comment;
 
 	@JsonProperty(value = "autoAnalyzed")
-	private String autoAnalyzed;
+	private boolean autoAnalyzed;
+
+	@JsonProperty(value = "ignoreAnalyzer")
+	private boolean ignoreAnalyzer;
 
 	@JsonProperty(value = "externalSystemIssues")
 	private Set<ExternalSystemIssue> externalSystemIssues;
@@ -168,12 +171,20 @@ public class Issue {
 		this.comment = comment;
 	}
 
-	public String getAutoAnalyzed() {
+	public boolean getAutoAnalyzed() {
 		return autoAnalyzed;
 	}
 
-	public void setAutoAnalyzed(String autoAnalyzed) {
+	public void setAutoAnalyzed(boolean autoAnalyzed) {
 		this.autoAnalyzed = autoAnalyzed;
+	}
+
+	public boolean isIgnoreAnalyzer() {
+		return ignoreAnalyzer;
+	}
+
+	public void setIgnoreAnalyzer(boolean ignoreAnalyzer) {
+		this.ignoreAnalyzer = ignoreAnalyzer;
 	}
 
 	@Override

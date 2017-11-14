@@ -38,9 +38,6 @@ public class UpdateTestItemRQ {
 	@JsonProperty(value = "description")
 	private String description;
 
-	@JsonProperty(value = "ignoreAnalyzer")
-	private boolean ignoreAnalyzer;
-
 	public Set<String> getTags() {
 		return tags;
 	}
@@ -57,11 +54,4 @@ public class UpdateTestItemRQ {
 		this.description = description;
 	}
 
-	public boolean isIgnoreAnalyzer() {
-		return ignoreAnalyzer;
-	}
-
-	public void setIgnoreAnalyzer(boolean ignoreAnalyzer) {
-		this.ignoreAnalyzer = ignoreAnalyzer;
-	}
 }
