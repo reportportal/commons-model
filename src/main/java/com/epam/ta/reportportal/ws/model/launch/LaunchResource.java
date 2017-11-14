@@ -17,16 +17,9 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.launch;
-
-import java.util.Date;
-import java.util.Set;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.OwnedResource;
@@ -36,11 +29,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Date;
+import java.util.Set;
+
 /**
  * JSON Representation of Report Portal's Launch domain object
- * 
+ *
  * @author Andrei Varabyeu
- * 
  */
 @JsonInclude(Include.NON_NULL)
 public class LaunchResource extends OwnedResource {
@@ -89,6 +87,9 @@ public class LaunchResource extends OwnedResource {
 
 	@JsonProperty("approximateDuration")
 	private double approximateDuration;
+
+	@JsonProperty("hasRetries")
+	private boolean hasRetries;
 
 	public double getApproximateDuration() {
 		return approximateDuration;
@@ -186,20 +187,19 @@ public class LaunchResource extends OwnedResource {
 		return isProcessing;
 	}
 
+	public boolean getHasRetries() {
+		return hasRetries;
+	}
+
+	public void setHasRetries(boolean hasRetries) {
+		this.hasRetries = hasRetries;
+	}
+
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("LaunchResource{");
-		sb.append("launchId='").append(launchId).append('\'');
-		sb.append(", name='").append(name).append('\'');
-		sb.append(", number=").append(number);
-		sb.append(", description='").append(description).append('\'');
-		sb.append(", startTime=").append(startTime);
-		sb.append(", endTime=").append(endTime);
-		sb.append(", status='").append(status).append('\'');
-		sb.append(", statistics=").append(statistics);
-		sb.append(", tags=").append(tags);
-		sb.append(", mode=").append(mode);
-		sb.append('}');
-		return sb.toString();
+		return "LaunchResource{" + "launchId='" + launchId + '\'' + ", name='" + name + '\'' + ", number=" + number + ", description='"
+				+ description + '\'' + ", startTime=" + startTime + ", endTime=" + endTime + ", status='" + status + '\'' + ", statistics="
+				+ statistics + ", tags=" + tags + ", mode=" + mode + ", isProcessing=" + isProcessing + ", approximateDuration="
+				+ approximateDuration + ", hasRetries=" + hasRetries + '}';
 	}
 }
