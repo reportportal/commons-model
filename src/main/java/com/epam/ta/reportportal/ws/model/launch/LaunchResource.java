@@ -58,7 +58,7 @@ public class LaunchResource extends OwnedResource {
 	private Long number;
 
 	@JsonProperty("description")
-	@Size(min = ValidationConstraints.MIN_DESCRIPTION_LENGTH, max = ValidationConstraints.MAX_LAUNCH_DESCRIPTION_LENGTH)
+	@Size(max = ValidationConstraints.MAX_LAUNCH_DESCRIPTION_LENGTH)
 	private String description;
 
 	@NotNull
