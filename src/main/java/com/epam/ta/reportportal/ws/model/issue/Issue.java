@@ -47,9 +47,6 @@ public class Issue {
 	@Size(max = ValidationConstraints.MAX_DESCRIPTION_LENGTH)
 	private String comment;
 
-	@JsonProperty(value = "autoAnalyzed")
-	private boolean autoAnalyzed;
-
 	@JsonProperty(value = "ignoreAnalyzer")
 	private boolean ignoreAnalyzer;
 
@@ -171,14 +168,6 @@ public class Issue {
 		this.comment = comment;
 	}
 
-	public boolean getAutoAnalyzed() {
-		return autoAnalyzed;
-	}
-
-	public void setAutoAnalyzed(boolean autoAnalyzed) {
-		this.autoAnalyzed = autoAnalyzed;
-	}
-
 	public boolean isIgnoreAnalyzer() {
 		return ignoreAnalyzer;
 	}
@@ -192,7 +181,6 @@ public class Issue {
 		final StringBuilder sb = new StringBuilder("Issue{");
 		sb.append("issueType='").append(issueType).append('\'');
 		sb.append(", comment='").append(comment).append('\'');
-		sb.append(", autoAnalyzed='").append(autoAnalyzed).append("\'");
 		sb.append(", externalSystemIssues=").append(externalSystemIssues);
 		sb.append('}');
 		return sb.toString();

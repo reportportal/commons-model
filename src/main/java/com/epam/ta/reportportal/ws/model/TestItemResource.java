@@ -97,23 +97,12 @@ public class TestItemResource {
 	@JsonProperty(value = "retries")
 	private List<TestItemResource> retries;
 
-	@JsonProperty(value = "ignoreAnalyzer")
-	private boolean ignoreAnalyzer;
-
 	public List<TestItemResource> getRetries() {
 		return retries;
 	}
 
 	public void setRetries(List<TestItemResource> retries) {
 		this.retries = retries;
-	}
-
-	public boolean isIgnoreAnalyzer() {
-		return ignoreAnalyzer;
-	}
-
-	public void setIgnoreAnalyzer(boolean ignoreAnalyzer) {
-		this.ignoreAnalyzer = ignoreAnalyzer;
 	}
 
 	public String getLaunchId() {
@@ -272,7 +261,6 @@ public class TestItemResource {
 				", hasChilds=" + hasChilds +
 				", launchId='" + launchId + '\'' +
 				", uniqueId='" + uniqueId + '\'' +
-				", ignoreAnalyzer='" + ignoreAnalyzer + '\'' +
 				'}';
 	}
 }
