@@ -29,7 +29,7 @@ public class Order {
 		return isAsc;
 	}
 
-	public void setAsc(boolean isAsc) {
+	public void setIsAsc(boolean isAsc) {
 		this.isAsc = isAsc;
 	}
 
