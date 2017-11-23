@@ -57,6 +57,14 @@ public class SelectionParameters {
 		this.pageNumber = 1;
 	}
 
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
 	public int getPageNumber() {
 		return pageNumber;
 	}
