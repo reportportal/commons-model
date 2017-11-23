@@ -29,8 +29,8 @@ public class Order {
 		return isAsc;
 	}
 
-	public void setAsc(boolean asc) {
-		isAsc = asc;
+	public void setAsc(boolean isAsc) {
+		this.isAsc = isAsc;
 	}
 
 	@Override
