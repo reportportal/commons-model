@@ -25,7 +25,7 @@ public class Order {
 		this.sortingColumnName = sortingColumnName;
 	}
 
-	public boolean isAsc() {
+	public boolean getIsAsc() {
 		return isAsc;
 	}
 
