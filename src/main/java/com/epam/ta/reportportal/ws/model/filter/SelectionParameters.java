@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
@@ -35,14 +36,14 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
  * Part of widget domain object. This class contains parameters for selecting
  * widget content <br>
  * IE sorting, number of items.
- * 
+ *
  * @author Aliaksei_Makayed
- * 
+ *
  */
 @JsonInclude(Include.NON_NULL)
 public class SelectionParameters {
 
-	@Min(value = MIN_COLLECTION_SIZE)
+	@Size(min = MIN_COLLECTION_SIZE)
 	@JsonProperty(value = "orders", required = true)
 	private List<Order> orders;
 
