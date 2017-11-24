@@ -22,8 +22,8 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Shared entity can used for sending information to client about shared resource.
@@ -35,13 +35,25 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_NULL)
 public class SharedEntity {
 
+	@JsonProperty(value = "id")
+	private String id;
+
 	@JsonProperty(value = "name")
 	private String name;
 
 	@JsonProperty(value = "owner")
 	private String owner;
 
+	@JsonProperty(value = "description")
 	private String description;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
