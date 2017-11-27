@@ -21,35 +21,31 @@
 
 package com.epam.ta.reportportal.ws.model.filter;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PAGE_NUMBER;
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_PAGE_NUMBER;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+import java.util.List;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 
 /**
  * Part of widget domain object. This class contains parameters for selecting
  * widget content <br>
  * IE sorting, number of items.
- * 
+ *
  * @author Aliaksei_Makayed
- * 
+ *
  */
 @JsonInclude(Include.NON_NULL)
 public class SelectionParameters {
 
-	@NotNull
-	@JsonProperty(value = "sorting_column", required = true)
-	private String sortingColumnName;
-
-	@NotNull
-	@JsonProperty(value = "is_asc", required = true)
-	private boolean isAsc;
+	@Size(min = MIN_COLLECTION_SIZE)
+	@JsonProperty(value = "orders", required = true)
+	private List<Order> orders;
 
 	@Min(value = MIN_PAGE_NUMBER)
 	@Max(value = MAX_PAGE_NUMBER)
@@ -62,20 +58,12 @@ public class SelectionParameters {
 		this.pageNumber = 1;
 	}
 
-	public String getSortingColumnName() {
-		return sortingColumnName;
+	public List<Order> getOrders() {
+		return orders;
 	}
 
-	public void setSortingColumnName(String sortingColumnName) {
-		this.sortingColumnName = sortingColumnName;
-	}
-
-	public boolean getIsAsc() {
-		return isAsc;
-	}
-
-	public void setIsAsc(boolean isAsc) {
-		this.isAsc = isAsc;
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	public int getPageNumber() {
@@ -87,43 +75,31 @@ public class SelectionParameters {
 	}
 
 	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		SelectionParameters that = (SelectionParameters) o;
+
+		if (pageNumber != that.pageNumber) {
+			return false;
+		}
+		return orders != null ? orders.equals(that.orders) : that.orders == null;
+	}
+
+	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (isAsc ? 1231 : 1237);
-		result = prime * result + pageNumber;
-		result = prime * result + ((sortingColumnName == null) ? 0 : sortingColumnName.hashCode());
+		int result = orders != null ? orders.hashCode() : 0;
+		result = 31 * result + pageNumber;
 		return result;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		SelectionParameters other = (SelectionParameters) obj;
-		if (isAsc != other.isAsc)
-			return false;
-		if (pageNumber != other.pageNumber)
-			return false;
-		if (sortingColumnName == null) {
-			if (other.sortingColumnName != null)
-				return false;
-		} else if (!sortingColumnName.equals(other.sortingColumnName))
-			return false;
-		return true;
-	}
-
-	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("SelectionParameters{");
-		sb.append("sortingColumnName='").append(sortingColumnName).append('\'');
-		sb.append(", isAsc=").append(isAsc);
-		sb.append(", pageNumber=").append(pageNumber);
-		sb.append('}');
-		return sb.toString();
+		return "SelectionParameters{" + "orders=" + orders + ", pageNumber=" + pageNumber + '}';
 	}
 }
