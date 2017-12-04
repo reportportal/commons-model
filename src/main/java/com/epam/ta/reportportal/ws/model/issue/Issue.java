@@ -48,10 +48,10 @@ public class Issue {
 	private String comment;
 
 	@JsonProperty(value = "autoAnalyzed")
-	private boolean autoAnalyzed;
+	private Boolean autoAnalyzed;
 
 	@JsonProperty(value = "ignoreAnalyzer")
-	private boolean ignoreAnalyzer;
+	private Boolean ignoreAnalyzer;
 
 	@JsonProperty(value = "externalSystemIssues")
 	private Set<ExternalSystemIssue> externalSystemIssues;
@@ -171,19 +171,19 @@ public class Issue {
 		this.comment = comment;
 	}
 
-	public boolean getAutoAnalyzed() {
+	public Boolean getAutoAnalyzed() {
 		return autoAnalyzed;
 	}
 
-	public void setAutoAnalyzed(boolean autoAnalyzed) {
+	public void setAutoAnalyzed(Boolean autoAnalyzed) {
 		this.autoAnalyzed = autoAnalyzed;
 	}
 
-	public boolean isIgnoreAnalyzer() {
+	public Boolean getIgnoreAnalyzer() {
 		return ignoreAnalyzer;
 	}
 
-	public void setIgnoreAnalyzer(boolean ignoreAnalyzer) {
+	public void setIgnoreAnalyzer(Boolean ignoreAnalyzer) {
 		this.ignoreAnalyzer = ignoreAnalyzer;
 	}
 
