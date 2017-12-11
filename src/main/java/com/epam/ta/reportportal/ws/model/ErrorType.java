@@ -367,6 +367,11 @@ public enum ErrorType {
 	BAD_SAVE_USER_FILTER_REQUEST(40031, "Bad save user filter request. {}"),
 
 	/**
+	 * Error while processing retries
+	 */
+	RETRIES_HANDLER_ERROR(40032, "Incorrect retries processing. {}"),
+
+	/**
 	 * Bad format of importing file
 	 */
 	BAD_IMPORT_FILE_TYPE(40035, "Bad request. The importing file has invalid format. '{}'"),
