@@ -23,8 +23,6 @@ package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.Size;
-
 /**
  * Test item parameters representation
  *
@@ -33,7 +31,6 @@ import javax.validation.constraints.Size;
 public class ParameterResource {
 
     @JsonProperty(value = "key")
-    @Size(max = ValidationConstraints.MAX_PARAMETERS_LENGTH)
     private String key;
 
     @JsonProperty(value = "value")
