@@ -33,11 +33,10 @@ import javax.validation.constraints.Size;
 public class ParameterResource {
 
     @JsonProperty(value = "key")
-    @Size(min = ValidationConstraints.MIN_DESCRIPTION_LENGTH, max = ValidationConstraints.MAX_PARAMETERS_LENGTH)
+    @Size(max = ValidationConstraints.MAX_PARAMETERS_LENGTH)
     private String key;
 
     @JsonProperty(value = "value")
-    @Size(min = ValidationConstraints.MIN_DESCRIPTION_LENGTH, max = ValidationConstraints.MAX_PARAMETERS_LENGTH)
     private String value;
 
     public String getKey() {
