@@ -369,7 +369,7 @@ public enum ErrorType {
 	/**
 	 * Error while processing retries
 	 */
-	RETRIES_HANDLER_ERROR(40032, "Incorrect retries processing. {}"),
+	RETRIES_HANDLER_ERROR(40036, "Incorrect retries processing. {}"),
 
 	/**
 	 * Bad format of importing file
