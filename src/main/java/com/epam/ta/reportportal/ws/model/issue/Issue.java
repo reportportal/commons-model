@@ -17,7 +17,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.issue;
 
@@ -32,9 +32,8 @@ import java.util.Set;
 
 /**
  * Test item issue
- * 
+ *
  * @author Dzianis Shlychkou
- * 
  */
 @JsonInclude(Include.NON_NULL)
 public class Issue {
@@ -48,10 +47,10 @@ public class Issue {
 	private String comment;
 
 	@JsonProperty(value = "autoAnalyzed")
-	private Boolean autoAnalyzed;
+	private boolean autoAnalyzed;
 
 	@JsonProperty(value = "ignoreAnalyzer")
-	private Boolean ignoreAnalyzer;
+	private boolean ignoreAnalyzer;
 
 	@JsonProperty(value = "externalSystemIssues")
 	private Set<ExternalSystemIssue> externalSystemIssues;
@@ -70,7 +69,7 @@ public class Issue {
 
 		@JsonProperty(value = "systemId")
 		private String externalSystemId;
-		
+
 		@JsonProperty(value = "url")
 		private String url;
 
@@ -105,26 +104,29 @@ public class Issue {
 		public String getExternalSystemId() {
 			return externalSystemId;
 		}
-		
+
 		public void setUrl(String value) {
 			this.url = value;
 		}
-		
+
 		public String getUrl() {
 			return url;
 		}
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (!(o instanceof ExternalSystemIssue))
+			}
+			if (!(o instanceof ExternalSystemIssue)) {
 				return false;
+			}
 
 			ExternalSystemIssue that = (ExternalSystemIssue) o;
 
-			if (!ticketId.equals(that.ticketId))
+			if (!ticketId.equals(that.ticketId)) {
 				return false;
+			}
 
 			return true;
 		}
@@ -171,19 +173,19 @@ public class Issue {
 		this.comment = comment;
 	}
 
-	public Boolean getAutoAnalyzed() {
+	public boolean getAutoAnalyzed() {
 		return autoAnalyzed;
 	}
 
-	public void setAutoAnalyzed(Boolean autoAnalyzed) {
+	public void setAutoAnalyzed(boolean autoAnalyzed) {
 		this.autoAnalyzed = autoAnalyzed;
 	}
 
-	public Boolean getIgnoreAnalyzer() {
+	public boolean getIgnoreAnalyzer() {
 		return ignoreAnalyzer;
 	}
 
-	public void setIgnoreAnalyzer(Boolean ignoreAnalyzer) {
+	public void setIgnoreAnalyzer(boolean ignoreAnalyzer) {
 		this.ignoreAnalyzer = ignoreAnalyzer;
 	}
 
