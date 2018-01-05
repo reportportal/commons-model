@@ -35,6 +35,17 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 	@JsonProperty(value = "issue")
 	private Issue issue;
 
+	@JsonProperty(value = "retry")
+	private boolean retry;
+
+	public boolean getRetry() {
+		return retry;
+	}
+
+	public void setRetry(boolean retry) {
+		this.retry = retry;
+	}
+
 	public Issue getIssue() {
 		return issue;
 	}
@@ -45,9 +56,6 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("FinishTestItemRQ{");
-		sb.append("issue=").append(issue);
-		sb.append('}');
-		return sb.toString();
+		return "FinishTestItemRQ{" + "issue=" + issue + ", retry=" + retry + "} " + super.toString();
 	}
 }
