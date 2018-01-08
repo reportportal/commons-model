@@ -21,12 +21,12 @@
  
 package com.epam.ta.reportportal.ws.model;
 
-import javax.validation.Valid;
-
 import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.Valid;
 
 @JsonInclude(Include.NON_NULL)
 public class FinishTestItemRQ extends FinishExecutionRQ {
@@ -36,13 +36,13 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 	private Issue issue;
 
 	@JsonProperty(value = "retry")
-	private boolean retry;
+	private Boolean retry;
 
-	public boolean getRetry() {
+	public Boolean isRetry() {
 		return retry;
 	}
 
-	public void setRetry(boolean retry) {
+	public void setRetry(Boolean retry) {
 		this.retry = retry;
 	}
 
