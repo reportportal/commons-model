@@ -61,13 +61,13 @@ public class StartTestItemRQ extends StartRQ {
 	private String type;
 
 	@JsonProperty(value = "retry")
-	private boolean retry;
+	private Boolean retry;
 
-	public boolean isRetry() {
+	public Boolean isRetry() {
 		return retry;
 	}
 
-	public void setRetry(boolean retry) {
+	public void setRetry(Boolean retry) {
 		this.retry = retry;
 	}
 

@@ -21,12 +21,12 @@
  
 package com.epam.ta.reportportal.ws.model;
 
-import javax.validation.Valid;
-
 import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.Valid;
 
 @JsonInclude(Include.NON_NULL)
 public class FinishTestItemRQ extends FinishExecutionRQ {
@@ -34,6 +34,17 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 	@Valid
 	@JsonProperty(value = "issue")
 	private Issue issue;
+
+	@JsonProperty(value = "retry")
+	private Boolean retry;
+
+	public Boolean isRetry() {
+		return retry;
+	}
+
+	public void setRetry(Boolean retry) {
+		this.retry = retry;
+	}
 
 	public Issue getIssue() {
 		return issue;
@@ -45,9 +56,6 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("FinishTestItemRQ{");
-		sb.append("issue=").append(issue);
-		sb.append('}');
-		return sb.toString();
+		return "FinishTestItemRQ{" + "issue=" + issue + ", retry=" + retry + "} " + super.toString();
 	}
 }
