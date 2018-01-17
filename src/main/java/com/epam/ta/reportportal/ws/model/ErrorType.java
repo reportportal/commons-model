@@ -374,7 +374,12 @@ public enum ErrorType {
 	/**
 	 * Bad format of importing file
 	 */
-	BAD_IMPORT_FILE_TYPE(40035, "Bad request. The importing file has invalid format. '{}'"),
+	IMPORT_FILE_ERROR(40035, "Error while importing the file. '{}'"),
+
+	/**
+	 * Error during the xml file parsing
+	 */
+	PARSING_XML_ERROR(40037, "Error during parsing the xml file: '{}'"),
 
 	/**
 	 * Bad save user filter request
