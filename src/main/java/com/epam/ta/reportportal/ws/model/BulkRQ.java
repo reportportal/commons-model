@@ -21,29 +21,28 @@
 
 package com.epam.ta.reportportal.ws.model;
 
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Map;
 
 /**
- * @author Dzmitry_Kavalets
  * @param <T> Type of Entity
+ * @author Dzmitry_Kavalets
  */
 public class BulkRQ<T> {
 
 	@Valid
 	@NotNull
 	@JsonProperty(value = "entities", required = true)
-	private Map<String, T> entities;
+	private Map<Long, T> entities;
 
-	public Map<String, T> getEntities() {
+	public Map<Long, T> getEntities() {
 		return entities;
 	}
 
-	public void setEntities(Map<String, T> entities) {
+	public void setEntities(Map<Long, T> entities) {
 		this.entities = entities;
 	}
 

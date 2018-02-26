@@ -50,7 +50,7 @@ public class StartTestItemRQ extends StartRQ {
 	@NotNull
 	@JsonProperty(value = "launch_id", required = true)
 	@ApiModelProperty(required = true)
-	private String launchId;
+	private Long launchId;
 
 	@NotNull
 	@JsonProperty(value = "type", required = true)
@@ -71,11 +71,11 @@ public class StartTestItemRQ extends StartRQ {
 		this.retry = retry;
 	}
 
-	public String getLaunchId() {
+	public Long getLaunchId() {
 		return launchId;
 	}
 
-	public void setLaunchId(String launchId) {
+	public void setLaunchId(Long launchId) {
 		this.launchId = launchId;
 	}
 

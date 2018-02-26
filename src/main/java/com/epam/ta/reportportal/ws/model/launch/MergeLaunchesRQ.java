@@ -36,7 +36,7 @@ public class MergeLaunchesRQ extends StartLaunchRQ {
     @NotNull
     @JsonProperty(value = "launches", required = true)
     @ApiModelProperty(required = true)
-    private Set<String> launches;
+    private Set<Long> launches;
 
     @NotNull
     @JsonProperty(value = "end_time", required = true)
@@ -59,15 +59,15 @@ public class MergeLaunchesRQ extends StartLaunchRQ {
         this.extendSuitesDescription = extendSuitesDescription;
     }
 
-    public void setLaunches(Set<String> values) {
-        this.launches = values;
-    }
+	public Set<Long> getLaunches() {
+		return launches;
+	}
 
-    public Set<String> getLaunches() {
-        return launches;
-    }
+	public void setLaunches(Set<Long> launches) {
+		this.launches = launches;
+	}
 
-    public Date getEndTime() {
+	public Date getEndTime() {
         return endTime;
     }
 
