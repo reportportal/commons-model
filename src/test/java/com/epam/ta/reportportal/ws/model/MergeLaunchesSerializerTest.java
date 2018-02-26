@@ -39,7 +39,7 @@ public class MergeLaunchesSerializerTest {
 
     private static final String EXPECTED_JSON = "{\"name\":\"name\"," +
             "\"description\":\"description\",\"tags\":[\"tag\"],\"start_time\":0,\"mode\":\"DEFAULT\"," +
-            "\"launches\":[\"launch\"],\"end_time\":1,\"merge_type\":\"BASIC\",\"extendSuitesDescription\":true}";
+            "\"launches\":[1],\"end_time\":1,\"merge_type\":\"BASIC\",\"extendSuitesDescription\":true}";
 
     private ObjectMapper om = new ObjectMapper();
 
@@ -65,7 +65,7 @@ public class MergeLaunchesSerializerTest {
         rq.setTags(Collections.singleton("tag"));
         rq.setEndTime(new Date(1));
         rq.setExtendSuitesDescription(true);
-        rq.setLaunches(Collections.singleton("launch"));
+        rq.setLaunches(Collections.singleton(1L));
         rq.setMergeStrategyType("BASIC");
         return rq;
     }

@@ -35,7 +35,7 @@ public class StartLaunchRS extends EntryCreatedRS {
 
 	}
 
-	public StartLaunchRS(String id, Long number) {
+	public StartLaunchRS(Long id, Long number) {
 		super(id);
 		this.number = number;
 	}

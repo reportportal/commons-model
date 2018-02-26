@@ -22,8 +22,8 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Element of response for batch save operation.
@@ -44,7 +44,7 @@ public class BatchElementCreatedRS extends EntryCreatedRS {
 		
 	}
 	
-	public BatchElementCreatedRS(String id) {
+	public BatchElementCreatedRS(Long id) {
 		super.setId(id);
 	}
 	
