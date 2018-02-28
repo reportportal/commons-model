@@ -45,7 +45,7 @@ public class LaunchResource extends OwnedResource {
 
 	@NotNull
 	@JsonProperty(value = "id", required = true)
-	private String launchId;
+	private Long launchId;
 
 	@NotNull
 	@NotEmpty
@@ -99,11 +99,11 @@ public class LaunchResource extends OwnedResource {
 		this.approximateDuration = approximateDuration;
 	}
 
-	public String getLaunchId() {
+	public Long getLaunchId() {
 		return launchId;
 	}
 
-	public void setLaunchId(String launchId) {
+	public void setLaunchId(Long launchId) {
 		this.launchId = launchId;
 	}
 
