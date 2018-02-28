@@ -68,17 +68,23 @@ public class ProjectConfiguration {
 	@ApiModelProperty(allowableValues = "ONE_WEEK, TWO_WEEKS, THREE_WEEKS, ONE_MONTH, THREE_MONTHS")
 	private String keepScreenshots;
 
-	@JsonProperty(value = "isAutoAnalyzerEnabled")
-	private Boolean isAAEnabled;
-
-/*	@JsonProperty(value = "analyzeOnTheFly")
-	private Boolean analyzeOnTheFly;*/
+	@JsonProperty(value = "analyzer_mode")
+	@ApiModelProperty(allowableValues = "DEFAULT, LAUNCH_NAME")
+	private String analyzerMode;
 
 	@JsonProperty(value = "emailConfiguration")
 	private ProjectEmailConfigDTO emailConfig;
 
 	@JsonProperty(value = "subTypes")
 	private Map<String, List<IssueSubTypeResource>> subTypes;
+
+	public String getAnalyzerMode() {
+		return analyzerMode;
+	}
+
+	public void setAnalyzerMode(String analyzerMode) {
+		this.analyzerMode = analyzerMode;
+	}
 
 	public void setExternalSystem(List<ExternalSystemResource> value) {
 		this.externalSystem = value;
@@ -135,22 +141,6 @@ public class ProjectConfiguration {
 	public String getKeepScreenshots() {
 		return keepScreenshots;
 	}
-
-	public void setIsAAEnabled(boolean value) {
-		this.isAAEnabled = value;
-	}
-
-	public Boolean getIsAAEnabled() {
-		return isAAEnabled;
-	}
-
-/*	public Boolean getAnalyzeOnTheFly() {
-		return analyzeOnTheFly;
-	}
-
-	public void setAnalyzeOnTheFly(Boolean analyzeOnTheFly) {
-		this.analyzeOnTheFly = analyzeOnTheFly;
-	}*/
 
 	public void setEmailConfig(ProjectEmailConfigDTO config) {
 		this.emailConfig = config;
