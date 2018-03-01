@@ -72,7 +72,7 @@ public class ProjectConfiguration {
 	private Boolean isAutoAnalyzerEnabled;
 
 	@JsonProperty(value = "analyzer_mode")
-	@ApiModelProperty(allowableValues = "DEFAULT, LAUNCH_NAME")
+	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME")
 	private String analyzerMode;
 
 	@JsonProperty(value = "emailConfiguration")
