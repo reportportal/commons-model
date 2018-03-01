@@ -17,7 +17,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.project;
 
@@ -35,7 +35,7 @@ import java.util.Map;
 
 /**
  * Project configuration model
- * 
+ *
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
@@ -68,6 +68,9 @@ public class ProjectConfiguration {
 	@ApiModelProperty(allowableValues = "ONE_WEEK, TWO_WEEKS, THREE_WEEKS, ONE_MONTH, THREE_MONTHS")
 	private String keepScreenshots;
 
+	@JsonProperty(value = "isAutoAnalyzerEnabled")
+	private Boolean isAutoAnalyzerEnabled;
+
 	@JsonProperty(value = "analyzer_mode")
 	@ApiModelProperty(allowableValues = "DEFAULT, LAUNCH_NAME")
 	private String analyzerMode;
@@ -77,6 +80,14 @@ public class ProjectConfiguration {
 
 	@JsonProperty(value = "subTypes")
 	private Map<String, List<IssueSubTypeResource>> subTypes;
+
+	public Boolean getIsAutoAnalyzerEnabled() {
+		return isAutoAnalyzerEnabled;
+	}
+
+	public void setIsAutoAnalyzerEnabled(Boolean autoAnalyzerEnabled) {
+		isAutoAnalyzerEnabled = autoAnalyzerEnabled;
+	}
 
 	public String getAnalyzerMode() {
 		return analyzerMode;
