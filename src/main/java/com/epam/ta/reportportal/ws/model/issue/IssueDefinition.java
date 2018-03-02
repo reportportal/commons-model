@@ -21,13 +21,13 @@
  
 package com.epam.ta.reportportal.ws.model.issue;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 /**
  * Test item issue with provided it
@@ -41,18 +41,18 @@ public class IssueDefinition {
 	@NotNull
 	@JsonProperty(value = "test_item_id", required = true)
 	@ApiModelProperty(required = true)
-	private String id;
+	private Long id;
 
 	@NotNull
 	@Valid
 	@JsonProperty(value = "issue", required = true)
 	private Issue issue;
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -66,10 +66,6 @@ public class IssueDefinition {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("IssueDefinition{");
-		sb.append("id='").append(id).append('\'');
-		sb.append(", issue=").append(issue);
-		sb.append('}');
-		return sb.toString();
+		return "IssueDefinition{" + "id=" + id + ", issue=" + issue + '}';
 	}
 }
