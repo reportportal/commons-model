@@ -17,8 +17,8 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model.log;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -32,10 +32,8 @@ import java.util.Arrays;
 import java.util.Date;
 
 /**
- * 
  * @author Henadzi_Vrubleuski
  * @author Andrei Varabyeu
- * 
  */
 @JsonInclude(Include.NON_NULL)
 public class SaveLogRQ {
@@ -43,20 +41,20 @@ public class SaveLogRQ {
 	@NotNull
 	@JsonProperty(value = "item_id", required = true)
 	@ApiModelProperty(required = true)
-	private String testItemId;
-	
+	private Long testItemId;
+
 	@NotNull
 	@JsonProperty(value = "time", required = true)
 	@ApiModelProperty(required = true)
 	private Date logTime;
-	
+
 	@JsonProperty(value = "message")
 	private String message;
-	
+
 	@JsonProperty(value = "level")
 	@ApiModelProperty(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
 	private String level;
-	
+
 	@JsonProperty(value = "file")
 	private File file;
 
@@ -76,12 +74,12 @@ public class SaveLogRQ {
 		this.message = message;
 	}
 
-	public void setTestItemId(String testItemId) {
-		this.testItemId = testItemId;
+	public Long getTestItemId() {
+		return testItemId;
 	}
 
-	public String getTestItemId() {
-		return testItemId;
+	public void setTestItemId(Long testItemId) {
+		this.testItemId = testItemId;
 	}
 
 	public void setLevel(String level) {
@@ -105,7 +103,7 @@ public class SaveLogRQ {
 
 		@JsonProperty(value = "name")
 		private String name;
-		
+
 		@JsonIgnore
 		private byte[] content;
 
