@@ -102,25 +102,35 @@ public class StartRQ {
 		return sb.toString();
 	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
 
-        StartRQ startRQ = (StartRQ) o;
+		StartRQ startRQ = (StartRQ) o;
 
-        if (!name.equals(startRQ.name)) return false;
-        if (description != null ? !description.equals(startRQ.description) : startRQ.description != null) return false;
-        if (tags != null ? !tags.equals(startRQ.tags) : startRQ.tags != null) return false;
-        return startTime.equals(startRQ.startTime);
-    }
+		if (name != null ? !name.equals(startRQ.name) : startRQ.name != null) {
+			return false;
+		}
+		if (description != null ? !description.equals(startRQ.description) : startRQ.description != null) {
+			return false;
+		}
+		if (tags != null ? !tags.equals(startRQ.tags) : startRQ.tags != null) {
+			return false;
+		}
+		return startTime != null ? startTime.equals(startRQ.startTime) : startRQ.startTime == null;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (tags != null ? tags.hashCode() : 0);
-        result = 31 * result + startTime.hashCode();
-        return result;
-    }
+	@Override
+	public int hashCode() {
+		int result = name != null ? name.hashCode() : 0;
+		result = 31 * result + (description != null ? description.hashCode() : 0);
+		result = 31 * result + (tags != null ? tags.hashCode() : 0);
+		result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
+		return result;
+	}
 }
