@@ -52,8 +52,8 @@ public class MergeLaunchesRQ {
 	@ApiModelProperty
 	private Date startTime;
 
-	@JsonProperty(value = "end_time", required = true)
-	@ApiModelProperty(required = true)
+	@JsonProperty(value = "end_time")
+	@ApiModelProperty
 	private Date endTime;
 
 	@NotNull
