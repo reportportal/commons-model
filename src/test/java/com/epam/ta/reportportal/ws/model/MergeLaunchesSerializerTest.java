@@ -37,37 +37,36 @@ import java.util.Date;
  */
 public class MergeLaunchesSerializerTest {
 
-    private static final String EXPECTED_JSON = "{\"name\":\"name\"," +
-            "\"description\":\"description\",\"tags\":[\"tag\"],\"start_time\":0,\"mode\":\"DEFAULT\"," +
-            "\"launches\":[\"launch\"],\"end_time\":1,\"merge_type\":\"BASIC\",\"extendSuitesDescription\":true}";
+	private static final String EXPECTED_JSON = "{\"launches\":[\"launch\"],\"name\":\"name\",\"mode\":\"DEFAULT\",\"start_time\":0,"
+			+ "\"end_time\":1,\"merge_type\":\"BASIC\",\"extendSuitesDescription\":true,\"description\":\"description\",\"tags\":[\"tag\"]}";
 
-    private ObjectMapper om = new ObjectMapper();
+	private ObjectMapper om = new ObjectMapper();
 
-    @Test
-    public void testSerializer() throws JsonProcessingException {
-        MergeLaunchesRQ rq = getMergeLaunches();
-        String json = om.writeValueAsString(rq);
-        Assert.assertEquals("Incorrect serialization result", EXPECTED_JSON, json);
-    }
+	@Test
+	public void testSerializer() throws JsonProcessingException {
+		MergeLaunchesRQ rq = getMergeLaunches();
+		String json = om.writeValueAsString(rq);
+		Assert.assertEquals("Incorrect serialization result", EXPECTED_JSON, json);
+	}
 
-    @Test
-    public void testDeserializer() throws IOException {
-        MergeLaunchesRQ rq = om.readValue(EXPECTED_JSON.getBytes(), MergeLaunchesRQ.class);
-        Assert.assertEquals("Incorrect deserialization result", getMergeLaunches(), rq);
-    }
+	@Test
+	public void testDeserializer() throws IOException {
+		MergeLaunchesRQ rq = om.readValue(EXPECTED_JSON.getBytes(), MergeLaunchesRQ.class);
+		Assert.assertEquals("Incorrect deserialization result", getMergeLaunches(), rq);
+	}
 
-    private MergeLaunchesRQ getMergeLaunches() {
-        MergeLaunchesRQ rq = new MergeLaunchesRQ();
-        rq.setName("name");
-        rq.setDescription("description");
-        rq.setMode(Mode.DEFAULT);
-        rq.setStartTime(new Date(0));
-        rq.setTags(Collections.singleton("tag"));
-        rq.setEndTime(new Date(1));
-        rq.setExtendSuitesDescription(true);
-        rq.setLaunches(Collections.singleton("launch"));
-        rq.setMergeStrategyType("BASIC");
-        return rq;
-    }
+	private MergeLaunchesRQ getMergeLaunches() {
+		MergeLaunchesRQ rq = new MergeLaunchesRQ();
+		rq.setName("name");
+		rq.setDescription("description");
+		rq.setMode(Mode.DEFAULT);
+		rq.setStartTime(new Date(0));
+		rq.setTags(Collections.singleton("tag"));
+		rq.setEndTime(new Date(1));
+		rq.setExtendSuitesDescription(true);
+		rq.setLaunches(Collections.singleton("launch"));
+		rq.setMergeStrategyType("BASIC");
+		return rq;
+	}
 
 }

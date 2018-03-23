@@ -17,7 +17,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.project;
 
@@ -35,7 +35,7 @@ import java.util.Map;
 
 /**
  * Project configuration model
- * 
+ *
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
@@ -69,16 +69,33 @@ public class ProjectConfiguration {
 	private String keepScreenshots;
 
 	@JsonProperty(value = "isAutoAnalyzerEnabled")
-	private Boolean isAAEnabled;
+	private Boolean isAutoAnalyzerEnabled;
 
-/*	@JsonProperty(value = "analyzeOnTheFly")
-	private Boolean analyzeOnTheFly;*/
+	@JsonProperty(value = "analyzer_mode")
+	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME")
+	private String analyzerMode;
 
 	@JsonProperty(value = "emailConfiguration")
 	private ProjectEmailConfigDTO emailConfig;
 
 	@JsonProperty(value = "subTypes")
 	private Map<String, List<IssueSubTypeResource>> subTypes;
+
+	public Boolean getIsAutoAnalyzerEnabled() {
+		return isAutoAnalyzerEnabled;
+	}
+
+	public void setIsAutoAnalyzerEnabled(Boolean autoAnalyzerEnabled) {
+		isAutoAnalyzerEnabled = autoAnalyzerEnabled;
+	}
+
+	public String getAnalyzerMode() {
+		return analyzerMode;
+	}
+
+	public void setAnalyzerMode(String analyzerMode) {
+		this.analyzerMode = analyzerMode;
+	}
 
 	public void setExternalSystem(List<ExternalSystemResource> value) {
 		this.externalSystem = value;
@@ -135,22 +152,6 @@ public class ProjectConfiguration {
 	public String getKeepScreenshots() {
 		return keepScreenshots;
 	}
-
-	public void setIsAAEnabled(boolean value) {
-		this.isAAEnabled = value;
-	}
-
-	public Boolean getIsAAEnabled() {
-		return isAAEnabled;
-	}
-
-/*	public Boolean getAnalyzeOnTheFly() {
-		return analyzeOnTheFly;
-	}
-
-	public void setAnalyzeOnTheFly(Boolean analyzeOnTheFly) {
-		this.analyzeOnTheFly = analyzeOnTheFly;
-	}*/
 
 	public void setEmailConfig(ProjectEmailConfigDTO config) {
 		this.emailConfig = config;
