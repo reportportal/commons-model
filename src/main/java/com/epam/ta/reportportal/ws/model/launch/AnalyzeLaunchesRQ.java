@@ -31,18 +31,18 @@ import java.util.List;
  * @author Pavel Bortnik
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AnalyzeLaunchRQ {
+public class AnalyzeLaunchesRQ {
 
 	@JsonProperty(value = "launch_ids", required = true)
 	@ApiModelProperty
 	private List<String> launchIds;
 
 	@JsonProperty(value = "analyzer_mode", required = true)
-	@ApiModelProperty
-	private String analyzerMode;
+	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME, CURRENT_LAUNCH")
+	private String analyzerHistoryMode;
 
 	@JsonProperty(value = "analyze_items_mode", required = true)
-	@ApiModelProperty
+	@ApiModelProperty(allowableValues = "TO_INVESTIGATE, AUTO_ANALYZED, MANUALLY_ANALYZED")
 	private List<String> analyzeItemsMode;
 
 	public List<String> getLaunchIds() {
@@ -53,12 +53,12 @@ public class AnalyzeLaunchRQ {
 		this.launchIds = launchIds;
 	}
 
-	public String getAnalyzerMode() {
-		return analyzerMode;
+	public String getAnalyzerHistoryMode() {
+		return analyzerHistoryMode;
 	}
 
-	public void setAnalyzerMode(String analyzerMode) {
-		this.analyzerMode = analyzerMode;
+	public void setAnalyzerHistoryMode(String analyzerHistoryMode) {
+		this.analyzerHistoryMode = analyzerHistoryMode;
 	}
 
 	public List<String> getAnalyzeItemsMode() {
