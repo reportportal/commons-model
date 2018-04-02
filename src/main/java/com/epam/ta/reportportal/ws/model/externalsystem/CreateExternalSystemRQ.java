@@ -27,10 +27,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_DOMAIN_SIZE;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_DOMAIN_SIZE;
 
 /**
  * Create request for ExternalSystem entity
@@ -41,19 +41,19 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 public class CreateExternalSystemRQ {
 
 	@NotEmpty
-	@NotNull
+//	@NotNull
 	@JsonProperty(value = "url")
 	@ApiModelProperty(required = true)
 	private String url;
 
 	@NotEmpty
-	@NotNull
+//	@NotNull
 	@JsonProperty(value = "systemType")
 	@ApiModelProperty(required = true, allowableValues = "JIRA, TFS, RALLY")
 	private String externalSystemType;
 
 	@NotEmpty
-	@NotNull
+//	@NotNull
 	@JsonProperty(value = "systemAuth")
 	@ApiModelProperty(required = true, allowableValues = "OAUTH, NTLM, APIKEY, BASIC")
 	private String externalSystemAuth;

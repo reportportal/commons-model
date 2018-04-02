@@ -21,17 +21,11 @@
 
 package com.epam.ta.reportportal.ws.model.externalsystem;
 
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.Size;
 import java.util.List;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_DOMAIN_SIZE;
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_DOMAIN_SIZE;
 
 /**
  * Request model for external system update
@@ -40,103 +34,11 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_DOMAIN
  *
  */
 @JsonInclude(Include.NON_NULL)
-public class UpdateExternalSystemRQ {
-
-	@JsonProperty(value = "url")
-	@ApiModelProperty(required = true)
-	private String url;
-
-	@JsonProperty(value = "systemType")
-	@ApiModelProperty(required = true, allowableValues = "JIRA, TFS, RALLY")
-	private String externalSystemType;
-
-	@JsonProperty(value = "systemAuth")
-	@ApiModelProperty(required = true, allowableValues = "OAUTH, NTLM, APIKEY, BASIC")
-	private String externalSystemAuth;
-
-	@JsonProperty(value = "username")
-	private String username;
-
-	@JsonProperty(value = "password")
-	private String password;
-
-	@NotEmpty
-	@JsonProperty(value = "domain")
-	@Size(min = MIN_DOMAIN_SIZE, max = MAX_DOMAIN_SIZE)
-	private String domain;
-
-	@JsonProperty(value = "accessKey")
-	private String accessKey;
-
-	@JsonProperty(value = "project")
-	private String project;
+public class UpdateExternalSystemRQ extends CreateExternalSystemRQ {
 
 	@JsonProperty(value = "fields")
 	private List<PostFormField> fields;
 
-	public void setExternalSystemType(String type) {
-		this.externalSystemType = type;
-	}
-
-	public String getExternalSystemType() {
-		return externalSystemType;
-	}
-
-	public void setExternalSystemAuth(String type) {
-		this.externalSystemAuth = type;
-	}
-
-	public String getExternalSystemAuth() {
-		return externalSystemAuth;
-	}
-
-	public void setUrl(String value) {
-		this.url = value;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUsername(String name) {
-		this.username = name;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setPassword(String pass) {
-		this.password = pass;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setDomain(String value) {
-		this.domain = value;
-	}
-
-	public String getDomain() {
-		return domain;
-	}
-
-	public void setAccessKey(String key) {
-		this.accessKey = key;
-	}
-
-	public String getAccessKey() {
-		return accessKey;
-	}
-
-	public void setProject(String extProject) {
-		this.project = extProject;
-	}
-
-	public String getProject() {
-		return project;
-	}
 
 	public void setFields(List<PostFormField> form) {
 		this.fields = form;
