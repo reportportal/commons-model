@@ -40,7 +40,7 @@ public class Issue {
 
 	@NotNull
 	@JsonProperty(value = "issue_type", required = true)
-	private Integer issueType;
+	private String issueType;
 
 	@JsonProperty(value = "comment")
 	@Size(max = ValidationConstraints.MAX_DESCRIPTION_LENGTH)
@@ -157,11 +157,11 @@ public class Issue {
 		return externalSystemIssues;
 	}
 
-	public Integer getIssueType() {
+	public String getIssueType() {
 		return issueType;
 	}
 
-	public void setIssueType(Integer issueType) {
+	public void setIssueType(String issueType) {
 		this.issueType = issueType;
 	}
 
