@@ -17,7 +17,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.externalsystem;
 
@@ -33,7 +33,7 @@ import java.util.Map;
 
 /**
  * Domain object for creating ticket in bug tracking system.
- * 
+ *
  * @author Aliaksei_Makayed
  * @author Andrei_Ramanchuk
  */
@@ -61,13 +61,13 @@ public class PostTicketRQ extends Authentic {
 	private String testItemId;
 
 	@JsonProperty(value = "backLinks", required = true)
-	private Map<String, String> backLinks;
+	private Map<Long, String> backLinks;
 
-	public Map<String, String> getBackLinks() {
+	public Map<Long, String> getBackLinks() {
 		return backLinks;
 	}
 
-	public void setBackLinks(Map<String, String> backLinks) {
+	public void setBackLinks(Map<Long, String> backLinks) {
 		this.backLinks = backLinks;
 	}
 
