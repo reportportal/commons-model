@@ -62,7 +62,7 @@ public class Issue {
 		private String ticketId;
 
 		@JsonProperty(value = "submitter")
-		private String submitter;
+		private Long submitter;
 
 		@JsonProperty(value = "submitDate")
 		private Long submitDate;
@@ -81,12 +81,12 @@ public class Issue {
 			this.submitDate = submitDate;
 		}
 
-		public void setSubmitter(String submitter) {
-			this.submitter = submitter;
+		public Long getSubmitter() {
+			return submitter;
 		}
 
-		public String getSubmitter() {
-			return submitter;
+		public void setSubmitter(Long submitter) {
+			this.submitter = submitter;
 		}
 
 		public void setTicketId(String ticketId) {
