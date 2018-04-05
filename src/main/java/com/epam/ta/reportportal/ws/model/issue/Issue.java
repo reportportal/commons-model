@@ -68,7 +68,7 @@ public class Issue {
 		private Long submitDate;
 
 		@JsonProperty(value = "systemId")
-		private String externalSystemId;
+		private Long externalSystemId;
 
 		@JsonProperty(value = "url")
 		private String url;
@@ -97,12 +97,12 @@ public class Issue {
 			return ticketId;
 		}
 
-		public void setExternalSystemId(String id) {
-			this.externalSystemId = id;
+		public Long getExternalSystemId() {
+			return externalSystemId;
 		}
 
-		public String getExternalSystemId() {
-			return externalSystemId;
+		public void setExternalSystemId(Long externalSystemId) {
+			this.externalSystemId = externalSystemId;
 		}
 
 		public void setUrl(String value) {
