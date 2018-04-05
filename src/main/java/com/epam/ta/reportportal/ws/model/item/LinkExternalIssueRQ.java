@@ -17,55 +17,54 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.item;
-
-import java.util.List;
-
-import javax.validation.constraints.NotNull;
 
 import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
 /**
  * Request model for add link to external system issue
- * 
+ *
  * @author Dzmitry_Kavalets
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AddExternalIssueRQ {
+public class LinkExternalIssueRQ {
 
 	@NotNull
 	@JsonProperty(value = "systemId")
-	private String externalSystemId;
+	private Long externalSystemId;
 
 	@NotNull
 	@JsonProperty(value = "testItemIds")
-	private List<String> testItemIds;
+	private List<Long> testItemIds;
 
 	@NotNull
 	@JsonProperty(value = "issues")
 	@ApiModelProperty(reference = "Issue.ExternalSystemIssue")
 	private List<Issue.ExternalSystemIssue> issues;
 
-	public void setExternalSystemId(String id) {
-		this.externalSystemId = id;
-	}
-
-	public String getExternalSystemId() {
+	public Long getExternalSystemId() {
 		return externalSystemId;
 	}
 
-	public void setTestItemIds(List<String> values) {
-		this.testItemIds = values;
+	public void setExternalSystemId(Long externalSystemId) {
+		this.externalSystemId = externalSystemId;
 	}
 
-	public List<String> getTestItemIds() {
+	public List<Long> getTestItemIds() {
 		return testItemIds;
+	}
+
+	public void setTestItemIds(List<Long> testItemIds) {
+		this.testItemIds = testItemIds;
 	}
 
 	public void setIssues(List<Issue.ExternalSystemIssue> values) {
