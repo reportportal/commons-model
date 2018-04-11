@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -33,14 +34,17 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AnalyzeLaunchRQ {
 
+	@NotNull
 	@JsonProperty(value = "launch_id", required = true)
 	@ApiModelProperty
 	private String launchId;
 
+	@NotNull
 	@JsonProperty(value = "analyzer_mode", required = true)
 	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME, CURRENT_LAUNCH")
 	private String analyzerHistoryMode;
 
+	@NotNull
 	@JsonProperty(value = "analyze_items_mode", required = true)
 	@ApiModelProperty(allowableValues = "TO_INVESTIGATE, AUTO_ANALYZED, MANUALLY_ANALYZED")
 	private List<String> analyzeItemsMode;
