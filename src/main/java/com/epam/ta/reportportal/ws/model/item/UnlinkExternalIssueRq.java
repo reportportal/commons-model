@@ -13,24 +13,12 @@ import java.util.List;
 public class UnlinkExternalIssueRq {
 
 	@NotNull
-	@JsonProperty(value = "systemId")
-	private Long externalSystemId;
-
-	@NotNull
 	@JsonProperty(value = "testItemIds")
 	private List<Long> testItemIds;
 
 	@NotNull
 	@JsonProperty(value = "issue_ids")
 	private List<String> issueIds;
-
-	public Long getExternalSystemId() {
-		return externalSystemId;
-	}
-
-	public void setExternalSystemId(Long externalSystemId) {
-		this.externalSystemId = externalSystemId;
-	}
 
 	public List<Long> getTestItemIds() {
 		return testItemIds;

@@ -58,36 +58,17 @@ public class Issue {
 	@JsonInclude(Include.NON_NULL)
 	public static class ExternalSystemIssue {
 
+		@NotNull
 		@JsonProperty(value = "ticketId")
 		private String ticketId;
 
-		@JsonProperty(value = "submitter")
-		private Long submitter;
-
-		@JsonProperty(value = "submitDate")
-		private Long submitDate;
-
+		@NotNull
 		@JsonProperty(value = "systemId")
 		private Long externalSystemId;
 
+		@NotNull
 		@JsonProperty(value = "url")
 		private String url;
-
-		public Long getSubmitDate() {
-			return submitDate;
-		}
-
-		public void setSubmitDate(Long submitDate) {
-			this.submitDate = submitDate;
-		}
-
-		public Long getSubmitter() {
-			return submitter;
-		}
-
-		public void setSubmitter(Long submitter) {
-			this.submitter = submitter;
-		}
 
 		public void setTicketId(String ticketId) {
 			this.ticketId = ticketId;
@@ -118,34 +99,33 @@ public class Issue {
 			if (this == o) {
 				return true;
 			}
-			if (!(o instanceof ExternalSystemIssue)) {
+			if (o == null || getClass() != o.getClass()) {
 				return false;
 			}
 
 			ExternalSystemIssue that = (ExternalSystemIssue) o;
 
-			if (!ticketId.equals(that.ticketId)) {
+			if (ticketId != null ? !ticketId.equals(that.ticketId) : that.ticketId != null) {
 				return false;
 			}
-
-			return true;
+			if (externalSystemId != null ? !externalSystemId.equals(that.externalSystemId) : that.externalSystemId != null) {
+				return false;
+			}
+			return url != null ? url.equals(that.url) : that.url == null;
 		}
 
 		@Override
 		public int hashCode() {
-			return ticketId.hashCode();
+			int result = ticketId != null ? ticketId.hashCode() : 0;
+			result = 31 * result + (externalSystemId != null ? externalSystemId.hashCode() : 0);
+			result = 31 * result + (url != null ? url.hashCode() : 0);
+			return result;
 		}
 
 		@Override
 		public String toString() {
-			final StringBuilder sb = new StringBuilder("ExternalSystemIssue{");
-			sb.append("ticketId='").append(ticketId).append('\'');
-			sb.append(", submitter='").append(submitter).append('\'');
-			sb.append(", submitDate=").append(submitDate).append('\'');
-			sb.append(", externalSystemId=").append(externalSystemId).append('\'');
-			sb.append(", url=").append(url);
-			sb.append('}');
-			return sb.toString();
+			return "ExternalSystemIssue{" + "ticketId='" + ticketId + '\'' + ", externalSystemId=" + externalSystemId + ", url='" + url
+					+ '\'' + '}';
 		}
 	}
 

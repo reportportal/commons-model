@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -39,25 +40,14 @@ import java.util.List;
 public class LinkExternalIssueRQ {
 
 	@NotNull
-	@JsonProperty(value = "systemId")
-	private Long externalSystemId;
-
-	@NotNull
 	@JsonProperty(value = "testItemIds")
 	private List<Long> testItemIds;
 
 	@NotNull
+	@Valid
 	@JsonProperty(value = "issues")
 	@ApiModelProperty(reference = "Issue.ExternalSystemIssue")
 	private List<Issue.ExternalSystemIssue> issues;
-
-	public Long getExternalSystemId() {
-		return externalSystemId;
-	}
-
-	public void setExternalSystemId(Long externalSystemId) {
-		this.externalSystemId = externalSystemId;
-	}
 
 	public List<Long> getTestItemIds() {
 		return testItemIds;
@@ -77,6 +67,6 @@ public class LinkExternalIssueRQ {
 
 	@Override
 	public String toString() {
-		return "AddExternalIssueRQ [externalSystemId=" + externalSystemId + ", testItemIds=" + testItemIds + ", issues=" + issues + "]";
+		return "LinkExternalIssueRQ{" + "testItemIds=" + testItemIds + ", issues=" + issues + '}';
 	}
 }
