@@ -62,6 +62,12 @@ public class Issue {
 		@JsonProperty(value = "ticketId")
 		private String ticketId;
 
+		@JsonProperty(value = "submitter")
+		private Long submitter;
+
+		@JsonProperty(value = "submitDate")
+		private Long submitDate;
+
 		@NotNull
 		@JsonProperty(value = "systemId")
 		private Long externalSystemId;
