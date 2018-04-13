@@ -88,6 +88,22 @@ public class Issue {
 			return externalSystemId;
 		}
 
+		public Long getSubmitter() {
+			return submitter;
+		}
+
+		public void setSubmitter(Long submitter) {
+			this.submitter = submitter;
+		}
+
+		public Long getSubmitDate() {
+			return submitDate;
+		}
+
+		public void setSubmitDate(Long submitDate) {
+			this.submitDate = submitDate;
+		}
+
 		public void setExternalSystemId(Long externalSystemId) {
 			this.externalSystemId = externalSystemId;
 		}

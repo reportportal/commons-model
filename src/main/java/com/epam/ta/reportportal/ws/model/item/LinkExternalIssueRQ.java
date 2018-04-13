@@ -40,10 +40,6 @@ import java.util.List;
 public class LinkExternalIssueRQ {
 
 	@NotNull
-	@JsonProperty(value = "systemId")
-	private Long externalSystemId;
-
-	@NotNull
 	@JsonProperty(value = "testItemIds")
 	private List<Long> testItemIds;
 
