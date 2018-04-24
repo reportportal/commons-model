@@ -34,7 +34,7 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
  * @author Pavel Bortnik
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProjectAnalyzerConfig {
+public class AnalyzerConfig {
 
 	@Min(value = MIN_DOC_FREQ)
 	@Max(value = MAX_DOC_FREQ)

@@ -74,16 +74,16 @@ public class ProjectConfiguration {
 
 	@Valid
 	@JsonProperty(value = "analyzerConfiguration")
-	private ProjectAnalyzerConfig analyzerConfig;
+	private AnalyzerConfig analyzerConfig;
 
 	@JsonProperty(value = "subTypes")
 	private Map<String, List<IssueSubTypeResource>> subTypes;
 
-	public ProjectAnalyzerConfig getAnalyzerConfig() {
+	public AnalyzerConfig getAnalyzerConfig() {
 		return analyzerConfig;
 	}
 
-	public void setAnalyzerConfig(ProjectAnalyzerConfig analyzerConfig) {
+	public void setAnalyzerConfig(AnalyzerConfig analyzerConfig) {
 		this.analyzerConfig = analyzerConfig;
 	}
 
