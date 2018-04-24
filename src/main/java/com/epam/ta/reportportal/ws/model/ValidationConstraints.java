@@ -17,7 +17,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model;
 
@@ -25,7 +25,6 @@ package com.epam.ta.reportportal.ws.model;
  * Contains constants for defining validation constraints.
  *
  * @author Aliaksei_Makayed
- *
  */
 //TODO review and move to API service
 public class ValidationConstraints {
@@ -90,5 +89,14 @@ public class ValidationConstraints {
 
 	public static final int MAX_FILTER_DESCRIPTION = 256;
 	public static final int MIN_FILTER_DESCRIPTION = 1;
+
+	public static final int MIN_DOC_FREQ = 1;
+	public static final int MAX_DOC_FREQ = 30;
+	public static final int MIN_TERM_FREQ = 1;
+	public static final int MAX_TERM_FREQ = 30;
+	public static final int MIN_SHOULD_MATCH = 1;
+	public static final int MAX_SHOULD_MATCH = 100;
+	public static final int MIN_NUMBER_OF_LOG_LINES = 1;
+	public static final int MAX_NUMBER_OF_LOG_LINES = 30;
 
 }
