@@ -39,22 +39,22 @@ public class ProjectAnalyzerConfig {
 	@Min(value = MIN_DOC_FREQ)
 	@Max(value = MAX_DOC_FREQ)
 	@JsonProperty(value = "minDocFreq")
-	private int minDocFreq;
+	private Integer minDocFreq;
 
 	@Min(value = MIN_TERM_FREQ)
 	@Max(value = MAX_TERM_FREQ)
 	@JsonProperty(value = "minTermFreq")
-	private int minTermFreq;
+	private Integer minTermFreq;
 
 	@Min(value = MIN_SHOULD_MATCH)
 	@Max(value = MAX_SHOULD_MATCH)
 	@JsonProperty(value = "minShouldMatch")
-	private int minShouldMatch;
+	private Integer minShouldMatch;
 
 	@Min(value = MIN_NUMBER_OF_LOG_LINES)
 	@Max(value = MAX_NUMBER_OF_LOG_LINES)
 	@JsonProperty(value = "numberOfLogLines")
-	private int numberOfLogLines;
+	private Integer numberOfLogLines;
 
 	@JsonProperty(value = "isAutoAnalyzerEnabled")
 	private Boolean isAutoAnalyzerEnabled;
@@ -63,35 +63,35 @@ public class ProjectAnalyzerConfig {
 	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME")
 	private String analyzerMode;
 
-	public int getMinDocFreq() {
+	public Integer getMinDocFreq() {
 		return minDocFreq;
 	}
 
-	public void setMinDocFreq(int minDocFreq) {
+	public void setMinDocFreq(Integer minDocFreq) {
 		this.minDocFreq = minDocFreq;
 	}
 
-	public int getMinTermFreq() {
+	public Integer getMinTermFreq() {
 		return minTermFreq;
 	}
 
-	public void setMinTermFreq(int minTermFreq) {
+	public void setMinTermFreq(Integer minTermFreq) {
 		this.minTermFreq = minTermFreq;
 	}
 
-	public int getMinShouldMatch() {
+	public Integer getMinShouldMatch() {
 		return minShouldMatch;
 	}
 
-	public void setMinShouldMatch(int minShouldMatch) {
+	public void setMinShouldMatch(Integer minShouldMatch) {
 		this.minShouldMatch = minShouldMatch;
 	}
 
-	public int getNumberOfLogLines() {
+	public Integer getNumberOfLogLines() {
 		return numberOfLogLines;
 	}
 
-	public void setNumberOfLogLines(int numberOfLogLines) {
+	public void setNumberOfLogLines(Integer numberOfLogLines) {
 		this.numberOfLogLines = numberOfLogLines;
 	}
 
