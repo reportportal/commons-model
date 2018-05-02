@@ -17,7 +17,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model;
 
@@ -34,12 +34,12 @@ import java.util.Set;
 
 /**
  * Base entity for start requests
- * 
+ *
  * @author Andrei Varabyeu
- * 
+ *
  */
 @JsonInclude(Include.NON_NULL)
-public class StartRQ {
+public class StartRQ extends BasicReportingRq {
 
 	@NotNull
 	@NotEmpty
