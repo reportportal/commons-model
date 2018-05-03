@@ -24,6 +24,7 @@ package com.epam.ta.reportportal.ws.model.project;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiParam;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -62,6 +63,18 @@ public class AnalyzerConfig {
 	@JsonProperty(value = "analyzer_mode")
 	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME")
 	private String analyzerMode;
+
+	@JsonProperty(value = "indexing_running")
+	@ApiParam(hidden = true)
+	private boolean indexingRunning;
+
+	public boolean isIndexingRunning() {
+		return indexingRunning;
+	}
+
+	public void setIndexingRunning(boolean indexingRunning) {
+		this.indexingRunning = indexingRunning;
+	}
 
 	public Integer getMinDocFreq() {
 		return minDocFreq;
