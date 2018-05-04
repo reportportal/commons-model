@@ -96,7 +96,7 @@ public class ValidationConstraints {
 	public static final int MAX_TERM_FREQ = 30;
 	public static final int MIN_SHOULD_MATCH = 1;
 	public static final int MAX_SHOULD_MATCH = 100;
-	public static final int MIN_NUMBER_OF_LOG_LINES = 1;
+	public static final int MIN_NUMBER_OF_LOG_LINES = -1;
 	public static final int MAX_NUMBER_OF_LOG_LINES = 30;
 
 }
