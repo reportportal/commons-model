@@ -17,7 +17,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model;
 
@@ -34,9 +34,8 @@ import java.util.Set;
 
 /**
  * Base entity for start requests
- * 
+ *
  * @author Andrei Varabyeu
- * 
  */
 @JsonInclude(Include.NON_NULL)
 public class StartRQ {
@@ -58,6 +57,9 @@ public class StartRQ {
 	@JsonProperty(value = "start_time", required = true)
 	@ApiModelProperty(required = true)
 	private Date startTime;
+
+	@JsonProperty(value = "uuid")
+	private String uuid;
 
 	public String getName() {
 		return name;
@@ -83,6 +85,14 @@ public class StartRQ {
 		return tags;
 	}
 
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
 	public Date getStartTime() {
 		return startTime;
 	}
@@ -102,25 +112,35 @@ public class StartRQ {
 		return sb.toString();
 	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
 
-        StartRQ startRQ = (StartRQ) o;
+		StartRQ startRQ = (StartRQ) o;
 
-        if (!name.equals(startRQ.name)) return false;
-        if (description != null ? !description.equals(startRQ.description) : startRQ.description != null) return false;
-        if (tags != null ? !tags.equals(startRQ.tags) : startRQ.tags != null) return false;
-        return startTime.equals(startRQ.startTime);
-    }
+		if (name != null ? !name.equals(startRQ.name) : startRQ.name != null) {
+			return false;
+		}
+		if (description != null ? !description.equals(startRQ.description) : startRQ.description != null) {
+			return false;
+		}
+		if (tags != null ? !tags.equals(startRQ.tags) : startRQ.tags != null) {
+			return false;
+		}
+		return startTime != null ? startTime.equals(startRQ.startTime) : startRQ.startTime == null;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (tags != null ? tags.hashCode() : 0);
-        result = 31 * result + startTime.hashCode();
-        return result;
-    }
+	@Override
+	public int hashCode() {
+		int result = name != null ? name.hashCode() : 0;
+		result = 31 * result + (description != null ? description.hashCode() : 0);
+		result = 31 * result + (tags != null ? tags.hashCode() : 0);
+		result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
+		return result;
+	}
 }
