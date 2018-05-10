@@ -30,7 +30,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Map;
 
@@ -44,16 +43,13 @@ public class ProjectConfiguration {
 	@JsonProperty(value = "externalSystem")
 	private List<ExternalSystemResource> externalSystem;
 
-	@NotNull
 	@JsonProperty(value = "entryType")
 	private String entry;
 
-	@NotNull
 	@JsonProperty(value = "statisticCalculationStrategy")
 	@ApiModelProperty(allowableValues = "STEP_BASED, TEST_BASED")
 	private String statisticCalculationStrategy;
 
-	@NotNull
 	@JsonProperty(value = "projectSpecific")
 	private String projectSpecific;
 
