@@ -21,15 +21,15 @@
 
 package com.epam.ta.reportportal.ws.model.project;
 
-import java.util.Map;
-
-import javax.validation.constraints.Size;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
+import java.util.Map;
 
 /**
  * Update project request model
@@ -50,6 +50,7 @@ public class UpdateProjectRQ {
 	@JsonProperty(value = "users")
 	private Map<String, String> userRoles;
 
+	@Valid
 	@JsonProperty(value = "configuration")
 	private ProjectConfiguration configuration;
 
