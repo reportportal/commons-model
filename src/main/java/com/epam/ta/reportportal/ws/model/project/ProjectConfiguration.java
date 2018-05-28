@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -43,16 +43,13 @@ public class ProjectConfiguration {
 	@JsonProperty(value = "externalSystem")
 	private List<ExternalSystemResource> externalSystem;
 
-	@NotNull
 	@JsonProperty(value = "entryType")
 	private String entry;
 
-	@NotNull
 	@JsonProperty(value = "statisticCalculationStrategy")
 	@ApiModelProperty(allowableValues = "STEP_BASED, TEST_BASED")
 	private String statisticCalculationStrategy;
 
-	@NotNull
 	@JsonProperty(value = "projectSpecific")
 	private String projectSpecific;
 
@@ -68,33 +65,22 @@ public class ProjectConfiguration {
 	@ApiModelProperty(allowableValues = "ONE_WEEK, TWO_WEEKS, THREE_WEEKS, ONE_MONTH, THREE_MONTHS")
 	private String keepScreenshots;
 
-	@JsonProperty(value = "isAutoAnalyzerEnabled")
-	private Boolean isAutoAnalyzerEnabled;
-
-	@JsonProperty(value = "analyzer_mode")
-	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME")
-	private String analyzerMode;
-
 	@JsonProperty(value = "emailConfiguration")
 	private ProjectEmailConfigDTO emailConfig;
+
+	@Valid
+	@JsonProperty(value = "analyzerConfiguration")
+	private AnalyzerConfig analyzerConfig;
 
 	@JsonProperty(value = "subTypes")
 	private Map<String, List<IssueSubTypeResource>> subTypes;
 
-	public Boolean getIsAutoAnalyzerEnabled() {
-		return isAutoAnalyzerEnabled;
+	public AnalyzerConfig getAnalyzerConfig() {
+		return analyzerConfig;
 	}
 
-	public void setIsAutoAnalyzerEnabled(Boolean autoAnalyzerEnabled) {
-		isAutoAnalyzerEnabled = autoAnalyzerEnabled;
-	}
-
-	public String getAnalyzerMode() {
-		return analyzerMode;
-	}
-
-	public void setAnalyzerMode(String analyzerMode) {
-		this.analyzerMode = analyzerMode;
+	public void setAnalyzerConfig(AnalyzerConfig analyzerConfig) {
+		this.analyzerConfig = analyzerConfig;
 	}
 
 	public void setExternalSystem(List<ExternalSystemResource> value) {
