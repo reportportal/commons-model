@@ -3,6 +3,8 @@ package com.epam.ta.reportportal.ws.model.dashboard;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author Pavel Bortnik
  */
@@ -10,24 +12,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AddWidgetRq {
 
 	@JsonProperty("widget_id")
-	private String widgetId;
+	@NotNull
+	private Long widgetId;
 
 	@JsonProperty("dashboard_id")
-	private String dashboardId;
+	@NotNull
+	private Long dashboardId;
 
-	public String getWidgetId() {
+	public Long getWidgetId() {
 		return widgetId;
 	}
 
-	public void setWidgetId(String widgetId) {
+	public void setWidgetId(Long widgetId) {
 		this.widgetId = widgetId;
 	}
 
-	public String getDashboardId() {
+	public Long getDashboardId() {
 		return dashboardId;
 	}
 
-	public void setDashboardId(String dashboardId) {
+	public void setDashboardId(Long dashboardId) {
 		this.dashboardId = dashboardId;
 	}
 }
