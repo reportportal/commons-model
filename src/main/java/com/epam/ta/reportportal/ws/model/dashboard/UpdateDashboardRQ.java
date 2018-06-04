@@ -33,9 +33,9 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
- * Domain object for updating dashboards.
+ * Domain object for updating widget positions.
  * 
- * @author Aliaksei_Makayed
+ * @author Pavel Bortnik
  * 
  */
 @JsonInclude(Include.NON_NULL)
@@ -46,12 +46,6 @@ public class UpdateDashboardRQ extends SharableEntityRQ{
 	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, 
 	max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
 	private String name;
-
-//	@JsonProperty(value = "addWidget")
-//	private WidgetObjectModel addWidget;
-//
-//	@JsonProperty(value = "deleteWidget")
-//	private String deleteWidgetId;
 	
 	@JsonProperty(value = "updateWidgets")
 	private List<WidgetObjectModel> widgets;
@@ -64,22 +58,6 @@ public class UpdateDashboardRQ extends SharableEntityRQ{
 		this.name = name;
 	}
 
-//	public WidgetObjectModel getAddWidget() {
-//		return addWidget;
-//	}
-//
-//	public void setAddWidget(WidgetObjectModel value) {
-//		this.addWidget = value;
-//	}
-//
-//	public String getDeleteWidgetId() {
-//		return deleteWidgetId;
-//	}
-//
-//	public void setDeleteWidgetId(String value) {
-//		this.deleteWidgetId = value;
-//	}
-
 	public void setWidgets(List<WidgetObjectModel> value) {
 		this.widgets = value;
 	}
@@ -90,8 +68,6 @@ public class UpdateDashboardRQ extends SharableEntityRQ{
 
 	@Override
 	public String toString() {
-		//		sb.append(", addWidget=").append(addWidget);
-//		sb.append(", deleteWidgetId='").append(deleteWidgetId).append('\'');
 		return "UpdateDashboardRQ{" + "name='" + name + '\'' + ", widgets=" + widgets + '}';
 	}
 }
