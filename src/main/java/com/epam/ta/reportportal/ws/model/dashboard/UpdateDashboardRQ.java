@@ -21,10 +21,6 @@
  
 package com.epam.ta.reportportal.ws.model.dashboard;
 
-import java.util.List;
-
-import javax.validation.constraints.Size;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
@@ -32,6 +28,9 @@ import com.epam.ta.reportportal.ws.model.dashboard.DashboardResource.WidgetObjec
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Domain object for updating dashboards.
@@ -48,11 +47,11 @@ public class UpdateDashboardRQ extends SharableEntityRQ{
 	max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
 	private String name;
 
-	@JsonProperty(value = "addWidget")
-	private WidgetObjectModel addWidget;
-
-	@JsonProperty(value = "deleteWidget")
-	private String deleteWidgetId;
+//	@JsonProperty(value = "addWidget")
+//	private WidgetObjectModel addWidget;
+//
+//	@JsonProperty(value = "deleteWidget")
+//	private String deleteWidgetId;
 	
 	@JsonProperty(value = "updateWidgets")
 	private List<WidgetObjectModel> widgets;
@@ -65,21 +64,21 @@ public class UpdateDashboardRQ extends SharableEntityRQ{
 		this.name = name;
 	}
 
-	public WidgetObjectModel getAddWidget() {
-		return addWidget;
-	}
-
-	public void setAddWidget(WidgetObjectModel value) {
-		this.addWidget = value;
-	}
-
-	public String getDeleteWidgetId() {
-		return deleteWidgetId;
-	}
-
-	public void setDeleteWidgetId(String value) {
-		this.deleteWidgetId = value;
-	}
+//	public WidgetObjectModel getAddWidget() {
+//		return addWidget;
+//	}
+//
+//	public void setAddWidget(WidgetObjectModel value) {
+//		this.addWidget = value;
+//	}
+//
+//	public String getDeleteWidgetId() {
+//		return deleteWidgetId;
+//	}
+//
+//	public void setDeleteWidgetId(String value) {
+//		this.deleteWidgetId = value;
+//	}
 
 	public void setWidgets(List<WidgetObjectModel> value) {
 		this.widgets = value;
@@ -91,12 +90,8 @@ public class UpdateDashboardRQ extends SharableEntityRQ{
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("UpdateDashboardRQ{");
-		sb.append("name='").append(name).append('\'');
-		sb.append(", addWidget=").append(addWidget);
-		sb.append(", deleteWidgetId='").append(deleteWidgetId).append('\'');
-		sb.append(", widgets=").append(widgets);
-		sb.append('}');
-		return sb.toString();
+		//		sb.append(", addWidget=").append(addWidget);
+//		sb.append(", deleteWidgetId='").append(deleteWidgetId).append('\'');
+		return "UpdateDashboardRQ{" + "name='" + name + '\'' + ", widgets=" + widgets + '}';
 	}
 }

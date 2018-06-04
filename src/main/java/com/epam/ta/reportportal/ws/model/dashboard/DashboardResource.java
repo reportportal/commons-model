@@ -17,28 +17,27 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model.dashboard;
 
-import java.util.List;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import com.epam.ta.reportportal.ws.model.OwnedResource;
-import io.swagger.annotations.ApiModelProperty;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
+import com.epam.ta.reportportal.ws.model.OwnedResource;
+import com.epam.ta.reportportal.ws.model.Position;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Domain model DashBoard resource object. JSON Representation of Report Portal
  * domain object.
- * 
+ *
  * @author Aliaksei_Makayed
  */
 @JsonInclude(Include.NON_NULL)
@@ -51,8 +50,7 @@ public class DashboardResource extends OwnedResource {
 
 	@NotEmpty
 	@NotNull
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, 
-	max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
+	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	@ApiModelProperty(required = true)
 	private String name;
@@ -85,46 +83,47 @@ public class DashboardResource extends OwnedResource {
 	}
 
 	public static class WidgetObjectModel {
+
 		@JsonProperty(value = "widgetId")
-		private String widgetId;
-		
+		private Long widgetId;
+
 		@JsonProperty(value = "widgetSize")
-		private List<Integer> widgetSize;
-		
+		private com.epam.ta.reportportal.ws.model.Size widgetSize;
+
 		@JsonProperty(value = "widgetPosition")
-		private List<Integer> widgetPosition;
-		
+		private Position widgetPosition;
+
 		public WidgetObjectModel() {
 		}
-		
-		public WidgetObjectModel(String widgetId, List<Integer> widgetSize, List<Integer> widgetPosition) {
+
+		public WidgetObjectModel(Long widgetId, com.epam.ta.reportportal.ws.model.Size widgetSize, Position widgetPosition) {
 			this.setWidgetId(widgetId);
 			this.setWidgetSize(widgetSize);
 			this.setWidgetPosition(widgetPosition);
 		}
-		
-		public void setWidgetId(String value) {
-			this.widgetId = value;
-		}
-		
-		public String getWidgetId() {
+
+		public Long getWidgetId() {
 			return widgetId;
 		}
-		
-		public void setWidgetSize(List<Integer> value) {
-			this.widgetSize = value;
+
+		public void setWidgetId(Long widgetId) {
+			this.widgetId = widgetId;
 		}
-		
-		public List<Integer> getWidgetSize() {
+
+		public com.epam.ta.reportportal.ws.model.Size getWidgetSize() {
 			return widgetSize;
 		}
-		
-		public void setWidgetPosition(List<Integer> value) {
-			this.widgetPosition = value;
+
+		public void setWidgetSize(com.epam.ta.reportportal.ws.model.Size widgetSize) {
+			this.widgetSize = widgetSize;
 		}
-		
-		public List<Integer> getWidgetPosition() {
+
+		public Position getWidgetPosition() {
 			return widgetPosition;
+		}
+
+		public void setWidgetPosition(Position widgetPosition) {
+			this.widgetPosition = widgetPosition;
 		}
 
 		@Override
