@@ -15,6 +15,14 @@ public class Size {
 	@JsonProperty(value = "height")
 	private int height;
 
+	public Size() {
+	}
+
+	public Size(int width, int height) {
+		this.width = width;
+		this.height = height;
+	}
+
 	public int getWidth() {
 		return width;
 	}
