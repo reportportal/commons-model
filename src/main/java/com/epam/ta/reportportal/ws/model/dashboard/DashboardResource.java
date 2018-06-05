@@ -46,7 +46,7 @@ public class DashboardResource extends OwnedResource {
 	@NotNull
 	@JsonProperty(value = "id", required = true)
 	@ApiModelProperty(required = true)
-	private String dashboardId;
+	private Long dashboardId;
 
 	@NotEmpty
 	@NotNull
@@ -58,11 +58,11 @@ public class DashboardResource extends OwnedResource {
 	@JsonProperty(value = "widgets")
 	private List<WidgetObjectModel> widgets;
 
-	public String getDashboardId() {
+	public Long getDashboardId() {
 		return dashboardId;
 	}
 
-	public void setDashboardId(String dashboardId) {
+	public void setDashboardId(Long dashboardId) {
 		this.dashboardId = dashboardId;
 	}
 
