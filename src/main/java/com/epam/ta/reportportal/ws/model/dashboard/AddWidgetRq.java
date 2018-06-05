@@ -3,35 +3,20 @@ package com.epam.ta.reportportal.ws.model.dashboard;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.NotNull;
-
 /**
  * @author Pavel Bortnik
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AddWidgetRq {
 
-	@JsonProperty("widget_id")
-	@NotNull
-	private Long widgetId;
+	@JsonProperty(value = "add_widget")
+	private DashboardResource.WidgetObjectModel objectModel;
 
-	@JsonProperty("dashboard_id")
-	@NotNull
-	private Long dashboardId;
-
-	public Long getWidgetId() {
-		return widgetId;
+	public DashboardResource.WidgetObjectModel getObjectModel() {
+		return objectModel;
 	}
 
-	public void setWidgetId(Long widgetId) {
-		this.widgetId = widgetId;
-	}
-
-	public Long getDashboardId() {
-		return dashboardId;
-	}
-
-	public void setDashboardId(Long dashboardId) {
-		this.dashboardId = dashboardId;
+	public void setObjectModel(DashboardResource.WidgetObjectModel objectModel) {
+		this.objectModel = objectModel;
 	}
 }
