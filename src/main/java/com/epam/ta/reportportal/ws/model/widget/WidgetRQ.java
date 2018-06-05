@@ -17,8 +17,8 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model.widget;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
@@ -33,9 +33,8 @@ import javax.validation.constraints.Size;
 
 /**
  * Domain model object for creating widget
- * 
+ *
  * @author Aliaksei_Makayed
- * 
  */
 
 @JsonInclude(Include.NON_NULL)
@@ -43,8 +42,7 @@ public class WidgetRQ extends SharableEntityRQ {
 
 	@JsonProperty(value = "name")
 	@NotEmpty
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH,
-	max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
+	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
 	private String name;
 
 	@Valid
@@ -53,7 +51,7 @@ public class WidgetRQ extends SharableEntityRQ {
 
 	// applying filter id
 	@JsonProperty(value = "filter_id")
-	private String filterId;
+	private Long filterId;
 
 	public String getName() {
 		return name;
@@ -71,11 +69,11 @@ public class WidgetRQ extends SharableEntityRQ {
 		this.contentParameters = contentParameters;
 	}
 
-	public String getFilterId() {
+	public Long getFilterId() {
 		return filterId;
 	}
 
-	public void setFilterId(String filterId) {
+	public void setFilterId(Long filterId) {
 		this.filterId = filterId;
 	}
 
