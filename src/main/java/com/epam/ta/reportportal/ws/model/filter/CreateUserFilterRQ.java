@@ -21,29 +21,27 @@
 
 package com.epam.ta.reportportal.ws.model.filter;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 
 /**
  * Domain object for create filter action
- * 
+ *
  * @author Aliaksei_Makayed
- * 
  */
 @JsonInclude(Include.NON_NULL)
 public class CreateUserFilterRQ extends SharableEntityRQ {
@@ -70,14 +68,10 @@ public class CreateUserFilterRQ extends SharableEntityRQ {
 	private Set<UserFilterEntity> entities;
 
 	@NotNull
-	@Valid
-	@JsonProperty(value = "selection_parameters", required = true)
+	@Size(min = MIN_COLLECTION_SIZE)
+	@JsonProperty(value = "orders", required = true)
 	@ApiModelProperty(required = true)
-	private SelectionParameters selectionParameters;
-
-	@NotNull
-	@JsonProperty(value = "is_link", required = true)
-	private boolean isLink;
+	private List<Order> orders;
 
 	public String getName() {
 		return name;
@@ -103,25 +97,17 @@ public class CreateUserFilterRQ extends SharableEntityRQ {
 		this.objectType = objectType;
 	}
 
-	public SelectionParameters getSelectionParameters() {
-		return selectionParameters;
+	public List<Order> getOrders() {
+		return orders;
 	}
 
-	public void setSelectionParameters(SelectionParameters selectionParameters) {
-		this.selectionParameters = selectionParameters;
-	}
-
-	public boolean getIsLink() {
-		return isLink;
-	}
-
-	public void setIsLink(boolean isLink) {
-		this.isLink = isLink;
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	@Override
 	public String toString() {
 		return "CreateUserFilterRQ{" + "name='" + name + '\'' + ", objectType='" + objectType + '\'' + ", entities=" + entities
-				+ ", selectionParameters=" + selectionParameters + ", isLink=" + isLink + '}';
+				+ ", orders=" + orders + "} " + super.toString();
 	}
 }

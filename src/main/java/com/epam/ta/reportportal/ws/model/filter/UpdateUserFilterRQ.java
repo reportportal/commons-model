@@ -21,14 +21,6 @@
 
 package com.epam.ta.reportportal.ws.model.filter;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
-
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -36,11 +28,18 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
+
 /**
  * Domain object for updating user filters
- * 
+ *
  * @author Aliaksei_Makayed
- * 
  */
 
 @JsonInclude(Include.NON_NULL)
@@ -60,9 +59,9 @@ public class UpdateUserFilterRQ extends SharableEntityRQ {
 	@JsonDeserialize(as = LinkedHashSet.class)
 	private Set<UserFilterEntity> entities;
 
-	@Valid
-	@JsonProperty(value = "selection_parameters")
-	private SelectionParameters selectionParameters;
+	@Size(min = MIN_COLLECTION_SIZE)
+	@JsonProperty(value = "orders", required = true)
+	private List<Order> orders;
 
 	@JsonProperty(value = "is_link")
 	private boolean isLink;
@@ -94,12 +93,12 @@ public class UpdateUserFilterRQ extends SharableEntityRQ {
 		this.entities = entities;
 	}
 
-	public SelectionParameters getSelectionParameters() {
-		return selectionParameters;
+	public List<Order> getOrders() {
+		return orders;
 	}
 
-	public void setSelectionParameters(SelectionParameters selectionParameters) {
-		this.selectionParameters = selectionParameters;
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	public boolean getIsLink() {
@@ -121,6 +120,6 @@ public class UpdateUserFilterRQ extends SharableEntityRQ {
 	@Override
 	public String toString() {
 		return "UpdateUserFilterRQ{" + "name='" + name + '\'' + ", objectType='" + objectType + '\'' + ", entities=" + entities
-				+ ", selectionParameters=" + selectionParameters + ", isLink=" + isLink + ", description='" + description + '\'' + '}';
+				+ ", orders=" + orders + ", isLink=" + isLink + ", description='" + description + '\'' + "} " + super.toString();
 	}
 }

@@ -21,26 +21,24 @@
 
 package com.epam.ta.reportportal.ws.model.filter;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
-
-import java.util.Set;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.Set;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
+
 /**
  * JSON Representation of Report Portal's UserFilter domain object
- * 
+ *
  * @author Aliaksei_Makayed
- * 
  */
 
 @JsonInclude(Include.NON_NULL)
@@ -62,8 +60,9 @@ public class UserFilterResource extends OwnedResource {
 	@JsonProperty(value = "entities", required = true)
 	private Set<UserFilterEntity> entities;
 
-	@JsonProperty(value = "selection_parameters")
-	private SelectionParameters selectionParameters;
+	@Size(min = MIN_COLLECTION_SIZE)
+	@JsonProperty(value = "orders", required = true)
+	private List<Order> orders;
 
 	// possible object types: launch; testItem; log
 	@NotNull
@@ -114,17 +113,9 @@ public class UserFilterResource extends OwnedResource {
 		this.objectType = objectType;
 	}
 
-	public SelectionParameters getSelectionParameters() {
-		return selectionParameters;
-	}
-
-	public void setSelectionParameters(SelectionParameters selectionParameters) {
-		this.selectionParameters = selectionParameters;
-	}
-
 	@Override
 	public String toString() {
-		return "UserFilterResource{" + "filterId='" + filterId + '\'' + ", name='" + name + '\'' + ", entities=" + entities
-				+ ", selectionParameters=" + selectionParameters + ", objectType='" + objectType + '\'' + ", owner='" + owner + '\'' + '}';
+		return "UserFilterResource{" + "filterId='" + filterId + '\'' + ", name='" + name + '\'' + ", entities=" + entities + ", orders="
+				+ orders + ", objectType='" + objectType + '\'' + ", owner='" + owner + '\'' + "} " + super.toString();
 	}
 }
