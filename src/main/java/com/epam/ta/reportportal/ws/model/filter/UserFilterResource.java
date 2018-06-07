@@ -46,7 +46,7 @@ public class UserFilterResource extends OwnedResource {
 
 	@NotNull
 	@JsonProperty(value = "id", required = true)
-	private String filterId;
+	private Long filterId;
 
 	@NotNull
 	@NotEmpty
@@ -58,7 +58,7 @@ public class UserFilterResource extends OwnedResource {
 	@Valid
 	@Size(min = MIN_COLLECTION_SIZE)
 	@JsonProperty(value = "entities", required = true)
-	private Set<UserFilterEntity> entities;
+	private Set<UserFilterCondition> entities;
 
 	@Size(min = MIN_COLLECTION_SIZE)
 	@JsonProperty(value = "orders", required = true)
@@ -89,19 +89,27 @@ public class UserFilterResource extends OwnedResource {
 		this.name = name;
 	}
 
-	public void setEntities(Set<UserFilterEntity> Entities) {
+	public void setEntities(Set<UserFilterCondition> Entities) {
 		this.entities = Entities;
 	}
 
-	public Set<UserFilterEntity> getEntities() {
+	public Set<UserFilterCondition> getEntities() {
 		return entities;
 	}
 
-	public String getFilterId() {
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	public Long getFilterId() {
 		return filterId;
 	}
 
-	public void setFilterId(String filterId) {
+	public void setFilterId(Long filterId) {
 		this.filterId = filterId;
 	}
 

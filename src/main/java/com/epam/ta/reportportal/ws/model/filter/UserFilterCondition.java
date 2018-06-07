@@ -21,11 +21,11 @@
 
 package com.epam.ta.reportportal.ws.model.filter;
 
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * Filter entity domain model object.
@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class UserFilterEntity {
+public class UserFilterCondition {
 
 	@NotNull
 	@JsonProperty(value = "filtering_field", required = true)
@@ -49,10 +49,10 @@ public class UserFilterEntity {
 	private String value;
 
 
-	public UserFilterEntity() {
+	public UserFilterCondition() {
 	}
 
-	public UserFilterEntity(String field, String condition, String value) {
+	public UserFilterCondition(String field, String condition, String value) {
 		this.filteringField = field;
 		this.condition = condition;
 		this.value = value;
@@ -100,7 +100,7 @@ public class UserFilterEntity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserFilterEntity other = (UserFilterEntity) obj;
+		UserFilterCondition other = (UserFilterCondition) obj;
 		if (condition == null) {
 			if (other.condition != null)
 				return false;

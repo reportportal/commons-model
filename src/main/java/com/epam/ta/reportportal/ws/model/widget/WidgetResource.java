@@ -17,13 +17,14 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.widget;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
+import com.epam.ta.reportportal.ws.model.filter.UserFilterResource;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.Valid;
@@ -51,8 +52,8 @@ public class WidgetResource extends OwnedResource {
 	@JsonProperty(value = "content_parameters", required = true)
 	private ContentParameters contentParameters;
 
-	@JsonProperty(value = "filter_id")
-	private String filterId;
+	@JsonProperty(value = "applied_filters")
+	private UserFilterResource appliedFilters;
 
 	@JsonProperty(value = "content")
 	private Map<String, ?> content;
@@ -73,12 +74,12 @@ public class WidgetResource extends OwnedResource {
 		this.name = name;
 	}
 
-	public String getFilterId() {
-		return filterId;
+	public UserFilterResource getAppliedFilters() {
+		return appliedFilters;
 	}
 
-	public void setFilterId(String filterId) {
-		this.filterId = filterId;
+	public void setAppliedFilters(UserFilterResource appliedFilters) {
+		this.appliedFilters = appliedFilters;
 	}
 
 	public ContentParameters getContentParameters() {
@@ -99,13 +100,7 @@ public class WidgetResource extends OwnedResource {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("WidgetResource{");
-		sb.append("widgetId='").append(widgetId).append('\'');
-		sb.append(", name='").append(name).append('\'');
-		sb.append(", contentParameters=").append(contentParameters);
-		sb.append(", filterId='").append(filterId).append('\'');
-		sb.append(", content=").append(content);
-		sb.append('}');
-		return sb.toString();
+		return "WidgetResource{" + "widgetId=" + widgetId + ", name='" + name + '\'' + ", contentParameters=" + contentParameters
+				+ ", appliedFilters=" + appliedFilters + ", content=" + content + "} " + super.toString();
 	}
 }

@@ -65,7 +65,7 @@ public class CreateUserFilterRQ extends SharableEntityRQ {
 	@JsonProperty(value = "entities", required = true)
 	@JsonDeserialize(as = LinkedHashSet.class)
 	@ApiModelProperty(required = true)
-	private Set<UserFilterEntity> entities;
+	private Set<UserFilterCondition> entities;
 
 	@NotNull
 	@Size(min = MIN_COLLECTION_SIZE)
@@ -81,11 +81,11 @@ public class CreateUserFilterRQ extends SharableEntityRQ {
 		this.name = name;
 	}
 
-	public Set<UserFilterEntity> getEntities() {
+	public Set<UserFilterCondition> getEntities() {
 		return entities;
 	}
 
-	public void setEntities(Set<UserFilterEntity> entities) {
+	public void setEntities(Set<UserFilterCondition> entities) {
 		this.entities = entities;
 	}
 

@@ -57,7 +57,7 @@ public class UpdateUserFilterRQ extends SharableEntityRQ {
 	@Size(min = MIN_COLLECTION_SIZE, max = MAX_NUMBER_OF_FILTER_ENTITIES)
 	@JsonProperty(value = "entities", required = true)
 	@JsonDeserialize(as = LinkedHashSet.class)
-	private Set<UserFilterEntity> entities;
+	private Set<UserFilterCondition> entities;
 
 	@Size(min = MIN_COLLECTION_SIZE)
 	@JsonProperty(value = "orders", required = true)
@@ -85,11 +85,11 @@ public class UpdateUserFilterRQ extends SharableEntityRQ {
 		this.objectType = objectType;
 	}
 
-	public Set<UserFilterEntity> getEntities() {
+	public Set<UserFilterCondition> getEntities() {
 		return entities;
 	}
 
-	public void setEntities(Set<UserFilterEntity> entities) {
+	public void setEntities(Set<UserFilterCondition> entities) {
 		this.entities = entities;
 	}
 
