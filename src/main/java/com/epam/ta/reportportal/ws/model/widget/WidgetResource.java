@@ -38,7 +38,7 @@ public class WidgetResource extends OwnedResource {
 
 	@NotNull
 	@JsonProperty(value = "id", required = true)
-	private String widgetId;
+	private Long widgetId;
 
 	@NotNull
 	@NotEmpty
@@ -57,12 +57,12 @@ public class WidgetResource extends OwnedResource {
 	@JsonProperty(value = "content")
 	private Map<String, ?> content;
 
-	public String getWidgetId() {
+	public Long getWidgetId() {
 		return widgetId;
 	}
 
-	public void setWidgetId(String id) {
-		this.widgetId = id;
+	public void setWidgetId(Long widgetId) {
+		this.widgetId = widgetId;
 	}
 
 	public String getName() {
