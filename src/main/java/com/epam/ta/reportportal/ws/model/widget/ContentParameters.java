@@ -17,7 +17,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.widget;
 
@@ -31,36 +31,25 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_WIDGET_LIMIT;
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_WIDGET_LIMIT;
 
 /**
  * Part of widget domain object. Describe chart parameters
- * 
+ *
  * @author Aliaksei_Makayed
- * 
  */
 @JsonInclude(Include.NON_NULL)
 public class ContentParameters {
 
 	@NotNull
-	@JsonProperty(value = "type", required = true)
+	@JsonProperty(value = "widget_type", required = true)
 	@ApiModelProperty(required = true, allowableValues = "line_chart, column_chart, bar_chart, combine_pie_chart, trends_chart, "
 			+ "not_passed_chart, cases_trend_chart, table, activity_panel, statistics_panel, unique_bug_table, bug_trend, "
 			+ "launches_comparison_chart, launches_duration_chart, launches_table")
-	private String type;
-
-	@NotNull
-	@JsonProperty(value = "gadget", required = true)
-	@ApiModelProperty(required = true, allowableValues = "old_line_chart, investigated_trend, launch_statistics, "
-			+ "statistic_trend, cases_trend, not_passed, overall_statistics, unique_bug_table, bug_trend, activity_stream, "
-			+ "launches_comparison_chart, launches_duration_chart, launches_table, most_failed_test_cases")
-	private String gadget;
-
-	// fields names for any required meta data(for example: dots at the x axis)
-	@JsonProperty(value = "metadata_fields")
-	private List<String> metadataFields;
+	private String widgetType;
 
 	// fields for main data(for example: graphs at the chart)
 	@JsonProperty(value = "content_fields", required = true)
@@ -73,13 +62,21 @@ public class ContentParameters {
 	private int itemsCount;
 
 	@JsonProperty(value = "widgetOptions")
-	private Map<String, List<String>> widgetOptions;
+	private Map<String, Set<String>> widgetOptions;
 
-	public Map<String, List<String>> getWidgetOptions() {
+	public String getWidgetType() {
+		return widgetType;
+	}
+
+	public void setWidgetType(String widgetType) {
+		this.widgetType = widgetType;
+	}
+
+	public Map<String, Set<String>> getWidgetOptions() {
 		return widgetOptions;
 	}
 
-	public void setWidgetOptions(Map<String, List<String>> widgetOptions) {
+	public void setWidgetOptions(Map<String, Set<String>> widgetOptions) {
 		this.widgetOptions = widgetOptions;
 	}
 
@@ -99,75 +96,41 @@ public class ContentParameters {
 		this.contentFields = contentFields;
 	}
 
-	public List<String> getMetadataFields() {
-		return metadataFields;
-	}
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
 
-	public void setMetadataFields(List<String> metadataFields) {
-		this.metadataFields = metadataFields;
-	}
+		ContentParameters that = (ContentParameters) o;
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getGadget() {
-		return gadget;
-	}
-
-	public void setGadget(String value) {
-		this.gadget = value;
+		if (itemsCount != that.itemsCount) {
+			return false;
+		}
+		if (widgetType != null ? !widgetType.equals(that.widgetType) : that.widgetType != null) {
+			return false;
+		}
+		if (contentFields != null ? !contentFields.equals(that.contentFields) : that.contentFields != null) {
+			return false;
+		}
+		return widgetOptions != null ? widgetOptions.equals(that.widgetOptions) : that.widgetOptions == null;
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((contentFields == null) ? 0 : contentFields.hashCode());
-		result = prime * result + ((metadataFields == null) ? 0 : metadataFields.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		int result = widgetType != null ? widgetType.hashCode() : 0;
+		result = 31 * result + (contentFields != null ? contentFields.hashCode() : 0);
+		result = 31 * result + itemsCount;
+		result = 31 * result + (widgetOptions != null ? widgetOptions.hashCode() : 0);
 		return result;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ContentParameters other = (ContentParameters) obj;
-		if (contentFields == null) {
-			if (other.contentFields != null)
-				return false;
-		} else if (!contentFields.equals(other.contentFields))
-			return false;
-		if (metadataFields == null) {
-			if (other.metadataFields != null)
-				return false;
-		} else if (!metadataFields.equals(other.metadataFields))
-			return false;
-		if (type == null) {
-			if (other.type != null)
-				return false;
-		} else if (!type.equals(other.type))
-			return false;
-		return true;
-	}
-
-	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("ContentParameters{");
-		sb.append("type='").append(type).append('\'');
-		sb.append(", gadget='").append(gadget).append('\'');
-		sb.append(", metadataFields=").append(metadataFields);
-		sb.append(", contentFields=").append(contentFields);
-		sb.append('}');
-		return sb.toString();
+		return "ContentParameters{" + "widgetType='" + widgetType + '\'' + ", contentFields=" + contentFields + ", itemsCount=" + itemsCount
+				+ ", widgetOptions=" + widgetOptions + '}';
 	}
 }

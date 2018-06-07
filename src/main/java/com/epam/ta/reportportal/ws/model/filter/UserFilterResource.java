@@ -57,8 +57,8 @@ public class UserFilterResource extends OwnedResource {
 	@NotNull
 	@Valid
 	@Size(min = MIN_COLLECTION_SIZE)
-	@JsonProperty(value = "entities", required = true)
-	private Set<UserFilterCondition> entities;
+	@JsonProperty(value = "conditions", required = true)
+	private Set<UserFilterCondition> conditions;
 
 	@Size(min = MIN_COLLECTION_SIZE)
 	@JsonProperty(value = "orders", required = true)
@@ -89,12 +89,12 @@ public class UserFilterResource extends OwnedResource {
 		this.name = name;
 	}
 
-	public void setEntities(Set<UserFilterCondition> Entities) {
-		this.entities = Entities;
+	public Set<UserFilterCondition> getConditions() {
+		return conditions;
 	}
 
-	public Set<UserFilterCondition> getEntities() {
-		return entities;
+	public void setConditions(Set<UserFilterCondition> conditions) {
+		this.conditions = conditions;
 	}
 
 	public List<Order> getOrders() {
@@ -123,7 +123,7 @@ public class UserFilterResource extends OwnedResource {
 
 	@Override
 	public String toString() {
-		return "UserFilterResource{" + "filterId='" + filterId + '\'' + ", name='" + name + '\'' + ", entities=" + entities + ", orders="
-				+ orders + ", objectType='" + objectType + '\'' + ", owner='" + owner + '\'' + "} " + super.toString();
+		return "UserFilterResource{" + "filterId='" + filterId + '\'' + ", name='" + name + '\'' + ", conditions=" + conditions
+				+ ", orders=" + orders + ", objectType='" + objectType + '\'' + ", owner='" + owner + '\'' + "} " + super.toString();
 	}
 }

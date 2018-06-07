@@ -30,6 +30,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -53,7 +54,7 @@ public class WidgetResource extends OwnedResource {
 	private ContentParameters contentParameters;
 
 	@JsonProperty(value = "applied_filters")
-	private UserFilterResource appliedFilters;
+	private List<UserFilterResource> appliedFilters;
 
 	@JsonProperty(value = "content")
 	private Map<String, ?> content;
@@ -74,11 +75,11 @@ public class WidgetResource extends OwnedResource {
 		this.name = name;
 	}
 
-	public UserFilterResource getAppliedFilters() {
+	public List<UserFilterResource> getAppliedFilters() {
 		return appliedFilters;
 	}
 
-	public void setAppliedFilters(UserFilterResource appliedFilters) {
+	public void setAppliedFilters(List<UserFilterResource> appliedFilters) {
 		this.appliedFilters = appliedFilters;
 	}
 
