@@ -30,9 +30,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
- * Domain model object for creating widget
+ * Domain model object for creating and updating widget
  *
  * @author Aliaksei_Makayed
  */
@@ -49,9 +50,8 @@ public class WidgetRQ extends SharableEntityRQ {
 	@JsonProperty(value = "content_parameters")
 	private ContentParameters contentParameters;
 
-	// applying filter id
-	@JsonProperty(value = "filter_id")
-	private Long filterId;
+	@JsonProperty(value = "filter_ids")
+	private List<Long> filterIds;
 
 	public String getName() {
 		return name;
@@ -69,21 +69,17 @@ public class WidgetRQ extends SharableEntityRQ {
 		this.contentParameters = contentParameters;
 	}
 
-	public Long getFilterId() {
-		return filterId;
+	public List<Long> getFilterIds() {
+		return filterIds;
 	}
 
-	public void setFilterId(Long filterId) {
-		this.filterId = filterId;
+	public void setFilterIds(List<Long> filterIds) {
+		this.filterIds = filterIds;
 	}
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("WidgetRQ{");
-		sb.append("name='").append(name).append('\'');
-		sb.append(", contentParameters=").append(contentParameters);
-		sb.append(", filterId='").append(filterId).append('\'');
-		sb.append('}');
-		return sb.toString();
+		return "WidgetRQ{" + "name='" + name + '\'' + ", contentParameters=" + contentParameters + ", filterIds=" + filterIds + "} " + super
+				.toString();
 	}
 }
