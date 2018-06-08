@@ -17,83 +17,55 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.statistics;
-
-import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Map;
+
 /**
  * IssueCounter model representation.<br>
  * Using for resources construction.
- * 
- * @author Andrei_Ramanchuk
+ *
+ * @author Pavel Bortnik
  */
 @JsonInclude(Include.NON_NULL)
 public class IssueCounter {
 
-	@JsonProperty(value = "product_bug")
-	private Map<String, Integer> productBug;
+	@JsonProperty(value = "issue_group")
+	private String issueGroup;
 
-	@JsonProperty(value = "automation_bug")
-	private Map<String, Integer> automationBug;
+	@JsonProperty(value = "defects")
+	private Map<String, Integer> defects;
 
-	@JsonProperty(value = "system_issue")
-	private Map<String, Integer> systemIssue;
+	@JsonProperty(value = "total")
+	private Integer total;
 
-	@JsonProperty(value = "to_investigate")
-	private Map<String, Integer> toInvestigate;
-
-	@JsonProperty(value = "no_defect")
-	private Map<String, Integer> noDefect;
-
-	public Map<String, Integer> getProductBug() {
-		return productBug;
+	public String getIssueGroup() {
+		return issueGroup;
 	}
 
-	public void setProductBug(Map<String, Integer> productBug) {
-		this.productBug = productBug;
+	public void setIssueGroup(String issueGroup) {
+		this.issueGroup = issueGroup;
 	}
 
-	public Map<String, Integer> getAutomationBug() {
-		return automationBug;
+	public Map<String, Integer> getDefects() {
+		return defects;
 	}
 
-	public void setAutomationBug(Map<String, Integer> automationBug) {
-		this.automationBug = automationBug;
+	public void setDefects(Map<String, Integer> defects) {
+		this.defects = defects;
 	}
 
-	public Map<String, Integer> getSystemIssue() {
-		return systemIssue;
+	public Integer getTotal() {
+		return total;
 	}
 
-	public void setSystemIssue(Map<String, Integer> systemIssue) {
-		this.systemIssue = systemIssue;
-	}
-
-	public Map<String, Integer> getToInvestigate() {
-		return toInvestigate;
-	}
-
-	public void setToInvestigate(Map<String, Integer> toInvestigate) {
-		this.toInvestigate = toInvestigate;
-	}
-
-	public Map<String, Integer> getNoDefect() {
-		return noDefect;
-	}
-
-	public void setNoDefect(Map<String, Integer> value) {
-		this.noDefect = value;
-	}
-
-	@Override
-	public String toString() {
-		return "IssueCounter [productBugs=" + productBug + ", automationBug=" + automationBug + ", systemIssue=" + systemIssue
-				+ ", toInvestigate=" + toInvestigate + ", noDefect=" + noDefect + "]";
+	public void setTotal(Integer total) {
+		this.total = total;
 	}
 }
