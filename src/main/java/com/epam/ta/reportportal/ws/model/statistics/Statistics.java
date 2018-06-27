@@ -17,39 +17,38 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
-package com.epam.ta.reportportal.ws.model.statistics;
+ */
 
-import javax.validation.Valid;
+package com.epam.ta.reportportal.ws.model.statistics;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Map;
+
 @JsonInclude(Include.NON_NULL)
 public class Statistics {
 
-	@Valid
 	@JsonProperty(value = "executions")
-	private ExecutionCounter executions;
+	private Map<String, Integer> executions;
 
 	@JsonProperty(value = "defects")
-	private IssueCounter defects;
+	private Map<String, Map<String, Integer>> defects;
 
-	public ExecutionCounter getExecutions() {
+	public Map<String, Integer> getExecutions() {
 		return executions;
 	}
 
-	public void setExecutions(ExecutionCounter executions) {
+	public void setExecutions(Map<String, Integer> executions) {
 		this.executions = executions;
 	}
 
-	public IssueCounter getDefects() {
+	public Map<String, Map<String, Integer>> getDefects() {
 		return defects;
 	}
 
-	public void setDefects(IssueCounter defects) {
+	public void setDefects(Map<String, Map<String, Integer>> defects) {
 		this.defects = defects;
 	}
 
