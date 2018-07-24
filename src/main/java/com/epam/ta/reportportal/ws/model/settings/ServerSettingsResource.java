@@ -43,7 +43,7 @@ public class ServerSettingsResource {
 	@JsonProperty(value = "serverEmailConfig")
 	private ServerEmailResource serverEmailResource;
 
-	private Map<String, OAuthDetailsResource> oauthConfigs;
+//	private Map<String, OAuthDetailsResource> oauthConfigs;
 
 	private Map<String, AnalyticsResource> analyticsResource;
 
@@ -71,13 +71,13 @@ public class ServerSettingsResource {
 		return serverEmailResource;
 	}
 
-	public Map<String, OAuthDetailsResource> getOauthConfigs() {
-		return oauthConfigs;
-	}
+//	public Map<String, OAuthDetailsResource> getOauthConfigs() {
+//		return oauthConfigs;
+//	}
 
-	public void setOauthConfigs(Map<String, OAuthDetailsResource> oauthConfigs) {
-		this.oauthConfigs = oauthConfigs;
-	}
+//	public void setOauthConfigs(Map<String, OAuthDetailsResource> oauthConfigs) {
+//		this.oauthConfigs = oauthConfigs;
+//	}
 
     public Map<String, AnalyticsResource> getAnalyticsResource() {
         return analyticsResource;
