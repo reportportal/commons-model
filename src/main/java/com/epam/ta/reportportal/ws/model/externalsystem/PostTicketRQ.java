@@ -111,11 +111,11 @@ public class PostTicketRQ extends Authentic {
 		this.numberOfLogs = numberOfLogs;
 	}
 
-	public String getTestItemId() {
+	public Long getTestItemId() {
 		return testItemId;
 	}
 
-	public void setTestItemId(String testItemId) {
+	public void setTestItemId(Long testItemId) {
 		this.testItemId = testItemId;
 	}
 
