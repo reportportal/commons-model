@@ -58,7 +58,7 @@ public class PostTicketRQ extends Authentic {
 	private int numberOfLogs;
 
 	@JsonProperty(value = "item", required = true)
-	private String testItemId;
+	private Long testItemId;
 
 	@JsonProperty(value = "backLinks", required = true)
 	private Map<Long, String> backLinks;
