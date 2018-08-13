@@ -53,7 +53,7 @@ public class ContentParameters {
 
 	// fields for main data(for example: graphs at the chart)
 	@JsonProperty(value = "content_fields", required = true)
-	private Map<String, String> contentFields;
+	private Map<String, Set<String>> contentFields;
 
 	@NotNull
 	@Min(value = MIN_WIDGET_LIMIT)
@@ -62,7 +62,7 @@ public class ContentParameters {
 	private int itemsCount;
 
 	@JsonProperty(value = "widgetOptions")
-	private Map<String, Set<String>> widgetOptions;
+	private Map<String, String> widgetOptions;
 
 	public String getWidgetType() {
 		return widgetType;
@@ -72,11 +72,11 @@ public class ContentParameters {
 		this.widgetType = widgetType;
 	}
 
-	public Map<String, Set<String>> getWidgetOptions() {
+	public Map<String, String> getWidgetOptions() {
 		return widgetOptions;
 	}
 
-	public void setWidgetOptions(Map<String, Set<String>> widgetOptions) {
+	public void setWidgetOptions(Map<String, String> widgetOptions) {
 		this.widgetOptions = widgetOptions;
 	}
 
@@ -88,11 +88,11 @@ public class ContentParameters {
 		this.itemsCount = itemsCount;
 	}
 
-	public Map<String, String> getContentFields() {
+	public Map<String, Set<String>> getContentFields() {
 		return contentFields;
 	}
 
-	public void setContentFields(Map<String, String> contentFields) {
+	public void setContentFields(Map<String, Set<String>> contentFields) {
 		this.contentFields = contentFields;
 	}
 
