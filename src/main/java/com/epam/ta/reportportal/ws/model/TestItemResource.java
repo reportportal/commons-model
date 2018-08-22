@@ -22,7 +22,7 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.epam.ta.reportportal.ws.model.issue.Issue;
-import com.epam.ta.reportportal.ws.model.statistics.Statistics;
+import com.epam.ta.reportportal.ws.model.statistics.StatisticsResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -69,7 +69,7 @@ public class TestItemResource {
 	private String status;
 
 	@JsonProperty(value = "statistics")
-	private Statistics statistics;
+	private StatisticsResource statisticsResource;
 
 	@JsonProperty(value = "parent")
 	private Long parent;
@@ -215,12 +215,12 @@ public class TestItemResource {
 		return launchStatus;
 	}
 
-	public Statistics getStatistics() {
-		return statistics;
+	public StatisticsResource getStatisticsResource() {
+		return statisticsResource;
 	}
 
-	public void setStatistics(Statistics statistics) {
-		this.statistics = statistics;
+	public void setStatisticsResource(StatisticsResource statisticsResource) {
+		this.statisticsResource = statisticsResource;
 	}
 
 	public void setHasChilds(boolean hasChilds) {
@@ -243,7 +243,7 @@ public class TestItemResource {
 	public String toString() {
 		return "TestItemResource{" + "itemId='" + itemId + '\'' + ", name='" + name + '\'' + ", description='" + description + '\''
 				+ ", parameters='" + parameters + '\'' + ", tags=" + tags + ", type='" + type + '\'' + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", status='" + status + '\'' + ", statistics=" + statistics + ", parent='" + parent + '\''
+				+ ", endTime=" + endTime + ", status='" + status + '\'' + ", statisticsResource=" + statisticsResource + ", parent='" + parent + '\''
 				+ ", pathNames=" + pathNames + ", launchStatus='" + launchStatus + '\'' + ", issue=" + issue + ", hasChilds=" + hasChilds
 				+ ", launchId='" + launchId + '\'' + ", uniqueId='" + uniqueId + '\'' + '}';
 	}
