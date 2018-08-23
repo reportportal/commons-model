@@ -24,7 +24,7 @@ package com.epam.ta.reportportal.ws.model.launch;
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
-import com.epam.ta.reportportal.ws.model.statistics.Statistics;
+import com.epam.ta.reportportal.ws.model.statistics.StatisticsResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -74,7 +74,7 @@ public class LaunchResource extends OwnedResource {
 
 	@JsonProperty("statistics")
 	@Valid
-	private Statistics statistics;
+	private StatisticsResource statisticsResource;
 
 	@JsonProperty("tags")
 	private Set<String> tags;
@@ -155,12 +155,12 @@ public class LaunchResource extends OwnedResource {
 		this.status = status;
 	}
 
-	public Statistics getStatistics() {
-		return statistics;
+	public StatisticsResource getStatisticsResource() {
+		return statisticsResource;
 	}
 
-	public void setStatistics(Statistics statistics) {
-		this.statistics = statistics;
+	public void setStatisticsResource(StatisticsResource statisticsResource) {
+		this.statisticsResource = statisticsResource;
 	}
 
 	public Set<String> getTags() {
@@ -198,8 +198,8 @@ public class LaunchResource extends OwnedResource {
 	@Override
 	public String toString() {
 		return "LaunchResource{" + "launchId='" + launchId + '\'' + ", name='" + name + '\'' + ", number=" + number + ", description='"
-				+ description + '\'' + ", startTime=" + startTime + ", endTime=" + endTime + ", status='" + status + '\'' + ", statistics="
-				+ statistics + ", tags=" + tags + ", mode=" + mode + ", isProcessing=" + isProcessing + ", approximateDuration="
+				+ description + '\'' + ", startTime=" + startTime + ", endTime=" + endTime + ", status='" + status + '\'' + ", statisticsResource="
+				+ statisticsResource + ", tags=" + tags + ", mode=" + mode + ", isProcessing=" + isProcessing + ", approximateDuration="
 				+ approximateDuration + ", hasRetries=" + hasRetries + '}';
 	}
 }

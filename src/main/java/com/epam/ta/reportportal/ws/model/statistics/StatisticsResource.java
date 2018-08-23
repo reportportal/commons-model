@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Map;
 
 @JsonInclude(Include.NON_NULL)
-public class Statistics {
+public class StatisticsResource {
 
 	@JsonProperty(value = "executions")
 	private Map<String, Integer> executions;
