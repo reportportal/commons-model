@@ -30,6 +30,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Domain model object for creating and updating widget
@@ -50,7 +51,7 @@ public class WidgetRQ extends SharableEntityRQ {
 	private ContentParameters contentParameters;
 
 	@JsonProperty(value = "filter_id")
-	private Long filterId;
+	private List<Long> filterIds;
 
 	public String getName() {
 		return name;
@@ -68,16 +69,16 @@ public class WidgetRQ extends SharableEntityRQ {
 		this.contentParameters = contentParameters;
 	}
 
-	public Long getFilterId() {
-		return filterId;
+	public List<Long> getFilterIds() {
+		return filterIds;
 	}
 
-	public void setFilterId(Long filterId) {
-		this.filterId = filterId;
+	public void setFilterIds(List<Long> filterIds) {
+		this.filterIds = filterIds;
 	}
 
 	@Override
 	public String toString() {
-		return "WidgetRQ{" + "name='" + name + '\'' + ", contentParameters=" + contentParameters + ", filterId=" + filterId + '}';
+		return "WidgetRQ{" + "name='" + name + '\'' + ", contentParameters=" + contentParameters + ", filterIds=" + filterIds + '}';
 	}
 }
