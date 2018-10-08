@@ -48,6 +48,11 @@ public class ActivityResource {
 	private String userRef;
 
 	@NotNull
+	@JsonProperty(value = "loggedObjectRef", required = true)
+	@ApiModelProperty(required = true)
+	private String loggedObjectRef;
+
+	@NotNull
 	@JsonProperty(value = "lastModifiedDate", required = true)
 	@ApiModelProperty(required = true)
 	private Date lastModifiedDate;
@@ -108,6 +113,14 @@ public class ActivityResource {
 
 	public void setUserRef(String userRef) {
 		this.userRef = userRef;
+	}
+
+	public String getLoggedObjectRef() {
+		return loggedObjectRef;
+	}
+
+	public void setLoggedObjectRef(String loggedObjectRef) {
+		this.loggedObjectRef = loggedObjectRef;
 	}
 
 	public Date getLastModifiedDate() {
