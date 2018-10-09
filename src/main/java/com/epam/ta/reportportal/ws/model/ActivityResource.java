@@ -27,9 +27,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * JSON Representation of Report Portal's Activity domain object.
@@ -75,18 +73,7 @@ public class ActivityResource {
 	private String projectRef;
 
 	@JsonProperty(value = "history")
-	private List<FieldValues> history;
-
-	@JsonProperty(value = "objectName")
-    private String objectName;
-
-    public String getObjectName() {
-        return objectName;
-    }
-
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
-    }
+	private Object history;
 
     public String getProjectRef() {
 		return projectRef;
@@ -144,58 +131,12 @@ public class ActivityResource {
 		this.lastModifiedDate = lastModifiedDate;
 	}
 
-	public List<FieldValues> getHistory() {
-		return null == history ? new ArrayList<FieldValues>() : history;
+	public Object getHistory() {
+		return history;
 	}
 
-	public void setHistory(List<FieldValues> history) {
+	public void setHistory(Object history) {
 		this.history = history;
-	}
-
-	@JsonInclude(Include.NON_NULL)
-	public static class FieldValues {
-
-	    @JsonProperty(value = "field")
-	    private String field;
-
-		@JsonProperty(value = "oldValue")
-		private String oldValue;
-
-		@JsonProperty(value = "newValue")
-		private String newValue;
-
-        public String getField() {
-            return field;
-        }
-
-        public void setField(String field) {
-            this.field = field;
-        }
-
-        public String getOldValue() {
-			return oldValue;
-		}
-
-		public void setOldValue(String oldValue) {
-			this.oldValue = oldValue;
-		}
-
-		public String getNewValue() {
-			return newValue;
-		}
-
-		public void setNewValue(String newValue) {
-			this.newValue = newValue;
-		}
-
-		@Override
-		public String toString() {
-			final StringBuilder sb = new StringBuilder("FieldValues{");
-			sb.append("oldValue='").append(oldValue).append('\'');
-			sb.append(", newValue='").append(newValue).append('\'');
-			sb.append('}');
-			return sb.toString();
-		}
 	}
 
 	@Override
