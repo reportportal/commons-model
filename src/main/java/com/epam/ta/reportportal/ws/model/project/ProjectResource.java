@@ -30,6 +30,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Project resource representation for responses
@@ -53,7 +54,7 @@ public class ProjectResource {
 
 	@NotNull
 	@JsonProperty(value = "configuration", required = true)
-	private ProjectConfiguration configuration;
+	private Map<String, String> projectAttributes;
 
 	@JsonProperty(value = "users")
 	private List<ProjectUser> users;
@@ -94,14 +95,6 @@ public class ProjectResource {
 		return addInfo;
 	}
 
-	public void setConfiguration(ProjectConfiguration configuration) {
-		this.configuration = configuration;
-	}
-
-	public ProjectConfiguration getConfiguration() {
-		return configuration;
-	}
-
 	public List<ProjectUser> getUsers() {
 		return users;
 	}
@@ -117,9 +110,6 @@ public class ProjectResource {
 
 		@JsonProperty(value = "projectRole")
 		private String projectRole;
-
-		@JsonProperty(value = "proposedRole")
-		private String proposedRole;
 
 		public String getLogin() {
 			return login;
@@ -137,21 +127,10 @@ public class ProjectResource {
 			return projectRole;
 		}
 
-		public void setProposedRole(String value) {
-			this.proposedRole = value;
-		}
-
-		public String getProposedRole() {
-			return proposedRole;
-		}
-
 		@Override
 		public String toString() {
-			final StringBuilder sb = new StringBuilder("ProjectUser{");
-			sb.append("projectRole='").append(projectRole).append('\'');
-			sb.append(", proposedRole='").append(proposedRole).append('\'');
-			sb.append('}');
-			return sb.toString();
+			String sb = "ProjectUser{" + "projectRole='" + projectRole + '\'' + '}';
+			return sb;
 		}
 	}
 }
