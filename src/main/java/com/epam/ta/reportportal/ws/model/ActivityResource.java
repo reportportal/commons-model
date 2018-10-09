@@ -144,6 +144,7 @@ public class ActivityResource {
 		final StringBuilder sb = new StringBuilder("ActivityResource{");
 		sb.append("activityId='").append(activityId).append('\'');
 		sb.append(", userRef='").append(userRef).append('\'');
+		sb.append(", loggedObjectRef='").append(loggedObjectRef).append('\'');
 		sb.append(", lastModifiedDate=").append(lastModifiedDate);
 		sb.append(", actionType='").append(actionType).append('\'');
 		sb.append(", objectType='").append(objectType).append('\'');
