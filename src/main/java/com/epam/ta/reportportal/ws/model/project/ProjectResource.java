@@ -22,9 +22,6 @@
 package com.epam.ta.reportportal.ws.model.project;
 
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
-import com.epam.ta.reportportal.ws.model.externalsystem.ExternalSystemResource;
-import com.epam.ta.reportportal.ws.model.project.config.IssueSubTypeResource;
-import com.epam.ta.reportportal.ws.model.project.email.ProjectEmailConfigDTO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -33,7 +30,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Project resource representation for responses
@@ -57,7 +53,7 @@ public class ProjectResource {
 
 	@NotNull
 	@JsonProperty(value = "configuration", required = true)
-	private Map<String, String> projectAttributes;
+	private ProjectConfiguration configuration;
 
 	@JsonProperty(value = "users")
 	private List<ProjectUser> users;
@@ -65,15 +61,6 @@ public class ProjectResource {
 	@NotNull
 	@JsonProperty(value = "creationDate")
 	private Date creationDate;
-
-	@JsonProperty(value = "subTypes")
-	private Map<String, List<IssueSubTypeResource>> subTypes;
-
-	@JsonProperty(value = "emailConfiguration")
-	private ProjectEmailConfigDTO emailConfig;
-
-	@JsonProperty(value = "externalSystem")
-	private List<ExternalSystemResource> externalSystem;
 
 	public Date getCreationDate() {
 		return creationDate;
@@ -107,12 +94,12 @@ public class ProjectResource {
 		return addInfo;
 	}
 
-	public Map<String, String> getProjectAttributes() {
-		return projectAttributes;
+	public void setConfiguration(ProjectConfiguration configuration) {
+		this.configuration = configuration;
 	}
 
-	public void setProjectAttributes(Map<String, String> projectAttributes) {
-		this.projectAttributes = projectAttributes;
+	public ProjectConfiguration getConfiguration() {
+		return configuration;
 	}
 
 	public List<ProjectUser> getUsers() {
@@ -121,30 +108,6 @@ public class ProjectResource {
 
 	public void setUsers(List<ProjectUser> users) {
 		this.users = users;
-	}
-
-	public Map<String, List<IssueSubTypeResource>> getSubTypes() {
-		return subTypes;
-	}
-
-	public void setSubTypes(Map<String, List<IssueSubTypeResource>> subTypes) {
-		this.subTypes = subTypes;
-	}
-
-	public ProjectEmailConfigDTO getEmailConfig() {
-		return emailConfig;
-	}
-
-	public void setEmailConfig(ProjectEmailConfigDTO emailConfig) {
-		this.emailConfig = emailConfig;
-	}
-
-	public List<ExternalSystemResource> getExternalSystem() {
-		return externalSystem;
-	}
-
-	public void setExternalSystem(List<ExternalSystemResource> externalSystem) {
-		this.externalSystem = externalSystem;
 	}
 
 	public static class ProjectUser {
@@ -173,8 +136,7 @@ public class ProjectResource {
 
 		@Override
 		public String toString() {
-			String sb = "ProjectUser{" + "projectRole='" + projectRole + '\'' + '}';
-			return sb;
+			return "ProjectUser{" + "projectRole='" + projectRole + '\'' + '}';
 		}
 	}
 }
