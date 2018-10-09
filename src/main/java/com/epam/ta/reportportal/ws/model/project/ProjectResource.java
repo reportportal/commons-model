@@ -95,6 +95,14 @@ public class ProjectResource {
 		return addInfo;
 	}
 
+	public Map<String, String> getProjectAttributes() {
+		return projectAttributes;
+	}
+
+	public void setProjectAttributes(Map<String, String> projectAttributes) {
+		this.projectAttributes = projectAttributes;
+	}
+
 	public List<ProjectUser> getUsers() {
 		return users;
 	}
