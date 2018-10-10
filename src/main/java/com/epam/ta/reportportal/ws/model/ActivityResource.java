@@ -72,8 +72,8 @@ public class ActivityResource {
 	@ApiModelProperty(required = true)
 	private String projectRef;
 
-	@JsonProperty(value = "history")
-	private Object history;
+	@JsonProperty(value = "details")
+	private Object details;
 
     public String getProjectRef() {
 		return projectRef;
@@ -131,12 +131,12 @@ public class ActivityResource {
 		this.lastModifiedDate = lastModifiedDate;
 	}
 
-	public Object getHistory() {
-		return history;
+	public Object getDetails() {
+		return details;
 	}
 
-	public void setHistory(Object history) {
-		this.history = history;
+	public void setDetails(Object details) {
+		this.details = details;
 	}
 
 	@Override
@@ -149,7 +149,7 @@ public class ActivityResource {
 		sb.append(", actionType='").append(actionType).append('\'');
 		sb.append(", objectType='").append(objectType).append('\'');
 		sb.append(", projectRef='").append(projectRef).append('\'');
-		sb.append(", history=").append(history);
+		sb.append(", details=").append(details);
 		sb.append('}');
 		return sb.toString();
 	}
