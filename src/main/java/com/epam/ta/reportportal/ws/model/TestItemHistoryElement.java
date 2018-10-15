@@ -21,11 +21,11 @@
 
 package com.epam.ta.reportportal.ws.model;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
 
 @JsonInclude(Include.NON_NULL)
 public class TestItemHistoryElement {
@@ -37,7 +37,7 @@ public class TestItemHistoryElement {
 	private String startTime;
 
 	@JsonProperty(value = "launchId")
-	private String launchId;
+	private Long launchId;
 
 	@JsonProperty(value = "resources")
 	private List<TestItemResource> resources;
@@ -77,11 +77,11 @@ public class TestItemHistoryElement {
 		this.startTime = startTime;
 	}
 
-	public String getLaunchId() {
+	public Long getLaunchId() {
 		return launchId;
 	}
 
-	public void setLaunchId(String launchId) {
+	public void setLaunchId(Long launchId) {
 		this.launchId = launchId;
 	}
 
