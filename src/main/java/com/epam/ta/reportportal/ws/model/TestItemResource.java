@@ -42,7 +42,7 @@ import java.util.Set;
 public class TestItemResource {
 
 	@JsonProperty(value = "id")
-	private String itemId;
+	private Long itemId;
 
 	@JsonProperty(value = "name")
 	private String name;
@@ -83,8 +83,8 @@ public class TestItemResource {
 	@JsonProperty(value = "issue")
 	private Issue issue;
 
-	@JsonProperty(value = "has_childs")
-	private boolean hasChilds;
+	@JsonProperty(value = "has_children")
+	private boolean hasChildren;
 
 	@JsonProperty(value = "launchId")
 	private Long launchId;
@@ -111,11 +111,11 @@ public class TestItemResource {
 		this.launchId = launchId;
 	}
 
-	public String getItemId() {
+	public Long getItemId() {
 		return itemId;
 	}
 
-	public void setItemId(String itemId) {
+	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
 
@@ -223,12 +223,12 @@ public class TestItemResource {
 		this.statisticsResource = statisticsResource;
 	}
 
-	public void setHasChilds(boolean hasChilds) {
-		this.hasChilds = hasChilds;
+	public boolean isHasChildren() {
+		return hasChildren;
 	}
 
-	public boolean isHasChilds() {
-		return hasChilds;
+	public void setHasChildren(boolean hasChildren) {
+		this.hasChildren = hasChildren;
 	}
 
 	public String getUniqueId() {
@@ -244,7 +244,7 @@ public class TestItemResource {
 		return "TestItemResource{" + "itemId='" + itemId + '\'' + ", name='" + name + '\'' + ", description='" + description + '\''
 				+ ", parameters='" + parameters + '\'' + ", tags=" + tags + ", type='" + type + '\'' + ", startTime=" + startTime
 				+ ", endTime=" + endTime + ", status='" + status + '\'' + ", statisticsResource=" + statisticsResource + ", parent='" + parent + '\''
-				+ ", pathNames=" + pathNames + ", launchStatus='" + launchStatus + '\'' + ", issue=" + issue + ", hasChilds=" + hasChilds
+				+ ", pathNames=" + pathNames + ", launchStatus='" + launchStatus + '\'' + ", issue=" + issue + ", hasChildren=" + hasChildren
 				+ ", launchId='" + launchId + '\'' + ", uniqueId='" + uniqueId + '\'' + '}';
 	}
 }
