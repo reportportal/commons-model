@@ -75,7 +75,7 @@ public class TestItemResource {
 	private Long parent;
 
 	@JsonProperty(value = "path_names")
-	private Map<String, String> pathNames;
+	private Map<Long, String> pathNames;
 
 	@JsonProperty(value = "launchStatus")
 	private String launchStatus;
@@ -199,11 +199,11 @@ public class TestItemResource {
 		this.parent = parent;
 	}
 
-	public Map<String, String> getPathNames() {
+	public Map<Long, String> getPathNames() {
 		return pathNames;
 	}
 
-	public void setPathNames(Map<String, String> value) {
+	public void setPathNames(Map<Long, String> value) {
 		this.pathNames = value;
 	}
 
