@@ -95,6 +95,9 @@ public class TestItemResource {
 	@JsonProperty(value = "retries")
 	private List<TestItemResource> retries;
 
+	@JsonProperty(value = "path")
+	private String path;
+
 	public List<TestItemResource> getRetries() {
 		return retries;
 	}
@@ -239,12 +242,21 @@ public class TestItemResource {
 		this.uniqueId = uniqueId;
 	}
 
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
 	@Override
 	public String toString() {
-		return "TestItemResource{" + "itemId='" + itemId + '\'' + ", name='" + name + '\'' + ", description='" + description + '\''
-				+ ", parameters='" + parameters + '\'' + ", tags=" + tags + ", type='" + type + '\'' + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", status='" + status + '\'' + ", statisticsResource=" + statisticsResource + ", parent='" + parent + '\''
-				+ ", pathNames=" + pathNames + ", launchStatus='" + launchStatus + '\'' + ", issue=" + issue + ", hasChildren=" + hasChildren
-				+ ", launchId='" + launchId + '\'' + ", uniqueId='" + uniqueId + '\'' + '}';
+		return "TestItemResource{" + "itemId=" + itemId + ", name='" + name + '\'' + ", description='" + description + '\''
+				+ ", parameters=" + parameters + ", tags=" + tags + ", type='" + type + '\'' + ", startTime=" + startTime + ", endTime="
+				+ endTime + ", status='" + status + '\'' + ", statisticsResource=" + statisticsResource + ", parent=" + parent
+				+ ", pathNames=" + pathNames + ", launchStatus='" + launchStatus + '\'' + ", issue=" + issue + ", hasChildren="
+				+ hasChildren + ", launchId=" + launchId + ", uniqueId='" + uniqueId + '\'' + ", retries=" + retries + ", path='" + path
+				+ '\'' + '}';
 	}
 }
