@@ -64,11 +64,6 @@ public class CreateExternalSystemRQ {
 	@JsonProperty(value = "password")
 	private String password;
 
-	@NotEmpty
-	@JsonProperty(value = "domain")
-	@Size(min = MIN_DOMAIN_SIZE, max = MAX_DOMAIN_SIZE)
-	private String domain;
-
 	@JsonProperty(value = "accessKey")
 	private String accessKey;
 
@@ -113,14 +108,6 @@ public class CreateExternalSystemRQ {
 
 	public String getPassword() {
 		return password;
-	}
-
-	public void setDomain(String value) {
-		this.domain = value;
-	}
-
-	public String getDomain() {
-		return domain;
 	}
 
 	public void setAccessKey(String key) {
