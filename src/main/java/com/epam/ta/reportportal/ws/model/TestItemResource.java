@@ -42,7 +42,7 @@ import java.util.Set;
 public class TestItemResource {
 
 	@JsonProperty(value = "id")
-	private String itemId;
+	private Long itemId;
 
 	@JsonProperty(value = "name")
 	private String name;
@@ -75,7 +75,7 @@ public class TestItemResource {
 	private Long parent;
 
 	@JsonProperty(value = "path_names")
-	private Map<String, String> pathNames;
+	private Map<Long, String> pathNames;
 
 	@JsonProperty(value = "launchStatus")
 	private String launchStatus;
@@ -83,8 +83,8 @@ public class TestItemResource {
 	@JsonProperty(value = "issue")
 	private Issue issue;
 
-	@JsonProperty(value = "has_childs")
-	private boolean hasChilds;
+	@JsonProperty(value = "has_children")
+	private boolean hasChildren;
 
 	@JsonProperty(value = "launchId")
 	private Long launchId;
@@ -94,6 +94,9 @@ public class TestItemResource {
 
 	@JsonProperty(value = "retries")
 	private List<TestItemResource> retries;
+
+	@JsonProperty(value = "path")
+	private String path;
 
 	public List<TestItemResource> getRetries() {
 		return retries;
@@ -111,11 +114,11 @@ public class TestItemResource {
 		this.launchId = launchId;
 	}
 
-	public String getItemId() {
+	public Long getItemId() {
 		return itemId;
 	}
 
-	public void setItemId(String itemId) {
+	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
 
@@ -199,11 +202,11 @@ public class TestItemResource {
 		this.parent = parent;
 	}
 
-	public Map<String, String> getPathNames() {
+	public Map<Long, String> getPathNames() {
 		return pathNames;
 	}
 
-	public void setPathNames(Map<String, String> value) {
+	public void setPathNames(Map<Long, String> value) {
 		this.pathNames = value;
 	}
 
@@ -223,12 +226,12 @@ public class TestItemResource {
 		this.statisticsResource = statisticsResource;
 	}
 
-	public void setHasChilds(boolean hasChilds) {
-		this.hasChilds = hasChilds;
+	public boolean isHasChildren() {
+		return hasChildren;
 	}
 
-	public boolean isHasChilds() {
-		return hasChilds;
+	public void setHasChildren(boolean hasChildren) {
+		this.hasChildren = hasChildren;
 	}
 
 	public String getUniqueId() {
@@ -239,12 +242,21 @@ public class TestItemResource {
 		this.uniqueId = uniqueId;
 	}
 
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
 	@Override
 	public String toString() {
-		return "TestItemResource{" + "itemId='" + itemId + '\'' + ", name='" + name + '\'' + ", description='" + description + '\''
-				+ ", parameters='" + parameters + '\'' + ", tags=" + tags + ", type='" + type + '\'' + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", status='" + status + '\'' + ", statisticsResource=" + statisticsResource + ", parent='" + parent + '\''
-				+ ", pathNames=" + pathNames + ", launchStatus='" + launchStatus + '\'' + ", issue=" + issue + ", hasChilds=" + hasChilds
-				+ ", launchId='" + launchId + '\'' + ", uniqueId='" + uniqueId + '\'' + '}';
+		return "TestItemResource{" + "itemId=" + itemId + ", name='" + name + '\'' + ", description='" + description + '\''
+				+ ", parameters=" + parameters + ", tags=" + tags + ", type='" + type + '\'' + ", startTime=" + startTime + ", endTime="
+				+ endTime + ", status='" + status + '\'' + ", statisticsResource=" + statisticsResource + ", parent=" + parent
+				+ ", pathNames=" + pathNames + ", launchStatus='" + launchStatus + '\'' + ", issue=" + issue + ", hasChildren="
+				+ hasChildren + ", launchId=" + launchId + ", uniqueId='" + uniqueId + '\'' + ", retries=" + retries + ", path='" + path
+				+ '\'' + '}';
 	}
 }
