@@ -37,17 +37,17 @@ import java.util.Map;
 public class ProjectSettingsResource {
 
 	@JsonProperty(value = "project", required = true)
-	private String projectId;
+	private Long projectId;
 
 	@JsonProperty(value = "subTypes", required = true)
 	private Map<String, List<IssueSubTypeResource>> subTypes;
 
-	public void setProjectId(String id) {
-		this.projectId = id;
+	public Long getProjectId() {
+		return projectId;
 	}
 
-	public String getProjectId() {
-		return projectId;
+	public void setProjectId(Long projectId) {
+		this.projectId = projectId;
 	}
 
 	public void setSubTypes(Map<String, List<IssueSubTypeResource>> types) {
