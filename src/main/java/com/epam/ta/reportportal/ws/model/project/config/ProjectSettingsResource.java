@@ -21,11 +21,11 @@
 
 package com.epam.ta.reportportal.ws.model.project.config;
 
-import java.util.List;
-import java.util.Map;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Project settings resource output
@@ -37,20 +37,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ProjectSettingsResource {
 
 	@JsonProperty(value = "project", required = true)
-	private String projectId;
+	private Long projectId;
 
 	@JsonProperty(value = "subTypes", required = true)
 	private Map<String, List<IssueSubTypeResource>> subTypes;
 
-	@JsonProperty
-	private String statisticsStrategy;
-
-	public void setProjectId(String id) {
-		this.projectId = id;
+	public Long getProjectId() {
+		return projectId;
 	}
 
-	public String getProjectId() {
-		return projectId;
+	public void setProjectId(Long projectId) {
+		this.projectId = projectId;
 	}
 
 	public void setSubTypes(Map<String, List<IssueSubTypeResource>> types) {
@@ -59,13 +56,5 @@ public class ProjectSettingsResource {
 
 	public Map<String, List<IssueSubTypeResource>> getSubTypes() {
 		return subTypes;
-	}
-
-	public String getStatisticsStrategy() {
-		return statisticsStrategy;
-	}
-
-	public void setStatisticsStrategy(String statisticsStrategy) {
-		this.statisticsStrategy = statisticsStrategy;
 	}
 }
