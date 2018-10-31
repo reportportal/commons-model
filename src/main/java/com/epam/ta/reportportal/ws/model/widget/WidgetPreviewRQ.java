@@ -25,56 +25,61 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Model object for getting widget preview content
  *
  * @author Pavel Bortnik
- *
  */
 
 @JsonInclude(Include.NON_NULL)
 public class WidgetPreviewRQ {
 
-    @Valid
-    @JsonProperty(value = "content_parameters")
-    private ContentParameters contentParameters;
+	@Valid
+	@JsonProperty(value = "content_parameters")
+	private ContentParameters contentParameters;
 
-    @JsonProperty(value = "filter_id")
-    private String filterId;
+	@JsonProperty(value = "filter_id")
+	private List<Long> filterIds;
 
-    public ContentParameters getContentParameters() {
-        return contentParameters;
-    }
+	public ContentParameters getContentParameters() {
+		return contentParameters;
+	}
 
-    public void setContentParameters(ContentParameters contentParameters) {
-        this.contentParameters = contentParameters;
-    }
+	public void setContentParameters(ContentParameters contentParameters) {
+		this.contentParameters = contentParameters;
+	}
 
-    public String getFilterId() {
-        return filterId;
-    }
+	public List<Long> getFilterIds() {
+		return filterIds;
+	}
 
-    public void setFilterId(String filterId) {
-        this.filterId = filterId;
-    }
+	public void setFilterIds(List<Long> filterIds) {
+		this.filterIds = filterIds;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
 
-        WidgetPreviewRQ that = (WidgetPreviewRQ) o;
+		WidgetPreviewRQ that = (WidgetPreviewRQ) o;
 
-        if (contentParameters != null ? !contentParameters.equals(that.contentParameters) : that.contentParameters != null)
-            return false;
-        return filterId != null ? filterId.equals(that.filterId) : that.filterId == null;
-    }
+		if (contentParameters != null ? !contentParameters.equals(that.contentParameters) : that.contentParameters != null) {
+			return false;
+		}
+		return filterIds != null ? filterIds.equals(that.filterIds) : that.filterIds == null;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = contentParameters != null ? contentParameters.hashCode() : 0;
-        result = 31 * result + (filterId != null ? filterId.hashCode() : 0);
-        return result;
-    }
+	@Override
+	public int hashCode() {
+		int result = contentParameters != null ? contentParameters.hashCode() : 0;
+		result = 31 * result + (filterIds != null ? filterIds.hashCode() : 0);
+		return result;
+	}
 }

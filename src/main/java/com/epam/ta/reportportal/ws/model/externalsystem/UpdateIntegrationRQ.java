@@ -34,7 +34,7 @@ import java.util.List;
  *
  */
 @JsonInclude(Include.NON_NULL)
-public class UpdateExternalSystemRQ extends CreateExternalSystemRQ {
+public class UpdateIntegrationRQ extends CreateIntegrationRQ {
 
 	@JsonProperty(value = "fields")
 	private List<PostFormField> fields;

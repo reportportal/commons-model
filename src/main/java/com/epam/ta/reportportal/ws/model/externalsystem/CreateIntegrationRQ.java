@@ -27,18 +27,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.Size;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_DOMAIN_SIZE;
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_DOMAIN_SIZE;
-
 /**
  * Create request for ExternalSystem entity
  * 
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class CreateExternalSystemRQ {
+public class CreateIntegrationRQ {
 
 	@NotEmpty
 //	@NotNull
