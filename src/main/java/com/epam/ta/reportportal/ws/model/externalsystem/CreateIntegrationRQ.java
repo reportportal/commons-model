@@ -27,6 +27,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Create request for ExternalSystem entity
  * 
@@ -42,13 +44,13 @@ public class CreateIntegrationRQ {
 	private String url;
 
 	@NotEmpty
-//	@NotNull
+	@NotNull
 	@JsonProperty(value = "systemType")
 	@ApiModelProperty(required = true, allowableValues = "JIRA, TFS, RALLY")
 	private String externalSystemType;
 
 	@NotEmpty
-//	@NotNull
+	@NotNull
 	@JsonProperty(value = "systemAuth")
 	@ApiModelProperty(required = true, allowableValues = "OAUTH, NTLM, APIKEY, BASIC")
 	private String externalSystemAuth;
