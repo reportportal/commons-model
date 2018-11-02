@@ -67,7 +67,7 @@ public class UserResource {
 
 	@JsonProperty(value = "default_project", required = true)
 	@JsonView(ModelViews.FullUserView.class)
-	private Long defaultProject;
+	private String defaultProject;
 
 	@JsonProperty(value = "assigned_projects")
 	private Map<String, AssignedProject> assignedProjects;
@@ -128,11 +128,11 @@ public class UserResource {
 		return lastLogin;
 	}
 
-	public void setDefaultProject(Long value) {
+	public void setDefaultProject(String value) {
 		this.defaultProject = value;
 	}
 
-	public Long getDefaultProject() {
+	public String getDefaultProject() {
 		return defaultProject;
 	}
 
