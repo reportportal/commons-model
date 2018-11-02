@@ -70,7 +70,7 @@ public class UserResource {
 	private Long defaultProject;
 
 	@JsonProperty(value = "assigned_projects")
-	private Map<Long, AssignedProject> assignedProjects;
+	private Map<String, AssignedProject> assignedProjects;
 
 	public void setUserId(String value) {
 		this.userId = value;
@@ -144,11 +144,11 @@ public class UserResource {
 		return isLoaded;
 	}
 
-	public Map<Long, AssignedProject> getAssignedProjects() {
+	public Map<String, AssignedProject> getAssignedProjects() {
 		return assignedProjects;
 	}
 
-	public void setAssignedProjects(Map<Long, AssignedProject> assignedProjects) {
+	public void setAssignedProjects(Map<String, AssignedProject> assignedProjects) {
 		this.assignedProjects = assignedProjects;
 	}
 
