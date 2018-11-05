@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Cases object for email sending declarations
@@ -37,16 +38,16 @@ public class EmailSenderCaseDTO implements Serializable {
 	private static final long serialVersionUID = -3546546654348861010L;
 
 	@JsonProperty(value = "cases")
-	private List<SenderCaseDTO> cases;
+	private Map<String, List<String>> cases;
 
 	public EmailSenderCaseDTO() {
 	}
 
-	public List<SenderCaseDTO> getCases() {
+	public Map<String, List<String>> getCases() {
 		return cases;
 	}
 
-	public void setCases(List<SenderCaseDTO> cases) {
+	public void setCases(Map<String, List<String>> cases) {
 		this.cases = cases;
 	}
 
