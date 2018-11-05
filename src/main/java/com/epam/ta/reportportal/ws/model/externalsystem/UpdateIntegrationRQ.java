@@ -18,52 +18,33 @@
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
  */ 
- 
-package com.epam.ta.reportportal.ws.model.preference;
 
-import java.util.List;
+package com.epam.ta.reportportal.ws.model.externalsystem;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 /**
- * Domain object for updating user preference
+ * Request model for external system update
  * 
- * @author Dzmitry_Kavalets
+ * @author Andrei_Ramanchuk
+ *
  */
-
 @JsonInclude(Include.NON_NULL)
-public class UpdatePreferenceRQ {
+public class UpdateIntegrationRQ extends CreateIntegrationRQ {
 
-	@JsonProperty(value = "filters")
-	private List<String> filters;
+	@JsonProperty(value = "fields")
+	private List<PostFormField> fields;
 
-	@JsonProperty(value = "active")
-	private String active;
 
-	public List<String> getFilters() {
-		return filters;
+	public void setFields(List<PostFormField> form) {
+		this.fields = form;
 	}
 
-	public void setFilters(List<String> filters) {
-		this.filters = filters;
-	}
-
-	public String getActive() {
-		return active;
-	}
-
-	public void setActive(String active) {
-		this.active = active;
-	}
-
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("UpdatePreferenceRQ{");
-		sb.append("filters=").append(filters);
-		sb.append(", active='").append(active).append('\'');
-		sb.append('}');
-		return sb.toString();
+	public List<PostFormField> getFields() {
+		return fields;
 	}
 }
