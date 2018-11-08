@@ -40,4 +40,27 @@ public class UpdateIntegrationRQ {
 	@JsonProperty("enabled")
 	private Boolean enabled;
 
+	public String getIntegrationName() {
+		return integrationName;
+	}
+
+	public void setIntegrationName(String integrationName) {
+		this.integrationName = integrationName;
+	}
+
+	public Map<String, Object> getIntegrationParams() {
+		return integrationParams;
+	}
+
+	public void setIntegrationParams(Map<String, Object> integrationParams) {
+		this.integrationParams = integrationParams;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
 }
