@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class LaunchActivityEvent {
+public class LaunchActivityResource {
 
 	@JsonProperty(value = "id", required = true)
 	private Long id;
@@ -58,7 +58,7 @@ public class LaunchActivityEvent {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("LaunchActivityEvent{");
+		final StringBuilder sb = new StringBuilder("LaunchActivityResource{");
 		sb.append("id=").append(id);
 		sb.append(", projectId=").append(projectId);
 		sb.append(", name='").append(name).append('\'');

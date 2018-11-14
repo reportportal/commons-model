@@ -38,4 +38,55 @@ public class UserFilterActivityResource {
 	@JsonProperty(value = "shared")
 	private boolean shared;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(Long projectId) {
+		this.projectId = projectId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public boolean isShared() {
+		return shared;
+	}
+
+	public void setShared(boolean shared) {
+		this.shared = shared;
+	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("UserFilterActivityResource{");
+		sb.append("id=").append(id);
+		sb.append(", projectId=").append(projectId);
+		sb.append(", name='").append(name).append('\'');
+		sb.append(", description='").append(description).append('\'');
+		sb.append(", shared=").append(shared);
+		sb.append('}');
+		return sb.toString();
+	}
 }
