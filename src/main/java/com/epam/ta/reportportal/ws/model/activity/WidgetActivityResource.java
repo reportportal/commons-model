@@ -38,6 +38,9 @@ public class WidgetActivityResource {
 	@JsonProperty(value = "name", required = true)
 	private String name;
 
+	@JsonProperty(value = "shared")
+	private boolean shared;
+
 	@JsonProperty(value = "description")
 	private String description;
 
@@ -70,6 +73,14 @@ public class WidgetActivityResource {
 
 	public String getName() {
 		return name;
+	}
+
+	public boolean isShared() {
+		return shared;
+	}
+
+	public void setShared(boolean shared) {
+		this.shared = shared;
 	}
 
 	public void setName(String name) {
@@ -114,6 +125,7 @@ public class WidgetActivityResource {
 		sb.append("id=").append(id);
 		sb.append(", projectId=").append(projectId);
 		sb.append(", name='").append(name).append('\'');
+		sb.append(", shared=").append(shared);
 		sb.append(", description='").append(description).append('\'');
 		sb.append(", itemsCount=").append(itemsCount);
 		sb.append(", contentFields=").append(contentFields);
