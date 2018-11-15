@@ -44,6 +44,9 @@ public class TestItemActivityResource {
 	@JsonProperty(value = "autoAnalyzed")
 	private boolean autoAnalyzed;
 
+	@JsonProperty(value = "tickets")
+	private String tickets;
+
 	public Long getId() {
 		return id;
 	}
@@ -100,6 +103,14 @@ public class TestItemActivityResource {
 		this.autoAnalyzed = autoAnalyzed;
 	}
 
+	public String getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(String tickets) {
+		this.tickets = tickets;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("TestItemActivityResource{");
@@ -110,6 +121,7 @@ public class TestItemActivityResource {
 		sb.append(", issueTypeLongName='").append(issueTypeLongName).append('\'');
 		sb.append(", ignoreAnalyzer=").append(ignoreAnalyzer);
 		sb.append(", autoAnalyzed=").append(autoAnalyzed);
+		sb.append(", tickets='").append(tickets).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}
