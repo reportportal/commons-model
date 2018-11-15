@@ -26,9 +26,6 @@ public class IssueTypeActivityResource {
 	@JsonProperty(value = "id", required = true)
 	private Long id;
 
-	@JsonProperty(value = "projectId", required = true)
-	private Long projectId;
-
 	@JsonProperty(value = "longName", required = true)
 	private String longName;
 
@@ -38,14 +35,6 @@ public class IssueTypeActivityResource {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getProjectId() {
-		return projectId;
-	}
-
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
 	}
 
 	public String getLongName() {
@@ -60,7 +49,6 @@ public class IssueTypeActivityResource {
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("IssueTypeActivityResource{");
 		sb.append("id=").append(id);
-		sb.append(", projectId=").append(projectId);
 		sb.append(", longName='").append(longName).append('\'');
 		sb.append('}');
 		return sb.toString();
