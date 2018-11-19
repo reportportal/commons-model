@@ -27,17 +27,20 @@ import com.epam.ta.reportportal.ws.model.EntryCreatedRS;
  *
  * @author Andrei Varabyeu
  */
-public class StartLaunchRS extends EntryCreatedRS {
+public class LaunchWithLinkRS extends EntryCreatedRS {
 
 	private Long number;
 
-	public StartLaunchRS() {
+	private String link;
+
+	public LaunchWithLinkRS() {
 
 	}
 
-	public StartLaunchRS(Long id, Long number) {
+	public LaunchWithLinkRS(Long id, Long number, String link) {
 		super(id);
 		this.number = number;
+		this.link = link;
 	}
 
 	public Long getNumber() {
@@ -48,10 +51,19 @@ public class StartLaunchRS extends EntryCreatedRS {
 		this.number = number;
 	}
 
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("StartLaunchRS{");
+		final StringBuilder sb = new StringBuilder("LaunchWithLinkRS{");
 		sb.append("number=").append(number);
+		sb.append(", link='").append(link).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}
