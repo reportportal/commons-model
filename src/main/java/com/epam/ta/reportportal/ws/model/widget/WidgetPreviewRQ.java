@@ -37,10 +37,10 @@ import java.util.List;
 public class WidgetPreviewRQ {
 
 	@Valid
-	@JsonProperty(value = "contentParameters")
+	@JsonProperty(value = "content_parameters")
 	private ContentParameters contentParameters;
 
-	@JsonProperty(value = "filterIds")
+	@JsonProperty(value = "filter_id")
 	private List<Long> filterIds;
 
 	public ContentParameters getContentParameters() {

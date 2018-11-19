@@ -50,10 +50,10 @@ public class WidgetResource extends OwnedResource {
 
 	@NotNull
 	@Valid
-	@JsonProperty(value = "contentParameters", required = true)
+	@JsonProperty(value = "content_parameters", required = true)
 	private ContentParameters contentParameters;
 
-	@JsonProperty(value = "appliedFilters")
+	@JsonProperty(value = "applied_filters")
 	private List<UserFilterResource> appliedFilters;
 
 	@JsonProperty(value = "content")

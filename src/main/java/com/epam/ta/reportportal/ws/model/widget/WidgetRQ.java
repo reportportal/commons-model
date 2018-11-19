@@ -47,10 +47,10 @@ public class WidgetRQ extends SharableEntityRQ {
 	private String name;
 
 	@Valid
-	@JsonProperty(value = "contentParameters")
+	@JsonProperty(value = "content_parameters")
 	private ContentParameters contentParameters;
 
-	@JsonProperty(value = "filterIds")
+	@JsonProperty(value = "filter_id")
 	private List<Long> filterIds;
 
 	public String getName() {
