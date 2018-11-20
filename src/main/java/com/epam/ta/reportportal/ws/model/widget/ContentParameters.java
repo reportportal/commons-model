@@ -63,20 +63,13 @@ public class ContentParameters {
 	@JsonProperty(value = "widgetOptions")
 	private Map<String, Object> widgetOptions;
 
+	@NotNull
 	public String getWidgetType() {
 		return widgetType;
 	}
 
-	public void setWidgetType(String widgetType) {
+	public void setWidgetType(@NotNull String widgetType) {
 		this.widgetType = widgetType;
-	}
-
-	public int getItemsCount() {
-		return itemsCount;
-	}
-
-	public void setItemsCount(int itemsCount) {
-		this.itemsCount = itemsCount;
 	}
 
 	public List<String> getContentFields() {
@@ -85,6 +78,14 @@ public class ContentParameters {
 
 	public void setContentFields(List<String> contentFields) {
 		this.contentFields = contentFields;
+	}
+
+	public int getItemsCount() {
+		return itemsCount;
+	}
+
+	public void setItemsCount(int itemsCount) {
+		this.itemsCount = itemsCount;
 	}
 
 	public Map<String, Object> getWidgetOptions() {
