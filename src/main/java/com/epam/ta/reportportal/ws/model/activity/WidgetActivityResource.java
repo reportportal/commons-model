@@ -19,10 +19,7 @@ package com.epam.ta.reportportal.ws.model.activity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
@@ -48,12 +45,12 @@ public class WidgetActivityResource {
 	private int itemsCount;
 
 	@JsonProperty(value = "contentFields")
-	@JsonDeserialize(as = HashSet.class)
+	@JsonDeserialize(as = LinkedHashSet.class)
 	private Set<String> contentFields;
 
 	@JsonProperty(value = "widgetOptions")
-	@JsonDeserialize(as = HashMap.class)
-	private Map<String, String> widgetOptions;
+	@JsonDeserialize(as = LinkedHashMap.class)
+	private Map<String, Object> widgetOptions;
 
 	public Long getId() {
 		return id;
@@ -111,11 +108,11 @@ public class WidgetActivityResource {
 		this.contentFields = contentFields;
 	}
 
-	public Map<String, String> getWidgetOptions() {
+	public Map<String, Object> getWidgetOptions() {
 		return widgetOptions;
 	}
 
-	public void setWidgetOptions(Map<String, String> widgetOptions) {
+	public void setWidgetOptions(Map<String, Object> widgetOptions) {
 		this.widgetOptions = widgetOptions;
 	}
 
