@@ -32,19 +32,15 @@ public class DeleteLaunchesRS {
 	@JsonProperty("notFound")
 	private List<Long> notFound;
 
-	@JsonProperty("noPermissions")
-	private List<Long> noPermissions;
-
 	@JsonProperty("errors")
 	private List<ErrorRS> errors;
 
 	public DeleteLaunchesRS() {
 	}
 
-	public DeleteLaunchesRS(List<Long> deleted, List<Long> notFound, List<Long> noPermissions, List<ErrorRS> errors) {
+	public DeleteLaunchesRS(List<Long> deleted, List<Long> notFound, List<ErrorRS> errors) {
 		this.deleted = deleted;
 		this.notFound = notFound;
-		this.noPermissions = noPermissions;
 		this.errors = errors;
 	}
 
@@ -64,14 +60,6 @@ public class DeleteLaunchesRS {
 		this.notFound = notFound;
 	}
 
-	public List<Long> getNoPermissions() {
-		return noPermissions;
-	}
-
-	public void setNoPermissions(List<Long> noPermissions) {
-		this.noPermissions = noPermissions;
-	}
-
 	public List<ErrorRS> getErrors() {
 		return errors;
 	}
@@ -85,7 +73,6 @@ public class DeleteLaunchesRS {
 		final StringBuilder sb = new StringBuilder("DeleteLaunchesRS{");
 		sb.append("deleted=").append(deleted);
 		sb.append(", notFound=").append(notFound);
-		sb.append(", noPermissions=").append(noPermissions);
 		sb.append(", errors=").append(errors);
 		sb.append('}');
 		return sb.toString();
