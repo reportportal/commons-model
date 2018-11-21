@@ -41,7 +41,7 @@ import java.io.Serializable;
  * @author Andrei Varabyeu
  * 
  */
-@JsonPropertyOrder({ "error_code", "message", "stackTrace" })
+@JsonPropertyOrder({ "errorCode", "message", "stackTrace" })
 @JsonInclude(Include.NON_NULL)
 public class ErrorRS implements Serializable {
 	/**

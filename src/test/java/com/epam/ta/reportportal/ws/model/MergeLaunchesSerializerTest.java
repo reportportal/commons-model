@@ -37,9 +37,8 @@ import java.util.Date;
  */
 public class MergeLaunchesSerializerTest {
 
-    private static final String EXPECTED_JSON = "{\"name\":\"name\"," +
-            "\"description\":\"description\",\"tags\":[\"tag\"],\"start_time\":0,\"mode\":\"DEFAULT\"," +
-            "\"launches\":[1],\"end_time\":1,\"merge_type\":\"BASIC\",\"extendSuitesDescription\":true}";
+    private static final String EXPECTED_JSON = "{\"name\":\"name\"," + "\"description\":\"description\",\"tags\":[\"tag\"],\"startTime\":0,\"mode\":\"DEFAULT\","
+            + "\"launches\":[1],\"endTime\":1,\"mergeType\":\"BASIC\",\"extendSuitesDescription\":true}";
 
     private ObjectMapper om = new ObjectMapper();
 

@@ -39,12 +39,12 @@ public class MergeLaunchesRQ extends StartLaunchRQ {
     private Set<Long> launches;
 
     @NotNull
-    @JsonProperty(value = "end_time", required = true)
+	@JsonProperty(value = "endTime", required = true)
     @ApiModelProperty(required = true)
     private Date endTime;
 
     @NotNull
-    @JsonProperty("merge_type")
+	@JsonProperty("mergeType")
     @ApiModelProperty(allowableValues = "BASIC, DEEP")
     private String mergeStrategyType;
 

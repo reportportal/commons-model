@@ -21,14 +21,13 @@
  
 package com.epam.ta.reportportal.ws.model;
 
-import java.io.IOException;
-
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.io.IOException;
 
 /**
  * Serializer/Deserializer unit tests
@@ -38,7 +37,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
  */
 public class ErrorSerializationTest {
 
-	private static final String SERIALIZATION_RESULT = "{\"error_code\":5000,\"message\":\"MESSAGE\",\"stack_trace\":\"STACK_TRACE\"}";
+	private static final String SERIALIZATION_RESULT = "{\"errorCode\":5000,\"message\":\"MESSAGE\",\"stackTrace\":\"STACK_TRACE\"}";
 
 	private ObjectMapper om = getObjectMapper();
 
