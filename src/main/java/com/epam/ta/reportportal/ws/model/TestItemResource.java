@@ -59,10 +59,10 @@ public class TestItemResource {
 	@JsonProperty(value = "type")
 	private String type;
 
-	@JsonProperty(value = "start_time")
+	@JsonProperty(value = "startTime")
 	private Date startTime;
 
-	@JsonProperty(value = "end_time")
+	@JsonProperty(value = "endTime")
 	private Date endTime;
 
 	@JsonProperty(value = "status")
@@ -74,7 +74,7 @@ public class TestItemResource {
 	@JsonProperty(value = "parent")
 	private Long parent;
 
-	@JsonProperty(value = "path_names")
+	@JsonProperty(value = "pathNames")
 	private Map<Long, String> pathNames;
 
 	@JsonProperty(value = "launchStatus")
@@ -83,7 +83,7 @@ public class TestItemResource {
 	@JsonProperty(value = "issue")
 	private Issue issue;
 
-	@JsonProperty(value = "has_children")
+	@JsonProperty(value = "hasChildren")
 	private boolean hasChildren;
 
 	@JsonProperty(value = "launchId")

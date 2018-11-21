@@ -41,7 +41,7 @@ import java.util.Set;
 public class FinishExecutionRQ {
 	
 	@NotNull
-	@JsonProperty(value = "end_time", required = true)
+	@JsonProperty(value = "endTime", required = true)
 	@ApiModelProperty(required = true)
 	private Date endTime;
 
