@@ -21,23 +21,25 @@
 package com.epam.ta.reportportal.ws.model.launch;
 
 import com.epam.ta.reportportal.ws.model.EntryCreatedRS;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Response model of launch start resource
  *
  * @author Andrei Varabyeu
  */
-public class LaunchWithLinkRS extends EntryCreatedRS {
+public class FinishLaunchRS extends EntryCreatedRS {
 
+	@JsonProperty("number")
 	private Long number;
 
+	@JsonProperty("link")
 	private String link;
 
-	public LaunchWithLinkRS() {
-
+	public FinishLaunchRS() {
 	}
 
-	public LaunchWithLinkRS(Long id, Long number, String link) {
+	public FinishLaunchRS(Long id, Long number, String link) {
 		super(id);
 		this.number = number;
 		this.link = link;
@@ -61,7 +63,7 @@ public class LaunchWithLinkRS extends EntryCreatedRS {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("LaunchWithLinkRS{");
+		final StringBuilder sb = new StringBuilder("FinishLaunchRS{");
 		sb.append("number=").append(number);
 		sb.append(", link='").append(link).append('\'');
 		sb.append('}');
