@@ -378,6 +378,11 @@ public enum ErrorType {
 	PARSING_XML_ERROR(40037, "Error during parsing the xml file: '{}'"),
 
 	/**
+	 * Error during the object retrieving
+	 */
+	OBJECT_RETRIEVAL_ERROR(40038, "Error during object retrieving: '{}'"),
+
+	/**
 	 * Bad save user filter request
 	 */
 	PROJECT_DOESNT_CONTAIN_USER(4220, "Project '{}' doesn't contain user '{}'"),
