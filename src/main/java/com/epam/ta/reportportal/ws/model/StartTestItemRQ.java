@@ -48,7 +48,7 @@ public class StartTestItemRQ extends StartRQ {
 	private String uniqueId;
 
 	@NotNull
-	@JsonProperty(value = "launch_id", required = true)
+	@JsonProperty(value = "launchId", required = true)
 	@ApiModelProperty(required = true)
 	private Long launchId;
 

@@ -54,7 +54,7 @@ public class StartRQ {
 	private Set<String> tags;
 
 	@NotNull
-	@JsonProperty(value = "start_time", required = true)
+	@JsonProperty(value = "startTime", required = true)
 	@ApiModelProperty(required = true)
 	private Date startTime;
 
