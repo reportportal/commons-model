@@ -63,7 +63,7 @@ public class UpdateUserFilterRQ extends SharableEntityRQ {
 	@JsonProperty(value = "orders", required = true)
 	private List<Order> orders;
 
-	@JsonProperty(value = "is_link")
+	@JsonProperty(value = "isLink")
 	private boolean isLink;
 
 	@Size(min = MIN_FILTER_DESCRIPTION, max = MAX_FILTER_DESCRIPTION)

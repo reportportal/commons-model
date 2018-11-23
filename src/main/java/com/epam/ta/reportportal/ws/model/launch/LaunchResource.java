@@ -62,10 +62,10 @@ public class LaunchResource extends OwnedResource {
 	private String description;
 
 	@NotNull
-	@JsonProperty(value = "start_time", required = true)
+	@JsonProperty(value = "startTime", required = true)
 	private Date startTime;
 
-	@JsonProperty("end_time")
+	@JsonProperty("endTime")
 	private Date endTime;
 
 	@NotNull

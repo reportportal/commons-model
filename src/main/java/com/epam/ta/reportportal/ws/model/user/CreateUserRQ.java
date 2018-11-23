@@ -21,13 +21,13 @@
 
 package com.epam.ta.reportportal.ws.model.user;
 
-import javax.validation.constraints.NotNull;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * Request model for user creation (confirmation will be send on email)
@@ -52,7 +52,7 @@ public class CreateUserRQ {
 
 	@NotNull
 	@NotEmpty
-	@JsonProperty(value = "default_project", required = true)
+	@JsonProperty(value = "defaultProject", required = true)
 	@ApiModelProperty(required = true)
 	private String defaultProject;
 

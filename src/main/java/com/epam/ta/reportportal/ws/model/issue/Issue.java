@@ -39,7 +39,7 @@ import java.util.Set;
 public class Issue {
 
 	@NotNull
-	@JsonProperty(value = "issue_type", required = true)
+	@JsonProperty(value = "issueType", required = true)
 	private String issueType;
 
 	@JsonProperty(value = "comment")

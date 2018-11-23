@@ -45,10 +45,10 @@ public class LogResource {
 		@JsonProperty(value = "id", required = true)
 		private String binaryDataId;
 
-		@JsonProperty(value = "thumbnail_id", required = true)
+		@JsonProperty(value = "thumbnailId", required = true)
 		private String thumbnailId;
 
-		@JsonProperty(value = "content_type", required = true)
+		@JsonProperty(value = "contentType", required = true)
 		private String contentType;
 
 		/**
@@ -116,7 +116,7 @@ public class LogResource {
 	@JsonProperty(value = "message")
 	private String message;
 
-	@JsonProperty(value = "binary_content")
+	@JsonProperty(value = "binaryContent")
 	private BinaryContent binaryContent;
 
 	@JsonProperty(value = "thumbnail")
@@ -126,7 +126,7 @@ public class LogResource {
 	@ApiModelProperty(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
 	private String level;
 
-	@JsonProperty(value = "test_item")
+	@JsonProperty(value = "testItem")
 	private String testItem;
 
 	public String getIdLog() {
