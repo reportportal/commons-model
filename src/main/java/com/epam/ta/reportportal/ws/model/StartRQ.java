@@ -50,8 +50,8 @@ public class StartRQ {
 	@JsonProperty(value = "description")
 	private String description;
 
-	@JsonProperty("tags")
-	private Set<ItemAttributeResource> tags;
+	@JsonProperty("attributes")
+	private Set<ItemAttributeResource> attributes;
 
 	@NotNull
 	@JsonProperty(value = "startTime", required = true)
@@ -77,12 +77,12 @@ public class StartRQ {
 		this.description = description;
 	}
 
-	public Set<ItemAttributeResource> getTags() {
-		return tags;
+	public Set<ItemAttributeResource> getAttributes() {
+		return attributes;
 	}
 
-	public void setTags(Set<ItemAttributeResource> tags) {
-		this.tags = tags;
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
+		this.attributes = attributes;
 	}
 
 	public String getUuid() {
@@ -106,7 +106,7 @@ public class StartRQ {
 		final StringBuilder sb = new StringBuilder("StartRQ{");
 		sb.append("name='").append(name).append('\'');
 		sb.append(", description='").append(description).append('\'');
-		sb.append(", tags=").append(tags);
+		sb.append(", attributes=").append(attributes);
 		sb.append(", startTime=").append(startTime);
 		sb.append('}');
 		return sb.toString();
@@ -129,7 +129,7 @@ public class StartRQ {
 		if (description != null ? !description.equals(startRQ.description) : startRQ.description != null) {
 			return false;
 		}
-		if (tags != null ? !tags.equals(startRQ.tags) : startRQ.tags != null) {
+		if (attributes != null ? !attributes.equals(startRQ.attributes) : startRQ.attributes != null) {
 			return false;
 		}
 		return startTime != null ? startTime.equals(startRQ.startTime) : startRQ.startTime == null;
@@ -139,7 +139,7 @@ public class StartRQ {
 	public int hashCode() {
 		int result = name != null ? name.hashCode() : 0;
 		result = 31 * result + (description != null ? description.hashCode() : 0);
-		result = 31 * result + (tags != null ? tags.hashCode() : 0);
+		result = 31 * result + (attributes != null ? attributes.hashCode() : 0);
 		result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
 		return result;
 	}

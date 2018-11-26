@@ -44,8 +44,8 @@ public class UpdateLaunchRQ {
     @JsonProperty("description")
     private String description;
 
-    @JsonProperty("tags")
-    private Set<ItemAttributeResource> tags;
+    @JsonProperty("attributes")
+    private Set<ItemAttributeResource> attributes;
 
     public String getDescription() {
         return description;
@@ -55,12 +55,12 @@ public class UpdateLaunchRQ {
         this.description = description;
     }
 
-    public Set<ItemAttributeResource> getTags() {
-        return tags;
+    public Set<ItemAttributeResource> getAttributes() {
+        return attributes;
     }
 
-    public void setTags(Set<ItemAttributeResource> tags) {
-        this.tags = tags;
+    public void setAttributes(Set<ItemAttributeResource> attributes) {
+        this.attributes = attributes;
     }
 
     public Mode getMode() {

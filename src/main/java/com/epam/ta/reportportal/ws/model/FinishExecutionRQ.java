@@ -52,7 +52,7 @@ public class FinishExecutionRQ {
 	private String description;
 
 	@JsonProperty
-	private Set<ItemAttributeResource> tags;
+	private Set<ItemAttributeResource> attributes;
 
 	public String getDescription() {
 		return description;
@@ -62,12 +62,12 @@ public class FinishExecutionRQ {
 		this.description = description;
 	}
 
-	public Set<ItemAttributeResource> getTags() {
-		return tags;
+	public Set<ItemAttributeResource> getAttributes() {
+		return attributes;
 	}
 
-	public void setTags(Set<ItemAttributeResource> tags) {
-		this.tags = tags;
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
+		this.attributes = attributes;
 	}
 
 	public Date getEndTime() {
@@ -91,7 +91,7 @@ public class FinishExecutionRQ {
 		final StringBuilder sb = new StringBuilder("FinishExecutionRQ{");
 		sb.append("endTime=").append(endTime);
 		sb.append(", description=").append(description).append("\'");
-		sb.append(", tags").append(tags).append("\'");
+		sb.append(", attributes").append(attributes).append("\'");
 		sb.append(", status='").append(status).append('\'');
 		sb.append('}');
 		return sb.toString();

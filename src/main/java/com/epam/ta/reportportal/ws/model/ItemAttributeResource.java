@@ -69,4 +69,32 @@ public class ItemAttributeResource {
 		sb.append('}');
 		return sb.toString();
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		ItemAttributeResource that = (ItemAttributeResource) o;
+
+		if (system != that.system) {
+			return false;
+		}
+		if (key != null ? !key.equals(that.key) : that.key != null) {
+			return false;
+		}
+		return value != null ? value.equals(that.value) : that.value == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = key != null ? key.hashCode() : 0;
+		result = 31 * result + (value != null ? value.hashCode() : 0);
+		result = 31 * result + (system ? 1 : 0);
+		return result;
+	}
 }

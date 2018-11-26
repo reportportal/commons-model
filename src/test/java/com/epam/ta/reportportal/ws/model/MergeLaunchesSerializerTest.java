@@ -37,9 +37,9 @@ import java.util.Date;
  */
 public class MergeLaunchesSerializerTest {
 
-	private static final String EXPECTED_JSON =
-			"{\"name\":\"name\"," + "\"description\":\"description\",\"tags\":[\"tag\"],\"startTime\":0,\"mode\":\"DEFAULT\","
-					+ "\"launches\":[1],\"endTime\":1,\"mergeType\":\"BASIC\",\"extendSuitesDescription\":true}";
+	private static final String EXPECTED_JSON = "{\"name\":\"name\","
+			+ "\"description\":\"description\",\"attributes\":[{\"key\":\"key\",\"value\":\"value\",\"system\":false}],\"startTime\":0,\"mode\":\"DEFAULT\","
+			+ "\"launches\":[1],\"endTime\":1,\"mergeType\":\"BASIC\",\"extendSuitesDescription\":true}";
 
 	private ObjectMapper om = new ObjectMapper();
 
@@ -63,7 +63,7 @@ public class MergeLaunchesSerializerTest {
 		rq.setMode(Mode.DEFAULT);
 		rq.setStartTime(new Date(0));
 		ItemAttributeResource itemAttributeResource = new ItemAttributeResource("key", "value", false);
-		rq.setTags(Collections.singleton(itemAttributeResource));
+		rq.setAttributes(Collections.singleton(itemAttributeResource));
 		rq.setEndTime(new Date(1));
 		rq.setExtendSuitesDescription(true);
 		rq.setLaunches(Collections.singleton(1L));

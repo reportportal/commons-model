@@ -33,8 +33,8 @@ import java.util.Set;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UpdateTestItemRQ {
 
-	@JsonProperty(value = "tags")
-	private Set<ItemAttributeResource> tags;
+	@JsonProperty(value = "attributes")
+	private Set<ItemAttributeResource> attributes;
 
 	@JsonProperty(value = "description")
 	private String description;
@@ -42,12 +42,12 @@ public class UpdateTestItemRQ {
 	@JsonProperty(value = "status")
 	private String status;
 
-	public Set<ItemAttributeResource> getTags() {
-		return tags;
+	public Set<ItemAttributeResource> getAttributes() {
+		return attributes;
 	}
 
-	public void setTags(Set<ItemAttributeResource> tags) {
-		this.tags = tags;
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
+		this.attributes = attributes;
 	}
 
 	public String getDescription() {
