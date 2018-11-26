@@ -29,7 +29,6 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -49,9 +48,9 @@ public class ElementLengthValidatorTest {
         final char[] charArray = new char[270];
         Arrays.fill(charArray, 't');
         UpdateLaunchRQ rq = new UpdateLaunchRQ();
-        rq.setTags(new HashSet<String>() {{
+/*        rq.setTags(new HashSet<String>() {{
             add(new String(charArray));
-        }});
+        }});*/
         Set<ConstraintViolation<UpdateLaunchRQ>> constraints = validator.validate(rq);
         Assert.assertTrue("Constraint found", constraints.size() > 0);
     }
@@ -61,9 +60,9 @@ public class ElementLengthValidatorTest {
         final char[] charArray = new char[120];
         Arrays.fill(charArray, 't');
         UpdateLaunchRQ rq = new UpdateLaunchRQ();
-        rq.setTags(new HashSet<String>() {{
+/*        rq.setTags(new HashSet<String>() {{
             add(new String(charArray));
-        }});
+        }});*/
         Set<ConstraintViolation<UpdateLaunchRQ>> constraints = validator.validate(rq);
         Assert.assertTrue("Constraints not found", constraints.isEmpty());
     }

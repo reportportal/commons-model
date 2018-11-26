@@ -22,6 +22,7 @@
 package com.epam.ta.reportportal.ws.model.launch;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
+import com.epam.ta.reportportal.ws.model.ItemAttributeResource;
 import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.epam.ta.reportportal.ws.model.statistics.StatisticsResource;
@@ -77,7 +78,7 @@ public class LaunchResource extends OwnedResource {
 	private StatisticsResource statisticsResource;
 
 	@JsonProperty("tags")
-	private Set<String> tags;
+	private Set<ItemAttributeResource> tags;
 
 	@JsonProperty("mode")
 	private Mode mode;
@@ -163,11 +164,11 @@ public class LaunchResource extends OwnedResource {
 		this.statisticsResource = statisticsResource;
 	}
 
-	public Set<String> getTags() {
+	public Set<ItemAttributeResource> getTags() {
 		return tags;
 	}
 
-	public void setTags(Set<String> tags) {
+	public void setTags(Set<ItemAttributeResource> tags) {
 		this.tags = tags;
 	}
 

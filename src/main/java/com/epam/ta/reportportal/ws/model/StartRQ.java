@@ -51,7 +51,7 @@ public class StartRQ {
 	private String description;
 
 	@JsonProperty("tags")
-	private Set<String> tags;
+	private Set<ItemAttributeResource> tags;
 
 	@NotNull
 	@JsonProperty(value = "startTime", required = true)
@@ -77,12 +77,12 @@ public class StartRQ {
 		this.description = description;
 	}
 
-	public void setTags(Set<String> tags) {
-		this.tags = tags;
+	public Set<ItemAttributeResource> getTags() {
+		return tags;
 	}
 
-	public Set<String> getTags() {
-		return tags;
+	public void setTags(Set<ItemAttributeResource> tags) {
+		this.tags = tags;
 	}
 
 	public String getUuid() {

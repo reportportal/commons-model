@@ -21,6 +21,7 @@
 
 package com.epam.ta.reportportal.ws.model.item;
 
+import com.epam.ta.reportportal.ws.model.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -33,7 +34,7 @@ import java.util.Set;
 public class UpdateTestItemRQ {
 
 	@JsonProperty(value = "tags")
-	private Set<String> tags;
+	private Set<ItemAttributeResource> tags;
 
 	@JsonProperty(value = "description")
 	private String description;
@@ -41,11 +42,11 @@ public class UpdateTestItemRQ {
 	@JsonProperty(value = "status")
 	private String status;
 
-	public Set<String> getTags() {
+	public Set<ItemAttributeResource> getTags() {
 		return tags;
 	}
 
-	public void setTags(Set<String> tags) {
+	public void setTags(Set<ItemAttributeResource> tags) {
 		this.tags = tags;
 	}
 

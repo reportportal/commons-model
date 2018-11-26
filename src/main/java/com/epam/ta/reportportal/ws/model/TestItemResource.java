@@ -54,7 +54,7 @@ public class TestItemResource {
 	private List<ParameterResource> parameters;
 
 	@JsonProperty(value = "tags")
-	private Set<String> tags;
+	private Set<ItemAttributeResource> tags;
 
 	@JsonProperty(value = "type")
 	private String type;
@@ -154,12 +154,12 @@ public class TestItemResource {
 		this.parameters = parameters;
 	}
 
-	public Set<String> getTags() {
+	public Set<ItemAttributeResource> getTags() {
 		return tags;
 	}
 
-	public void setTags(Set<String> value) {
-		this.tags = value;
+	public void setTags(Set<ItemAttributeResource> tags) {
+		this.tags = tags;
 	}
 
 	public String getType() {
