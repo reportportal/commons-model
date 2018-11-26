@@ -47,6 +47,9 @@ public class TestItemActivityResource {
 	@JsonProperty(value = "tickets")
 	private String tickets;
 
+	@JsonProperty(value = "status")
+	private String status;
+
 	public Long getId() {
 		return id;
 	}
@@ -111,6 +114,14 @@ public class TestItemActivityResource {
 		this.tickets = tickets;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("TestItemActivityResource{");
@@ -122,6 +133,7 @@ public class TestItemActivityResource {
 		sb.append(", ignoreAnalyzer=").append(ignoreAnalyzer);
 		sb.append(", autoAnalyzed=").append(autoAnalyzed);
 		sb.append(", tickets='").append(tickets).append('\'');
+		sb.append(", status='").append(status).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}
