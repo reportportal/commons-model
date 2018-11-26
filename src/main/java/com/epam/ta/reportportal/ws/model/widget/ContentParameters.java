@@ -45,9 +45,10 @@ public class ContentParameters {
 
 	@NotNull
 	@JsonProperty(value = "widgetType", required = true)
-	@ApiModelProperty(required = true, allowableValues = "line_chart, column_chart, bar_chart, combine_pie_chart, trends_chart, "
-			+ "not_passed_chart, cases_trend_chart, table, activity_panel, statistics_panel, unique_bug_table, bug_trend, "
-			+ "launches_comparison_chart, launches_duration_chart, launches_table")
+	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
+			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
+			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
+			+ " productStatus, mostTimeConsuming, cumulative")
 	private String widgetType;
 
 	// fields for main data(for example: graphs at the chart)

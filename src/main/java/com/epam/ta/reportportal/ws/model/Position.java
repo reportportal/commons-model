@@ -9,10 +9,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Position {
 
-	@JsonProperty(value = "position_x")
+	@JsonProperty(value = "positionX")
 	private int x;
 
-	@JsonProperty(value = "position_y")
+	@JsonProperty(value = "positionY")
 	private int y;
 
 	public Position() {

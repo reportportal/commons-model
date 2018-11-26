@@ -37,7 +37,7 @@ import javax.validation.constraints.NotNull;
 public class UserFilterCondition {
 
 	@NotNull
-	@JsonProperty(value = "filtering_field", required = true)
+	@JsonProperty(value = "filteringField", required = true)
 	private String filteringField;
 
 	@NotNull

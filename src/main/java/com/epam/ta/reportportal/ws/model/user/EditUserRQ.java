@@ -21,14 +21,14 @@
 
 package com.epam.ta.reportportal.ws.model.user;
 
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  * Edit User request model
@@ -47,13 +47,13 @@ public class EditUserRQ {
 	@JsonProperty(value = "role")
 	private String role;
 
-	@JsonProperty(value = "default_project")
+	@JsonProperty(value = "defaultProject")
 	private String defaultProject;
 
 	@NotEmpty
 	@Size(min = ValidationConstraints.MIN_USER_NAME_LENGTH, max = ValidationConstraints.MAX_USER_NAME_LENGTH)
 	@Pattern(regexp = "[\\pL0-9-_ \\.]+")
-	@JsonProperty(value = "full_name")
+	@JsonProperty(value = "fullName")
 	private String fullName;
 
 	public String getEmail() {

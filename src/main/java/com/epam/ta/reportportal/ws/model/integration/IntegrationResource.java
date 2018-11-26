@@ -33,19 +33,19 @@ public class IntegrationResource implements Serializable {
 	@JsonProperty("id")
 	private Long id;
 
-	@JsonProperty("project_id")
+	@JsonProperty("projectId")
 	private Long projectId;
 
-	@JsonProperty("integration_type")
+	@JsonProperty("integrationType")
 	private IntegrationTypeResource integrationType;
 
-	@JsonProperty("integration_parameters")
+	@JsonProperty("integrationParameters")
 	private Map<String, Object> integrationParams;
 
 	@JsonProperty("enabled")
 	private Boolean enabled;
 
-	@JsonProperty("creation_date")
+	@JsonProperty("creationDate")
 	private Date creationDate;
 
 	public Long getId() {

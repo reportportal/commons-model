@@ -30,10 +30,10 @@ import java.util.Map;
 public class UpdateIntegrationRQ {
 
 	@NotNull
-	@JsonProperty("integration_name")
+	@JsonProperty("integrationName")
 	private String integrationName;
 
-	@JsonProperty("integration_parameters")
+	@JsonProperty("integrationParameters")
 	private Map<String, Object> integrationParams;
 
 	@NotNull
