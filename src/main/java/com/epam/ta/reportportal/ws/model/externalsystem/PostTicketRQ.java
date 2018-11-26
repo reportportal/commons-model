@@ -43,18 +43,18 @@ public class PostTicketRQ extends Authentic {
 	@JsonProperty(value = "fields", required = true)
 	private List<PostFormField> fields;
 
-	@JsonProperty(value = "include_logs")
+	@JsonProperty(value = "includeLogs")
 	private boolean isIncludeLogs;
 
-	@JsonProperty(value = "include_data")
+	@JsonProperty(value = "includeData")
 	private boolean isIncludeScreenshots;
 
-	@JsonProperty(value = "include_comments")
+	@JsonProperty(value = "includeComments")
 	private boolean isIncludeComments;
 
 	@Min(value = ValidationConstraints.TICKET_MIN_LOG_SIZE)
 	@Max(value = ValidationConstraints.TICKET_MAX_LOG_SIZE)
-	@JsonProperty(value = "log_quantity")
+	@JsonProperty(value = "logQuantity")
 	private int numberOfLogs;
 
 	@JsonProperty(value = "item", required = true)

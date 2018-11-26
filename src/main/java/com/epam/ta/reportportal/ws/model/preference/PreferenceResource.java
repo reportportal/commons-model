@@ -35,10 +35,10 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PreferenceResource {
 
-	@JsonProperty(value = "user_id")
+	@JsonProperty(value = "userId")
 	private Long userId;
 
-	@JsonProperty(value = "project_id", required = true)
+	@JsonProperty(value = "projectId", required = true)
 	private Long projectId;
 
 	@JsonProperty(value = "filters")

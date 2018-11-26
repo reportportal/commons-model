@@ -55,11 +55,11 @@ public class AnalyzerConfig {
 	@JsonProperty(value = "isAutoAnalyzerEnabled")
 	private Boolean isAutoAnalyzerEnabled;
 
-	@JsonProperty(value = "analyzer_mode")
+	@JsonProperty(value = "analyzerMode")
 	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME")
 	private String analyzerMode;
 
-	@JsonProperty(value = "indexing_running")
+	@JsonProperty(value = "indexingRunning")
 	@ApiParam(hidden = true)
 	private boolean indexingRunning;
 

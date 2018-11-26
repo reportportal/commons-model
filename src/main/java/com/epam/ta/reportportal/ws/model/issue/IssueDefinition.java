@@ -39,7 +39,7 @@ import javax.validation.constraints.NotNull;
 public class IssueDefinition {
 
 	@NotNull
-	@JsonProperty(value = "test_item_id", required = true)
+	@JsonProperty(value = "testItemId", required = true)
 	@ApiModelProperty(required = true)
 	private Long id;
 

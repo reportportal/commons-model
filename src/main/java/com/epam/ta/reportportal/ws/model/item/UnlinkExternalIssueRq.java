@@ -17,7 +17,7 @@ public class UnlinkExternalIssueRq {
 	private List<Long> testItemIds;
 
 	@NotNull
-	@JsonProperty(value = "issue_ids")
+	@JsonProperty(value = "issueIds")
 	private List<String> issueIds;
 
 	public List<Long> getTestItemIds() {

@@ -58,7 +58,7 @@ public class CreateUserRQFull {
 	@NotEmpty
 	@Pattern(regexp = "[\\pL0-9-_ \\.]+")
 	@Size(min = ValidationConstraints.MIN_USER_NAME_LENGTH, max = ValidationConstraints.MAX_USER_NAME_LENGTH)
-	@JsonProperty(value = "full_name", required = true)
+	@JsonProperty(value = "fullName", required = true)
 	@ApiModelProperty(required = true)
 	private String fullName;
 
@@ -79,7 +79,7 @@ public class CreateUserRQFull {
 	private String projectRole;
 
 	@NotNull
-	@JsonProperty(value = "default_project", required = true)
+	@JsonProperty(value = "defaultProject", required = true)
 	@ApiModelProperty(required = true)
 	private String defaultProject;
 

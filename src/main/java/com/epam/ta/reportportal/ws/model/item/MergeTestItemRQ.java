@@ -38,7 +38,7 @@ public class MergeTestItemRQ {
     private List<String> items;
 
     @NotEmpty
-    @JsonProperty("merge_type")
+    @JsonProperty("mergeType")
     private String mergeStrategyType;
 
     public List<String> getItems() {
