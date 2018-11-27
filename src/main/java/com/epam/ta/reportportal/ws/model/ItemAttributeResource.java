@@ -30,6 +30,12 @@ public class ItemAttributeResource {
 	public ItemAttributeResource() {
 	}
 
+	public ItemAttributeResource(String key, String value) {
+		this.key = key;
+		this.value = value;
+		this.system = false;
+	}
+
 	public ItemAttributeResource(String key, String value, boolean system) {
 		this.key = key;
 		this.value = value;
