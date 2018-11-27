@@ -21,11 +21,14 @@
 
 package com.epam.ta.reportportal.ws.model.item;
 
+import com.epam.ta.reportportal.ws.annotations.ElementLength;
 import com.epam.ta.reportportal.ws.model.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Set;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_NAME_LENGTH;
 
 /**
  * @author Dzmitry_Kavalets
@@ -33,6 +36,7 @@ import java.util.Set;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UpdateTestItemRQ {
 
+	@ElementLength(max = MAX_NAME_LENGTH)
 	@JsonProperty(value = "attributes")
 	private Set<ItemAttributeResource> attributes;
 

@@ -21,6 +21,7 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.annotations.ElementLength;
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -31,6 +32,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Set;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_NAME_LENGTH;
 
 /**
  * Base entity for start requests
@@ -50,6 +53,7 @@ public class StartRQ {
 	@JsonProperty(value = "description")
 	private String description;
 
+	@ElementLength(max = MAX_NAME_LENGTH)
 	@JsonProperty("attributes")
 	private Set<ItemAttributeResource> attributes;
 

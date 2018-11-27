@@ -21,6 +21,7 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.annotations.ElementLength;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -29,6 +30,8 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Set;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_NAME_LENGTH;
 
 /**
  * Finishes some entity execution in Report Portal<br>
@@ -51,6 +54,7 @@ public class FinishExecutionRQ {
 	@JsonProperty(value = "description")
 	private String description;
 
+	@ElementLength(max = MAX_NAME_LENGTH)
 	@JsonProperty
 	private Set<ItemAttributeResource> attributes;
 
