@@ -38,7 +38,7 @@ public class FinishTestItemSerializerTest {
 
 	private ObjectMapper om = getObjectMapper();
 
-	private static final String FINISH_TEST_ITEM_RQ = "{\"tags\":[],\"status\":\"PASSED\",\"description\":\"description\","
+	private static final String FINISH_TEST_ITEM_RQ = "{\"attributes\":[],\"status\":\"PASSED\",\"description\":\"description\","
 			+ "\"issue\":{\"autoAnalyzed\":false,\"ignoreAnalyzer\":false},\"retry\":false}";
 
 	@Test
@@ -59,7 +59,7 @@ public class FinishTestItemSerializerTest {
 		finishTestItemRQ.setRetry(false);
 		finishTestItemRQ.setDescription("description");
 		finishTestItemRQ.setIssue(new Issue());
-		finishTestItemRQ.setTags(Collections.<String>emptySet());
+		finishTestItemRQ.setAttributes(Collections.<ItemAttributeResource>emptySet());
 
 		return finishTestItemRQ;
 	}

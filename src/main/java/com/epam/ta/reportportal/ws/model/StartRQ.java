@@ -21,6 +21,7 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.annotations.ElementLength;
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -31,6 +32,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Set;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_NAME_LENGTH;
 
 /**
  * Base entity for start requests
@@ -50,8 +53,9 @@ public class StartRQ {
 	@JsonProperty(value = "description")
 	private String description;
 
-	@JsonProperty("tags")
-	private Set<String> tags;
+	@ElementLength(max = MAX_NAME_LENGTH)
+	@JsonProperty("attributes")
+	private Set<ItemAttributeResource> attributes;
 
 	@NotNull
 	@JsonProperty(value = "startTime", required = true)
@@ -77,12 +81,12 @@ public class StartRQ {
 		this.description = description;
 	}
 
-	public void setTags(Set<String> tags) {
-		this.tags = tags;
+	public Set<ItemAttributeResource> getAttributes() {
+		return attributes;
 	}
 
-	public Set<String> getTags() {
-		return tags;
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
+		this.attributes = attributes;
 	}
 
 	public String getUuid() {
@@ -106,7 +110,7 @@ public class StartRQ {
 		final StringBuilder sb = new StringBuilder("StartRQ{");
 		sb.append("name='").append(name).append('\'');
 		sb.append(", description='").append(description).append('\'');
-		sb.append(", tags=").append(tags);
+		sb.append(", attributes=").append(attributes);
 		sb.append(", startTime=").append(startTime);
 		sb.append('}');
 		return sb.toString();
@@ -129,7 +133,7 @@ public class StartRQ {
 		if (description != null ? !description.equals(startRQ.description) : startRQ.description != null) {
 			return false;
 		}
-		if (tags != null ? !tags.equals(startRQ.tags) : startRQ.tags != null) {
+		if (attributes != null ? !attributes.equals(startRQ.attributes) : startRQ.attributes != null) {
 			return false;
 		}
 		return startTime != null ? startTime.equals(startRQ.startTime) : startRQ.startTime == null;
@@ -139,7 +143,7 @@ public class StartRQ {
 	public int hashCode() {
 		int result = name != null ? name.hashCode() : 0;
 		result = 31 * result + (description != null ? description.hashCode() : 0);
-		result = 31 * result + (tags != null ? tags.hashCode() : 0);
+		result = 31 * result + (attributes != null ? attributes.hashCode() : 0);
 		result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
 		return result;
 	}

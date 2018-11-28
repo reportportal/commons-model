@@ -22,13 +22,15 @@
 package com.epam.ta.reportportal.ws.model.launch;
 
 import com.epam.ta.reportportal.ws.annotations.ElementLength;
-import com.epam.ta.reportportal.ws.model.ValidationConstraints;
+import com.epam.ta.reportportal.ws.model.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Set;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_NAME_LENGTH;
 
 /**
  * Domain object for updating launch object.
@@ -45,9 +47,9 @@ public class UpdateLaunchRQ {
     @JsonProperty("description")
     private String description;
 
-    @JsonProperty("tags")
-    @ElementLength(max = ValidationConstraints.MAX_NAME_LENGTH)
-    private Set<String> tags;
+    @ElementLength(max = MAX_NAME_LENGTH)
+    @JsonProperty("attributes")
+    private Set<ItemAttributeResource> attributes;
 
     public String getDescription() {
         return description;
@@ -57,12 +59,12 @@ public class UpdateLaunchRQ {
         this.description = description;
     }
 
-    public Set<String> getTags() {
-        return tags;
+    public Set<ItemAttributeResource> getAttributes() {
+        return attributes;
     }
 
-    public void setTags(Set<String> tags) {
-        this.tags = tags;
+    public void setAttributes(Set<ItemAttributeResource> attributes) {
+        this.attributes = attributes;
     }
 
     public Mode getMode() {

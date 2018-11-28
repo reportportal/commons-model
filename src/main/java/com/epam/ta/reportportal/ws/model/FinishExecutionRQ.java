@@ -1,26 +1,27 @@
 /*
  * Copyright 2016 EPAM Systems
- * 
- * 
+ *
+ *
  * This file is part of EPAM Report Portal.
  * https://github.com/reportportal/commons-model
- * 
+ *
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Report Portal is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.annotations.ElementLength;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,16 +31,17 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Set;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_NAME_LENGTH;
+
 /**
  * Finishes some entity execution in Report Portal<br>
  * May be Launch, TestSuite, Test, TestStep
- * 
+ *
  * @author Andrei Varabyeu
- * 
  */
 @JsonInclude(Include.NON_NULL)
 public class FinishExecutionRQ {
-	
+
 	@NotNull
 	@JsonProperty(value = "endTime", required = true)
 	@ApiModelProperty(required = true)
@@ -52,8 +54,9 @@ public class FinishExecutionRQ {
 	@JsonProperty(value = "description")
 	private String description;
 
+	@ElementLength(max = MAX_NAME_LENGTH)
 	@JsonProperty
-	private Set<String> tags;
+	private Set<ItemAttributeResource> attributes;
 
 	public String getDescription() {
 		return description;
@@ -63,12 +66,12 @@ public class FinishExecutionRQ {
 		this.description = description;
 	}
 
-	public Set<String> getTags() {
-		return tags;
+	public Set<ItemAttributeResource> getAttributes() {
+		return attributes;
 	}
 
-	public void setTags(Set<String> tags) {
-		this.tags = tags;
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
+		this.attributes = attributes;
 	}
 
 	public Date getEndTime() {
@@ -92,7 +95,7 @@ public class FinishExecutionRQ {
 		final StringBuilder sb = new StringBuilder("FinishExecutionRQ{");
 		sb.append("endTime=").append(endTime);
 		sb.append(", description=").append(description).append("\'");
-		sb.append(", tags").append(tags).append("\'");
+		sb.append(", attributes").append(attributes).append("\'");
 		sb.append(", status='").append(status).append('\'');
 		sb.append('}');
 		return sb.toString();

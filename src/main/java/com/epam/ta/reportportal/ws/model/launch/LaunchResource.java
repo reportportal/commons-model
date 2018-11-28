@@ -22,6 +22,7 @@
 package com.epam.ta.reportportal.ws.model.launch;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
+import com.epam.ta.reportportal.ws.model.ItemAttributeResource;
 import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.epam.ta.reportportal.ws.model.statistics.StatisticsResource;
@@ -76,8 +77,8 @@ public class LaunchResource extends OwnedResource {
 	@Valid
 	private StatisticsResource statisticsResource;
 
-	@JsonProperty("tags")
-	private Set<String> tags;
+	@JsonProperty("attributes")
+	private Set<ItemAttributeResource> attributes;
 
 	@JsonProperty("mode")
 	private Mode mode;
@@ -163,12 +164,12 @@ public class LaunchResource extends OwnedResource {
 		this.statisticsResource = statisticsResource;
 	}
 
-	public Set<String> getTags() {
-		return tags;
+	public Set<ItemAttributeResource> getAttributes() {
+		return attributes;
 	}
 
-	public void setTags(Set<String> tags) {
-		this.tags = tags;
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
+		this.attributes = attributes;
 	}
 
 	public Mode getMode() {
@@ -199,7 +200,8 @@ public class LaunchResource extends OwnedResource {
 	public String toString() {
 		return "LaunchResource{" + "launchId='" + launchId + '\'' + ", name='" + name + '\'' + ", number=" + number + ", description='"
 				+ description + '\'' + ", startTime=" + startTime + ", endTime=" + endTime + ", status='" + status + '\'' + ", statisticsResource="
-				+ statisticsResource + ", tags=" + tags + ", mode=" + mode + ", isProcessing=" + isProcessing + ", approximateDuration="
+				+ statisticsResource + ", attributes=" + attributes + ", mode=" + mode + ", isProcessing=" + isProcessing
+				+ ", approximateDuration="
 				+ approximateDuration + ", hasRetries=" + hasRetries + '}';
 	}
 }

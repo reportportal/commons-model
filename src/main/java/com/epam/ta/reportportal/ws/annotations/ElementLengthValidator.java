@@ -21,12 +21,13 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
+import com.epam.ta.reportportal.ws.model.ItemAttributeResource;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.Collection;
 
-
-public class ElementLengthValidator implements ConstraintValidator<ElementLength, Collection<String>> {
+public class ElementLengthValidator implements ConstraintValidator<ElementLength, Collection<ItemAttributeResource>> {
 
     private ElementLength length;
 
@@ -36,13 +37,22 @@ public class ElementLengthValidator implements ConstraintValidator<ElementLength
     }
 
     @Override
-    public boolean isValid(Collection<String> value, ConstraintValidatorContext context) {
+	public boolean isValid(Collection<ItemAttributeResource> value, ConstraintValidatorContext context) {
         if (null == value || value.isEmpty()) {
             return true;
         }
-        for (String s : value) {
-            if (null == s || s.length() < length.min() || s.length() > length.max()) {
-                return false;
+		for (ItemAttributeResource attr : value) {
+			String key = attr.getKey();
+			String val = attr.getValue();
+			if (key != null) {
+				if (key.length() < length.min() || key.length() > length.max()) {
+					return false;
+				}
+			}
+			if (val != null) {
+				if (val.length() < length.min() || val.length() > length.max()) {
+					return false;
+				}
             }
         }
         return true;
