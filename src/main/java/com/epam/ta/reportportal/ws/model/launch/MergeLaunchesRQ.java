@@ -41,23 +41,30 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_NAME_L
 public class MergeLaunchesRQ {
 
 	@NotNull
-	@JsonProperty(value = "launches", required = true)
-	@ApiModelProperty(required = true)
-	private Set<Long> launches;
-
-	@NotNull
 	@NotEmpty
 	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	@ApiModelProperty(required = true)
 	private String name;
 
-	@JsonProperty("mode")
-	private Mode mode;
+	@JsonProperty(value = "description")
+	private String description;
+
+	@ElementLength(max = MAX_NAME_LENGTH)
+	@JsonProperty("attributes")
+	private Set<ItemAttributeResource> attributes;
 
 	@JsonProperty(value = "startTime")
 	@ApiModelProperty
 	private Date startTime;
+
+	@JsonProperty("mode")
+	private Mode mode;
+
+	@NotNull
+	@JsonProperty(value = "launches", required = true)
+	@ApiModelProperty(required = true)
+	private Set<Long> launches;
 
 	@JsonProperty(value = "endTime")
 	@ApiModelProperty
@@ -68,24 +75,8 @@ public class MergeLaunchesRQ {
 	@ApiModelProperty(allowableValues = "BASIC, DEEP")
 	private String mergeStrategyType;
 
-	@ElementLength(max = MAX_NAME_LENGTH)
-	@JsonProperty("attributes")
-	private Set<ItemAttributeResource> attributes;
-
 	@JsonProperty(value = "extendSuitesDescription", required = true)
 	private boolean extendSuitesDescription;
-
-	@JsonProperty(value = "description")
-	private String description;
-
-	@NotNull
-	public Set<Long> getLaunches() {
-		return launches;
-	}
-
-	public void setLaunches(@NotNull Set<Long> launches) {
-		this.launches = launches;
-	}
 
 	@NotNull
 	public String getName() {
@@ -96,12 +87,20 @@ public class MergeLaunchesRQ {
 		this.name = name;
 	}
 
-	public Mode getMode() {
-		return mode;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setMode(Mode mode) {
-		this.mode = mode;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Set<ItemAttributeResource> getAttributes() {
+		return attributes;
+	}
+
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
+		this.attributes = attributes;
 	}
 
 	public Date getStartTime() {
@@ -110,6 +109,23 @@ public class MergeLaunchesRQ {
 
 	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
+	}
+
+	public Mode getMode() {
+		return mode;
+	}
+
+	public void setMode(Mode mode) {
+		this.mode = mode;
+	}
+
+	@NotNull
+	public Set<Long> getLaunches() {
+		return launches;
+	}
+
+	public void setLaunches(@NotNull Set<Long> launches) {
+		this.launches = launches;
 	}
 
 	public Date getEndTime() {
@@ -129,28 +145,12 @@ public class MergeLaunchesRQ {
 		this.mergeStrategyType = mergeStrategyType;
 	}
 
-	public Set<ItemAttributeResource> getAttributes() {
-		return attributes;
-	}
-
-	public void setAttributes(Set<ItemAttributeResource> attributes) {
-		this.attributes = attributes;
-	}
-
 	public boolean isExtendSuitesDescription() {
 		return extendSuitesDescription;
 	}
 
 	public void setExtendSuitesDescription(boolean extendSuitesDescription) {
 		this.extendSuitesDescription = extendSuitesDescription;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	@Override
@@ -167,48 +167,48 @@ public class MergeLaunchesRQ {
 		if (extendSuitesDescription != that.extendSuitesDescription) {
 			return false;
 		}
-		if (!launches.equals(that.launches)) {
-			return false;
-		}
 		if (!name.equals(that.name)) {
 			return false;
 		}
-		if (mode != that.mode) {
-			return false;
-		}
-		if (startTime != null ? !startTime.equals(that.startTime) : that.startTime != null) {
-			return false;
-		}
-		if (endTime != null ? !endTime.equals(that.endTime) : that.endTime != null) {
-			return false;
-		}
-		if (!mergeStrategyType.equals(that.mergeStrategyType)) {
+		if (description != null ? !description.equals(that.description) : that.description != null) {
 			return false;
 		}
 		if (attributes != null ? !attributes.equals(that.attributes) : that.attributes != null) {
 			return false;
 		}
-		return description != null ? description.equals(that.description) : that.description == null;
+		if (startTime != null ? !startTime.equals(that.startTime) : that.startTime != null) {
+			return false;
+		}
+		if (mode != that.mode) {
+			return false;
+		}
+		if (!launches.equals(that.launches)) {
+			return false;
+		}
+		if (endTime != null ? !endTime.equals(that.endTime) : that.endTime != null) {
+			return false;
+		}
+		return mergeStrategyType.equals(that.mergeStrategyType);
 	}
 
 	@Override
 	public int hashCode() {
-		int result = launches.hashCode();
-		result = 31 * result + name.hashCode();
-		result = 31 * result + (mode != null ? mode.hashCode() : 0);
+		int result = name.hashCode();
+		result = 31 * result + (description != null ? description.hashCode() : 0);
+		result = 31 * result + (attributes != null ? attributes.hashCode() : 0);
 		result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
+		result = 31 * result + (mode != null ? mode.hashCode() : 0);
+		result = 31 * result + launches.hashCode();
 		result = 31 * result + (endTime != null ? endTime.hashCode() : 0);
 		result = 31 * result + mergeStrategyType.hashCode();
-		result = 31 * result + (attributes != null ? attributes.hashCode() : 0);
 		result = 31 * result + (extendSuitesDescription ? 1 : 0);
-		result = 31 * result + (description != null ? description.hashCode() : 0);
 		return result;
 	}
 
 	@Override
 	public String toString() {
-		return "MergeLaunchesRQ{" + "launches=" + launches + ", name='" + name + '\'' + ", mode=" + mode + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", mergeStrategyType='" + mergeStrategyType + '\'' + ", attributes=" + attributes
-				+ ", extendSuitesDescription=" + extendSuitesDescription + ", description='" + description + '\'' + '}';
+		return "MergeLaunchesRQ{" + "name='" + name + '\'' + ", description='" + description + '\'' + ", attributes=" + attributes
+				+ ", startTime=" + startTime + ", mode=" + mode + ", launches=" + launches + ", endTime=" + endTime
+				+ ", mergeStrategyType='" + mergeStrategyType + '\'' + ", extendSuitesDescription=" + extendSuitesDescription + '}';
 	}
 }
