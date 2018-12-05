@@ -162,20 +162,48 @@ public class MergeLaunchesRQ {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
+
 		MergeLaunchesRQ that = (MergeLaunchesRQ) o;
-		return extendSuitesDescription == that.extendSuitesDescription && Objects.equals(launches, that.launches) && Objects.equals(name,
-				that.name
-		) && mode == that.mode && Objects.equals(startTime, that.startTime) && Objects.equals(endTime, that.endTime) && Objects.equals(mergeStrategyType,
-				that.mergeStrategyType
-		) && Objects.equals(attributes, that.attributes) && Objects.equals(
-				description,
-				that.description
-		);
+
+		if (extendSuitesDescription != that.extendSuitesDescription) {
+			return false;
+		}
+		if (!launches.equals(that.launches)) {
+			return false;
+		}
+		if (!name.equals(that.name)) {
+			return false;
+		}
+		if (mode != that.mode) {
+			return false;
+		}
+		if (startTime != null ? !startTime.equals(that.startTime) : that.startTime != null) {
+			return false;
+		}
+		if (endTime != null ? !endTime.equals(that.endTime) : that.endTime != null) {
+			return false;
+		}
+		if (!mergeStrategyType.equals(that.mergeStrategyType)) {
+			return false;
+		}
+		if (attributes != null ? !attributes.equals(that.attributes) : that.attributes != null) {
+			return false;
+		}
+		return description != null ? description.equals(that.description) : that.description == null;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(launches, name, mode, startTime, endTime, mergeStrategyType, attributes, extendSuitesDescription, description);
+		int result = launches.hashCode();
+		result = 31 * result + name.hashCode();
+		result = 31 * result + (mode != null ? mode.hashCode() : 0);
+		result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
+		result = 31 * result + (endTime != null ? endTime.hashCode() : 0);
+		result = 31 * result + mergeStrategyType.hashCode();
+		result = 31 * result + (attributes != null ? attributes.hashCode() : 0);
+		result = 31 * result + (extendSuitesDescription ? 1 : 0);
+		result = 31 * result + (description != null ? description.hashCode() : 0);
+		return result;
 	}
 
 	@Override
