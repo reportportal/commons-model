@@ -24,7 +24,6 @@ package com.epam.ta.reportportal.ws.model.widget;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -43,14 +42,6 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_WIDGET
 @JsonInclude(Include.NON_NULL)
 public class ContentParameters {
 
-	@NotNull
-	@JsonProperty(value = "widgetType", required = true)
-	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
-			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
-			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
-			+ " productStatus, mostTimeConsuming, cumulative")
-	private String widgetType;
-
 	// fields for main data(for example: graphs at the chart)
 	@JsonProperty(value = "contentFields", required = true)
 	private List<String> contentFields;
@@ -63,15 +54,6 @@ public class ContentParameters {
 
 	@JsonProperty(value = "widgetOptions")
 	private Map<String, Object> widgetOptions;
-
-	@NotNull
-	public String getWidgetType() {
-		return widgetType;
-	}
-
-	public void setWidgetType(@NotNull String widgetType) {
-		this.widgetType = widgetType;
-	}
 
 	public List<String> getContentFields() {
 		return contentFields;
