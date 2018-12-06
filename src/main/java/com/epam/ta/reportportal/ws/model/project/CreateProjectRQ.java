@@ -52,7 +52,7 @@ public class CreateProjectRQ {
 	@NotNull
 	@NotEmpty
 	@JsonProperty(value = "entryType", required = true)
-	@ApiModelProperty(required = true, allowableValues = "INTERNAL, UPSA")
+	@ApiModelProperty(required = true, allowableValues = "INTERNAL")
 	private String entryType;
 
 	public String getProjectName() {
