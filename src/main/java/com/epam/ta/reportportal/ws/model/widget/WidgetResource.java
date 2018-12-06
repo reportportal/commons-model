@@ -26,6 +26,7 @@ import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.epam.ta.reportportal.ws.model.filter.UserFilterResource;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -47,6 +48,14 @@ public class WidgetResource extends OwnedResource {
 	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	private String name;
+
+	@NotNull
+	@JsonProperty(value = "widgetType", required = true)
+	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
+			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
+			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
+			+ " productStatus, mostTimeConsuming, cumulative")
+	private String widgetType;
 
 	@NotNull
 	@Valid
@@ -83,6 +92,15 @@ public class WidgetResource extends OwnedResource {
 		this.appliedFilters = appliedFilters;
 	}
 
+	@NotNull
+	public String getWidgetType() {
+		return widgetType;
+	}
+
+	public void setWidgetType(@NotNull String widgetType) {
+		this.widgetType = widgetType;
+	}
+
 	public ContentParameters getContentParameters() {
 		return contentParameters;
 	}
@@ -101,7 +119,7 @@ public class WidgetResource extends OwnedResource {
 
 	@Override
 	public String toString() {
-		return "WidgetResource{" + "widgetId=" + widgetId + ", name='" + name + '\'' + ", contentParameters=" + contentParameters
-				+ ", appliedFilters=" + appliedFilters + ", content=" + content + "} " + super.toString();
+		return "WidgetResource{" + "widgetId=" + widgetId + ", name='" + name + '\'' + ", widgetType='" + widgetType + '\''
+				+ ", contentParameters=" + contentParameters + ", appliedFilters=" + appliedFilters + ", content=" + content + '}';
 	}
 }
