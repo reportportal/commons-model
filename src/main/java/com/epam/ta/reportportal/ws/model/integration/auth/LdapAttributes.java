@@ -16,13 +16,20 @@ import java.io.Serializable;
 public class LdapAttributes implements Serializable {
 
 	@NotNull
+	@JsonProperty(value = "integrationId")
 	private Long integrationId;
+
+	@NotNull
+	@JsonProperty(value = "enable")
+	private Boolean enabled;
 
 	@Pattern(regexp = "^ldaps?://.*")
 	@NotEmpty
+	@JsonProperty(value = "url")
 	private String url;
 
 	@NotEmpty
+	@JsonProperty(value = "baseDn")
 	private String baseDn;
 
 	@NotNull
@@ -37,6 +44,15 @@ public class LdapAttributes implements Serializable {
 
 	public void setIntegrationId(@NotNull Long integrationId) {
 		this.integrationId = integrationId;
+	}
+
+	@NotNull
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(@NotNull Boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public String getUrl() {
@@ -65,7 +81,7 @@ public class LdapAttributes implements Serializable {
 
 	@Override
 	public String toString() {
-		return "LdapAttributes{" + "integrationId=" + integrationId + ", url='" + url + '\'' + ", baseDn='" + baseDn + '\''
-				+ ", synchronizationAttributes=" + synchronizationAttributes + '}';
+		return "LdapAttributes{" + "integrationId=" + integrationId + ", enabled=" + enabled + ", url='" + url + '\'' + ", baseDn='"
+				+ baseDn + '\'' + ", synchronizationAttributes=" + synchronizationAttributes + '}';
 	}
 }

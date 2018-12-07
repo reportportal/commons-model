@@ -2,6 +2,7 @@ package com.epam.ta.reportportal.ws.model.integration.auth;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 
@@ -12,12 +13,15 @@ import java.io.Serializable;
 public class SynchronizationAttributesResource implements Serializable {
 
 	@NotEmpty
+	@JsonProperty(value = "email")
 	private String email;
 
 	@NotEmpty
+	@JsonProperty(value = "email")
 	private String fullName;
 
 	@NotEmpty
+	@JsonProperty(value = "photo")
 	private String photo;
 
 	public String getEmail() {
