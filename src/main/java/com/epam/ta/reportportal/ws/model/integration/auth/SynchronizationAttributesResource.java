@@ -17,7 +17,7 @@ public class SynchronizationAttributesResource implements Serializable {
 	private String email;
 
 	@NotEmpty
-	@JsonProperty(value = "email")
+	@JsonProperty(value = "fullName")
 	private String fullName;
 
 	@NotEmpty
