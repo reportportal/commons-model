@@ -21,6 +21,7 @@
 
 package com.epam.ta.reportportal.ws.model.project;
 
+import com.epam.ta.reportportal.ws.model.project.config.ProjectConfigurationUpdate;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -39,7 +40,7 @@ public class UpdateProjectRQ {
 	private Map<String, String> userRoles;
 
 	@JsonProperty(value = "configuration")
-	private ProjectConfiguration configuration;
+	private ProjectConfigurationUpdate configuration;
 
 	/**
 	 * @return the userRoles
@@ -55,12 +56,12 @@ public class UpdateProjectRQ {
 		this.userRoles = userRoles;
 	}
 
-	public void setConfiguration(ProjectConfiguration value) {
-		this.configuration = value;
+	public ProjectConfigurationUpdate getConfiguration() {
+		return configuration;
 	}
 
-	public ProjectConfiguration getConfiguration() {
-		return configuration;
+	public void setConfiguration(ProjectConfigurationUpdate configuration) {
+		this.configuration = configuration;
 	}
 
 	@Override
