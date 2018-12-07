@@ -26,7 +26,7 @@ import java.util.Map;
 /**
  * Project configuration model
  *
- * @author <a href="mailto:pavel_bortnik@epam.com">Pavel Bortnik</a>
+ * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
  */
 @JsonInclude(Include.NON_NULL)
 public class ProjectConfigurationUpdate {
