@@ -3,18 +3,17 @@ package com.epam.ta.reportportal.ws.model.integration.auth;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
  * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UpdateLdapRQ implements Serializable {
+public class LdapResource implements Serializable {
 
-	@NotNull
-	@Valid
+	@JsonProperty(value = "id")
+	private Long id;
+
 	@JsonProperty(value = "ldapAttributes")
 	private LdapAttributes ldapAttributes;
 
@@ -42,12 +41,19 @@ public class UpdateLdapRQ implements Serializable {
 	@JsonProperty(value = "managerPassword")
 	private String managerPassword;
 
-	@NotNull
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public LdapAttributes getLdapAttributes() {
 		return ldapAttributes;
 	}
 
-	public void setLdapAttributes(@NotNull LdapAttributes ldapAttributes) {
+	public void setLdapAttributes(LdapAttributes ldapAttributes) {
 		this.ldapAttributes = ldapAttributes;
 	}
 
@@ -117,9 +123,10 @@ public class UpdateLdapRQ implements Serializable {
 
 	@Override
 	public String toString() {
-		return "UpdateLdapRQ{" + "ldapAttributes=" + ldapAttributes + ", userDnPattern='" + userDnPattern + '\'' + ", userSearchFilter='"
-				+ userSearchFilter + '\'' + ", groupSearchBase='" + groupSearchBase + '\'' + ", groupSearchFilter='" + groupSearchFilter
-				+ '\'' + ", passwordEncoderType='" + passwordEncoderType + '\'' + ", passwordAttribute='" + passwordAttribute + '\''
-				+ ", managerDn='" + managerDn + '\'' + ", managerPassword='" + managerPassword + '\'' + '}';
+		return "LdapResource{" + "id=" + id + ", ldapAttributes=" + ldapAttributes + ", userDnPattern='" + userDnPattern + '\''
+				+ ", userSearchFilter='" + userSearchFilter + '\'' + ", groupSearchBase='" + groupSearchBase + '\''
+				+ ", groupSearchFilter='" + groupSearchFilter + '\'' + ", passwordEncoderType='" + passwordEncoderType + '\''
+				+ ", passwordAttribute='" + passwordAttribute + '\'' + ", managerDn='" + managerDn + '\'' + ", managerPassword='"
+				+ managerPassword + '\'' + '}';
 	}
 }
