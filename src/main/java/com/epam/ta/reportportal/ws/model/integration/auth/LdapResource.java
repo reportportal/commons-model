@@ -11,9 +11,6 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LdapResource implements Serializable {
 
-	@JsonProperty(value = "id")
-	private Long id;
-
 	@JsonProperty(value = "ldapAttributes")
 	private LdapAttributes ldapAttributes;
 
@@ -40,14 +37,6 @@ public class LdapResource implements Serializable {
 
 	@JsonProperty(value = "managerPassword")
 	private String managerPassword;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public LdapAttributes getLdapAttributes() {
 		return ldapAttributes;
@@ -123,10 +112,9 @@ public class LdapResource implements Serializable {
 
 	@Override
 	public String toString() {
-		return "LdapResource{" + "id=" + id + ", ldapAttributes=" + ldapAttributes + ", userDnPattern='" + userDnPattern + '\''
-				+ ", userSearchFilter='" + userSearchFilter + '\'' + ", groupSearchBase='" + groupSearchBase + '\''
-				+ ", groupSearchFilter='" + groupSearchFilter + '\'' + ", passwordEncoderType='" + passwordEncoderType + '\''
-				+ ", passwordAttribute='" + passwordAttribute + '\'' + ", managerDn='" + managerDn + '\'' + ", managerPassword='"
-				+ managerPassword + '\'' + '}';
+		return "LdapResource{" + "ldapAttributes=" + ldapAttributes + ", userDnPattern='" + userDnPattern + '\'' + ", userSearchFilter='"
+				+ userSearchFilter + '\'' + ", groupSearchBase='" + groupSearchBase + '\'' + ", groupSearchFilter='" + groupSearchFilter
+				+ '\'' + ", passwordEncoderType='" + passwordEncoderType + '\'' + ", passwordAttribute='" + passwordAttribute + '\''
+				+ ", managerDn='" + managerDn + '\'' + ", managerPassword='" + managerPassword + '\'' + '}';
 	}
 }
