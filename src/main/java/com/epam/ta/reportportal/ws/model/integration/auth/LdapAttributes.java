@@ -16,10 +16,6 @@ import java.io.Serializable;
 public class LdapAttributes implements Serializable {
 
 	@NotNull
-	@JsonProperty(value = "integrationId")
-	private Long integrationId;
-
-	@NotNull
 	@JsonProperty(value = "enable")
 	private Boolean enabled;
 
@@ -36,15 +32,6 @@ public class LdapAttributes implements Serializable {
 	@Valid
 	@JsonProperty("synchronizationAttributes")
 	private SynchronizationAttributesResource synchronizationAttributes;
-
-	@NotNull
-	public Long getIntegrationId() {
-		return integrationId;
-	}
-
-	public void setIntegrationId(@NotNull Long integrationId) {
-		this.integrationId = integrationId;
-	}
 
 	@NotNull
 	public Boolean getEnabled() {
@@ -81,7 +68,7 @@ public class LdapAttributes implements Serializable {
 
 	@Override
 	public String toString() {
-		return "LdapAttributes{" + "integrationId=" + integrationId + ", enabled=" + enabled + ", url='" + url + '\'' + ", baseDn='"
+		return "LdapAttributes{" + "enabled=" + enabled + ", url='" + url + '\'' + ", baseDn='"
 				+ baseDn + '\'' + ", synchronizationAttributes=" + synchronizationAttributes + '}';
 	}
 }
