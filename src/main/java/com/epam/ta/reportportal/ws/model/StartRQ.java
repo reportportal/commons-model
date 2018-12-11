@@ -62,6 +62,10 @@ public class StartRQ {
 	@ApiModelProperty(required = true)
 	private Date startTime;
 
+	@ApiModelProperty(hidden = true)
+	@JsonProperty(value = "uuid")
+	private String uuid;
+
 	public String getName() {
 		return name;
 	}
@@ -84,6 +88,14 @@ public class StartRQ {
 
 	public void setAttributes(Set<ItemAttributeResource> attributes) {
 		this.attributes = attributes;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public Date getStartTime() {
