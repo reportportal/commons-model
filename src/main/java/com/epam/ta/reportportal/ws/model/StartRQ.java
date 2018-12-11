@@ -62,6 +62,7 @@ public class StartRQ {
 	@ApiModelProperty(required = true)
 	private Date startTime;
 
+	@ApiModelProperty(hidden = true)
 	@JsonProperty(value = "uuid")
 	private String uuid;
 
