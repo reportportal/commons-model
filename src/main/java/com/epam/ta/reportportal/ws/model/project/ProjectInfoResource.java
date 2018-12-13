@@ -53,19 +53,19 @@ public class ProjectInfoResource {
 	@JsonProperty(value = "projectName")
 	private String projectName;
 
-	@JsonProperty(value = "usersQuantity", defaultValue = "0")
-	private Integer usersQuantity;
+	@JsonProperty(value = "usersQuantity")
+	private int usersQuantity;
 
-	@JsonProperty(value = "launchesQuantity", defaultValue = "0")
-	private Long launchesQuantity;
+	@JsonProperty(value = "launchesQuantity")
+	private long launchesQuantity;
 
 	@JsonProperty(value = "launchesPerUser")
 	@JsonView(ModelViews.FullProjectInfoView.class)
 	private List<LaunchesPerUser> launchesPerUser;
 
-	@JsonProperty(value = "uniqueTickets", defaultValue = "0")
+	@JsonProperty(value = "uniqueTickets")
 	@JsonView(ModelViews.FullProjectInfoView.class)
-	private Integer uniqueTickets;
+	private int uniqueTickets;
 
 	@JsonProperty(value = "launchesPerWeek")
 	@JsonView(ModelViews.FullProjectInfoView.class)
@@ -100,19 +100,19 @@ public class ProjectInfoResource {
 		this.projectName = projectName;
 	}
 
-	public Integer getUsersQuantity() {
+	public int getUsersQuantity() {
 		return usersQuantity;
 	}
 
-	public void setUsersQuantity(Integer usersQuantity) {
+	public void setUsersQuantity(int usersQuantity) {
 		this.usersQuantity = usersQuantity;
 	}
 
-	public Long getLaunchesQuantity() {
+	public long getLaunchesQuantity() {
 		return launchesQuantity;
 	}
 
-	public void setLaunchesQuantity(Long launchesQuantity) {
+	public void setLaunchesQuantity(long launchesQuantity) {
 		this.launchesQuantity = launchesQuantity;
 	}
 
@@ -124,11 +124,11 @@ public class ProjectInfoResource {
 		return launchesPerUser;
 	}
 
-	public Integer getUniqueTickets() {
+	public int getUniqueTickets() {
 		return uniqueTickets;
 	}
 
-	public void setUniqueTickets(Integer uniqueTickets) {
+	public void setUniqueTickets(int uniqueTickets) {
 		this.uniqueTickets = uniqueTickets;
 	}
 
