@@ -20,6 +20,7 @@
  */
 package com.epam.ta.reportportal.ws.annotations;
 
+import com.epam.ta.reportportal.ws.model.ItemAttributeResource;
 import com.epam.ta.reportportal.ws.model.launch.UpdateLaunchRQ;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -37,34 +38,34 @@ import java.util.Set;
  */
 public class ElementLengthValidatorTest {
 
-    private static Validator validator;
+	private static Validator validator;
 
-    @BeforeClass
-    public static void init() {
-        validator = Validation.buildDefaultValidatorFactory().getValidator();
-    }
+	@BeforeClass
+	public static void init() {
+		validator = Validation.buildDefaultValidatorFactory().getValidator();
+	}
 
-    @Test
-    public void testElementLengthValidatorNegative() {
-        final char[] charArray = new char[270];
-        Arrays.fill(charArray, 't');
-        UpdateLaunchRQ rq = new UpdateLaunchRQ();
-        rq.setTags(new HashSet<String>() {{
-            add(new String(charArray));
-        }});
-        Set<ConstraintViolation<UpdateLaunchRQ>> constraints = validator.validate(rq);
-        Assert.assertTrue("Constraint found", constraints.size() > 0);
-    }
+	@Test
+	public void testElementLengthValidatorNegative() {
+		final char[] charArray = new char[270];
+		Arrays.fill(charArray, 't');
+		UpdateLaunchRQ rq = new UpdateLaunchRQ();
+		rq.setAttributes(new HashSet<ItemAttributeResource>() {{
+			add(new ItemAttributeResource(new String(charArray), "qwerty"));
+		}});
+		Set<ConstraintViolation<UpdateLaunchRQ>> constraints = validator.validate(rq);
+		Assert.assertTrue("Constraint found", constraints.size() > 0);
+	}
 
-    @Test
-    public void testElementLengthValidator() {
-        final char[] charArray = new char[120];
-        Arrays.fill(charArray, 't');
-        UpdateLaunchRQ rq = new UpdateLaunchRQ();
-        rq.setTags(new HashSet<String>() {{
-            add(new String(charArray));
-        }});
-        Set<ConstraintViolation<UpdateLaunchRQ>> constraints = validator.validate(rq);
-        Assert.assertTrue("Constraints not found", constraints.isEmpty());
-    }
+	@Test
+	public void testElementLengthValidator() {
+		final char[] charArray = new char[120];
+		Arrays.fill(charArray, 't');
+		UpdateLaunchRQ rq = new UpdateLaunchRQ();
+		rq.setAttributes(new HashSet<ItemAttributeResource>() {{
+			add(new ItemAttributeResource(new String(charArray), "qwerty"));
+		}});
+		Set<ConstraintViolation<UpdateLaunchRQ>> constraints = validator.validate(rq);
+		Assert.assertTrue("Constraints not found", constraints.isEmpty());
+	}
 }

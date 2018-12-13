@@ -23,8 +23,10 @@ package com.epam.ta.reportportal.ws.model.widget;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -36,12 +38,29 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class WidgetPreviewRQ {
 
+	@NotNull
+	@JsonProperty(value = "widgetType", required = true)
+	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
+			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
+			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
+			+ " productStatus, mostTimeConsuming, cumulative")
+	private String widgetType;
+
 	@Valid
-	@JsonProperty(value = "content_parameters")
+	@JsonProperty(value = "contentParameters")
 	private ContentParameters contentParameters;
 
-	@JsonProperty(value = "filter_id")
+	@JsonProperty(value = "filterIds")
 	private List<Long> filterIds;
+
+	@NotNull
+	public String getWidgetType() {
+		return widgetType;
+	}
+
+	public void setWidgetType(@NotNull String widgetType) {
+		this.widgetType = widgetType;
+	}
 
 	public ContentParameters getContentParameters() {
 		return contentParameters;
@@ -70,6 +89,9 @@ public class WidgetPreviewRQ {
 
 		WidgetPreviewRQ that = (WidgetPreviewRQ) o;
 
+		if (!widgetType.equals(that.widgetType)) {
+			return false;
+		}
 		if (contentParameters != null ? !contentParameters.equals(that.contentParameters) : that.contentParameters != null) {
 			return false;
 		}
@@ -78,7 +100,8 @@ public class WidgetPreviewRQ {
 
 	@Override
 	public int hashCode() {
-		int result = contentParameters != null ? contentParameters.hashCode() : 0;
+		int result = widgetType.hashCode();
+		result = 31 * result + (contentParameters != null ? contentParameters.hashCode() : 0);
 		result = 31 * result + (filterIds != null ? filterIds.hashCode() : 0);
 		return result;
 	}

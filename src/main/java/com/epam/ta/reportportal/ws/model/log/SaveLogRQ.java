@@ -39,7 +39,7 @@ import java.util.Date;
 public class SaveLogRQ {
 
 	@NotNull
-	@JsonProperty(value = "item_id", required = true)
+	@JsonProperty(value = "itemId", required = true)
 	@ApiModelProperty(required = true)
 	private Long testItemId;
 

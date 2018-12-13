@@ -27,8 +27,10 @@ import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -46,11 +48,19 @@ public class WidgetRQ extends SharableEntityRQ {
 	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
 	private String name;
 
+	@NotNull
+	@JsonProperty(value = "widgetType", required = true)
+	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
+			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
+			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
+			+ " productStatus, mostTimeConsuming, cumulative")
+	private String widgetType;
+
 	@Valid
-	@JsonProperty(value = "content_parameters")
+	@JsonProperty(value = "contentParameters")
 	private ContentParameters contentParameters;
 
-	@JsonProperty(value = "filter_id")
+	@JsonProperty(value = "filterIds")
 	private List<Long> filterIds;
 
 	public String getName() {
@@ -59,6 +69,15 @@ public class WidgetRQ extends SharableEntityRQ {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@NotNull
+	public String getWidgetType() {
+		return widgetType;
+	}
+
+	public void setWidgetType(@NotNull String widgetType) {
+		this.widgetType = widgetType;
 	}
 
 	public ContentParameters getContentParameters() {
@@ -79,6 +98,7 @@ public class WidgetRQ extends SharableEntityRQ {
 
 	@Override
 	public String toString() {
-		return "WidgetRQ{" + "name='" + name + '\'' + ", contentParameters=" + contentParameters + ", filterIds=" + filterIds + '}';
+		return "WidgetRQ{" + "name='" + name + '\'' + ", widgetType='" + widgetType + '\'' + ", contentParameters=" + contentParameters
+				+ ", filterIds=" + filterIds + '}';
 	}
 }

@@ -19,13 +19,13 @@ public class IntegrationTypeResource implements Serializable {
 	@JsonProperty("name")
 	private String name;
 
-	@JsonProperty("auth_flow")
+	@JsonProperty("authFlow")
 	private AuthFlowEnum authFlow;
 
-	@JsonProperty("creation_date")
+	@JsonProperty("creationDate")
 	private Date creationDate;
 
-	@JsonProperty("group_type")
+	@JsonProperty("groupType")
 	private String groupType;
 
 	@JsonProperty("details")

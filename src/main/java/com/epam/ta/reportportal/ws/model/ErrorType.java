@@ -101,7 +101,7 @@ public enum ErrorType {
 	/**
 	 * If specified by id UserFilter not found
 	 */
-	USER_FILTER_NOT_FOUND(40410, "User filter '{}' not found for user '{}'. Did you use correct User Filter ID?"),
+	USER_FILTER_NOT_FOUND(40410, "User filter with ID {} is not found on project {} for user {}. Did you use correct User Filter ID?"),
 
 	/**
 	 * If specified by id Activity not found
@@ -376,6 +376,11 @@ public enum ErrorType {
 	 * Error during the xml file parsing
 	 */
 	PARSING_XML_ERROR(40037, "Error during parsing the xml file: '{}'"),
+
+	/**
+	 * Error during the object retrieving
+	 */
+	OBJECT_RETRIEVAL_ERROR(40038, "Error during object retrieving: '{}'"),
 
 	/**
 	 * Bad save user filter request

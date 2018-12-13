@@ -21,16 +21,15 @@
 
 package com.epam.ta.reportportal.ws.model.user;
 
-import java.util.Date;
-import java.util.Map;
-
-import javax.validation.constraints.NotNull;
-
 import com.epam.ta.reportportal.ws.model.ModelViews;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
+
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+import java.util.Map;
 
 /**
  * User resource representation for responses
@@ -50,26 +49,26 @@ public class UserResource {
 	@JsonProperty(value = "photoId")
 	private String photoId;
 
-	@JsonProperty(value = "full_name")
+	@JsonProperty(value = "fullName")
 	private String fullName;
 
-	@JsonProperty(value = "account_type")
+	@JsonProperty(value = "accountType")
 	private String accountType;
 
 	@JsonProperty(value = "userRole")
 	private String userRole;
 
-	@JsonProperty(value = "last_login")
+	@JsonProperty(value = "lastLogin")
 	private Date lastLogin;
 
-	@JsonProperty(value = "photo_loaded")
+	@JsonProperty(value = "photoLoaded")
 	private boolean isLoaded;
 
-	@JsonProperty(value = "default_project", required = true)
+	@JsonProperty(value = "defaultProject", required = true)
 	@JsonView(ModelViews.FullUserView.class)
 	private String defaultProject;
 
-	@JsonProperty(value = "assigned_projects")
+	@JsonProperty(value = "assignedProjects")
 	private Map<String, AssignedProject> assignedProjects;
 
 	public void setUserId(String value) {

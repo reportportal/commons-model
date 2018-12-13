@@ -53,16 +53,16 @@ public class TestItemResource {
 	@JsonProperty(value = "parameters")
 	private List<ParameterResource> parameters;
 
-	@JsonProperty(value = "tags")
-	private Set<String> tags;
+	@JsonProperty(value = "attributes")
+	private Set<ItemAttributeResource> attributes;
 
 	@JsonProperty(value = "type")
 	private String type;
 
-	@JsonProperty(value = "start_time")
+	@JsonProperty(value = "startTime")
 	private Date startTime;
 
-	@JsonProperty(value = "end_time")
+	@JsonProperty(value = "endTime")
 	private Date endTime;
 
 	@JsonProperty(value = "status")
@@ -74,7 +74,7 @@ public class TestItemResource {
 	@JsonProperty(value = "parent")
 	private Long parent;
 
-	@JsonProperty(value = "path_names")
+	@JsonProperty(value = "pathNames")
 	private Map<Long, String> pathNames;
 
 	@JsonProperty(value = "launchStatus")
@@ -83,7 +83,7 @@ public class TestItemResource {
 	@JsonProperty(value = "issue")
 	private Issue issue;
 
-	@JsonProperty(value = "has_children")
+	@JsonProperty(value = "hasChildren")
 	private boolean hasChildren;
 
 	@JsonProperty(value = "launchId")
@@ -154,12 +154,12 @@ public class TestItemResource {
 		this.parameters = parameters;
 	}
 
-	public Set<String> getTags() {
-		return tags;
+	public Set<ItemAttributeResource> getAttributes() {
+		return attributes;
 	}
 
-	public void setTags(Set<String> value) {
-		this.tags = value;
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
+		this.attributes = attributes;
 	}
 
 	public String getType() {
@@ -253,7 +253,8 @@ public class TestItemResource {
 	@Override
 	public String toString() {
 		return "TestItemResource{" + "itemId=" + itemId + ", name='" + name + '\'' + ", description='" + description + '\''
-				+ ", parameters=" + parameters + ", tags=" + tags + ", type='" + type + '\'' + ", startTime=" + startTime + ", endTime="
+				+ ", parameters=" + parameters + ", attributes=" + attributes + ", type='" + type + '\'' + ", startTime=" + startTime
+				+ ", endTime="
 				+ endTime + ", status='" + status + '\'' + ", statisticsResource=" + statisticsResource + ", parent=" + parent
 				+ ", pathNames=" + pathNames + ", launchStatus='" + launchStatus + '\'' + ", issue=" + issue + ", hasChildren="
 				+ hasChildren + ", launchId=" + launchId + ", uniqueId='" + uniqueId + '\'' + ", retries=" + retries + ", path='" + path

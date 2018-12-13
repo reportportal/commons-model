@@ -24,7 +24,6 @@ package com.epam.ta.reportportal.ws.model.widget;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -43,15 +42,8 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_WIDGET
 @JsonInclude(Include.NON_NULL)
 public class ContentParameters {
 
-	@NotNull
-	@JsonProperty(value = "widget_type", required = true)
-	@ApiModelProperty(required = true, allowableValues = "line_chart, column_chart, bar_chart, combine_pie_chart, trends_chart, "
-			+ "not_passed_chart, cases_trend_chart, table, activity_panel, statistics_panel, unique_bug_table, bug_trend, "
-			+ "launches_comparison_chart, launches_duration_chart, launches_table")
-	private String widgetType;
-
 	// fields for main data(for example: graphs at the chart)
-	@JsonProperty(value = "content_fields", required = true)
+	@JsonProperty(value = "contentFields", required = true)
 	private List<String> contentFields;
 
 	@NotNull
@@ -61,14 +53,14 @@ public class ContentParameters {
 	private int itemsCount;
 
 	@JsonProperty(value = "widgetOptions")
-	private Map<String, String> widgetOptions;
+	private Map<String, Object> widgetOptions;
 
-	public String getWidgetType() {
-		return widgetType;
+	public List<String> getContentFields() {
+		return contentFields;
 	}
 
-	public void setWidgetType(String widgetType) {
-		this.widgetType = widgetType;
+	public void setContentFields(List<String> contentFields) {
+		this.contentFields = contentFields;
 	}
 
 	public int getItemsCount() {
@@ -79,19 +71,11 @@ public class ContentParameters {
 		this.itemsCount = itemsCount;
 	}
 
-	public List<String> getContentFields() {
-		return contentFields;
-	}
-
-	public void setContentFields(List<String> contentFields) {
-		this.contentFields = contentFields;
-	}
-
-	public Map<String, String> getWidgetOptions() {
+	public Map<String, Object> getWidgetOptions() {
 		return widgetOptions;
 	}
 
-	public void setWidgetOptions(Map<String, String> widgetOptions) {
+	public void setWidgetOptions(Map<String, Object> widgetOptions) {
 		this.widgetOptions = widgetOptions;
 	}
 }

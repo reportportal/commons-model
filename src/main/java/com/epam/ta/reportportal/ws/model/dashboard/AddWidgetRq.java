@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AddWidgetRq {
 
-	@JsonProperty(value = "add_widget")
+	@JsonProperty(value = "addWidget")
 	private DashboardResource.WidgetObjectModel objectModel;
 
 	public DashboardResource.WidgetObjectModel getObjectModel() {

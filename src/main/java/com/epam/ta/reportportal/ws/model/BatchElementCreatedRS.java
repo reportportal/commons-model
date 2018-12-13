@@ -37,7 +37,7 @@ public class BatchElementCreatedRS extends EntryCreatedRS {
 	@JsonProperty("message")
 	private String message;
 
-	@JsonProperty("stack_trace")
+	@JsonProperty("stackTrace")
 	private String stackTrace;
 	
 	public BatchElementCreatedRS() {
