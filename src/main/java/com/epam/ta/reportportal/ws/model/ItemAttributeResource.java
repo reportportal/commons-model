@@ -19,8 +19,8 @@ package com.epam.ta.reportportal.ws.model;
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ATTRIBUTE_LENGTH;
 
@@ -29,12 +29,12 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ATTRIB
  */
 public class ItemAttributeResource {
 
-	@Max(MAX_ATTRIBUTE_LENGTH)
+	@Size(max = MAX_ATTRIBUTE_LENGTH)
 	private String key;
 
 	@NotNull
 	@NotEmpty
-	@Max(MAX_ATTRIBUTE_LENGTH)
+	@Size(max = MAX_ATTRIBUTE_LENGTH)
 	private String value;
 
 	@JsonProperty(defaultValue = "false")
