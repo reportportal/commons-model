@@ -54,6 +54,7 @@ public class ValidationConstraints {
 	public static final int MAX_WIDGET_NAME_LENGTH = 128;
 	public static final int MAX_DASHBOARD_NAME_LENGTH = 128;
 	public static final int MAX_USER_FILTER_NAME_LENGTH = 128;
+	public static final int MAX_ATTRIBUTE_LENGTH = 128;
 
 	public static final int MIN_PAGE_NUMBER = 1;
 	public static final int MAX_PAGE_NUMBER = 1024;
