@@ -16,6 +16,8 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
@@ -23,6 +25,7 @@ public class ItemAttributeResource {
 
 	private String key;
 
+	@JsonProperty(required = true)
 	private String value;
 
 	private boolean system;
