@@ -18,6 +18,8 @@ package com.epam.ta.reportportal.ws.model;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
@@ -25,6 +27,7 @@ public class ItemAttributeResource {
 
 	private String key;
 
+	@NotNull
 	@NotEmpty
 	private String value;
 
