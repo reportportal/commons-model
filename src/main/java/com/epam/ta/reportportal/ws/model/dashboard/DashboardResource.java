@@ -84,6 +84,7 @@ public class DashboardResource extends OwnedResource {
 
 	public static class WidgetObjectModel {
 
+		@NotNull
 		@JsonProperty(value = "widgetId")
 		private Long widgetId;
 
