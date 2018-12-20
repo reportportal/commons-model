@@ -17,12 +17,11 @@ public class AddWidgetRq {
 	@JsonProperty(value = "addWidget")
 	private DashboardResource.WidgetObjectModel addWidget;
 
-	@NotNull
 	public DashboardResource.WidgetObjectModel getAddWidget() {
 		return addWidget;
 	}
 
-	public void setAddWidget(@NotNull DashboardResource.WidgetObjectModel addWidget) {
+	public void setAddWidget(DashboardResource.WidgetObjectModel addWidget) {
 		this.addWidget = addWidget;
 	}
 }
