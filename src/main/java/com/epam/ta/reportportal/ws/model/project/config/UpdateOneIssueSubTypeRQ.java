@@ -41,7 +41,7 @@ public class UpdateOneIssueSubTypeRQ {
 	@NotEmpty
 	@JsonProperty(value = "id", required = true)
 	@ApiModelProperty(required = true)
-	private Long id;
+	private String id;
 
 	@NotNull
 	@NotEmpty
@@ -67,11 +67,11 @@ public class UpdateOneIssueSubTypeRQ {
 	public UpdateOneIssueSubTypeRQ() {
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
