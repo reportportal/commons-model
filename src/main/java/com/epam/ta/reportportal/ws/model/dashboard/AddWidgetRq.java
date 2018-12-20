@@ -15,13 +15,14 @@ public class AddWidgetRq {
 	@Valid
 	@NotNull
 	@JsonProperty(value = "addWidget")
-	private DashboardResource.WidgetObjectModel objectModel;
+	private DashboardResource.WidgetObjectModel addWidget;
 
-	public DashboardResource.WidgetObjectModel getObjectModel() {
-		return objectModel;
+	@NotNull
+	public DashboardResource.WidgetObjectModel getAddWidget() {
+		return addWidget;
 	}
 
-	public void setObjectModel(DashboardResource.WidgetObjectModel objectModel) {
-		this.objectModel = objectModel;
+	public void setAddWidget(@NotNull DashboardResource.WidgetObjectModel addWidget) {
+		this.addWidget = addWidget;
 	}
 }
