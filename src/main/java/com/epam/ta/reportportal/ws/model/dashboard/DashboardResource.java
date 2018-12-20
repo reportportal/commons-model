@@ -89,10 +89,10 @@ public class DashboardResource extends OwnedResource {
 		private Long widgetId;
 
 		@JsonProperty(value = "widgetSize")
-		private com.epam.ta.reportportal.ws.model.Size widgetSize;
+		private com.epam.ta.reportportal.ws.model.Size widgetSize = new com.epam.ta.reportportal.ws.model.Size();
 
 		@JsonProperty(value = "widgetPosition")
-		private Position widgetPosition;
+		private Position widgetPosition = new Position();
 
 		public WidgetObjectModel() {
 		}
