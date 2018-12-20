@@ -33,6 +33,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class IssueSubTypeResource {
 
+	@JsonProperty(value = "id")
+	private Long id;
+
 	@JsonProperty(value = "locator")
 	private String locator;
 
@@ -52,51 +55,60 @@ public class IssueSubTypeResource {
 
 	}
 
-	public IssueSubTypeResource(String id, String ref, String longN, String shortN, String color) {
-		this.locator = id;
-		this.typeRef = ref;
-		this.longName = longN;
-		this.shortName = shortN;
+	public IssueSubTypeResource(Long id, String locator, String typeRef, String longName, String shortName, String color) {
+		this.id = id;
+		this.locator = locator;
+		this.typeRef = typeRef;
+		this.longName = longName;
+		this.shortName = shortName;
 		this.color = color;
 	}
 
-	public void setLocator(String locator) {
-		this.locator = locator;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getLocator() {
 		return locator;
 	}
 
-	public void setTypeRef(String typeRef) {
-		this.typeRef = typeRef;
+	public void setLocator(String locator) {
+		this.locator = locator;
 	}
 
 	public String getTypeRef() {
 		return typeRef;
 	}
 
-	public void setLongName(String longName) {
-		this.longName = longName;
+	public void setTypeRef(String typeRef) {
+		this.typeRef = typeRef;
 	}
 
 	public String getLongName() {
 		return longName;
 	}
 
-	public void setShortName(String shortName) {
-		this.shortName = shortName;
+	public void setLongName(String longName) {
+		this.longName = longName;
 	}
 
 	public String getShortName() {
 		return shortName;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
 	}
 
 	public String getColor() {
 		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 }
