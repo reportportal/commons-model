@@ -31,7 +31,7 @@ import javax.validation.constraints.NotNull;
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class CreateIntegrationRQ {
+public class CreateBugTrackingSystemRQ {
 
 	@NotEmpty
 //	@NotNull
