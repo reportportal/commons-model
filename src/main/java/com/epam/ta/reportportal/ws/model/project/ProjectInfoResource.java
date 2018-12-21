@@ -77,7 +77,11 @@ public class ProjectInfoResource {
 	@JsonProperty(value = "creationDate")
 	private Date creationDate;
 
+	@JsonProperty(value = "entryType")
 	private String entryType;
+
+	@JsonProperty(value = "organization")
+	private String organization;
 
 	public ProjectInfoResource() {
 	}
@@ -160,5 +164,13 @@ public class ProjectInfoResource {
 
 	public void setEntryType(String entryType) {
 		this.entryType = entryType;
+	}
+
+	public String getOrganization() {
+		return organization;
+	}
+
+	public void setOrganization(String organization) {
+		this.organization = organization;
 	}
 }
