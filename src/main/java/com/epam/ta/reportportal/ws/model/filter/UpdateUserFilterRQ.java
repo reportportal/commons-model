@@ -1,22 +1,18 @@
 /*
- * Copyright 2016 EPAM Systems
+ * Copyright 2018 EPAM Systems
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 package com.epam.ta.reportportal.ws.model.filter;
@@ -27,8 +23,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -37,44 +35,55 @@ import java.util.Set;
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 
 /**
- * Domain object for updating user filters
+ * Domain object for filter actions
  *
  * @author Aliaksei_Makayed
  */
-
 @JsonInclude(Include.NON_NULL)
 public class UpdateUserFilterRQ extends SharableEntityRQ {
 
+	@NotNull
 	@NotEmpty
 	@Size(min = MIN_NAME_LENGTH, max = MAX_USER_FILTER_NAME_LENGTH)
-	@JsonProperty(value = "name")
-	public String name;
+	@JsonProperty(value = "name", required = true)
+	@ApiModelProperty(required = true)
+	private String name;
 
-	@JsonProperty(value = "type")
-	public String objectType;
+	@NotNull
+	// possible object types: launch; testItem; log
+	@JsonProperty(value = "type", required = true)
+	@ApiModelProperty(required = true, allowableValues = "launch, testitem, log")
+	private String objectType;
 
+	@NotNull
 	@Valid
 	@Size(min = MIN_COLLECTION_SIZE, max = MAX_NUMBER_OF_FILTER_ENTITIES)
 	@JsonProperty(value = "conditions", required = true)
 	@JsonDeserialize(as = LinkedHashSet.class)
+	@ApiModelProperty(required = true)
 	private Set<UserFilterCondition> conditions;
 
+	@NotNull
 	@Size(min = MIN_COLLECTION_SIZE)
 	@JsonProperty(value = "orders", required = true)
+	@ApiModelProperty(required = true)
 	private List<Order> orders;
 
-	@JsonProperty(value = "isLink")
-	private boolean isLink;
-
-	@Size(min = MIN_FILTER_DESCRIPTION, max = MAX_FILTER_DESCRIPTION)
-	private String description;
-
-	public String getDescription() {
-		return description;
+	public String getName() {
+		return name;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@NotNull
+	public Set<UserFilterCondition> getConditions() {
+		return conditions;
+	}
+
+	public void setConditions(@NotNull Set<UserFilterCondition> conditions) {
+		this.conditions = conditions;
 	}
 
 	public String getObjectType() {
@@ -85,22 +94,6 @@ public class UpdateUserFilterRQ extends SharableEntityRQ {
 		this.objectType = objectType;
 	}
 
-	public Set<UserFilterCondition> getConditions() {
-		return conditions;
-	}
-
-	public void setConditions(Set<UserFilterCondition> conditions) {
-		this.conditions = conditions;
-	}
-
-	public boolean isLink() {
-		return isLink;
-	}
-
-	public void setLink(boolean link) {
-		isLink = link;
-	}
-
 	public List<Order> getOrders() {
 		return orders;
 	}
@@ -109,25 +102,9 @@ public class UpdateUserFilterRQ extends SharableEntityRQ {
 		this.orders = orders;
 	}
 
-	public boolean getIsLink() {
-		return isLink;
-	}
-
-	public void setIsLink(boolean isLink) {
-		this.isLink = isLink;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	@Override
 	public String toString() {
-		return "UpdateUserFilterRQ{" + "name='" + name + '\'' + ", objectType='" + objectType + '\'' + ", conditions=" + conditions
-				+ ", orders=" + orders + ", isLink=" + isLink + ", description='" + description + '\'' + "} " + super.toString();
+		return "CreateUserFilterRQ{" + "name='" + name + '\'' + ", objectType='" + objectType + '\'' + ", conditions=" + conditions
+				+ ", orders=" + orders + '}';
 	}
 }
