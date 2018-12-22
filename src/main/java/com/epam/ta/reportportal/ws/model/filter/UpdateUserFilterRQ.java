@@ -104,7 +104,7 @@ public class UpdateUserFilterRQ extends SharableEntityRQ {
 
 	@Override
 	public String toString() {
-		return "CreateUserFilterRQ{" + "name='" + name + '\'' + ", objectType='" + objectType + '\'' + ", conditions=" + conditions
+		return "UpdateUserFilterRQ{" + "name='" + name + '\'' + ", objectType='" + objectType + '\'' + ", conditions=" + conditions
 				+ ", orders=" + orders + '}';
 	}
 }
