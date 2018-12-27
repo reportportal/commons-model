@@ -1,22 +1,18 @@
 /*
- * Copyright 2016 EPAM Systems
+ * Copyright 2018 EPAM Systems
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 package com.epam.ta.reportportal.ws.model.user;
@@ -28,7 +24,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.Map;
 
 /**
@@ -58,11 +53,11 @@ public class UserResource {
 	@JsonProperty(value = "userRole")
 	private String userRole;
 
-	@JsonProperty(value = "lastLogin")
-	private Date lastLogin;
-
 	@JsonProperty(value = "photoLoaded")
 	private boolean isLoaded;
+
+	@JsonProperty(value = "metadata")
+	private Object metadata;
 
 	@JsonProperty(value = "defaultProject", required = true)
 	@JsonView(ModelViews.FullUserView.class)
@@ -119,20 +114,20 @@ public class UserResource {
 		this.userRole = value;
 	}
 
-	public void setLastlogin(Date value) {
-		this.lastLogin = value;
-	}
-
-	public Date getLastLogin() {
-		return lastLogin;
-	}
-
 	public void setDefaultProject(String value) {
 		this.defaultProject = value;
 	}
 
 	public String getDefaultProject() {
 		return defaultProject;
+	}
+
+	public Object getMetadata() {
+		return metadata;
+	}
+
+	public void setMetadata(Object metadata) {
+		this.metadata = metadata;
 	}
 
 	public void setIsLoaded(boolean value) {
@@ -190,7 +185,6 @@ public class UserResource {
 		sb.append(", fullName='").append(fullName).append('\'');
 		sb.append(", accountType='").append(accountType).append('\'');
 		sb.append(", userRole='").append(userRole).append('\'');
-		sb.append(", lastLogin=").append(lastLogin);
 		sb.append(", defaultProject='").append(defaultProject).append('\'');
 		sb.append(", assignedProjects=").append(assignedProjects);
 		sb.append('}');

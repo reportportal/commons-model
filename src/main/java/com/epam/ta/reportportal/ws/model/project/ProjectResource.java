@@ -52,6 +52,9 @@ public class ProjectResource {
 	@JsonProperty(value = "integrations")
 	private List<IntegrationResource> integrations;
 
+	@JsonProperty(value = "organization")
+	private String organization;
+
 	@NotNull
 	@JsonProperty(value = "creationDate")
 	private Date creationDate;
@@ -102,6 +105,14 @@ public class ProjectResource {
 
 	public void setUsers(List<ProjectUser> users) {
 		this.users = users;
+	}
+
+	public String getOrganization() {
+		return organization;
+	}
+
+	public void setOrganization(String organization) {
+		this.organization = organization;
 	}
 
 	public static class ProjectUser {
