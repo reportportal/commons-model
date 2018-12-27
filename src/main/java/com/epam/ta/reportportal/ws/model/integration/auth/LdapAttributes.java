@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class LdapAttributes implements Serializable {
 
 	@NotNull
-	@JsonProperty(value = "enable")
+	@JsonProperty(value = "enabled")
 	private Boolean enabled;
 
 	@Pattern(regexp = "^ldaps?://.*")
