@@ -26,11 +26,13 @@ import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.epam.ta.reportportal.ws.model.filter.UserFilterResource;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -66,6 +68,7 @@ public class WidgetResource extends OwnedResource {
 	private List<UserFilterResource> appliedFilters;
 
 	@JsonProperty(value = "content")
+	@JsonSerialize(as = LinkedHashMap.class)
 	private Map<String, ?> content;
 
 	public Long getWidgetId() {
