@@ -19,39 +19,14 @@ public class ProjectEmailConfigDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -961365872944240700L;
 
-	@JsonProperty(value = "emailEnabled")
-	private Boolean emailEnabled;
-
-	@JsonProperty(value = "fromAddress")
-	private String from;
-
 	@JsonProperty(value = "emailCases")
 	private List<EmailSenderCaseDTO> emailCases;
 
 	public ProjectEmailConfigDTO() {
 	}
 
-	public ProjectEmailConfigDTO(boolean isEnabled, String from, List<EmailSenderCaseDTO> cases) {
-		this.emailEnabled = isEnabled;
-		this.from = from;
-		this.emailCases = cases;
-	}
-
-	/* Getters and setters block */
-	public void setEmailEnabled(boolean is) {
-		this.emailEnabled = is;
-	}
-
-	public Boolean getEmailEnabled() {
-		return emailEnabled;
-	}
-
-	public void setFrom(String from) {
-		this.from = from;
-	}
-
-	public String getFrom() {
-		return from;
+	public ProjectEmailConfigDTO(List<EmailSenderCaseDTO> emailCases) {
+		this.emailCases = emailCases;
 	}
 
 	public void setEmailCases(List<EmailSenderCaseDTO> cases) {
@@ -64,6 +39,6 @@ public class ProjectEmailConfigDTO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ProjectEmailConfigDTO [emailEnabled=" + emailEnabled + ", from=" + from + ", emailCases=" + emailCases + "]";
+		return "ProjectEmailConfigDTO{" + "emailCases=" + emailCases + '}';
 	}
 }
