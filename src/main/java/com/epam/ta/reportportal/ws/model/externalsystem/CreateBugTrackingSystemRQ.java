@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.externalsystem;
 
@@ -27,14 +27,14 @@ import javax.validation.constraints.NotNull;
 
 /**
  * Create request for ExternalSystem entity
- * 
+ *
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class CreateIntegrationRQ {
+public class CreateBugTrackingSystemRQ {
 
 	@NotEmpty
-//	@NotNull
+	//	@NotNull
 	@JsonProperty(value = "url")
 	@ApiModelProperty(required = true)
 	private String url;
@@ -43,13 +43,13 @@ public class CreateIntegrationRQ {
 	@NotNull
 	@JsonProperty(value = "systemType")
 	@ApiModelProperty(required = true, allowableValues = "JIRA, TFS, RALLY")
-	private String externalSystemType;
+	private String systemType;
 
 	@NotEmpty
 	@NotNull
 	@JsonProperty(value = "systemAuth")
 	@ApiModelProperty(required = true, allowableValues = "OAUTH, NTLM, APIKEY, BASIC")
-	private String externalSystemAuth;
+	private String systemAuth;
 
 	@JsonProperty(value = "username")
 	private String username;
@@ -63,20 +63,20 @@ public class CreateIntegrationRQ {
 	@JsonProperty(value = "project")
 	private String project;
 
-	public void setExternalSystemType(String type) {
-		this.externalSystemType = type;
+	public String getSystemType() {
+		return systemType;
 	}
 
-	public String getExternalSystemType() {
-		return externalSystemType;
+	public void setSystemType(String systemType) {
+		this.systemType = systemType;
 	}
 
-	public void setExternalSystemAuth(String type) {
-		this.externalSystemAuth = type;
+	public String getSystemAuth() {
+		return systemAuth;
 	}
 
-	public String getExternalSystemAuth() {
-		return externalSystemAuth;
+	public void setSystemAuth(String systemAuth) {
+		this.systemAuth = systemAuth;
 	}
 
 	public void setUrl(String value) {

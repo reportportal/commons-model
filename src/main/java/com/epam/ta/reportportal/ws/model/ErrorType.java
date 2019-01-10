@@ -383,6 +383,16 @@ public enum ErrorType {
 	OBJECT_RETRIEVAL_ERROR(40038, "Error during object retrieving: '{}'"),
 
 	/**
+	 * Error during the plugin uploading
+	 */
+	PLUGIN_UPLOAD_ERROR(40038, "Error during plugin uploading: '{}'"),
+
+	/**
+	 * Error during the plugin removing
+	 */
+	PLUGIN_REMOVE_ERROR(40038, "Error during plugin removing: '{}'"),
+
+	/**
 	 * Bad save user filter request
 	 */
 	PROJECT_DOESNT_CONTAIN_USER(4220, "Project '{}' doesn't contain user '{}'"),
