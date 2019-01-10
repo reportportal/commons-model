@@ -3,16 +3,11 @@ package com.epam.ta.reportportal.ws.model.integration.auth;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.io.Serializable;
-
 /**
  * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class LdapResource implements Serializable {
-
-	@JsonProperty(value = "ldapAttributes")
-	private LdapAttributes ldapAttributes;
+public class LdapResource extends AbstractLdapResource {
 
 	@JsonProperty(value = "userDnPattern")
 	private String userDnPattern;
@@ -37,14 +32,6 @@ public class LdapResource implements Serializable {
 
 	@JsonProperty(value = "managerPassword")
 	private String managerPassword;
-
-	public LdapAttributes getLdapAttributes() {
-		return ldapAttributes;
-	}
-
-	public void setLdapAttributes(LdapAttributes ldapAttributes) {
-		this.ldapAttributes = ldapAttributes;
-	}
 
 	public String getUserDnPattern() {
 		return userDnPattern;
@@ -112,9 +99,9 @@ public class LdapResource implements Serializable {
 
 	@Override
 	public String toString() {
-		return "LdapResource{" + "ldapAttributes=" + ldapAttributes + ", userDnPattern='" + userDnPattern + '\'' + ", userSearchFilter='"
-				+ userSearchFilter + '\'' + ", groupSearchBase='" + groupSearchBase + '\'' + ", groupSearchFilter='" + groupSearchFilter
-				+ '\'' + ", passwordEncoderType='" + passwordEncoderType + '\'' + ", passwordAttribute='" + passwordAttribute + '\''
+		return "LdapResource{" + "userDnPattern='" + userDnPattern + '\'' + ", userSearchFilter='" + userSearchFilter + '\''
+				+ ", groupSearchBase='" + groupSearchBase + '\'' + ", groupSearchFilter='" + groupSearchFilter + '\''
+				+ ", passwordEncoderType='" + passwordEncoderType + '\'' + ", passwordAttribute='" + passwordAttribute + '\''
 				+ ", managerDn='" + managerDn + '\'' + ", managerPassword='" + managerPassword + '\'' + '}';
 	}
 }
