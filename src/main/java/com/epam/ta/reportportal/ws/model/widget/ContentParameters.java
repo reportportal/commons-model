@@ -25,11 +25,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.MapSerializer;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -55,7 +55,7 @@ public class ContentParameters {
 	private int itemsCount;
 
 	@JsonProperty(value = "widgetOptions")
-	@JsonSerialize(as = LinkedHashMap.class)
+	@JsonSerialize(as = MapSerializer.class)
 	private Map<String, Object> widgetOptions;
 
 	public List<String> getContentFields() {
