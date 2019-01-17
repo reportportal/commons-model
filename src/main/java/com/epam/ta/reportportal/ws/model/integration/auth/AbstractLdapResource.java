@@ -11,8 +11,19 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class AbstractLdapResource implements Serializable {
 
+	@JsonProperty(value = "id")
+	private Long id;
+
 	@JsonProperty(value = "ldapAttributes")
 	private LdapAttributes ldapAttributes;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public LdapAttributes getLdapAttributes() {
 		return ldapAttributes;
@@ -24,6 +35,6 @@ public abstract class AbstractLdapResource implements Serializable {
 
 	@Override
 	public String toString() {
-		return "AbstractLdapResource{" + "ldapAttributes=" + ldapAttributes + '}';
+		return "AbstractLdapResource{" + "id=" + id + ", ldapAttributes=" + ldapAttributes + '}';
 	}
 }
