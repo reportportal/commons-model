@@ -30,17 +30,17 @@ public class EmailSenderCaseDTO implements Serializable {
 	@JsonProperty(value = "launchNames")
 	private List<String> launchNames;
 
-	@JsonProperty(value = "tags")
-	private List<String> tags;
+	@JsonProperty(value = "attributes")
+	private List<String> attributes;
 
 	public EmailSenderCaseDTO() {
 	}
 
-	public EmailSenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, List<String> laTags) {
+	public EmailSenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, List<String> attributes) {
 		this.recipients = recs;
 		this.sendCase = sendMode;
 		this.launchNames = laNames;
-		this.tags = laTags;
+		this.attributes = attributes;
 	}
 
 	/* Getters and setters block */
@@ -68,19 +68,19 @@ public class EmailSenderCaseDTO implements Serializable {
 		return launchNames;
 	}
 
-	public void setTags(List<String> value) {
-		this.tags = value;
+	public List<String> getAttributes() {
+		return attributes;
 	}
 
-	public List<String> getTags() {
-		return tags;
+	public void setAttributes(List<String> attributes) {
+		this.attributes = attributes;
 	}
 
 	/* Auto generated methods */
 	@Override
 	public String toString() {
-		return "EmailSenderCaseDTO [recipients=" + recipients + ", sendCase=" + sendCase + ", launchNames=" + launchNames + ", tags=" + tags
-				+ "]";
+		return "EmailSenderCaseDTO [recipients=" + recipients + ", sendCase=" + sendCase + ", launchNames=" + launchNames + ", attributes="
+				+ attributes + "]";
 	}
 
 	@Override
@@ -90,39 +90,50 @@ public class EmailSenderCaseDTO implements Serializable {
 		result = prime * result + ((launchNames == null) ? 0 : launchNames.hashCode());
 		result = prime * result + ((recipients == null) ? 0 : recipients.hashCode());
 		result = prime * result + ((sendCase == null) ? 0 : sendCase.hashCode());
-		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
+		result = prime * result + ((attributes == null) ? 0 : attributes.hashCode());
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		EmailSenderCaseDTO other = (EmailSenderCaseDTO) obj;
 		if (launchNames == null) {
-			if (other.launchNames != null)
+			if (other.launchNames != null) {
 				return false;
-		} else if (!launchNames.equals(other.launchNames))
+			}
+		} else if (!launchNames.equals(other.launchNames)) {
 			return false;
+		}
 		if (recipients == null) {
-			if (other.recipients != null)
+			if (other.recipients != null) {
 				return false;
-		} else if (!recipients.equals(other.recipients))
+			}
+		} else if (!recipients.equals(other.recipients)) {
 			return false;
+		}
 		if (sendCase == null) {
-			if (other.sendCase != null)
+			if (other.sendCase != null) {
 				return false;
-		} else if (!sendCase.equals(other.sendCase))
+			}
+		} else if (!sendCase.equals(other.sendCase)) {
 			return false;
-		if (tags == null) {
-			if (other.tags != null)
+		}
+		if (attributes == null) {
+			if (other.attributes != null) {
 				return false;
-		} else if (!tags.equals(other.tags))
+			}
+		} else if (!attributes.equals(other.attributes)) {
 			return false;
+		}
 		return true;
 	}
 }
