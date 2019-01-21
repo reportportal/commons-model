@@ -3,27 +3,14 @@ package com.epam.ta.reportportal.ws.model.integration.auth;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.io.Serializable;
-
 /**
  * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ActiveDirectoryResource implements Serializable {
-
-	@JsonProperty(value = "ldapAttributes")
-	private LdapAttributes ldapAttributes;
+public class ActiveDirectoryResource extends AbstractLdapResource {
 
 	@JsonProperty(value = "domain")
 	private String domain;
-
-	public LdapAttributes getLdapAttributes() {
-		return ldapAttributes;
-	}
-
-	public void setLdapAttributes(LdapAttributes ldapAttributes) {
-		this.ldapAttributes = ldapAttributes;
-	}
 
 	public String getDomain() {
 		return domain;
@@ -35,6 +22,6 @@ public class ActiveDirectoryResource implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ActiveDirectoryResource{" + "ldapAttributes=" + ldapAttributes + ", domain='" + domain + '\'' + '}';
+		return "ActiveDirectoryResource{" + "domain='" + domain + '\'' + '}';
 	}
 }

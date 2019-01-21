@@ -37,11 +37,12 @@ import javax.validation.constraints.Size;
  */
 @JsonInclude(Include.NON_NULL)
 public class UpdateOneIssueSubTypeRQ {
+
 	@NotNull
 	@NotEmpty
-	@JsonProperty(value = "id", required = true)
+	@JsonProperty(value = "locator", required = true)
 	@ApiModelProperty(required = true)
-	private String id;
+	private String locator;
 
 	@NotNull
 	@NotEmpty
@@ -67,12 +68,12 @@ public class UpdateOneIssueSubTypeRQ {
 	public UpdateOneIssueSubTypeRQ() {
 	}
 
-	public String getId() {
-		return id;
+	public String getLocator() {
+		return locator;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setLocator(String locator) {
+		this.locator = locator;
 	}
 
 	public void setTypeRef(String typeRef) {
