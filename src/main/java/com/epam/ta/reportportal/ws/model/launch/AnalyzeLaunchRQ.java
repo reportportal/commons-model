@@ -33,7 +33,7 @@ public class AnalyzeLaunchRQ {
 	@NotNull
 	@JsonProperty(value = "launch_id", required = true)
 	@ApiModelProperty
-	private String launchId;
+	private Long launchId;
 
 	@NotNull
 	@JsonProperty(value = "analyzer_mode", required = true)
@@ -45,11 +45,11 @@ public class AnalyzeLaunchRQ {
 	@ApiModelProperty(allowableValues = "TO_INVESTIGATE, AUTO_ANALYZED, MANUALLY_ANALYZED")
 	private List<String> analyzeItemsMode;
 
-	public String getLaunchId() {
+	public Long getLaunchId() {
 		return launchId;
 	}
 
-	public void setLaunchId(String launchId) {
+	public void setLaunchId(Long launchId) {
 		this.launchId = launchId;
 	}
 
