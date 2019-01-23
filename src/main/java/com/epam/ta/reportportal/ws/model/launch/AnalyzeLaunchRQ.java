@@ -31,17 +31,17 @@ import java.util.List;
 public class AnalyzeLaunchRQ {
 
 	@NotNull
-	@JsonProperty(value = "launch_id", required = true)
+	@JsonProperty(value = "launchId", required = true)
 	@ApiModelProperty
 	private Long launchId;
 
 	@NotNull
-	@JsonProperty(value = "analyzer_mode", required = true)
+	@JsonProperty(value = "analyzerMode", required = true)
 	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME, CURRENT_LAUNCH")
 	private String analyzerHistoryMode;
 
 	@NotNull
-	@JsonProperty(value = "analyze_items_mode", required = true)
+	@JsonProperty(value = "analyzeItemsMode", required = true)
 	@ApiModelProperty(allowableValues = "TO_INVESTIGATE, AUTO_ANALYZED, MANUALLY_ANALYZED")
 	private List<String> analyzeItemsMode;
 
