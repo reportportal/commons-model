@@ -33,8 +33,6 @@ import java.util.Set;
 public class OAuthRegistrationResource implements Serializable {
 	private static final String URL_PATTERN = "^(http:\\/\\/|https:\\/\\/)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*.[a-z]{3}.?([a-z]+)?$\n";
 
-	@NotEmpty
-	@NotNull
 	private String id;
 
 	@NotEmpty
