@@ -20,10 +20,12 @@ public class LdapAttributes implements Serializable {
 	private Boolean enabled;
 
 	@Pattern(regexp = "^ldaps?://.*")
+	@NotNull
 	@NotEmpty
 	@JsonProperty(value = "url")
 	private String url;
 
+	@NotNull
 	@NotEmpty
 	@JsonProperty(value = "baseDn")
 	private String baseDn;
@@ -33,12 +35,11 @@ public class LdapAttributes implements Serializable {
 	@JsonProperty("synchronizationAttributes")
 	private SynchronizationAttributesResource synchronizationAttributes;
 
-	@NotNull
 	public Boolean getEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(@NotNull Boolean enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 

@@ -42,12 +42,11 @@ public class UpdateLdapRQ implements Serializable {
 	@JsonProperty(value = "managerPassword")
 	private String managerPassword;
 
-	@NotNull
 	public LdapAttributes getLdapAttributes() {
 		return ldapAttributes;
 	}
 
-	public void setLdapAttributes(@NotNull LdapAttributes ldapAttributes) {
+	public void setLdapAttributes(LdapAttributes ldapAttributes) {
 		this.ldapAttributes = ldapAttributes;
 	}
 

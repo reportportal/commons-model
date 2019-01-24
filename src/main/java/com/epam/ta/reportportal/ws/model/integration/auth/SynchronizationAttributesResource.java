@@ -4,6 +4,7 @@ import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -12,15 +13,14 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SynchronizationAttributesResource implements Serializable {
 
+	@NotNull
 	@NotEmpty
 	@JsonProperty(value = "email")
 	private String email;
 
-	@NotEmpty
 	@JsonProperty(value = "fullName")
 	private String fullName;
 
-	@NotEmpty
 	@JsonProperty(value = "photo")
 	private String photo;
 
