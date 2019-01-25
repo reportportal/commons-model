@@ -19,16 +19,16 @@ public class UpdateActiveDirectoryRQ implements Serializable {
 	@JsonProperty(value = "ldapAttributes")
 	private LdapAttributes ldapAttributes;
 
+	@NotNull
 	@NotEmpty
 	@JsonProperty(value = "domain")
 	private String domain;
 
-	@NotNull
 	public LdapAttributes getLdapAttributes() {
 		return ldapAttributes;
 	}
 
-	public void setLdapAttributes(@NotNull LdapAttributes ldapAttributes) {
+	public void setLdapAttributes(LdapAttributes ldapAttributes) {
 		this.ldapAttributes = ldapAttributes;
 	}
 
