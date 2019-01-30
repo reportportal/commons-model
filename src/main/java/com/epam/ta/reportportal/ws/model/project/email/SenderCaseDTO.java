@@ -14,7 +14,7 @@ import java.util.List;
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class EmailSenderCaseDTO implements Serializable {
+public class SenderCaseDTO implements Serializable {
 	/**
 	 * Generated SVUID
 	 */
@@ -33,10 +33,10 @@ public class EmailSenderCaseDTO implements Serializable {
 	@JsonProperty(value = "attributes")
 	private List<String> attributes;
 
-	public EmailSenderCaseDTO() {
+	public SenderCaseDTO() {
 	}
 
-	public EmailSenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, List<String> attributes) {
+	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, List<String> attributes) {
 		this.recipients = recs;
 		this.sendCase = sendMode;
 		this.launchNames = laNames;
@@ -79,7 +79,7 @@ public class EmailSenderCaseDTO implements Serializable {
 	/* Auto generated methods */
 	@Override
 	public String toString() {
-		return "EmailSenderCaseDTO [recipients=" + recipients + ", sendCase=" + sendCase + ", launchNames=" + launchNames + ", attributes="
+		return "SenderCaseDTO [recipients=" + recipients + ", sendCase=" + sendCase + ", launchNames=" + launchNames + ", attributes="
 				+ attributes + "]";
 	}
 
@@ -105,7 +105,7 @@ public class EmailSenderCaseDTO implements Serializable {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		EmailSenderCaseDTO other = (EmailSenderCaseDTO) obj;
+		SenderCaseDTO other = (SenderCaseDTO) obj;
 		if (launchNames == null) {
 			if (other.launchNames != null) {
 				return false;

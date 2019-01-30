@@ -18,7 +18,7 @@
 package com.epam.ta.reportportal.ws.model.project;
 
 import com.epam.ta.reportportal.ws.model.project.config.IssueSubTypeResource;
-import com.epam.ta.reportportal.ws.model.project.email.ProjectEmailConfigDTO;
+import com.epam.ta.reportportal.ws.model.project.email.ProjectConfigDTO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -40,8 +40,8 @@ public class ProjectConfiguration {
 	@JsonProperty(value = "subTypes")
 	private Map<String, List<IssueSubTypeResource>> subTypes;
 
-	@JsonProperty(value = "emailConfiguration")
-	private ProjectEmailConfigDTO emailConfig;
+	@JsonProperty(value = "configuration")
+	private ProjectConfigDTO projectConfig;
 
 	public Map<String, String> getProjectAttributes() {
 		return projectAttributes;
@@ -59,11 +59,11 @@ public class ProjectConfiguration {
 		this.subTypes = subTypes;
 	}
 
-	public ProjectEmailConfigDTO getEmailConfig() {
-		return emailConfig;
+	public ProjectConfigDTO getProjectConfig() {
+		return projectConfig;
 	}
 
-	public void setEmailConfig(ProjectEmailConfigDTO emailConfig) {
-		this.emailConfig = emailConfig;
+	public void setProjectConfig(ProjectConfigDTO projectConfig) {
+		this.projectConfig = projectConfig;
 	}
 }
