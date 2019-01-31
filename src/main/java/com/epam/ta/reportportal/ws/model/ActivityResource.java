@@ -48,9 +48,9 @@ public class ActivityResource {
 	private String user;
 
 	@NotNull
-	@JsonProperty(value = "loggedObjectRef", required = true)
+	@JsonProperty(value = "loggedObjectId", required = true)
 	@ApiModelProperty(required = true)
-	private String loggedObjectRef;
+	private Long loggedObjectId;
 
 	@NotNull
 	@JsonProperty(value = "lastModified", required = true)
@@ -94,12 +94,12 @@ public class ActivityResource {
 		this.user = user;
 	}
 
-	public String getLoggedObjectRef() {
-		return loggedObjectRef;
+	public Long getLoggedObjectId() {
+		return loggedObjectId;
 	}
 
-	public void setLoggedObjectRef(String loggedObjectRef) {
-		this.loggedObjectRef = loggedObjectRef;
+	public void setLoggedObjectId(Long loggedObjectId) {
+		this.loggedObjectId = loggedObjectId;
 	}
 
 	public Date getLastModified() {
@@ -155,7 +155,7 @@ public class ActivityResource {
 		final StringBuilder sb = new StringBuilder("ActivityResource{");
 		sb.append("id=").append(id);
 		sb.append(", user='").append(user).append('\'');
-		sb.append(", loggedObjectRef='").append(loggedObjectRef).append('\'');
+		sb.append(", loggedObjectId='").append(loggedObjectId).append('\'');
 		sb.append(", lastModified=").append(lastModified);
 		sb.append(", actionType='").append(actionType).append('\'');
 		sb.append(", objectType='").append(objectType).append('\'');
