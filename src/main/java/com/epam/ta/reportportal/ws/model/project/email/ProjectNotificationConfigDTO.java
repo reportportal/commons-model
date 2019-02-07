@@ -8,12 +8,12 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Project email configuration object
+ * Project notifications configuration object
  *
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class ProjectConfigDTO implements Serializable {
+public class ProjectNotificationConfigDTO implements Serializable {
 	/**
 	 * Generated SVUID
 	 */
@@ -22,10 +22,10 @@ public class ProjectConfigDTO implements Serializable {
 	@JsonProperty(value = "cases")
 	private List<SenderCaseDTO> senderCases;
 
-	public ProjectConfigDTO() {
+	public ProjectNotificationConfigDTO() {
 	}
 
-	public ProjectConfigDTO(List<SenderCaseDTO> senderCases) {
+	public ProjectNotificationConfigDTO(List<SenderCaseDTO> senderCases) {
 		this.senderCases = senderCases;
 	}
 
