@@ -393,6 +393,11 @@ public enum ErrorType {
 	PLUGIN_REMOVE_ERROR(40040, "Error during plugin removing: '{}'"),
 
 	/**
+	 * Unable to save child item for a retry
+	 */
+	UNABLE_TO_SAVE_CHILD_ITEM_FOR_THE_RETRY(40041, "Item with id = '{}' is a retry and can not have children"),
+
+	/**
 	 * Bad save user filter request
 	 */
 	PROJECT_DOESNT_CONTAIN_USER(4220, "Project '{}' doesn't contain user '{}'"),
