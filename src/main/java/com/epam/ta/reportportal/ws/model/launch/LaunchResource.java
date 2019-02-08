@@ -1,20 +1,20 @@
 /*
  * Copyright 2016 EPAM Systems
- * 
- * 
+ *
+ *
  * This file is part of EPAM Report Portal.
  * https://github.com/reportportal/commons-model
- * 
+ *
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Report Portal is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -58,7 +58,7 @@ public class LaunchResource extends OwnedResource {
 	@JsonProperty(value = "number", required = true)
 	private Long number;
 
-	@JsonProperty("description")
+	@JsonProperty(value = "description")
 	@Size(max = ValidationConstraints.MAX_LAUNCH_DESCRIPTION_LENGTH)
 	private String description;
 
@@ -66,30 +66,33 @@ public class LaunchResource extends OwnedResource {
 	@JsonProperty(value = "startTime", required = true)
 	private Date startTime;
 
-	@JsonProperty("endTime")
+	@JsonProperty(value = "endTime")
 	private Date endTime;
+
+	@JsonProperty(value = "lastModified")
+	private Date lastModified;
 
 	@NotNull
 	@JsonProperty(value = "status", required = true)
 	private String status;
 
-	@JsonProperty("statistics")
+	@JsonProperty(value = "statistics")
 	@Valid
 	private StatisticsResource statisticsResource;
 
-	@JsonProperty("attributes")
+	@JsonProperty(value = "attributes")
 	private Set<ItemAttributeResource> attributes;
 
-	@JsonProperty("mode")
+	@JsonProperty(value = "mode")
 	private Mode mode;
 
-	@JsonProperty("isProcessing")
+	@JsonProperty(value = "isProcessing")
 	private boolean isProcessing;
 
-	@JsonProperty("approximateDuration")
+	@JsonProperty(value = "approximateDuration")
 	private double approximateDuration;
 
-	@JsonProperty("hasRetries")
+	@JsonProperty(value = "hasRetries")
 	private boolean hasRetries;
 
 	public double getApproximateDuration() {
@@ -148,6 +151,14 @@ public class LaunchResource extends OwnedResource {
 		this.endTime = endTime;
 	}
 
+	public Date getLastModified() {
+		return lastModified;
+	}
+
+	public void setLastModified(Date lastModified) {
+		this.lastModified = lastModified;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -199,9 +210,8 @@ public class LaunchResource extends OwnedResource {
 	@Override
 	public String toString() {
 		return "LaunchResource{" + "launchId='" + launchId + '\'' + ", name='" + name + '\'' + ", number=" + number + ", description='"
-				+ description + '\'' + ", startTime=" + startTime + ", endTime=" + endTime + ", status='" + status + '\'' + ", statisticsResource="
-				+ statisticsResource + ", attributes=" + attributes + ", mode=" + mode + ", isProcessing=" + isProcessing
-				+ ", approximateDuration="
-				+ approximateDuration + ", hasRetries=" + hasRetries + '}';
+				+ description + '\'' + ", startTime=" + startTime + ", endTime=" + endTime + ", lastModified=" + lastModified + ", status='"
+				+ status + '\'' + ", statisticsResource=" + statisticsResource + ", attributes=" + attributes + ", mode=" + mode
+				+ ", isProcessing=" + isProcessing + ", approximateDuration=" + approximateDuration + ", hasRetries=" + hasRetries + '}';
 	}
 }
