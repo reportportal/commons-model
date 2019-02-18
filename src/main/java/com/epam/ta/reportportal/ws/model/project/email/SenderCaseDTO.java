@@ -5,11 +5,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 /**
- * Cases object for email sending declarations
+ * Cases object for notifications sending declarations
  *
  * @author Andrei_Ramanchuk
  */
@@ -30,13 +32,14 @@ public class SenderCaseDTO implements Serializable {
 	@JsonProperty(value = "launchNames")
 	private List<String> launchNames;
 
+	@Valid
 	@JsonProperty(value = "attributes")
-	private List<String> attributes;
+	private Set<LaunchAttribute> attributes;
 
 	public SenderCaseDTO() {
 	}
 
-	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, List<String> attributes) {
+	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, Set<LaunchAttribute> attributes) {
 		this.recipients = recs;
 		this.sendCase = sendMode;
 		this.launchNames = laNames;
@@ -68,11 +71,11 @@ public class SenderCaseDTO implements Serializable {
 		return launchNames;
 	}
 
-	public List<String> getAttributes() {
+	public Set<LaunchAttribute> getAttributes() {
 		return attributes;
 	}
 
-	public void setAttributes(List<String> attributes) {
+	public void setAttributes(Set<LaunchAttribute> attributes) {
 		this.attributes = attributes;
 	}
 
@@ -128,12 +131,8 @@ public class SenderCaseDTO implements Serializable {
 			return false;
 		}
 		if (attributes == null) {
-			if (other.attributes != null) {
-				return false;
-			}
-		} else if (!attributes.equals(other.attributes)) {
-			return false;
-		}
-		return true;
+			return other.attributes == null;
+		} else
+			return attributes.equals(other.attributes);
 	}
 }

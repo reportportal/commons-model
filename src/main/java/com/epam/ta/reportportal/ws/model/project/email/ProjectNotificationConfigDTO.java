@@ -19,18 +19,26 @@ public class ProjectNotificationConfigDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -961365872944240700L;
 
+	@JsonProperty(value = "enabled")
+	private boolean enabled;
+
 	@JsonProperty(value = "cases")
 	private List<SenderCaseDTO> senderCases;
 
 	public ProjectNotificationConfigDTO() {
 	}
 
-	public ProjectNotificationConfigDTO(List<SenderCaseDTO> senderCases) {
+	public ProjectNotificationConfigDTO(boolean enabled, List<SenderCaseDTO> senderCases) {
+		this.enabled = enabled;
 		this.senderCases = senderCases;
 	}
 
-	public static long getSerialVersionUID() {
-		return serialVersionUID;
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public List<SenderCaseDTO> getSenderCases() {
@@ -43,6 +51,6 @@ public class ProjectNotificationConfigDTO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ProjectConfigDTO{" + "senderCases=" + senderCases + '}';
+		return "ProjectNotificationConfigDTO{" + "enabled=" + enabled + ", senderCases=" + senderCases + '}';
 	}
 }
