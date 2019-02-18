@@ -40,7 +40,7 @@ public class ProjectConfiguration {
 	@JsonProperty(value = "subTypes")
 	private Map<String, List<IssueSubTypeResource>> subTypes;
 
-	@JsonProperty(value = "configuration")
+	@JsonProperty(value = "notificationConfiguration")
 	private ProjectNotificationConfigDTO projectConfig;
 
 	public Map<String, String> getProjectAttributes() {
