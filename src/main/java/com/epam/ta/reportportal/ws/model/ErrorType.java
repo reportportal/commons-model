@@ -154,6 +154,16 @@ public enum ErrorType {
 	WIDGET_NOT_FOUND_IN_PROJECT(40420, "Widget with ID '{}' not found on project '{}'. Did you use correct Widget ID?"),
 
 	/**
+	 * If specified by id UserFilter not found
+	 */
+	USER_FILTER_NOT_FOUND_IN_PROJECT(40421, "User filter with ID '{}' not found on project '{}'. Did you use correct User Filter ID?"),
+
+	/**
+	 * If specified by id Dashboard not found
+	 */
+	DASHBOARD_NOT_FOUND_IN_PROJECT(40422, "Dashboard with ID '{}' not found on project '{}'. Did you use correct Dashboard ID?"),
+
+	/**
 	 * If provided filtering parameters are incorrect
 	 */
 	INCORRECT_FILTER_PARAMETERS(40011, "Incorrect filtering parameters. {}"),
