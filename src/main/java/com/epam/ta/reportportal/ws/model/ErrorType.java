@@ -149,6 +149,11 @@ public enum ErrorType {
 	OAUTH_INTEGRATION_NOT_FOUND(40419, "OAuth integration '{}' not found. Did you use correct name?"),
 
 	/**
+	 * If specified by id Widget not found
+	 */
+	WIDGET_NOT_FOUND_IN_PROJECT(40420, "Widget with ID '{}' not found on project '{}'. Did you use correct Widget ID?"),
+
+	/**
 	 * If provided filtering parameters are incorrect
 	 */
 	INCORRECT_FILTER_PARAMETERS(40011, "Incorrect filtering parameters. {}"),
