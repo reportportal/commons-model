@@ -33,7 +33,7 @@ import java.util.List;
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
-public class UpdateBugTrackingSystemRQ extends CreateBugTrackingSystemRQ {
+public class UpdateBugTrackingSystemRQ {
 
 	@JsonProperty(value = "fields")
 	private List<PostFormField> fields;
