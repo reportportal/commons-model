@@ -19,6 +19,9 @@ public class IntegrationTypeResource implements Serializable {
 	@JsonProperty("name")
 	private String name;
 
+	@JsonProperty("isEnabled")
+	private Boolean isEnabled;
+
 	@JsonProperty("authFlow")
 	private AuthFlowEnum authFlow;
 
@@ -45,6 +48,14 @@ public class IntegrationTypeResource implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Boolean getEnabled() {
+		return isEnabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		isEnabled = enabled;
 	}
 
 	public AuthFlowEnum getAuthFlow() {
