@@ -1,20 +1,20 @@
 /*
  * Copyright 2016 EPAM Systems
- * 
- * 
+ *
+ *
  * This file is part of EPAM Report Portal.
  * https://github.com/reportportal/commons-model
- * 
+ *
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Report Portal is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -69,8 +69,12 @@ public class Issue {
 		private Long submitDate;
 
 		@NotNull
-		@JsonProperty(value = "systemId")
-		private Long externalSystemId;
+		@JsonProperty(value = "btsUrl")
+		private String btsUrl;
+
+		@NotNull
+		@JsonProperty(value = "btsProject")
+		private String btsProject;
 
 		@NotNull
 		@JsonProperty(value = "url")
@@ -82,10 +86,6 @@ public class Issue {
 
 		public String getTicketId() {
 			return ticketId;
-		}
-
-		public Long getExternalSystemId() {
-			return externalSystemId;
 		}
 
 		public Long getSubmitter() {
@@ -104,8 +104,20 @@ public class Issue {
 			this.submitDate = submitDate;
 		}
 
-		public void setExternalSystemId(Long externalSystemId) {
-			this.externalSystemId = externalSystemId;
+		public String getBtsUrl() {
+			return btsUrl;
+		}
+
+		public void setBtsUrl(String btsUrl) {
+			this.btsUrl = btsUrl;
+		}
+
+		public String getBtsProject() {
+			return btsProject;
+		}
+
+		public void setBtsProject(String btsProject) {
+			this.btsProject = btsProject;
 		}
 
 		public void setUrl(String value) {
@@ -130,7 +142,10 @@ public class Issue {
 			if (ticketId != null ? !ticketId.equals(that.ticketId) : that.ticketId != null) {
 				return false;
 			}
-			if (externalSystemId != null ? !externalSystemId.equals(that.externalSystemId) : that.externalSystemId != null) {
+			if (btsUrl != null ? !btsUrl.equals(that.btsUrl) : that.btsUrl != null) {
+				return false;
+			}
+			if (btsProject != null ? !btsProject.equals(that.btsProject) : that.btsProject != null) {
 				return false;
 			}
 			return url != null ? url.equals(that.url) : that.url == null;
@@ -139,15 +154,16 @@ public class Issue {
 		@Override
 		public int hashCode() {
 			int result = ticketId != null ? ticketId.hashCode() : 0;
-			result = 31 * result + (externalSystemId != null ? externalSystemId.hashCode() : 0);
+			result = 31 * result + (btsUrl != null ? btsUrl.hashCode() : 0);
+			result = 31 * result + (btsProject != null ? btsProject.hashCode() : 0);
 			result = 31 * result + (url != null ? url.hashCode() : 0);
 			return result;
 		}
 
 		@Override
 		public String toString() {
-			return "ExternalSystemIssue{" + "ticketId='" + ticketId + '\'' + ", externalSystemId=" + externalSystemId + ", url='" + url
-					+ '\'' + '}';
+			return "ExternalSystemIssue{" + "ticketId='" + ticketId + '\'' + ", btsUrl='" + btsUrl + '\'' + ", btsProject='" + btsProject
+					+ '\'' + ", url='" + url + '\'' + '}';
 		}
 	}
 
