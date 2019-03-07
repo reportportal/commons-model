@@ -35,7 +35,7 @@ import java.util.Map;
 public class UserResource {
 
 	@NotNull
-	@JsonProperty(value = "userId", required = true)
+	@JsonProperty(value = "id", required = true)
 	private String userId;
 
 	@JsonProperty(value = "email", required = true)
