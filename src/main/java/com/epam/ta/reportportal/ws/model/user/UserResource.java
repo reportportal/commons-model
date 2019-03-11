@@ -36,6 +36,10 @@ public class UserResource {
 
 	@NotNull
 	@JsonProperty(value = "id", required = true)
+	private Long id;
+
+	@NotNull
+	@JsonProperty(value = "userId", required = true)
 	private String userId;
 
 	@JsonProperty(value = "email", required = true)
@@ -65,6 +69,14 @@ public class UserResource {
 
 	@JsonProperty(value = "assignedProjects")
 	private Map<String, AssignedProject> assignedProjects;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public void setUserId(String value) {
 		this.userId = value;
@@ -178,16 +190,9 @@ public class UserResource {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("UserResource{");
-		sb.append("userId='").append(userId).append('\'');
-		sb.append(", email='").append(email).append('\'');
-		sb.append(", photoId='").append(photoId).append('\'');
-		sb.append(", fullName='").append(fullName).append('\'');
-		sb.append(", accountType='").append(accountType).append('\'');
-		sb.append(", userRole='").append(userRole).append('\'');
-		sb.append(", defaultProject='").append(defaultProject).append('\'');
-		sb.append(", assignedProjects=").append(assignedProjects);
-		sb.append('}');
-		return sb.toString();
+		return "UserResource{" + "id=" + id + ", userId='" + userId + '\'' + ", email='" + email + '\'' + ", photoId='" + photoId + '\''
+				+ ", fullName='" + fullName + '\'' + ", accountType='" + accountType + '\'' + ", userRole='" + userRole + '\''
+				+ ", isLoaded=" + isLoaded + ", metadata=" + metadata + ", defaultProject='" + defaultProject + '\'' + ", assignedProjects="
+				+ assignedProjects + '}';
 	}
 }
