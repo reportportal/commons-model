@@ -48,7 +48,7 @@ public class EditUserRQ {
 
 	@NotEmpty
 	@Size(min = ValidationConstraints.MIN_USER_NAME_LENGTH, max = ValidationConstraints.MAX_USER_NAME_LENGTH)
-	@Pattern(regexp = "[\\pL0-9-_ \\.]+")
+	@Pattern(regexp = "(\\s*[\\pL0-9-_\\.]+\\s*)+")
 	@JsonProperty(value = "fullName")
 	private String fullName;
 
