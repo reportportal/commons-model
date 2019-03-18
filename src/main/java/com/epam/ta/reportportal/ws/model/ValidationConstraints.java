@@ -31,7 +31,7 @@ public class ValidationConstraints {
 	}
 
 	/* 1 always exists as predefined type */
-	public static final int MAX_ISSUE_SUBTYPES = 11;
+	public static final int MAX_ISSUE_SUBTYPES = 10;
 
 	public static final int MIN_COLLECTION_SIZE = 1;
 	public static final int MAX_NUMBER_OF_FILTER_ENTITIES = 20;
