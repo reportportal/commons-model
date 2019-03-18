@@ -19,7 +19,6 @@ package com.epam.ta.reportportal.ws.model.project;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.ModelViews;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -37,7 +36,6 @@ import java.util.List;
  * @author Dzmitry_Kavalets
  * @author Andrei_Ramanchuk
  */
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProjectInfoResource {
 
 	@NotNull

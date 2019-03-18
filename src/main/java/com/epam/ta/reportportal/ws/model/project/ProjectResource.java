@@ -18,8 +18,6 @@
 package com.epam.ta.reportportal.ws.model.project;
 
 import com.epam.ta.reportportal.ws.model.integration.IntegrationResource;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotNull;
@@ -31,7 +29,6 @@ import java.util.List;
  *
  * @author Pavel Bortnik
  */
-@JsonInclude(Include.NON_NULL)
 public class ProjectResource {
 
 	@NotNull
