@@ -22,13 +22,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import java.io.Serializable;
+
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ATTRIBUTE_LENGTH;
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_ITEM_ATTRIBUTE_VALUE_LENGTH;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class ItemAttributeResource {
+public class ItemAttributeResource implements Serializable {
 
 	@Size(max = MAX_ATTRIBUTE_LENGTH)
 	private String key;
