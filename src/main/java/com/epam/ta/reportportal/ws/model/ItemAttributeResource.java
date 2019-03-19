@@ -23,6 +23,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ATTRIBUTE_LENGTH;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_ITEM_ATTRIBUTE_VALUE_LENGTH;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
@@ -34,7 +35,7 @@ public class ItemAttributeResource {
 
 	@NotNull
 	@NotEmpty
-	@Size(max = MAX_ATTRIBUTE_LENGTH)
+	@Size(min = MIN_ITEM_ATTRIBUTE_VALUE_LENGTH, max = MAX_ATTRIBUTE_LENGTH)
 	private String value;
 
 	@JsonProperty(defaultValue = "false")

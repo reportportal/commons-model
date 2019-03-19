@@ -40,6 +40,7 @@ public class ValidationConstraints {
 	public static final int MIN_FILTER_LIMIT = 1;
 	public static final int MAX_FILTER_LIMIT = 150;
 	public static final int MIN_LAUNCH_NAME_LENGTH = 1;
+	public static final int MIN_ITEM_ATTRIBUTE_VALUE_LENGTH = 1;
 	public static final int MIN_NAME_LENGTH = 3;
 	public static final int MAX_NAME_LENGTH = 256;
 	public static final int MIN_DESCRIPTION_LENGTH = 0;
