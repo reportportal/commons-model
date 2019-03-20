@@ -1,5 +1,6 @@
 package com.epam.ta.reportportal.ws.model.project.email;
 
+import com.epam.ta.reportportal.ws.model.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -34,12 +35,12 @@ public class SenderCaseDTO implements Serializable {
 
 	@Valid
 	@JsonProperty(value = "attributes")
-	private Set<LaunchAttribute> attributes;
+	private Set<ItemAttributeResource> attributes;
 
 	public SenderCaseDTO() {
 	}
 
-	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, Set<LaunchAttribute> attributes) {
+	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes) {
 		this.recipients = recs;
 		this.sendCase = sendMode;
 		this.launchNames = laNames;
@@ -71,11 +72,11 @@ public class SenderCaseDTO implements Serializable {
 		return launchNames;
 	}
 
-	public Set<LaunchAttribute> getAttributes() {
+	public Set<ItemAttributeResource> getAttributes() {
 		return attributes;
 	}
 
-	public void setAttributes(Set<LaunchAttribute> attributes) {
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
 		this.attributes = attributes;
 	}
 
@@ -132,7 +133,8 @@ public class SenderCaseDTO implements Serializable {
 		}
 		if (attributes == null) {
 			return other.attributes == null;
-		} else
+		} else {
 			return attributes.equals(other.attributes);
+		}
 	}
 }
