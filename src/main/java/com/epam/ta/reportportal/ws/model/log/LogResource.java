@@ -123,7 +123,7 @@ public class LogResource {
 	private String level;
 
 	@JsonProperty(value = "testItem")
-	private String testItem;
+	private Long testItem;
 
 	public Long getId() {
 		return id;
@@ -157,12 +157,12 @@ public class LogResource {
 		this.level = level;
 	}
 
-	public void setTestItem(String testItem) {
-		this.testItem = testItem;
+	public Long getTestItem() {
+		return testItem;
 	}
 
-	public String getTestItem() {
-		return testItem;
+	public void setTestItem(Long testItem) {
+		this.testItem = testItem;
 	}
 
 	public String getThumbnail() {
