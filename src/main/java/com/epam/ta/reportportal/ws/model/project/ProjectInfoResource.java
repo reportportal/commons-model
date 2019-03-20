@@ -39,7 +39,7 @@ import java.util.List;
 public class ProjectInfoResource {
 
 	@NotNull
-	@JsonProperty(value = "projectId")
+	@JsonProperty(value = "id")
 	private Long projectId;
 
 	@NotNull
