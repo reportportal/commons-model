@@ -33,11 +33,6 @@ public class CreateUserRS extends WarningAwareRS {
 	@JsonProperty("login")
 	private String login;
 
-	public CreateUserRS(Long id, String login) {
-		this.id = id;
-		this.login = login;
-	}
-
 	public Long getId() {
 		return id;
 	}
