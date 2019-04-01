@@ -21,11 +21,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.Size;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_DESCRIPTION;
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_DESCRIPTION;
-
 /**
  * Base entity for manipulating sharable resources
  *
@@ -38,7 +33,7 @@ public class SharableEntityRQ {
 	@JsonProperty(value = "share")
 	private Boolean share;
 
-	@Size(min = MIN_DESCRIPTION, max = MAX_DESCRIPTION)
+	@JsonProperty(value = "description")
 	private String description;
 
 	public String getDescription() {

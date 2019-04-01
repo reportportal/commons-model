@@ -30,7 +30,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Set;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_NAME_LENGTH;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ATTRIBUTE_LENGTH;
 
 /**
  * Domain object for updating launch object.
@@ -47,7 +47,7 @@ public class UpdateLaunchRQ {
     @JsonProperty("description")
     private String description;
 
-    @ElementLength(max = MAX_NAME_LENGTH)
+    @ElementLength(min = 1, max = MAX_ATTRIBUTE_LENGTH)
     @JsonProperty("attributes")
     private Set<ItemAttributeResource> attributes;
 
