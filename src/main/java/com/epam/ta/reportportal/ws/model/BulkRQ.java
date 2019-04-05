@@ -27,18 +27,18 @@ import java.util.Map;
  * @param <T> Type of Entity
  * @author Dzmitry_Kavalets
  */
-public class BulkRQ<T> {
+public class BulkRQ<K,T> {
 
 	@Valid
 	@NotNull
 	@JsonProperty(value = "entities", required = true)
-	private Map<String, T> entities;
+	private Map<K, T> entities;
 
-	public Map<String, T> getEntities() {
+	public Map<K, T> getEntities() {
 		return entities;
 	}
 
-	public void setEntities(Map<String, T> entities) {
+	public void setEntities(Map<K, T> entities) {
 		this.entities = entities;
 	}
 
