@@ -35,8 +35,8 @@ public class ItemCreatedRS extends EntryCreatedAsyncRS {
 
     }
 
-    public ItemCreatedRS(Long id, String uniqueId) {
-        super(id);
+    public ItemCreatedRS(Long id, String uniqueId, String uuid) {
+        super(id, uuid);
         this.uniqueId = uniqueId;
     }
 
