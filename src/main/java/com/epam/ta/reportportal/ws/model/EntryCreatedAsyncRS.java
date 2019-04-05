@@ -16,9 +16,8 @@ public class EntryCreatedAsyncRS extends EntryCreatedRS {
 
     }
 
-    public EntryCreatedAsyncRS(Long id, String uuid) {
+    public EntryCreatedAsyncRS(Long id) {
         super.setId(id);
-        this.uuid = uuid;
     }
 
     public String getUuid() {
