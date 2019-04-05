@@ -32,13 +32,13 @@ public class BulkRQ<T> {
 	@Valid
 	@NotNull
 	@JsonProperty(value = "entities", required = true)
-	private Map<Long, T> entities;
+	private Map<String, T> entities;
 
-	public Map<Long, T> getEntities() {
+	public Map<String, T> getEntities() {
 		return entities;
 	}
 
-	public void setEntities(Map<Long, T> entities) {
+	public void setEntities(Map<String, T> entities) {
 		this.entities = entities;
 	}
 
