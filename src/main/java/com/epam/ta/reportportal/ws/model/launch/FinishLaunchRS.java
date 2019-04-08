@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author Andrei Varabyeu
  */
-public class FinishLaunchRS extends EntryCreatedAsyncRS {
+public class FinishLaunchRS {
 
 	@JsonProperty("number")
 	private Long number;
@@ -39,8 +39,7 @@ public class FinishLaunchRS extends EntryCreatedAsyncRS {
 	public FinishLaunchRS() {
 	}
 
-	public FinishLaunchRS(Long id, Long number, String link) {
-		super(id);
+	public FinishLaunchRS(Long number, String link) {
 		this.number = number;
 		this.link = link;
 	}
