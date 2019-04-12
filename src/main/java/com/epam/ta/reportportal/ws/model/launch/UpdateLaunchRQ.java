@@ -1,36 +1,32 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.epam.ta.reportportal.ws.model.launch;
 
-import com.epam.ta.reportportal.ws.annotations.ElementLength;
 import com.epam.ta.reportportal.ws.model.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ATTRIBUTE_LENGTH;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
 
 /**
  * Domain object for updating launch object.
@@ -40,46 +36,47 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ATTRIB
 @JsonInclude(Include.NON_NULL)
 public class UpdateLaunchRQ {
 
-    @JsonProperty("mode")
-    @ApiModelProperty(allowableValues = "DEFAULT, DEBUG")
-    private Mode mode;
+	@JsonProperty("mode")
+	@ApiModelProperty(allowableValues = "DEFAULT, DEBUG")
+	private Mode mode;
 
-    @JsonProperty("description")
-    private String description;
+	@JsonProperty("description")
+	private String description;
 
-    @ElementLength(min = 1, max = MAX_ATTRIBUTE_LENGTH)
-    @JsonProperty("attributes")
-    private Set<ItemAttributeResource> attributes;
+	@Size(max = MAX_PARAMETERS_LENGTH)
+	@Valid
+	@JsonProperty("attributes")
+	private Set<ItemAttributeResource> attributes;
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public Set<ItemAttributeResource> getAttributes() {
-        return attributes;
-    }
+	public Set<ItemAttributeResource> getAttributes() {
+		return attributes;
+	}
 
-    public void setAttributes(Set<ItemAttributeResource> attributes) {
-        this.attributes = attributes;
-    }
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
+		this.attributes = attributes;
+	}
 
-    public Mode getMode() {
-        return mode;
-    }
+	public Mode getMode() {
+		return mode;
+	}
 
-    public void setMode(Mode mode) {
-        this.mode = mode;
-    }
+	public void setMode(Mode mode) {
+		this.mode = mode;
+	}
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("UpdateLaunchRQ{");
-        sb.append("mode=").append(mode);
-        sb.append('}');
-        return sb.toString();
-    }
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("UpdateLaunchRQ{");
+		sb.append("mode=").append(mode);
+		sb.append('}');
+		return sb.toString();
+	}
 }
