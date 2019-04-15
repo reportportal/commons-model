@@ -63,12 +63,23 @@ public class StartTestItemRQ extends StartRQ {
 	@JsonProperty(value = "retry")
 	private Boolean retry;
 
+	@JsonProperty(value = "hasStats")
+	private boolean hasStats = true;
+
 	public Boolean isRetry() {
 		return retry;
 	}
 
 	public void setRetry(Boolean retry) {
 		this.retry = retry;
+	}
+
+	public boolean isHasStats() {
+		return hasStats;
+	}
+
+	public void setHasStats(boolean hasStats) {
+		this.hasStats = hasStats;
 	}
 
 	public Long getLaunchId() {
@@ -132,7 +143,8 @@ public class StartTestItemRQ extends StartRQ {
 		sb.append(", uniqueId='").append(uniqueId).append('\'');
 		sb.append(", launchId='").append(launchId).append('\'');
 		sb.append(", type='").append(type).append('\'');
-		sb.append(", retry=").append(retry);
+		sb.append(", retry=").append(retry).append('\'');
+		sb.append(", hasStats=").append(hasStats);
 		sb.append('}');
 		return sb.toString();
 	}
