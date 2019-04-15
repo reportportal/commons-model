@@ -63,23 +63,12 @@ public class StartTestItemRQ extends StartRQ {
 	@JsonProperty(value = "retry")
 	private Boolean retry;
 
-	@JsonProperty(value = "hasStats")
-	private boolean hasStats = true;
-
 	public Boolean isRetry() {
 		return retry;
 	}
 
 	public void setRetry(Boolean retry) {
 		this.retry = retry;
-	}
-
-	public boolean isHasStats() {
-		return hasStats;
-	}
-
-	public void setHasStats(boolean hasStats) {
-		this.hasStats = hasStats;
 	}
 
 	public Long getLaunchId() {
