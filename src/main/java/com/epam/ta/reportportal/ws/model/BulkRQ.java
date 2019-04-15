@@ -24,6 +24,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Map;
 
 /**
+ * @param <K> Type of Key
  * @param <T> Type of Entity
  * @author Dzmitry_Kavalets
  */
