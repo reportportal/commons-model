@@ -24,6 +24,15 @@ public class ItemAttributesRQ extends ItemAttributeResource {
 
 	private boolean system;
 
+	public ItemAttributesRQ(String key, String value) {
+		super(key, value);
+	}
+
+	public ItemAttributesRQ(String key, String value, boolean system) {
+		super(key, value);
+		this.system = system;
+	}
+
 	public boolean isSystem() {
 		return system;
 	}
