@@ -17,12 +17,17 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import java.io.Serializable;
+
 /**
  * @author <a href="mailto:pavel_bortnik@epam.com">Pavel Bortnik</a>
  */
-public class ItemAttributesRQ extends ItemAttributeResource {
+public class ItemAttributesRQ extends ItemAttributeResource implements Serializable {
 
 	private boolean system;
+
+	public ItemAttributesRQ() {
+	}
 
 	public ItemAttributesRQ(String key, String value) {
 		super(key, value);
