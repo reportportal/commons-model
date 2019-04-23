@@ -1,7 +1,8 @@
-package com.epam.ta.reportportal.ws.model.project.config;
+package com.epam.ta.reportportal.ws.model.project.config.pattern;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,22 +14,29 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_ANALYS
  * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CreateAnalysisPatternRQ {
+public class CreatePatternTemplateRQ {
 
 	@NotNull
 	@NotEmpty
 	@Size(min = MIN_ANALYSIS_PATTERN_NAME_LENGTH, max = MAX_ANALYSIS_PATTERN_NAME_LENGTH)
+	@JsonProperty(value = "name")
 	private String name;
 
 	@NotNull
 	@NotEmpty
-	private String template;
+	@JsonProperty(value = "value")
+	private String value;
 
 	@NotNull
 	@NotEmpty
+	@JsonProperty(value = "type")
 	private String type;
 
-	public CreateAnalysisPatternRQ() {
+	@NotNull
+	@JsonProperty(value = "enabled")
+	private Boolean enabled;
+
+	public CreatePatternTemplateRQ() {
 	}
 
 	public String getName() {
@@ -39,12 +47,12 @@ public class CreateAnalysisPatternRQ {
 		this.name = name;
 	}
 
-	public String getTemplate() {
-		return template;
+	public String getValue() {
+		return value;
 	}
 
-	public void setTemplate(String template) {
-		this.template = template;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	public String getType() {
@@ -55,8 +63,17 @@ public class CreateAnalysisPatternRQ {
 		this.type = type;
 	}
 
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	@Override
 	public String toString() {
-		return "CreateAnalysisPatternRQ{" + "name='" + name + '\'' + ", template='" + template + '\'' + ", type='" + type + '\'' + '}';
+		return "UpdatePatternTemplateRQ{" + "name='" + name + '\'' + ", value='" + value + '\'' + ", type='" + type + '\'' + ", enabled="
+				+ enabled + '}';
 	}
 }
