@@ -164,6 +164,13 @@ public enum ErrorType {
 	DASHBOARD_NOT_FOUND_IN_PROJECT(40422, "Dashboard with ID '{}' not found on project '{}'. Did you use correct Dashboard ID?"),
 
 	/**
+	 * If pattern template with provided id is not found
+	 */
+	PATTERN_TEMPLATE_NOT_FOUND_IN_PROJECT(40423,
+			"Pattern template with ID '{}' not found on project '{}'. Did you use correct Pattern template ID?"
+	),
+
+	/**
 	 * If provided filtering parameters are incorrect
 	 */
 	INCORRECT_FILTER_PARAMETERS(40011, "Incorrect filtering parameters. {}"),
