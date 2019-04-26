@@ -59,7 +59,7 @@ public class FinishTestItemSerializerTest {
 		finishTestItemRQ.setRetry(false);
 		finishTestItemRQ.setDescription("description");
 		finishTestItemRQ.setIssue(new Issue());
-		finishTestItemRQ.setAttributes(Collections.<ItemAttributeResource>emptySet());
+		finishTestItemRQ.setAttributes(Collections.<ItemAttributesRQ>emptySet());
 
 		return finishTestItemRQ;
 	}
