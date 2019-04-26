@@ -21,6 +21,7 @@
 
 package com.epam.ta.reportportal.ws.model.filter;
 
+import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -37,14 +38,17 @@ import javax.validation.constraints.NotNull;
 public class UserFilterCondition {
 
 	@NotNull
+	@NotEmpty
 	@JsonProperty(value = "filteringField", required = true)
 	private String filteringField;
 
 	@NotNull
+	@NotEmpty
 	@JsonProperty(value = "condition", required = true)
 	private String condition;
 
 	@NotNull
+	@NotEmpty
 	@JsonProperty(value = "value", required = true)
 	private String value;
 
