@@ -92,6 +92,9 @@ public class TestItemResource {
 	@JsonProperty(value = "uniqueId")
 	private String uniqueId;
 
+	@JsonProperty(value = "patternTemplates")
+	private Set<String> patternTemplates;
+
 	@JsonProperty(value = "retries")
 	private List<TestItemResource> retries;
 
@@ -250,14 +253,21 @@ public class TestItemResource {
 		this.path = path;
 	}
 
+	public Set<String> getPatternTemplates() {
+		return patternTemplates;
+	}
+
+	public void setPatternTemplates(Set<String> patternTemplates) {
+		this.patternTemplates = patternTemplates;
+	}
+
 	@Override
 	public String toString() {
 		return "TestItemResource{" + "itemId=" + itemId + ", name='" + name + '\'' + ", description='" + description + '\''
 				+ ", parameters=" + parameters + ", attributes=" + attributes + ", type='" + type + '\'' + ", startTime=" + startTime
-				+ ", endTime="
-				+ endTime + ", status='" + status + '\'' + ", statisticsResource=" + statisticsResource + ", parent=" + parent
-				+ ", pathNames=" + pathNames + ", launchStatus='" + launchStatus + '\'' + ", issue=" + issue + ", hasChildren="
-				+ hasChildren + ", launchId=" + launchId + ", uniqueId='" + uniqueId + '\'' + ", retries=" + retries + ", path='" + path
-				+ '\'' + '}';
+				+ ", endTime=" + endTime + ", status='" + status + '\'' + ", statisticsResource=" + statisticsResource + ", parent="
+				+ parent + ", pathNames=" + pathNames + ", launchStatus='" + launchStatus + '\'' + ", issue=" + issue + ", hasChildren="
+				+ hasChildren + ", launchId=" + launchId + ", uniqueId='" + uniqueId + '\'' + ", patternTemplates=" + patternTemplates
+				+ ", retries=" + retries + ", path='" + path + '\'' + '}';
 	}
 }
