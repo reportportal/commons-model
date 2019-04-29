@@ -122,8 +122,8 @@ public class LogResource {
 	@ApiModelProperty(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
 	private String level;
 
-	@JsonProperty(value = "testItem")
-	private Long testItem;
+	@JsonProperty(value = "itemId")
+	private Long itemId;
 
 	public Long getId() {
 		return id;
@@ -157,12 +157,12 @@ public class LogResource {
 		this.level = level;
 	}
 
-	public Long getTestItem() {
-		return testItem;
+	public Long getItemId() {
+		return itemId;
 	}
 
-	public void setTestItem(Long testItem) {
-		this.testItem = testItem;
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
 	}
 
 	public String getThumbnail() {
@@ -190,7 +190,7 @@ public class LogResource {
 		sb.append(", binaryContent=").append(binaryContent);
 		sb.append(", thumbnail='").append(thumbnail).append('\'');
 		sb.append(", level='").append(level).append('\'');
-		sb.append(", testItem='").append(testItem).append('\'');
+		sb.append(", itemId='").append(itemId).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}
