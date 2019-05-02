@@ -38,10 +38,13 @@ import java.util.Date;
 @JsonInclude(Include.NON_NULL)
 public class SaveLogRQ {
 
+	@JsonProperty("uuid")
+	private String uuid;
+
 	@NotNull
 	@JsonProperty(value = "itemId", required = true)
 	@ApiModelProperty(required = true)
-	private Long testItemId;
+	private String testItemId;
 
 	@NotNull
 	@JsonProperty(value = "time", required = true)
@@ -57,6 +60,14 @@ public class SaveLogRQ {
 
 	@JsonProperty(value = "file")
 	private File file;
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
 
 	public Date getLogTime() {
 		return logTime;
@@ -74,11 +85,11 @@ public class SaveLogRQ {
 		this.message = message;
 	}
 
-	public Long getTestItemId() {
+	public String getTestItemId() {
 		return testItemId;
 	}
 
-	public void setTestItemId(Long testItemId) {
+	public void setTestItemId(String testItemId) {
 		this.testItemId = testItemId;
 	}
 
