@@ -29,9 +29,12 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UpdateIntegrationRQ {
 
+	@JsonProperty("name")
+	private String name;
+
 	@NotNull
-	@JsonProperty("integrationName")
-	private String integrationName;
+	@JsonProperty("pluginName")
+	private String pluginName;
 
 	@JsonProperty("integrationParameters")
 	private Map<String, Object> integrationParams;
@@ -40,12 +43,20 @@ public class UpdateIntegrationRQ {
 	@JsonProperty("enabled")
 	private Boolean enabled;
 
-	public String getIntegrationName() {
-		return integrationName;
+	public String getName() {
+		return name;
 	}
 
-	public void setIntegrationName(String integrationName) {
-		this.integrationName = integrationName;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPluginName() {
+		return pluginName;
+	}
+
+	public void setPluginName(String pluginName) {
+		this.pluginName = pluginName;
 	}
 
 	public Map<String, Object> getIntegrationParams() {
