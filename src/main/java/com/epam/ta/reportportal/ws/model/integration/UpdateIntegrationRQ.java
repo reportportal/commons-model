@@ -32,10 +32,6 @@ public class UpdateIntegrationRQ {
 	@JsonProperty("name")
 	private String name;
 
-	@NotNull
-	@JsonProperty("pluginName")
-	private String pluginName;
-
 	@JsonProperty("integrationParameters")
 	private Map<String, Object> integrationParams;
 
@@ -49,14 +45,6 @@ public class UpdateIntegrationRQ {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getPluginName() {
-		return pluginName;
-	}
-
-	public void setPluginName(String pluginName) {
-		this.pluginName = pluginName;
 	}
 
 	public Map<String, Object> getIntegrationParams() {
