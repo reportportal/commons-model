@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -38,6 +39,7 @@ public class NotBlankStringCollectionValidatorTest {
 		TestEntity testEntity = new TestEntity();
 		ArrayList<String> collection = new ArrayList<String>();
 		collection.add("   ");
+		collection.add("test");
 		testEntity.setCollection(collection);
 
 		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
@@ -54,6 +56,72 @@ public class NotBlankStringCollectionValidatorTest {
 		}
 
 		assertTrue(found);
+	}
+
+	@Test
+	public void testCollectionWithoutBlankElements() {
+		TestEntity testEntity = new TestEntity();
+		ArrayList<String> collection = new ArrayList<String>();
+		collection.add("test1 ");
+		collection.add(" test2");
+		testEntity.setCollection(collection);
+
+		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+		Validator validator = validatorFactory.getValidator();
+		Set<ConstraintViolation<TestEntity>> constraints = validator.validate(testEntity);
+
+		boolean found = false;
+		for (ConstraintViolation<?> cv : constraints) {
+			if ("collection".equals(cv.getPropertyPath().iterator().next().getName()) && cv.getMessage()
+					.contains("should not contain blank elements")) {
+				found = true;
+				break;
+			}
+		}
+
+		assertFalse(found);
+	}
+
+	@Test
+	public void testNull() {
+		TestEntity testEntity = new TestEntity();
+		testEntity.setCollection(null);
+
+		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+		Validator validator = validatorFactory.getValidator();
+		Set<ConstraintViolation<TestEntity>> constraints = validator.validate(testEntity);
+
+		boolean found = false;
+		for (ConstraintViolation<?> cv : constraints) {
+			if ("collection".equals(cv.getPropertyPath().iterator().next().getName()) && cv.getMessage()
+					.contains("should not contain blank elements")) {
+				found = true;
+				break;
+			}
+		}
+
+		assertFalse(found);
+	}
+
+	@Test
+	public void testEmptyCollection() {
+		TestEntity testEntity = new TestEntity();
+		testEntity.setCollection(new ArrayList<String>());
+
+		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+		Validator validator = validatorFactory.getValidator();
+		Set<ConstraintViolation<TestEntity>> constraints = validator.validate(testEntity);
+
+		boolean found = false;
+		for (ConstraintViolation<?> cv : constraints) {
+			if ("collection".equals(cv.getPropertyPath().iterator().next().getName()) && cv.getMessage()
+					.contains("should not contain blank elements")) {
+				found = true;
+				break;
+			}
+		}
+
+		assertFalse(found);
 	}
 
 	private class TestEntity {

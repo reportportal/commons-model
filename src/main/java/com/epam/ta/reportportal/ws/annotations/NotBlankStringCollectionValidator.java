@@ -34,6 +34,9 @@ public class NotBlankStringCollectionValidator implements ConstraintValidator<No
 
 	@Override
 	public boolean isValid(Collection<String> value, ConstraintValidatorContext context) {
+		if (null == value) {
+			return true;
+		}
 		for (String next : value) {
 			if (next.trim().isEmpty()) {
 				return false;
