@@ -101,7 +101,7 @@ public enum ErrorType {
 	/**
 	 * If specified by id UserFilter not found
 	 */
-	USER_FILTER_NOT_FOUND(40410, "User filter with ID {} is not found on project {} for user {}. Did you use correct User Filter ID?"),
+	USER_FILTER_NOT_FOUND(40410, "User filter with ID '{}' is not found on project '{}' for user '{}'. Did you use correct User Filter ID?"),
 
 	/**
 	 * If specified by id Activity not found
