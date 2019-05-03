@@ -49,7 +49,7 @@ public class SenderCaseDTO implements Serializable {
 	@NotNull
 	@NotEmpty
 	@JsonProperty(value = "sendCase")
-	@ApiModelProperty(allowableValues = "ALWAYS, FAILED, MORE_10, MORE_20, MORE_50")
+	@ApiModelProperty(allowableValues = "always, ALWAYS, FAILED, MORE_10, MORE_20, MORE_50")
 	private String sendCase;
 
 	@JsonProperty(value = "launchNames")
