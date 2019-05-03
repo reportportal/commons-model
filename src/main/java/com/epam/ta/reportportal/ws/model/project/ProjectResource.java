@@ -18,7 +18,6 @@
 package com.epam.ta.reportportal.ws.model.project;
 
 import com.epam.ta.reportportal.ws.model.integration.IntegrationResource;
-import com.epam.ta.reportportal.ws.model.project.config.pattern.PatternTemplateResource;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotNull;
@@ -56,9 +55,6 @@ public class ProjectResource {
 	@NotNull
 	@JsonProperty(value = "creationDate")
 	private Date creationDate;
-
-	@JsonProperty(value = "patterns")
-	private List<PatternTemplateResource> patterns;
 
 	public Date getCreationDate() {
 		return creationDate;
@@ -114,14 +110,6 @@ public class ProjectResource {
 
 	public void setOrganization(String organization) {
 		this.organization = organization;
-	}
-
-	public List<PatternTemplateResource> getPatterns() {
-		return patterns;
-	}
-
-	public void setPatterns(List<PatternTemplateResource> patterns) {
-		this.patterns = patterns;
 	}
 
 	public static class ProjectUser {

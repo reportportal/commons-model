@@ -18,6 +18,7 @@
 package com.epam.ta.reportportal.ws.model.project;
 
 import com.epam.ta.reportportal.ws.model.project.config.IssueSubTypeResource;
+import com.epam.ta.reportportal.ws.model.project.config.pattern.PatternTemplateResource;
 import com.epam.ta.reportportal.ws.model.project.email.ProjectNotificationConfigDTO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -43,6 +44,9 @@ public class ProjectConfiguration {
 	@JsonProperty(value = "notificationsConfiguration")
 	private ProjectNotificationConfigDTO projectConfig;
 
+	@JsonProperty(value = "patterns")
+	private List<PatternTemplateResource> patterns;
+
 	public Map<String, String> getProjectAttributes() {
 		return projectAttributes;
 	}
@@ -65,5 +69,13 @@ public class ProjectConfiguration {
 
 	public void setProjectConfig(ProjectNotificationConfigDTO projectConfig) {
 		this.projectConfig = projectConfig;
+	}
+
+	public List<PatternTemplateResource> getPatterns() {
+		return patterns;
+	}
+
+	public void setPatterns(List<PatternTemplateResource> patterns) {
+		this.patterns = patterns;
 	}
 }
