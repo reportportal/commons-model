@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.project;
 
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -46,6 +47,7 @@ public class CreateProjectRQ {
 
 	@NotBlank
 	@JsonProperty(value = "entryType", required = true)
+	@In(allowedValues = "internal")
 	@ApiModelProperty(required = true, allowableValues = "INTERNAL")
 	private String entryType;
 

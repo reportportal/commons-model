@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.user;
 
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -62,11 +63,13 @@ public class CreateUserRQFull {
 
 	@NotNull
 	@JsonProperty(value = "accountRole", required = true)
+	@In(allowedValues = { "user", "administrator" })
 	@ApiModelProperty(required = true, allowableValues = "USER, ADMINISTRATOR")
 	private String accountRole;
 
 	@NotNull
 	@JsonProperty(value = "projectRole", required = true)
+	@In(allowedValues = { "operator", "customer", "member", "project_manager" })
 	@ApiModelProperty(required = true, allowableValues = "CUSTOMER, MEMBER, LEAD, PROJECT_MANAGER")
 	private String projectRole;
 

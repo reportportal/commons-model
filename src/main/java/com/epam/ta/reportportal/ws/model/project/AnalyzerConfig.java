@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.project;
 
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
@@ -56,6 +57,7 @@ public class AnalyzerConfig {
 	private Boolean isAutoAnalyzerEnabled;
 
 	@JsonProperty(value = "analyzerMode")
+	@In(allowedValues = { "all", "launch_name", "current_launch" })
 	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME")
 	private String analyzerMode;
 

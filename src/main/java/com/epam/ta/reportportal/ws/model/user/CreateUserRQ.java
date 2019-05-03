@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.user;
 
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -38,6 +39,7 @@ public class CreateUserRQ {
 
 	@NotBlank
 	@JsonProperty(value = "role", required = true)
+	@In(allowedValues = { "operator", "customer", "member", "project_manager" })
 	@ApiModelProperty(required = true)
 	private String role;
 

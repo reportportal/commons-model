@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -52,6 +53,8 @@ public class StartTestItemRQ extends StartRQ {
 	@JsonProperty(value = "type", required = true)
 	@JsonSerialize(using = UpperCaseTypeSerializer.class)
 	@JsonDeserialize(using = UpperCaseTypeDeserializer.class)
+	@In(allowedValues = { "suite", "story", "test", "scenario", "step", "before_class", "before_groups", "before_method", "before_suite",
+			"before_test", "after_class", "after_groups", "after_method", "after_suite", "after_test" })
 	@ApiModelProperty(required = true, allowableValues = "SUITE, STORY, TEST, SCENARIO, STEP, BEFORE_CLASS, BEFORE_GROUPS,"
 			+ "BEFORE_METHOD, BEFORE_SUITE, BEFORE_TEST, AFTER_CLASS, AFTER_GROUPS, AFTER_METHOD, AFTER_SUITE, AFTER_TEST")
 	private String type;

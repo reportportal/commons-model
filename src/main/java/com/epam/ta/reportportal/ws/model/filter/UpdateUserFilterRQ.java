@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.filter;
 
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -48,8 +49,8 @@ public class UpdateUserFilterRQ extends SharableEntityRQ {
 	private String name;
 
 	@NotBlank
-	// possible object types: launch; testItem; log
 	@JsonProperty(value = "type", required = true)
+	@In(allowedValues = { "launch", "testItem", "log" })
 	@ApiModelProperty(required = true, allowableValues = "launch, testitem, log")
 	private String objectType;
 

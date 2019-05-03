@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.item;
 
+import com.epam.ta.reportportal.ws.annotations.NotBlankStringCollection;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -33,6 +34,7 @@ public class UnlinkExternalIssueRq {
 	private List<Long> testItemIds;
 
 	@NotEmpty
+	@NotBlankStringCollection
 	@JsonProperty(value = "issueIds")
 	private List<String> issueIds;
 

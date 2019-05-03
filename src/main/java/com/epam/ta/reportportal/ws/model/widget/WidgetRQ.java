@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.widget;
 
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -45,6 +46,10 @@ public class WidgetRQ extends SharableEntityRQ {
 
 	@NotNull
 	@JsonProperty(value = "widgetType", required = true)
+	@In(allowedValues = { "oldLineChart", "investigatedTrend", "launchStatistics", "statisticTrend", "casesTrend", "notPassed",
+			"overallStatistics", "uniqueBugTable", "bugTrend", "activityStream", "launchesComparisonChart", "launchesDurationChart",
+			"launchesTable", "topTestCases", "flakyTestCases", "passingRateSummary", "passingRatePerLaunch", "productStatus",
+			"mostTimeConsuming", "cumulative" })
 	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
 			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
 			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"

@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.filter;
 
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -58,7 +59,7 @@ public class UserFilterResource extends OwnedResource {
 	@JsonProperty(value = "orders", required = true)
 	private List<Order> orders;
 
-	// possible object types: launch; testItem; log
+	@In(allowedValues = { "launch", "testItem", "log" })
 	@NotNull
 	@JsonProperty(value = "type", required = true)
 	private String objectType;
