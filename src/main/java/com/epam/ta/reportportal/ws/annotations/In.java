@@ -20,7 +20,7 @@ import javax.validation.Constraint;
 import java.lang.annotation.*;
 
 /**
- * Can be user with strings.
+ * Can be used with strings.
  * Checks if string value is contained in allowed values ignoring case.
  * <p>
  * {@code null} - valid value.
