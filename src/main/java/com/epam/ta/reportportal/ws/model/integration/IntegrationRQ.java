@@ -20,7 +20,6 @@ package com.epam.ta.reportportal.ws.model.integration;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.NotNull;
 import java.util.Map;
 
 /**
@@ -35,7 +34,6 @@ public class IntegrationRQ {
 	@JsonProperty("integrationParameters")
 	private Map<String, Object> integrationParams;
 
-	@NotNull
 	@JsonProperty("enabled")
 	private Boolean enabled;
 
