@@ -36,6 +36,9 @@ public class IntegrationResource implements Serializable {
 	@JsonProperty("projectId")
 	private Long projectId;
 
+	@JsonProperty("name")
+	private String name;
+
 	@JsonProperty("integrationType")
 	private IntegrationTypeResource integrationType;
 
@@ -62,6 +65,14 @@ public class IntegrationResource implements Serializable {
 
 	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public IntegrationTypeResource getIntegrationType() {

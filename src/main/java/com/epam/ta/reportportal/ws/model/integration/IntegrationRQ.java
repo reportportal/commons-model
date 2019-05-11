@@ -27,7 +27,7 @@ import java.util.Map;
  * @author <a href="mailto:pavel_bortnik@epam.com">Pavel Bortnik</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UpdateIntegrationRQ {
+public class IntegrationRQ {
 
 	@JsonProperty("name")
 	private String name;
