@@ -135,6 +135,14 @@ public class LogResource {
 		return logTime;
 	}
 
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
 	public void setLogTime(Date logTime) {
 		this.logTime = logTime;
 	}
