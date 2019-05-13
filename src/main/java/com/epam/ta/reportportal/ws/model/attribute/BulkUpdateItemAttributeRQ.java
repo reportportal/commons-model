@@ -16,9 +16,9 @@
 
 package com.epam.ta.reportportal.ws.model.attribute;
 
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
-
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -26,7 +26,8 @@ import java.util.List;
  */
 public class BulkUpdateItemAttributeRQ {
 
-	@NotEmpty
+	@NotNull
+	@Size(min = 1)
 	private List<Long> ids;
 
 	private Description description;
