@@ -67,16 +67,16 @@ public class BulkUpdateItemAttributeRQ {
 
 	public static class Description {
 
-		String description;
+		String comment;
 
 		Action action;
 
-		public String getDescription() {
-			return description;
+		public String getComment() {
+			return comment;
 		}
 
-		public void setDescription(String description) {
-			this.description = description;
+		public void setComment(String comment) {
+			this.comment = comment;
 		}
 
 		public Action getAction() {
