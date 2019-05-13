@@ -31,7 +31,6 @@ import java.util.Set;
  * JSON Representation of Report Portal domain object
  *
  * @author Andrei Varabyeu
- * @see <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS Description</a>
  */
 @JsonInclude(Include.NON_NULL)
 public class TestItemResource {
