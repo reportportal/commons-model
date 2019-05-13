@@ -14,37 +14,44 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model;
-
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
+package com.epam.ta.reportportal.ws.model.attribute;
 
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class BulkUpdateItemAttributeRQ {
-
-	@NotEmpty
-	private List<Long> ids;
+public class UpdateItemAttributeRQ {
 
 	@Valid
-	private ItemAttributeResource attribute;
+	private ItemAttributeResource from;
 
-	public List<Long> getIds() {
-		return ids;
+	@Valid
+	private ItemAttributeResource to;
+
+	private BulkUpdateItemAttributeRQ.Action action;
+
+	public ItemAttributeResource getFrom() {
+		return from;
 	}
 
-	public void setIds(List<Long> ids) {
-		this.ids = ids;
+	public void setFrom(ItemAttributeResource from) {
+		this.from = from;
 	}
 
-	public ItemAttributeResource getAttribute() {
-		return attribute;
+	public ItemAttributeResource getTo() {
+		return to;
 	}
 
-	public void setAttribute(ItemAttributeResource attribute) {
-		this.attribute = attribute;
+	public void setTo(ItemAttributeResource to) {
+		this.to = to;
+	}
+
+	public BulkUpdateItemAttributeRQ.Action getAction() {
+		return action;
+	}
+
+	public void setAction(BulkUpdateItemAttributeRQ.Action action) {
+		this.action = action;
 	}
 }
