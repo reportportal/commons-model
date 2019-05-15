@@ -16,6 +16,9 @@ public class PatternTemplateActivityResource {
 	@JsonProperty(value = "name", required = true)
 	private String name;
 
+	@JsonProperty(value = "enabled", required = true)
+	private boolean enabled;
+
 	public PatternTemplateActivityResource() {
 	}
 
@@ -43,8 +46,17 @@ public class PatternTemplateActivityResource {
 		this.name = name;
 	}
 
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	@Override
 	public String toString() {
-		return "PatternTemplateActivityResource{" + "id=" + id + ", projectId=" + projectId + ", name='" + name + '\'' + '}';
+		return "PatternTemplateActivityResource{" + "id=" + id + ", projectId=" + projectId + ", name='" + name + '\'' + ", enabled="
+				+ enabled + '}';
 	}
 }
