@@ -19,9 +19,6 @@ public class PatternTemplateActivityResource {
 	@JsonProperty(value = "enabled", required = true)
 	private boolean enabled;
 
-	public PatternTemplateActivityResource() {
-	}
-
 	public Long getId() {
 		return id;
 	}
