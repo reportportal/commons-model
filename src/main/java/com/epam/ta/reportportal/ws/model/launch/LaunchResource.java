@@ -44,6 +44,10 @@ public class LaunchResource extends OwnedResource {
 	private Long launchId;
 
 	@NotNull
+	@JsonProperty(value = "uuid", required = true)
+	private String uuid;
+
+	@NotNull
 	@NotEmpty
 	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
@@ -104,6 +108,14 @@ public class LaunchResource extends OwnedResource {
 
 	public void setLaunchId(Long launchId) {
 		this.launchId = launchId;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public String getName() {
@@ -204,9 +216,23 @@ public class LaunchResource extends OwnedResource {
 
 	@Override
 	public String toString() {
-		return "LaunchResource{" + "launchId='" + launchId + '\'' + ", name='" + name + '\'' + ", number=" + number + ", description='"
-				+ description + '\'' + ", startTime=" + startTime + ", endTime=" + endTime + ", lastModified=" + lastModified + ", status='"
-				+ status + '\'' + ", statisticsResource=" + statisticsResource + ", attributes=" + attributes + ", mode=" + mode
-				+ ", isProcessing=" + isProcessing + ", approximateDuration=" + approximateDuration + ", hasRetries=" + hasRetries + '}';
+		final StringBuilder sb = new StringBuilder("LaunchResource{");
+		sb.append("launchId=").append(launchId);
+		sb.append(", uuid='").append(uuid).append('\'');
+		sb.append(", name='").append(name).append('\'');
+		sb.append(", number=").append(number);
+		sb.append(", description='").append(description).append('\'');
+		sb.append(", startTime=").append(startTime);
+		sb.append(", endTime=").append(endTime);
+		sb.append(", lastModified=").append(lastModified);
+		sb.append(", status='").append(status).append('\'');
+		sb.append(", statisticsResource=").append(statisticsResource);
+		sb.append(", attributes=").append(attributes);
+		sb.append(", mode=").append(mode);
+		sb.append(", isProcessing=").append(isProcessing);
+		sb.append(", approximateDuration=").append(approximateDuration);
+		sb.append(", hasRetries=").append(hasRetries);
+		sb.append('}');
+		return sb.toString();
 	}
 }
