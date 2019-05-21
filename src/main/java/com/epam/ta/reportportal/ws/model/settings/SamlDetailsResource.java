@@ -1,3 +1,24 @@
+/*
+ * Copyright 2019 EPAM Systems
+ *
+ *
+ * This file is part of EPAM Report Portal.
+ * https://github.com/reportportal/commons-model
+ *
+ * Report Portal is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Report Portal is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.epam.ta.reportportal.ws.model.settings;
 
 import com.epam.ta.reportportal.ws.annotations.NotEmpty;
@@ -7,26 +28,63 @@ import io.swagger.annotations.ApiModel;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+/**
+ * Contains information about SAML provider settings passed for configuration
+ *
+ * @author Yevgeniy Svalukhin
+ */
+
 @ApiModel
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SamlDetailsResource implements Serializable {
     private static final long serialVersionUID = 392039435L;
 
+    /**
+     * Provider name associated with IDP
+     */
     @NotEmpty
     @NotNull
     private String identityProviderName;
+    /**
+     * Alias associated with IDP
+     */
     private String identityProviderAlias;
+    /**
+     * IDP metadata URL
+     */
     @NotNull
     @NotEmpty
     private String identityProviderMetadataUrl;
+    /**
+     * Attribute Name Format Id associated with IDP for user identification
+     */
     private String identityProviderNameId;
+    /**
+     * IDP URL
+     */
     private String identityProviderUrl;
+    /**
+     * Attribute name associated with full name of user in SAML response
+     */
     private String fullNameAttribute;
+    /**
+     * Attribute name associated with first name of user in SAML response
+     */
     private String firstNameAttribute;
+    /**
+     * Attribute name associated with last name of user in SAML response
+     */
     private String lastNameAttribute;
+
+    /**
+     * Attribute name associated with email of user in SAML response
+     */
     @NotNull
     @NotEmpty
     private String emailAttribute;
+    /**
+     * Indicates IDP availability for authentication
+     */
     private boolean enabled;
 
     public String getIdentityProviderName() {
