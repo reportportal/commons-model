@@ -17,10 +17,12 @@
 
 package com.epam.ta.reportportal.ws.model.project.config;
 
+import com.epam.ta.reportportal.ws.annotations.NotNullMapValue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotNull;
 import java.util.Map;
 
 /**
@@ -31,6 +33,8 @@ import java.util.Map;
 @JsonInclude(Include.NON_NULL)
 public class ProjectConfigurationUpdate {
 
+	@NotNull
+	@NotNullMapValue
 	@JsonProperty(value = "attributes", required = true)
 	private Map<String, String> projectAttributes;
 
