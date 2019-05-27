@@ -16,6 +16,8 @@
 
 package com.epam.ta.reportportal.ws.model.project.email;
 
+import com.epam.ta.reportportal.ws.annotations.In;
+import com.epam.ta.reportportal.ws.annotations.NotBlankStringCollection;
 import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -23,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -39,13 +43,18 @@ public class SenderCaseDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -3546546654348861010L;
 
+	@NotEmpty
+	@NotBlankStringCollection
 	@JsonProperty(value = "recipients")
 	private List<String> recipients;
 
+	@NotBlank
 	@JsonProperty(value = "sendCase")
+	@In(allowedValues = { "always", "failed", "toInvestigate", "more10", "more20", "more50" })
 	@ApiModelProperty(allowableValues = "ALWAYS, FAILED, MORE_10, MORE_20, MORE_50")
 	private String sendCase;
 
+	@NotBlankStringCollection
 	@JsonProperty(value = "launchNames")
 	private List<String> launchNames;
 

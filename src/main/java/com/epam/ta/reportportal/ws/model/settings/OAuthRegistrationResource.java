@@ -1,11 +1,11 @@
 /*
- * Copyright 2018 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,9 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.settings;
 
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
-
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.Map;
@@ -28,19 +26,16 @@ import java.util.Set;
  * Settings for OAuth provider registration.
  *
  * @author Anton Machulski
- *
  */
 public class OAuthRegistrationResource implements Serializable {
 	public static final String URL_PATTERN = "^(http://|https://)?(www\\.)?([a-zA-Z0-9-]+)\\.([a-zA-Z0-9-]+\\.)*[a-z]{2,}(/[a-z_-]+)*$";
 
 	private String id;
 
-	@NotEmpty
-	@NotNull
+	@NotBlank
 	private String clientId;
 
-	@NotEmpty
-	@NotNull
+	@NotBlank
 	private String clientSecret;
 
 	private String clientAuthMethod;

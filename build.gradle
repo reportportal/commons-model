@@ -1,3 +1,19 @@
+/*
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 buildscript {
     repositories {
         mavenCentral()
@@ -33,19 +49,28 @@ targetCompatibility = 1.6
 
 description = 'EPAM Report portal. REST API model'
 
+
+ext {
+    hibernateValidatorVersion = '5.4.0.Final'
+    validationApiVersion = '2.0.1.Final'
+    junitVerion = '4.12'
+    glassfishElVersion = '2.2'
+    swaggerAnnotationsVersion = '1.5.22'
+}
+
 dependencies {
-    compile 'io.swagger:swagger-annotations:1.5.13'
+    compile "io.swagger:swagger-annotations:${swaggerAnnotationsVersion}"
     compile 'com.fasterxml.jackson.core:jackson-annotations'
     compile 'com.fasterxml.jackson.core:jackson-databind'
-    compile 'javax.validation:validation-api'
+    compile "javax.validation:validation-api:${validationApiVersion}"
 
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.hibernate:hibernate-validator:5.4.0.Final'
-    testCompile 'org.glassfish.web:el-impl:2.2'
+    testCompile "junit:junit:${junitVerion}"
+    testCompile "org.hibernate:hibernate-validator:${hibernateValidatorVersion}"
+    testCompile "org.glassfish.web:el-impl:${glassfishElVersion}"
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.2'
+    gradleVersion = '4.7'
 }
 
 

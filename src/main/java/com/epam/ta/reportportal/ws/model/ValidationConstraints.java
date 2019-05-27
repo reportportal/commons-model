@@ -1,19 +1,18 @@
 /*
- * Copyright 2018 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model;
 
@@ -21,7 +20,6 @@ package com.epam.ta.reportportal.ws.model;
  * Contains constants for defining validation constraints.
  *
  * @author Aliaksei_Makayed
- *
  */
 //TODO review and move to API service
 public class ValidationConstraints {
@@ -100,5 +98,8 @@ public class ValidationConstraints {
 	public static final int MAX_SHOULD_MATCH = 100;
 	public static final int MIN_NUMBER_OF_LOG_LINES = -1;
 	public static final int MAX_NUMBER_OF_LOG_LINES = 5;
+
+	public static final String HEX_COLOR_REGEXP = "#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
+	public static final String PROJECT_NAME_REGEXP = "[a-zA-Z0-9-_]+";
 
 }

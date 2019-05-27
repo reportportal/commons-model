@@ -16,9 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.attribute;
 
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
-
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -33,8 +31,7 @@ public class ItemAttributeResource implements Serializable {
 	@Size(max = MAX_ATTRIBUTE_LENGTH)
 	private String key;
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Size(min = MIN_ITEM_ATTRIBUTE_VALUE_LENGTH, max = MAX_ATTRIBUTE_LENGTH)
 	private String value;
 

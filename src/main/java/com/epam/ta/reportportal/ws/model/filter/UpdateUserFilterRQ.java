@@ -1,23 +1,22 @@
 /*
- * Copyright 2018 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 
 package com.epam.ta.reportportal.ws.model.filter;
 
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -26,6 +25,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.LinkedHashSet;
@@ -42,27 +42,27 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 @JsonInclude(Include.NON_NULL)
 public class UpdateUserFilterRQ extends SharableEntityRQ {
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Size(min = MIN_NAME_LENGTH, max = MAX_USER_FILTER_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	@ApiModelProperty(required = true)
 	private String name;
 
-	@NotNull
-	// possible object types: launch; testItem; log
+	@NotBlank
 	@JsonProperty(value = "type", required = true)
+	@In(allowedValues = { "launch", "testItem", "log" })
 	@ApiModelProperty(required = true, allowableValues = "launch, testitem, log")
 	private String objectType;
 
-	@NotNull
 	@Valid
+	@NotNull
 	@Size(min = MIN_COLLECTION_SIZE, max = MAX_NUMBER_OF_FILTER_ENTITIES)
 	@JsonProperty(value = "conditions", required = true)
 	@JsonDeserialize(as = LinkedHashSet.class)
 	@ApiModelProperty(required = true)
 	private Set<UserFilterCondition> conditions;
 
+	@Valid
 	@NotNull
 	@Size(min = MIN_COLLECTION_SIZE)
 	@JsonProperty(value = "orders", required = true)
