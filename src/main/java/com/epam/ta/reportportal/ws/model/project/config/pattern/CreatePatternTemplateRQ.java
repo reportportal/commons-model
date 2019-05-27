@@ -86,7 +86,6 @@ public class CreatePatternTemplateRQ {
 
 	@Override
 	public String toString() {
-		return "UpdatePatternTemplateRQ{" + "name='" + name + '\'' + ", value='" + value + '\'' + ", type='" + type + '\'' + ", enabled="
-				+ enabled + '}';
+		return "UpdatePatternTemplateRQ{" + "name='" + name + '\'' + ", value='" + value + '\'' + ", type='" + type + '\'' + ", enabled=" + enabled + '}';
 	}
 }

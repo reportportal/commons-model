@@ -64,7 +64,6 @@ public class SynchronizationAttributesResource implements Serializable {
 
 	@Override
 	public String toString() {
-		return "SynchronizationAttributesResource{" + "email='" + email + '\'' + ", fullName='" + fullName + '\'' + ", photo='" + photo
-				+ '\'' + '}';
+		return "SynchronizationAttributesResource{" + "email='" + email + '\'' + ", fullName='" + fullName + '\'' + ", photo='" + photo + '\'' + '}';
 	}
 }

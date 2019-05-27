@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model.attribute;
+package com.epam.ta.reportportal.ws.model;
+
+import com.epam.ta.reportportal.ws.model.attribute.UpdateItemAttributeRQ;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -24,7 +26,7 @@ import java.util.List;
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class BulkUpdateItemAttributeRQ {
+public class BulkInfoUpdateRQ {
 
 	@NotNull
 	@Size(min = 1)

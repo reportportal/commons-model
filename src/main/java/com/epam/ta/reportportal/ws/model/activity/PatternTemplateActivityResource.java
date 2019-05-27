@@ -69,7 +69,6 @@ public class PatternTemplateActivityResource {
 
 	@Override
 	public String toString() {
-		return "PatternTemplateActivityResource{" + "id=" + id + ", projectId=" + projectId + ", name='" + name + '\'' + ", enabled="
-				+ enabled + '}';
+		return "PatternTemplateActivityResource{" + "id=" + id + ", projectId=" + projectId + ", name='" + name + '\'' + ", enabled=" + enabled + '}';
 	}
 }

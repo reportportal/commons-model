@@ -26,7 +26,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -60,7 +59,6 @@ public class WidgetRQ extends SharableEntityRQ {
 	@JsonProperty(value = "contentParameters")
 	private ContentParameters contentParameters;
 
-	@NotEmpty
 	@JsonProperty(value = "filterIds")
 	private List<Long> filterIds;
 
