@@ -47,6 +47,10 @@ public class BatchElementCreatedRS extends EntryCreatedAsyncRS {
 	public BatchElementCreatedRS(Long id) {
 		super.setId(id);
 	}
+
+	public BatchElementCreatedRS(String uuid) {
+		super.setUuid(uuid);
+	}
 	
 	public BatchElementCreatedRS(String stackTrace, String message) {
 		setMessage(message);

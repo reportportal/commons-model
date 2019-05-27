@@ -78,6 +78,9 @@ public class DashboardResource extends OwnedResource {
 
 	public static class WidgetObjectModel {
 
+		@JsonProperty(value = "widgetName")
+		private String name;
+
 		@NotNull
 		@JsonProperty(value = "widgetId")
 		private Long widgetId;
@@ -91,10 +94,11 @@ public class DashboardResource extends OwnedResource {
 		public WidgetObjectModel() {
 		}
 
-		public WidgetObjectModel(Long widgetId, com.epam.ta.reportportal.ws.model.Size widgetSize, Position widgetPosition) {
-			this.setWidgetId(widgetId);
-			this.setWidgetSize(widgetSize);
-			this.setWidgetPosition(widgetPosition);
+		public WidgetObjectModel(String name, Long widgetId, com.epam.ta.reportportal.ws.model.Size widgetSize, Position widgetPosition) {
+			this.name = name;
+			this.widgetId = widgetId;
+			this.widgetSize = widgetSize;
+			this.widgetPosition = widgetPosition;
 		}
 
 		public Long getWidgetId() {
@@ -103,6 +107,14 @@ public class DashboardResource extends OwnedResource {
 
 		public void setWidgetId(Long widgetId) {
 			this.widgetId = widgetId;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
 		}
 
 		public com.epam.ta.reportportal.ws.model.Size getWidgetSize() {
@@ -123,12 +135,8 @@ public class DashboardResource extends OwnedResource {
 
 		@Override
 		public String toString() {
-			final StringBuilder sb = new StringBuilder("WidgetObjectModel{");
-			sb.append("widgetId='").append(widgetId).append('\'');
-			sb.append(", widgetSize=").append(widgetSize);
-			sb.append(", widgetPosition=").append(widgetPosition);
-			sb.append('}');
-			return sb.toString();
+			return "WidgetObjectModel{" + "name='" + name + '\'' + ", widgetId=" + widgetId + ", widgetSize=" + widgetSize
+					+ ", widgetPosition=" + widgetPosition + '}';
 		}
 	}
 

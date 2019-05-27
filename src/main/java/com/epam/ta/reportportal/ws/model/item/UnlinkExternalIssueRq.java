@@ -35,8 +35,8 @@ public class UnlinkExternalIssueRq {
 
 	@NotEmpty
 	@NotBlankStringCollection
-	@JsonProperty(value = "issueIds")
-	private List<String> issueIds;
+	@JsonProperty(value = "ticketIds")
+	private List<String> ticketIds;
 
 	public List<Long> getTestItemIds() {
 		return testItemIds;
@@ -46,11 +46,11 @@ public class UnlinkExternalIssueRq {
 		this.testItemIds = testItemIds;
 	}
 
-	public List<String> getIssueIds() {
-		return issueIds;
+	public List<String> getTicketIds() {
+		return ticketIds;
 	}
 
-	public void setIssueIds(List<String> issueIds) {
-		this.issueIds = issueIds;
+	public void setTicketIds(List<String> ticketIds) {
+		this.ticketIds = ticketIds;
 	}
 }
