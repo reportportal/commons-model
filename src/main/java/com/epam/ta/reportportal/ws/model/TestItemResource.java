@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.epam.ta.reportportal.ws.model.statistics.StatisticsResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
