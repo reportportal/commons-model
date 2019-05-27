@@ -75,7 +75,6 @@ public class SamlDetailsResource implements Serializable {
      * Attribute name associated with last name of user in SAML response
      */
     private String lastNameAttribute;
-
     /**
      * Attribute name associated with email of user in SAML response
      */
