@@ -6,12 +6,12 @@ import org.junit.Test;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class NotNullMapValueValidatorTest {
 
@@ -35,7 +35,7 @@ public class NotNullMapValueValidatorTest {
 	public void nullValueTest() {
 		TestClass testClass = new TestClass();
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("bla", null);
+		map.put("key", null);
 		testClass.setMap(map);
 
 		Set<ConstraintViolation<TestClass>> constraints = validator.validate(testClass);

@@ -16,6 +16,8 @@
 
 package com.epam.ta.reportportal.ws.model.attribute;
 
+import com.epam.ta.reportportal.ws.model.BulkInfoUpdateRQ;
+
 import javax.validation.Valid;
 
 /**
@@ -29,7 +31,7 @@ public class UpdateItemAttributeRQ {
 	@Valid
 	private ItemAttributeResource to;
 
-	private BulkUpdateItemAttributeRQ.Action action;
+	private BulkInfoUpdateRQ.Action action;
 
 	public ItemAttributeResource getFrom() {
 		return from;
@@ -47,11 +49,11 @@ public class UpdateItemAttributeRQ {
 		this.to = to;
 	}
 
-	public BulkUpdateItemAttributeRQ.Action getAction() {
+	public BulkInfoUpdateRQ.Action getAction() {
 		return action;
 	}
 
-	public void setAction(BulkUpdateItemAttributeRQ.Action action) {
+	public void setAction(BulkInfoUpdateRQ.Action action) {
 		this.action = action;
 	}
 }
