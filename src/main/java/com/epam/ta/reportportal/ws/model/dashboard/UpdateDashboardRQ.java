@@ -24,7 +24,6 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -36,7 +35,6 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class UpdateDashboardRQ extends SharableEntityRQ {
 
-	@NotBlank
 	@JsonProperty(value = "name")
 	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
 	private String name;
