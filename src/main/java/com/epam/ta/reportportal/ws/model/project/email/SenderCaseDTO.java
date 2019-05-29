@@ -1,12 +1,32 @@
+/*
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.epam.ta.reportportal.ws.model.project.email;
 
-import com.epam.ta.reportportal.ws.model.ItemAttributeResource;
+import com.epam.ta.reportportal.ws.annotations.In;
+import com.epam.ta.reportportal.ws.annotations.NotBlankStringCollection;
+import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -23,13 +43,18 @@ public class SenderCaseDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -3546546654348861010L;
 
+	@NotEmpty
+	@NotBlankStringCollection
 	@JsonProperty(value = "recipients")
 	private List<String> recipients;
 
+	@NotBlank
 	@JsonProperty(value = "sendCase")
+	@In(allowedValues = { "always", "failed", "toInvestigate", "more10", "more20", "more50" })
 	@ApiModelProperty(allowableValues = "ALWAYS, FAILED, MORE_10, MORE_20, MORE_50")
 	private String sendCase;
 
+	@NotBlankStringCollection
 	@JsonProperty(value = "launchNames")
 	private List<String> launchNames;
 
@@ -83,8 +108,7 @@ public class SenderCaseDTO implements Serializable {
 	/* Auto generated methods */
 	@Override
 	public String toString() {
-		return "SenderCaseDTO [recipients=" + recipients + ", sendCase=" + sendCase + ", launchNames=" + launchNames + ", attributes="
-				+ attributes + "]";
+		return "SenderCaseDTO [recipients=" + recipients + ", sendCase=" + sendCase + ", launchNames=" + launchNames + ", attributes=" + attributes + "]";
 	}
 
 	@Override

@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  */
 @JsonInclude(Include.NON_NULL)
-public class BatchElementCreatedRS extends EntryCreatedRS {
+public class BatchElementCreatedRS extends EntryCreatedAsyncRS {
 	
 	@JsonProperty("message")
 	private String message;
@@ -46,6 +46,10 @@ public class BatchElementCreatedRS extends EntryCreatedRS {
 	
 	public BatchElementCreatedRS(Long id) {
 		super.setId(id);
+	}
+
+	public BatchElementCreatedRS(String uuid) {
+		super.setUuid(uuid);
 	}
 	
 	public BatchElementCreatedRS(String stackTrace, String message) {

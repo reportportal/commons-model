@@ -16,13 +16,13 @@
 
 package com.epam.ta.reportportal.ws.model.launch;
 
-import com.epam.ta.reportportal.ws.model.EntryCreatedRS;
+import com.epam.ta.reportportal.ws.model.EntryCreatedAsyncRS;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class StartLaunchRS extends EntryCreatedRS {
+public class StartLaunchRS extends EntryCreatedAsyncRS {
 
 	@JsonProperty("number")
 	private Long number;

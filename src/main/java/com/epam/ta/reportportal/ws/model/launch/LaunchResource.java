@@ -1,36 +1,31 @@
 /*
- * Copyright 2016 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.epam.ta.reportportal.ws.model.launch;
 
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
-import com.epam.ta.reportportal.ws.model.ItemAttributeResource;
 import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
+import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.epam.ta.reportportal.ws.model.statistics.StatisticsResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
@@ -48,8 +43,11 @@ public class LaunchResource extends OwnedResource {
 	@JsonProperty(value = "id", required = true)
 	private Long launchId;
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
+	@JsonProperty(value = "uuid", required = true)
+	private String uuid;
+
+	@NotBlank
 	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	private String name;
@@ -109,6 +107,14 @@ public class LaunchResource extends OwnedResource {
 
 	public void setLaunchId(Long launchId) {
 		this.launchId = launchId;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public String getName() {
@@ -209,9 +215,23 @@ public class LaunchResource extends OwnedResource {
 
 	@Override
 	public String toString() {
-		return "LaunchResource{" + "launchId='" + launchId + '\'' + ", name='" + name + '\'' + ", number=" + number + ", description='"
-				+ description + '\'' + ", startTime=" + startTime + ", endTime=" + endTime + ", lastModified=" + lastModified + ", status='"
-				+ status + '\'' + ", statisticsResource=" + statisticsResource + ", attributes=" + attributes + ", mode=" + mode
-				+ ", isProcessing=" + isProcessing + ", approximateDuration=" + approximateDuration + ", hasRetries=" + hasRetries + '}';
+		final StringBuilder sb = new StringBuilder("LaunchResource{");
+		sb.append("launchId=").append(launchId);
+		sb.append(", uuid='").append(uuid).append('\'');
+		sb.append(", name='").append(name).append('\'');
+		sb.append(", number=").append(number);
+		sb.append(", description='").append(description).append('\'');
+		sb.append(", startTime=").append(startTime);
+		sb.append(", endTime=").append(endTime);
+		sb.append(", lastModified=").append(lastModified);
+		sb.append(", status='").append(status).append('\'');
+		sb.append(", statisticsResource=").append(statisticsResource);
+		sb.append(", attributes=").append(attributes);
+		sb.append(", mode=").append(mode);
+		sb.append(", isProcessing=").append(isProcessing);
+		sb.append(", approximateDuration=").append(approximateDuration);
+		sb.append(", hasRetries=").append(hasRetries);
+		sb.append('}');
+		return sb.toString();
 	}
 }

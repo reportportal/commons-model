@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model;
+package com.epam.ta.reportportal.ws.model.attribute;
 
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
 import java.io.Serializable;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ATTRIBUTE_LENGTH;
@@ -35,13 +31,9 @@ public class ItemAttributeResource implements Serializable {
 	@Size(max = MAX_ATTRIBUTE_LENGTH)
 	private String key;
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Size(min = MIN_ITEM_ATTRIBUTE_VALUE_LENGTH, max = MAX_ATTRIBUTE_LENGTH)
 	private String value;
-
-	@JsonProperty(defaultValue = "false")
-	private boolean system = false;
 
 	public ItemAttributeResource() {
 	}
@@ -49,12 +41,6 @@ public class ItemAttributeResource implements Serializable {
 	public ItemAttributeResource(String key, String value) {
 		this.key = key;
 		this.value = value;
-	}
-
-	public ItemAttributeResource(String key, String value, boolean system) {
-		this.key = key;
-		this.value = value;
-		this.system = system;
 	}
 
 	public String getKey() {
@@ -73,20 +59,11 @@ public class ItemAttributeResource implements Serializable {
 		this.value = value;
 	}
 
-	public boolean isSystem() {
-		return system;
-	}
-
-	public void setSystem(boolean system) {
-		this.system = system;
-	}
-
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("ItemAttributeResource{");
 		sb.append("key='").append(key).append('\'');
 		sb.append(", value='").append(value).append('\'');
-		sb.append(", system=").append(system);
 		sb.append('}');
 		return sb.toString();
 	}
@@ -102,9 +79,6 @@ public class ItemAttributeResource implements Serializable {
 
 		ItemAttributeResource that = (ItemAttributeResource) o;
 
-		if (system != that.system) {
-			return false;
-		}
 		if (key != null ? !key.equals(that.key) : that.key != null) {
 			return false;
 		}
@@ -115,7 +89,6 @@ public class ItemAttributeResource implements Serializable {
 	public int hashCode() {
 		int result = key != null ? key.hashCode() : 0;
 		result = 31 * result + (value != null ? value.hashCode() : 0);
-		result = 31 * result + (system ? 1 : 0);
 		return result;
 	}
 }

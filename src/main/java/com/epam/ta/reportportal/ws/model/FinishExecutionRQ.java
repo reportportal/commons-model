@@ -16,6 +16,8 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.annotations.In;
+import com.epam.ta.reportportal.ws.model.attribute.ItemAttributesRQ;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,6 +46,7 @@ public class FinishExecutionRQ {
 	private Date endTime;
 
 	@JsonProperty(value = "status")
+	@In(allowedValues = { "passed", "failed", "stopped", "skipped", "interrupted", "cancelled" })
 	@ApiModelProperty(allowableValues = "PASSED, FAILED, STOPPED, SKIPPED, RESETED, CANCELLED")
 	private String status;
 
@@ -53,7 +56,7 @@ public class FinishExecutionRQ {
 	@Size(max = MAX_PARAMETERS_LENGTH)
 	@Valid
 	@JsonProperty
-	private Set<ItemAttributeResource> attributes;
+	private Set<ItemAttributesRQ> attributes;
 
 	public String getDescription() {
 		return description;
@@ -63,11 +66,11 @@ public class FinishExecutionRQ {
 		this.description = description;
 	}
 
-	public Set<ItemAttributeResource> getAttributes() {
+	public Set<ItemAttributesRQ> getAttributes() {
 		return attributes;
 	}
 
-	public void setAttributes(Set<ItemAttributeResource> attributes) {
+	public void setAttributes(Set<ItemAttributesRQ> attributes) {
 		this.attributes = attributes;
 	}
 

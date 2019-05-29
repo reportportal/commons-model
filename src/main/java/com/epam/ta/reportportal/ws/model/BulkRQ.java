@@ -24,21 +24,22 @@ import javax.validation.constraints.NotNull;
 import java.util.Map;
 
 /**
+ * @param <K> Type of Key
  * @param <T> Type of Entity
  * @author Dzmitry_Kavalets
  */
-public class BulkRQ<T> {
+public class BulkRQ<K,T> {
 
 	@Valid
 	@NotNull
 	@JsonProperty(value = "entities", required = true)
-	private Map<Long, T> entities;
+	private Map<K, T> entities;
 
-	public Map<Long, T> getEntities() {
+	public Map<K, T> getEntities() {
 		return entities;
 	}
 
-	public void setEntities(Map<Long, T> entities) {
+	public void setEntities(Map<K, T> entities) {
 		this.entities = entities;
 	}
 

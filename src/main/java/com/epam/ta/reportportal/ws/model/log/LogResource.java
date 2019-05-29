@@ -1,22 +1,17 @@
 /*
- * Copyright 2016 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.epam.ta.reportportal.ws.model.log;
@@ -106,6 +101,9 @@ public class LogResource {
 	@JsonProperty(value = "id", required = true)
 	private Long id;
 
+	@JsonProperty(value = "uuid", required = true)
+	private String uuid;
+
 	@JsonProperty(value = "time")
 	private Date logTime;
 
@@ -122,8 +120,8 @@ public class LogResource {
 	@ApiModelProperty(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
 	private String level;
 
-	@JsonProperty(value = "testItem")
-	private Long testItem;
+	@JsonProperty(value = "itemId")
+	private Long itemId;
 
 	public Long getId() {
 		return id;
@@ -135,6 +133,14 @@ public class LogResource {
 
 	public Date getLogTime() {
 		return logTime;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public void setLogTime(Date logTime) {
@@ -157,12 +163,12 @@ public class LogResource {
 		this.level = level;
 	}
 
-	public Long getTestItem() {
-		return testItem;
+	public Long getItemId() {
+		return itemId;
 	}
 
-	public void setTestItem(Long testItem) {
-		this.testItem = testItem;
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
 	}
 
 	public String getThumbnail() {
@@ -190,7 +196,7 @@ public class LogResource {
 		sb.append(", binaryContent=").append(binaryContent);
 		sb.append(", thumbnail='").append(thumbnail).append('\'');
 		sb.append(", level='").append(level).append('\'');
-		sb.append(", testItem='").append(testItem).append('\'');
+		sb.append(", itemId='").append(itemId).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}

@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 /**
@@ -39,6 +40,7 @@ public class UpdateProjectRQ {
 	@JsonProperty(value = "users")
 	private Map<String, String> userRoles;
 
+	@Valid
 	@JsonProperty(value = "configuration")
 	private ProjectConfigurationUpdate configuration;
 

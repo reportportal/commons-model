@@ -20,7 +20,7 @@
  */
 package com.epam.ta.reportportal.ws.model.launch;
 
-import com.epam.ta.reportportal.ws.model.EntryCreatedRS;
+import com.epam.ta.reportportal.ws.model.EntryCreatedAsyncRS;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author Andrei Varabyeu
  */
-public class FinishLaunchRS extends EntryCreatedRS {
+public class FinishLaunchRS extends EntryCreatedAsyncRS {
 
 	@JsonProperty("number")
 	private Long number;

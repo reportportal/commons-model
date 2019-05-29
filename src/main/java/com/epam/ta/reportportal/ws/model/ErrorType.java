@@ -101,7 +101,7 @@ public enum ErrorType {
 	/**
 	 * If specified by id UserFilter not found
 	 */
-	USER_FILTER_NOT_FOUND(40410, "User filter with ID {} is not found on project {} for user {}. Did you use correct User Filter ID?"),
+	USER_FILTER_NOT_FOUND(40410, "User filter with ID '{}' is not found on project '{}' for user '{}'. Did you use correct User Filter ID?"),
 
 	/**
 	 * If specified by id Activity not found
@@ -162,6 +162,13 @@ public enum ErrorType {
 	 * If specified by id Dashboard not found
 	 */
 	DASHBOARD_NOT_FOUND_IN_PROJECT(40422, "Dashboard with ID '{}' not found on project '{}'. Did you use correct Dashboard ID?"),
+
+	/**
+	 * If pattern template with provided id is not found
+	 */
+	PATTERN_TEMPLATE_NOT_FOUND_IN_PROJECT(40423,
+			"Pattern template with ID '{}' not found on project '{}'. Did you use correct Pattern template ID?"
+	),
 
 	/**
 	 * If provided filtering parameters are incorrect
