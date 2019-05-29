@@ -40,7 +40,7 @@ public class SaveLogRQ {
 	@NotBlank
 	@JsonProperty(value = "itemId", required = true)
 	@ApiModelProperty(required = true)
-	private String testItemId;
+	private String itemId;
 
 	@NotNull
 	@JsonProperty(value = "time", required = true)
@@ -81,12 +81,12 @@ public class SaveLogRQ {
 		this.message = message;
 	}
 
-	public String getTestItemId() {
-		return testItemId;
+	public String getItemId() {
+		return itemId;
 	}
 
-	public void setTestItemId(String testItemId) {
-		this.testItemId = testItemId;
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
 
 	public void setLevel(String level) {
@@ -155,7 +155,7 @@ public class SaveLogRQ {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("SaveLogRQ{");
-		sb.append("testItemId='").append(testItemId).append('\'');
+		sb.append("itemId='").append(itemId).append('\'');
 		sb.append(", logTime=").append(logTime);
 		sb.append(", message='").append(message).append('\'');
 		sb.append(", level='").append(level).append('\'');
