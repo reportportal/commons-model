@@ -28,7 +28,7 @@ import java.lang.annotation.*;
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 @Documented
-@Constraint(validatedBy = InValidator.class)
+@Constraint(validatedBy = { InValidator.class, InCollectionValidator.class })
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.FIELD, ElementType.PARAMETER })
 public @interface In {
