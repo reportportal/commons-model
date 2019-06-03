@@ -17,7 +17,6 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.epam.ta.reportportal.ws.model.attribute.ItemAttributesRQ;
-import com.epam.ta.reportportal.ws.model.validation.LaunchNameValidationGroup;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -62,7 +61,6 @@ public class StartRQ {
 	@JsonProperty(value = "uuid")
 	private String uuid;
 
-	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH, groups = LaunchNameValidationGroup.class)
 	public String getName() {
 		return name;
 	}

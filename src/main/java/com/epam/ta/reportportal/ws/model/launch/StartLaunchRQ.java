@@ -22,15 +22,25 @@
 package com.epam.ta.reportportal.ws.model.launch;
 
 import com.epam.ta.reportportal.ws.model.StartRQ;
+import com.epam.ta.reportportal.ws.model.ValidationConstraints;
+import com.epam.ta.reportportal.ws.model.validation.LaunchNameValidationGroup;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.Size;
 
 @JsonInclude(Include.NON_NULL)
 public class StartLaunchRQ extends StartRQ {
 	
 	@JsonProperty("mode")
 	private Mode mode;
+
+	@Override
+	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH, groups = LaunchNameValidationGroup.class)
+	public String getName() {
+		return super.getName();
+	}
 
 	public Mode getMode() {
 		return mode;
