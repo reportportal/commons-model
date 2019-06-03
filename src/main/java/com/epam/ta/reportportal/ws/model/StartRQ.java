@@ -40,7 +40,6 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAME
 public class StartRQ {
 
 	@NotBlank
-	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	@ApiModelProperty(required = true)
 	private String name;
@@ -62,6 +61,7 @@ public class StartRQ {
 	@JsonProperty(value = "uuid")
 	private String uuid;
 
+	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
 	public String getName() {
 		return name;
 	}

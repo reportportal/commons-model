@@ -31,6 +31,7 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.IOException;
 import java.util.List;
 
@@ -61,6 +62,12 @@ public class StartTestItemRQ extends StartRQ {
 
 	@JsonProperty(value = "retry")
 	private Boolean retry;
+
+	@Override
+	@Size(min = ValidationConstraints.MIN_TEST_ITEM_NAME_LENGTH, max = ValidationConstraints.MAX_TEST_ITEM_NAME_LENGTH)
+	public String getName() {
+		return super.getName();
+	}
 
 	public Boolean isRetry() {
 		return retry;
