@@ -84,6 +84,9 @@ public class TestItemResource {
 	@JsonProperty(value = "hasChildren")
 	private boolean hasChildren;
 
+	@JsonProperty(value = "hasStats")
+	private boolean hasStats;
+
 	@JsonProperty(value = "launchId")
 	private Long launchId;
 
@@ -243,6 +246,14 @@ public class TestItemResource {
 		this.hasChildren = hasChildren;
 	}
 
+	public boolean isHasStats() {
+		return hasStats;
+	}
+
+	public void setHasStats(boolean hasStats) {
+		this.hasStats = hasStats;
+	}
+
 	public String getUniqueId() {
 		return uniqueId;
 	}
@@ -286,6 +297,7 @@ public class TestItemResource {
 		sb.append(", launchStatus='").append(launchStatus).append('\'');
 		sb.append(", issue=").append(issue);
 		sb.append(", hasChildren=").append(hasChildren);
+		sb.append(", hasStats=").append(hasStats);
 		sb.append(", launchId=").append(launchId);
 		sb.append(", uniqueId='").append(uniqueId).append('\'');
 		sb.append(", patternTemplates=").append(patternTemplates);
