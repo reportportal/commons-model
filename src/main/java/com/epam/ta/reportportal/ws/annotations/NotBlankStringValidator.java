@@ -16,28 +16,26 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
-import javax.validation.Constraint;
-import java.lang.annotation.*;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 /**
- * Can be used with strings.
- * Checks if string value is contained in allowed values ignoring case.
- * <p>
- * {@code null} - valid value.
- *
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-@Documented
-@Constraint(validatedBy = { InValidator.class, InCollectionValidator.class })
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.FIELD, ElementType.PARAMETER })
-public @interface In {
+public class NotBlankStringValidator implements ConstraintValidator<NotBlankString, String> {
+	@Override
+	public void initialize(NotBlankString constraintAnnotation) {
 
-	String message() default "Value is not allowed";
+	}
 
-	Class<?>[] groups() default {};
-
-	Class<?>[] payload() default {};
-
-	String[] allowedValues() default {};
+	@Override
+	public boolean isValid(String value, ConstraintValidatorContext context) {
+		if (null == value) {
+			return true;
+		}
+		if (value.trim().isEmpty()) {
+			return false;
+		}
+		return true;
+	}
 }

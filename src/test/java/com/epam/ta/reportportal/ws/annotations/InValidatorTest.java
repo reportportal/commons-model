@@ -16,12 +16,14 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertFalse;
@@ -32,14 +34,19 @@ import static org.junit.Assert.assertTrue;
  */
 public class InValidatorTest {
 
+	private static Validator validator;
+
+	@BeforeClass
+	public static void init() {
+		validator = Validation.buildDefaultValidatorFactory().getValidator();
+	}
+
 	@Test
 	public void testNegative() {
-		TestEntity testEntity = new TestEntity();
-		testEntity.setField("notAllowed");
+		StringTestEntity stringTestEntity = new StringTestEntity();
+		stringTestEntity.setField("notAllowed");
 
-		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
-		Validator validator = validatorFactory.getValidator();
-		Set<ConstraintViolation<TestEntity>> constraints = validator.validate(testEntity);
+		Set<ConstraintViolation<StringTestEntity>> constraints = validator.validate(stringTestEntity);
 
 		boolean found = false;
 		for (ConstraintViolation<?> cv : constraints) {
@@ -54,12 +61,10 @@ public class InValidatorTest {
 
 	@Test
 	public void testPositive() {
-		TestEntity testEntity = new TestEntity();
-		testEntity.setField("ALLowed1");
+		StringTestEntity stringTestEntity = new StringTestEntity();
+		stringTestEntity.setField("ALLowed1");
 
-		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
-		Validator validator = validatorFactory.getValidator();
-		Set<ConstraintViolation<TestEntity>> constraints = validator.validate(testEntity);
+		Set<ConstraintViolation<StringTestEntity>> constraints = validator.validate(stringTestEntity);
 
 		boolean found = false;
 		for (ConstraintViolation<?> cv : constraints) {
@@ -74,12 +79,10 @@ public class InValidatorTest {
 
 	@Test
 	public void testNull() {
-		TestEntity testEntity = new TestEntity();
-		testEntity.setField(null);
+		StringTestEntity stringTestEntity = new StringTestEntity();
+		stringTestEntity.setField(null);
 
-		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
-		Validator validator = validatorFactory.getValidator();
-		Set<ConstraintViolation<TestEntity>> constraints = validator.validate(testEntity);
+		Set<ConstraintViolation<StringTestEntity>> constraints = validator.validate(stringTestEntity);
 
 		boolean found = false;
 		for (ConstraintViolation<?> cv : constraints) {
@@ -92,7 +95,27 @@ public class InValidatorTest {
 		assertFalse(found);
 	}
 
-	private class TestEntity {
+	@Test
+	public void testCollectionPositive() {
+		CollectionTestEntity collectionTestEntity = new CollectionTestEntity();
+		collectionTestEntity.setField(Arrays.asList("ALLOWED1", "allowed2"));
+
+		Set<ConstraintViolation<CollectionTestEntity>> constaints = validator.validate(collectionTestEntity);
+
+		assertTrue(constaints.isEmpty());
+	}
+
+	@Test
+	public void testCollectionNegative() {
+		CollectionTestEntity collectionTestEntity = new CollectionTestEntity();
+		collectionTestEntity.setField(Arrays.asList("notAllowed", "allowed1", "allowed2"));
+
+		Set<ConstraintViolation<CollectionTestEntity>> constaints = validator.validate(collectionTestEntity);
+
+		assertFalse(constaints.isEmpty());
+	}
+
+	private class StringTestEntity {
 
 		@In(allowedValues = { "allowed1", "allowed2" })
 		private String field;
@@ -102,6 +125,20 @@ public class InValidatorTest {
 		}
 
 		public void setField(String field) {
+			this.field = field;
+		}
+	}
+
+	private class CollectionTestEntity {
+
+		@In(allowedValues = { "allowed1", "allowed2" })
+		private List<String> field;
+
+		public List<String> getField() {
+			return field;
+		}
+
+		public void setField(List<String> field) {
 			this.field = field;
 		}
 	}
