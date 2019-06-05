@@ -17,6 +17,7 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.epam.ta.reportportal.ws.annotations.In;
+import com.epam.ta.reportportal.ws.model.validation.TestItemNameValidationGroup;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -31,6 +32,7 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.IOException;
 import java.util.List;
 
@@ -64,6 +66,12 @@ public class StartTestItemRQ extends StartRQ {
 
 	@JsonProperty(value = "hasStats")
 	private boolean hasStats = true;
+
+	@Override
+	@Size(min = ValidationConstraints.MIN_TEST_ITEM_NAME_LENGTH, max = ValidationConstraints.MAX_TEST_ITEM_NAME_LENGTH, groups = TestItemNameValidationGroup.class)
+	public String getName() {
+		return super.getName();
+	}
 
 	public Boolean isRetry() {
 		return retry;

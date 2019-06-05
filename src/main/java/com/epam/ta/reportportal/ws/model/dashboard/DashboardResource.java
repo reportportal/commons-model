@@ -85,6 +85,9 @@ public class DashboardResource extends OwnedResource {
 		@JsonProperty(value = "widgetId")
 		private Long widgetId;
 
+		@JsonProperty(value = "widgetType")
+		private String widgetType;
+
 		@JsonProperty(value = "widgetSize")
 		private com.epam.ta.reportportal.ws.model.Size widgetSize = new com.epam.ta.reportportal.ws.model.Size();
 
@@ -107,6 +110,14 @@ public class DashboardResource extends OwnedResource {
 
 		public void setWidgetId(Long widgetId) {
 			this.widgetId = widgetId;
+		}
+
+		public String getWidgetType() {
+			return widgetType;
+		}
+
+		public void setWidgetType(String widgetType) {
+			this.widgetType = widgetType;
 		}
 
 		public String getName() {
@@ -135,8 +146,14 @@ public class DashboardResource extends OwnedResource {
 
 		@Override
 		public String toString() {
-			return "WidgetObjectModel{" + "name='" + name + '\'' + ", widgetId=" + widgetId + ", widgetSize=" + widgetSize
-					+ ", widgetPosition=" + widgetPosition + '}';
+			final StringBuilder sb = new StringBuilder("WidgetObjectModel{");
+			sb.append("name='").append(name).append('\'');
+			sb.append(", widgetId=").append(widgetId);
+			sb.append(", widgetType='").append(widgetType).append('\'');
+			sb.append(", widgetSize=").append(widgetSize);
+			sb.append(", widgetPosition=").append(widgetPosition);
+			sb.append('}');
+			return sb.toString();
 		}
 	}
 
