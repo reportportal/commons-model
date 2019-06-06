@@ -21,23 +21,21 @@ import java.lang.annotation.*;
 
 /**
  * Can be used with strings.
- * Checks if string value is contained in allowed values ignoring case.
+ * Checks if string is blank.
  * <p>
- * {@code null} - valid value.
+ * {@code null} value is valid.
  *
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 @Documented
-@Constraint(validatedBy = { InValidator.class, InCollectionValidator.class })
+@Constraint(validatedBy = NotBlankStringValidator.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.FIELD, ElementType.PARAMETER })
-public @interface In {
+public @interface NotBlankString {
 
-	String message() default "Value is not allowed";
+	String message() default "Should not be blank";
 
 	Class<?>[] groups() default {};
 
 	Class<?>[] payload() default {};
-
-	String[] allowedValues() default {};
 }
