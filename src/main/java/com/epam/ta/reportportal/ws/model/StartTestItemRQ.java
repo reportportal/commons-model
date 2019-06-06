@@ -64,6 +64,9 @@ public class StartTestItemRQ extends StartRQ {
 	@JsonProperty(value = "retry")
 	private Boolean retry;
 
+	@JsonProperty(value = "hasStats")
+	private boolean hasStats = true;
+
 	@Override
 	@Size(min = ValidationConstraints.MIN_TEST_ITEM_NAME_LENGTH, max = ValidationConstraints.MAX_TEST_ITEM_NAME_LENGTH, groups = TestItemNameValidationGroup.class)
 	public String getName() {
@@ -76,6 +79,14 @@ public class StartTestItemRQ extends StartRQ {
 
 	public void setRetry(Boolean retry) {
 		this.retry = retry;
+	}
+
+	public boolean isHasStats() {
+		return hasStats;
+	}
+
+	public void setHasStats(boolean hasStats) {
+		this.hasStats = hasStats;
 	}
 
 	public String getLaunchId() {
@@ -139,7 +150,8 @@ public class StartTestItemRQ extends StartRQ {
 		sb.append(", uniqueId='").append(uniqueId).append('\'');
 		sb.append(", launchId='").append(launchId).append('\'');
 		sb.append(", type='").append(type).append('\'');
-		sb.append(", retry=").append(retry);
+		sb.append(", retry=").append(retry).append('\'');
+		sb.append(", hasStats=").append(hasStats);
 		sb.append('}');
 		return sb.toString();
 	}
