@@ -40,6 +40,7 @@ public class ValidationConstraints {
 	public static final int MIN_LAUNCH_NAME_LENGTH = 1;
 	public static final int MIN_TEST_ITEM_NAME_LENGTH = 1;
 	public static final int MAX_TEST_ITEM_NAME_LENGTH = 1024;
+	public static final int MAX_TEST_ITEM_LOCATION_LENGTH = 256;
 	public static final int MIN_ITEM_ATTRIBUTE_VALUE_LENGTH = 1;
 	public static final int MIN_NAME_LENGTH = 3;
 	public static final int MAX_NAME_LENGTH = 256;
