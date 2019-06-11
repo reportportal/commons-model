@@ -49,7 +49,7 @@ def pomConfig = {
 
 publishing {
     publications {
-        MavenJava(MavenPublication) {
+        mavenJava(MavenPublication) {
             from components.java
             groupId 'com.epam.reportportal'
             artifactId "$project.name"
