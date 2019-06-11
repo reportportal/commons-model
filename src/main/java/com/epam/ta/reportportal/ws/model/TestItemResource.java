@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.epam.ta.reportportal.ws.model.statistics.StatisticsResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -43,6 +44,9 @@ public class TestItemResource {
 
 	@JsonProperty(value = "name")
 	private String name;
+
+	@JsonProperty(value = "location")
+	private String location;
 
 	@JsonProperty(value = "description")
 	private String description;
@@ -82,6 +86,9 @@ public class TestItemResource {
 
 	@JsonProperty(value = "hasChildren")
 	private boolean hasChildren;
+
+	@JsonProperty(value = "hasStats")
+	private boolean hasStats;
 
 	@JsonProperty(value = "launchId")
 	private Long launchId;
@@ -144,6 +151,14 @@ public class TestItemResource {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	public String getDescription() {
@@ -242,6 +257,14 @@ public class TestItemResource {
 		this.hasChildren = hasChildren;
 	}
 
+	public boolean isHasStats() {
+		return hasStats;
+	}
+
+	public void setHasStats(boolean hasStats) {
+		this.hasStats = hasStats;
+	}
+
 	public String getUniqueId() {
 		return uniqueId;
 	}
@@ -272,6 +295,7 @@ public class TestItemResource {
 		sb.append("itemId=").append(itemId);
 		sb.append(", uuid='").append(uuid).append('\'');
 		sb.append(", name='").append(name).append('\'');
+		sb.append(", location='").append(location).append('\'');
 		sb.append(", description='").append(description).append('\'');
 		sb.append(", parameters=").append(parameters);
 		sb.append(", attributes=").append(attributes);
@@ -285,6 +309,7 @@ public class TestItemResource {
 		sb.append(", launchStatus='").append(launchStatus).append('\'');
 		sb.append(", issue=").append(issue);
 		sb.append(", hasChildren=").append(hasChildren);
+		sb.append(", hasStats=").append(hasStats);
 		sb.append(", launchId=").append(launchId);
 		sb.append(", uniqueId='").append(uniqueId).append('\'');
 		sb.append(", patternTemplates=").append(patternTemplates);

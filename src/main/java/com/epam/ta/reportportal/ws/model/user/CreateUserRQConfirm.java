@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,14 +16,13 @@
 
 package com.epam.ta.reportportal.ws.model.user;
 
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -35,31 +34,27 @@ import javax.validation.constraints.Size;
 @JsonInclude(Include.NON_NULL)
 public class CreateUserRQConfirm {
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Pattern(regexp = "[a-zA-Z0-9-_.]+")
 	@Size(min = ValidationConstraints.MIN_LOGIN_LENGTH, max = ValidationConstraints.MAX_LOGIN_LENGTH)
 	@JsonProperty(value = "login", required = true)
 	@ApiModelProperty(required = true)
 	private String login;
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Size(min = ValidationConstraints.MIN_PASSWORD_LENGTH, max = ValidationConstraints.MAX_PASSWORD_LENGTH)
 	@JsonProperty(value = "password", required = true)
 	@ApiModelProperty(required = true)
 	private String password;
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Pattern(regexp = "[\\pL0-9-_ \\.]+")
 	@Size(min = ValidationConstraints.MIN_USER_NAME_LENGTH, max = ValidationConstraints.MAX_USER_NAME_LENGTH)
 	@JsonProperty(value = "fullName", required = true)
 	@ApiModelProperty(required = true)
 	private String fullName;
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@JsonProperty(value = "email", required = true)
 	@ApiModelProperty(required = true)
 	private String email;
