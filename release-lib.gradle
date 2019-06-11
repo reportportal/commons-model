@@ -78,7 +78,7 @@ bintray {
 
 release {
     git {
-        requireBranch = 'ps-migration-master'
+        requireBranch = 'ps-migrations-master'
     }
 }
 
