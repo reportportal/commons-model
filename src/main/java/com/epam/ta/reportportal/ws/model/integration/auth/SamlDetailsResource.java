@@ -29,6 +29,8 @@ import javax.validation.constraints.NotEmpty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SamlDetailsResource {
 
+	private Long id;
+
 	/**
 	 * Provider name associated with IDP
 	 */
@@ -72,6 +74,14 @@ public class SamlDetailsResource {
 	 * Indicates IDP availability for authentication
 	 */
 	private boolean enabled;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getIdentityProviderName() {
 		return identityProviderName;
