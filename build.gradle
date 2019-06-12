@@ -19,6 +19,7 @@ plugins {
     id 'net.researchgate.release' version '2.8.0'
     id "com.jfrog.bintray" version "1.8.4"
     id 'java'
+    id "org.owasp.dependencycheck" version "5.0.0-M3.1"
 }
 
 apply from: 'release-lib.gradle'
@@ -26,7 +27,7 @@ apply from: 'build-quality.gradle'
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:1.5.7.RELEASE"
+        mavenBom "org.springframework.boot:spring-boot-dependencies:2.1.5.RELEASE"
     }
 }
 
@@ -35,8 +36,8 @@ repositories {
 }
 
 
-sourceCompatibility = 1.6
-targetCompatibility = 1.6
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 description = 'EPAM Report portal. REST API model'
 
 wrapper {
