@@ -22,8 +22,9 @@ plugins {
     id "org.owasp.dependencycheck" version "5.0.0-M3.1"
 }
 
-apply from: 'release-lib.gradle'
+apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/master/release-commons.gradle'
 apply from: 'build-quality.gradle'
+
 
 dependencyManagement {
     imports {
@@ -61,6 +62,12 @@ dependencies {
     testCompile "junit:junit:${junitVerion}"
     testCompile "org.hibernate:hibernate-validator:${hibernateValidatorVersion}"
     testCompile "org.glassfish.web:el-impl:${glassfishElVersion}"
+}
+
+release {
+    git {
+        requireBranch = 'ps-migrations-master'
+    }
 }
 
 
