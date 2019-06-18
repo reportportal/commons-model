@@ -61,6 +61,7 @@ public class StartRQ {
 	@JsonProperty(value = "uuid")
 	private String uuid;
 
+	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
 	public String getName() {
 		return name;
 	}
