@@ -1,24 +1,19 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.epam.ta.reportportal.ws.model.launch;
 
 import com.epam.ta.reportportal.ws.model.StartRQ;
@@ -32,9 +27,15 @@ import javax.validation.constraints.Size;
 
 @JsonInclude(Include.NON_NULL)
 public class StartLaunchRQ extends StartRQ {
-	
+
 	@JsonProperty("mode")
 	private Mode mode;
+
+	@JsonProperty("rerun")
+	private boolean rerun;
+
+	@JsonProperty("rerunOf")
+	private String rerunOf;
 
 	@Override
 	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH, groups = LaunchNameValidationGroup.class)
@@ -50,29 +51,61 @@ public class StartLaunchRQ extends StartRQ {
 		this.mode = mode;
 	}
 
+	public boolean isRerun() {
+		return rerun;
+	}
+
+	public void setRerun(boolean rerun) {
+		this.rerun = rerun;
+	}
+
+	public String getRerunOf() {
+		return rerunOf;
+	}
+
+	public void setRerunOf(String rerunOf) {
+		this.rerunOf = rerunOf;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("StartLaunchRQ{");
 		sb.append("mode=").append(mode);
+		sb.append(", rerun=").append(rerun);
+		sb.append(", rerunOf='").append(rerunOf).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		if (!super.equals(o)) {
+			return false;
+		}
 
-        StartLaunchRQ that = (StartLaunchRQ) o;
+		StartLaunchRQ that = (StartLaunchRQ) o;
 
-        return mode == that.mode;
-    }
+		if (rerun != that.rerun) {
+			return false;
+		}
+		if (mode != that.mode) {
+			return false;
+		}
+		return rerunOf != null ? rerunOf.equals(that.rerunOf) : that.rerunOf == null;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (mode != null ? mode.hashCode() : 0);
-        return result;
-    }
+	@Override
+	public int hashCode() {
+		int result = super.hashCode();
+		result = 31 * result + (mode != null ? mode.hashCode() : 0);
+		result = 31 * result + (rerun ? 1 : 0);
+		result = 31 * result + (rerunOf != null ? rerunOf.hashCode() : 0);
+		return result;
+	}
 }
