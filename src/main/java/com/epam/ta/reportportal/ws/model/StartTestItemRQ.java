@@ -75,7 +75,7 @@ public class StartTestItemRQ extends StartRQ {
 	@Override
 	@Size(min = ValidationConstraints.MIN_TEST_ITEM_NAME_LENGTH, max = ValidationConstraints.MAX_TEST_ITEM_NAME_LENGTH)
 	public String getName() {
-		return super.getName();
+		return name;
 	}
 
 	public String getLocation() {

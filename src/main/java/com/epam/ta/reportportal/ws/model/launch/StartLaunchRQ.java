@@ -38,7 +38,7 @@ public class StartLaunchRQ extends StartRQ {
 	@Override
 	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
 	public String getName() {
-		return super.getName();
+		return name;
 	}
 
 	public Mode getMode() {
