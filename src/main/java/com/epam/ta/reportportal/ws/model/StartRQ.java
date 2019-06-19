@@ -42,7 +42,7 @@ public class StartRQ {
 	@NotBlank
 	@JsonProperty(value = "name", required = true)
 	@ApiModelProperty(required = true)
-	private String name;
+	protected String name;
 
 	@JsonProperty(value = "description")
 	private String description;
