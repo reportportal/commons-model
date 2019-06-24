@@ -40,6 +40,8 @@ ext {
     junitVerion = '4.12'
     glassfishElVersion = '2.2'
     swaggerAnnotationsVersion = '1.5.22'
+    commonsLangVersion='3.7'
+    mockitoJunitJupiter='2.23.0'
 }
 
 dependencies {
@@ -47,8 +49,10 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-annotations'
     compile 'com.fasterxml.jackson.core:jackson-databind'
     compile "javax.validation:validation-api:${validationApiVersion}"
+    compile "org.apache.commons:commons-lang3:${commonsLangVersion}"
 
     testCompile "junit:junit:${junitVerion}"
+    testCompile "org.mockito:mockito-junit-jupiter:${mockitoJunitJupiter}"
     testCompile "org.hibernate:hibernate-validator:${hibernateValidatorVersion}"
     testCompile "org.glassfish.web:el-impl:${glassfishElVersion}"
 }
