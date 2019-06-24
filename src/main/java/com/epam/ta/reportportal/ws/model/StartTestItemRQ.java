@@ -17,7 +17,6 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.epam.ta.reportportal.ws.annotations.In;
-import com.epam.ta.reportportal.ws.model.validation.TestItemNameValidationGroup;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,8 +35,14 @@ import javax.validation.constraints.Size;
 import java.io.IOException;
 import java.util.List;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_TEST_ITEM_LOCATION_LENGTH;
+
 @JsonInclude(Include.NON_NULL)
 public class StartTestItemRQ extends StartRQ {
+
+	@Size(max = MAX_TEST_ITEM_LOCATION_LENGTH)
+	@JsonProperty(value = "location")
+	private String location;
 
 	@Valid
 	@JsonProperty(value = "parameters")
@@ -68,9 +73,17 @@ public class StartTestItemRQ extends StartRQ {
 	private boolean hasStats = true;
 
 	@Override
-	@Size(min = ValidationConstraints.MIN_TEST_ITEM_NAME_LENGTH, max = ValidationConstraints.MAX_TEST_ITEM_NAME_LENGTH, groups = TestItemNameValidationGroup.class)
+	@Size(min = ValidationConstraints.MIN_TEST_ITEM_NAME_LENGTH, max = ValidationConstraints.MAX_TEST_ITEM_NAME_LENGTH)
 	public String getName() {
-		return super.getName();
+		return name;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	public Boolean isRetry() {
@@ -146,11 +159,12 @@ public class StartTestItemRQ extends StartRQ {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("StartTestItemRQ{");
-		sb.append("parameters=").append(parameters);
+		sb.append("location='").append(location).append('\'');
+		sb.append(", parameters=").append(parameters);
 		sb.append(", uniqueId='").append(uniqueId).append('\'');
 		sb.append(", launchId='").append(launchId).append('\'');
 		sb.append(", type='").append(type).append('\'');
-		sb.append(", retry=").append(retry).append('\'');
+		sb.append(", retry=").append(retry);
 		sb.append(", hasStats=").append(hasStats);
 		sb.append('}');
 		return sb.toString();

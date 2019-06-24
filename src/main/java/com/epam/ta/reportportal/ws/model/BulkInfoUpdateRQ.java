@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.attribute.UpdateItemAttributeRQ;
 
 import javax.validation.Valid;
@@ -32,6 +33,7 @@ public class BulkInfoUpdateRQ {
 	@Size(min = 1)
 	private List<Long> ids;
 
+	@Valid
 	private Description description;
 
 	@Valid
@@ -69,8 +71,9 @@ public class BulkInfoUpdateRQ {
 
 	public static class Description {
 
-		String comment;
+		@NotNull String comment;
 
+		@In(allowedValues = { "create", "update" })
 		Action action;
 
 		public String getComment() {

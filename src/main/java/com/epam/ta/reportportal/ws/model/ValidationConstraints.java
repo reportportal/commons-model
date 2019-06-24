@@ -40,6 +40,7 @@ public class ValidationConstraints {
 	public static final int MIN_LAUNCH_NAME_LENGTH = 1;
 	public static final int MIN_TEST_ITEM_NAME_LENGTH = 1;
 	public static final int MAX_TEST_ITEM_NAME_LENGTH = 1024;
+	public static final int MAX_TEST_ITEM_LOCATION_LENGTH = 256;
 	public static final int MIN_ITEM_ATTRIBUTE_VALUE_LENGTH = 1;
 	public static final int MIN_NAME_LENGTH = 3;
 	public static final int MAX_NAME_LENGTH = 256;
@@ -63,7 +64,7 @@ public class ValidationConstraints {
 	public static final int MAX_LOGIN_LENGTH = 128;
 
 	public static final int MIN_PASSWORD_LENGTH = 4;
-	public static final int MAX_PASSWORD_LENGTH = 128;
+	public static final int MAX_PASSWORD_LENGTH = 256;
 
 	public static final int TICKET_MIN_LOG_SIZE = 0;
 	public static final int TICKET_MAX_LOG_SIZE = 50;
