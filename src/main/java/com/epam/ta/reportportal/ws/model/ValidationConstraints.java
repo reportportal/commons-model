@@ -65,7 +65,7 @@ public class ValidationConstraints {
 	public static final int MAX_LOGIN_LENGTH = 128;
 
 	public static final int MIN_PASSWORD_LENGTH = 4;
-	public static final int MAX_PASSWORD_LENGTH = 128;
+	public static final int MAX_PASSWORD_LENGTH = 256;
 
 	public static final int TICKET_MIN_LOG_SIZE = 0;
 	public static final int TICKET_MAX_LOG_SIZE = 50;

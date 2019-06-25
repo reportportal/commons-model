@@ -20,12 +20,13 @@ package com.epam.ta.reportportal.ws.model.dashboard;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.epam.ta.reportportal.ws.model.dashboard.DashboardResource.WidgetObjectModel;
+import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -36,8 +37,9 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class UpdateDashboardRQ extends SharableEntityRQ {
 
-	@JsonProperty(value = "name")
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
+	@NotBlankWithSize(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
+	@JsonProperty(value = "name", required = true)
+	@ApiModelProperty(required = true)
 	private String name;
 
 	@Valid

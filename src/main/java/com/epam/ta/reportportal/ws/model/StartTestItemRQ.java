@@ -18,7 +18,6 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.epam.ta.reportportal.ws.annotations.In;
-import com.epam.ta.reportportal.ws.model.validation.TestItemNameValidationGroup;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -75,9 +74,9 @@ public class StartTestItemRQ extends StartRQ {
 	private boolean hasStats = true;
 
 	@Override
-	@Size(min = ValidationConstraints.MIN_TEST_ITEM_NAME_LENGTH, max = ValidationConstraints.MAX_TEST_ITEM_NAME_LENGTH, groups = TestItemNameValidationGroup.class)
+	@Size(min = ValidationConstraints.MIN_TEST_ITEM_NAME_LENGTH, max = ValidationConstraints.MAX_TEST_ITEM_NAME_LENGTH)
 	public String getName() {
-		return super.getName();
+		return name;
 	}
 
 	public String getLocation() {
