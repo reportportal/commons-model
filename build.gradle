@@ -68,11 +68,5 @@ dependencies {
     testCompile "org.glassfish.web:el-impl:${glassfishElVersion}"
 }
 
-release {
-    git {
-        requireBranch = 'ps-migrations-master'
-    }
-}
-
 
 
