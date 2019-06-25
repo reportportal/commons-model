@@ -47,6 +47,9 @@ public class IntegrationResource implements Serializable {
 	@JsonProperty("enabled")
 	private Boolean enabled;
 
+	@JsonProperty("creator")
+	private String creator;
+
 	@JsonProperty("creationDate")
 	private Date creationDate;
 
@@ -96,6 +99,14 @@ public class IntegrationResource implements Serializable {
 
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public String getCreator() {
+		return creator;
+	}
+
+	public void setCreator(String creator) {
+		this.creator = creator;
 	}
 
 	public Date getCreationDate() {
