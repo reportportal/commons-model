@@ -1,44 +1,39 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
 package com.epam.ta.reportportal.ws.model.dashboard;
 
-import java.util.List;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import com.epam.ta.reportportal.ws.model.OwnedResource;
-import io.swagger.annotations.ApiModelProperty;
-
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
+import com.epam.ta.reportportal.ws.model.Position;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Domain model DashBoard resource object. JSON Representation of Report Portal
  * domain object.
- * 
+ *
  * @author Aliaksei_Makayed
  */
 @JsonInclude(Include.NON_NULL)
@@ -47,12 +42,10 @@ public class DashboardResource extends OwnedResource {
 	@NotNull
 	@JsonProperty(value = "id", required = true)
 	@ApiModelProperty(required = true)
-	private String dashboardId;
+	private Long dashboardId;
 
-	@NotEmpty
-	@NotNull
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, 
-	max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
+	@NotBlank
+	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	@ApiModelProperty(required = true)
 	private String name;
@@ -60,11 +53,11 @@ public class DashboardResource extends OwnedResource {
 	@JsonProperty(value = "widgets")
 	private List<WidgetObjectModel> widgets;
 
-	public String getDashboardId() {
+	public Long getDashboardId() {
 		return dashboardId;
 	}
 
-	public void setDashboardId(String dashboardId) {
+	public void setDashboardId(Long dashboardId) {
 		this.dashboardId = dashboardId;
 	}
 
@@ -85,52 +78,79 @@ public class DashboardResource extends OwnedResource {
 	}
 
 	public static class WidgetObjectModel {
+
+		@JsonProperty(value = "widgetName")
+		private String name;
+
+		@NotNull
 		@JsonProperty(value = "widgetId")
-		private String widgetId;
-		
+		private Long widgetId;
+
+		@JsonProperty(value = "widgetType")
+		private String widgetType;
+
 		@JsonProperty(value = "widgetSize")
-		private List<Integer> widgetSize;
-		
+		private com.epam.ta.reportportal.ws.model.Size widgetSize = new com.epam.ta.reportportal.ws.model.Size();
+
 		@JsonProperty(value = "widgetPosition")
-		private List<Integer> widgetPosition;
-		
+		private Position widgetPosition = new Position();
+
 		public WidgetObjectModel() {
 		}
-		
-		public WidgetObjectModel(String widgetId, List<Integer> widgetSize, List<Integer> widgetPosition) {
-			this.setWidgetId(widgetId);
-			this.setWidgetSize(widgetSize);
-			this.setWidgetPosition(widgetPosition);
+
+		public WidgetObjectModel(String name, Long widgetId, com.epam.ta.reportportal.ws.model.Size widgetSize, Position widgetPosition) {
+			this.name = name;
+			this.widgetId = widgetId;
+			this.widgetSize = widgetSize;
+			this.widgetPosition = widgetPosition;
 		}
-		
-		public void setWidgetId(String value) {
-			this.widgetId = value;
-		}
-		
-		public String getWidgetId() {
+
+		public Long getWidgetId() {
 			return widgetId;
 		}
-		
-		public void setWidgetSize(List<Integer> value) {
-			this.widgetSize = value;
+
+		public void setWidgetId(Long widgetId) {
+			this.widgetId = widgetId;
 		}
-		
-		public List<Integer> getWidgetSize() {
+
+		public String getWidgetType() {
+			return widgetType;
+		}
+
+		public void setWidgetType(String widgetType) {
+			this.widgetType = widgetType;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public com.epam.ta.reportportal.ws.model.Size getWidgetSize() {
 			return widgetSize;
 		}
-		
-		public void setWidgetPosition(List<Integer> value) {
-			this.widgetPosition = value;
+
+		public void setWidgetSize(com.epam.ta.reportportal.ws.model.Size widgetSize) {
+			this.widgetSize = widgetSize;
 		}
-		
-		public List<Integer> getWidgetPosition() {
+
+		public Position getWidgetPosition() {
 			return widgetPosition;
+		}
+
+		public void setWidgetPosition(Position widgetPosition) {
+			this.widgetPosition = widgetPosition;
 		}
 
 		@Override
 		public String toString() {
 			final StringBuilder sb = new StringBuilder("WidgetObjectModel{");
-			sb.append("widgetId='").append(widgetId).append('\'');
+			sb.append("name='").append(name).append('\'');
+			sb.append(", widgetId=").append(widgetId);
+			sb.append(", widgetType='").append(widgetType).append('\'');
 			sb.append(", widgetSize=").append(widgetSize);
 			sb.append(", widgetPosition=").append(widgetPosition);
 			sb.append('}');

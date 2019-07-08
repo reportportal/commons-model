@@ -1,24 +1,24 @@
 /*
  * Copyright 2016 EPAM Systems
- * 
- * 
+ *
+ *
  * This file is part of EPAM Report Portal.
  * https://github.com/reportportal/commons-model
- * 
+ *
  * Report Portal is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * Report Portal is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -27,37 +27,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * JSON Representation of Report Portal's Activity domain object.
- * 
+ *
  * @see <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS Description</a>
  */
 @JsonInclude(Include.NON_NULL)
 public class ActivityResource {
 
 	@NotNull
-	@JsonProperty(value = "activityId", required = true)
+	@JsonProperty(value = "id", required = true)
 	@ApiModelProperty(required = true)
-	private String activityId;
+	private Long id;
 
 	@NotNull
-	@JsonProperty(value = "userRef", required = true)
+	@JsonProperty(value = "user", required = true)
 	@ApiModelProperty(required = true)
-	private String userRef;
+	private String user;
 
 	@NotNull
-	@JsonProperty(value = "loggedObjectRef", required = true)
+	@JsonProperty(value = "loggedObjectId", required = true)
 	@ApiModelProperty(required = true)
-	private String loggedObjectRef;
+	private Long loggedObjectId;
 
 	@NotNull
-	@JsonProperty(value = "lastModifiedDate", required = true)
+	@JsonProperty(value = "lastModified", required = true)
 	@ApiModelProperty(required = true)
-	private Date lastModifiedDate;
+	private Date lastModified;
 
 	@NotNull
 	@JsonProperty(value = "actionType", required = true)
@@ -70,30 +68,46 @@ public class ActivityResource {
 	private String objectType;
 
 	@NotNull
-	@JsonProperty(value = "projectRef", required = true)
+	@JsonProperty(value = "projectId", required = true)
 	@ApiModelProperty(required = true)
-	private String projectRef;
+	private Long projectId;
 
-	@JsonProperty(value = "history")
-	private List<FieldValues> history;
+	@JsonProperty(value = "projectName")
+	private String projectName;
 
-	@JsonProperty(value = "objectName")
-    private String objectName;
+	@JsonProperty(value = "details")
+	private Object details;
 
-    public String getObjectName() {
-        return objectName;
-    }
-
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
-    }
-
-    public String getProjectRef() {
-		return projectRef;
+	public Long getId() {
+		return id;
 	}
 
-	public void setProjectRef(String projectRef) {
-		this.projectRef = projectRef;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public Long getLoggedObjectId() {
+		return loggedObjectId;
+	}
+
+	public void setLoggedObjectId(Long loggedObjectId) {
+		this.loggedObjectId = loggedObjectId;
+	}
+
+	public Date getLastModified() {
+		return lastModified;
+	}
+
+	public void setLastModified(Date lastModified) {
+		this.lastModified = lastModified;
 	}
 
 	public String getActionType() {
@@ -112,103 +126,42 @@ public class ActivityResource {
 		this.objectType = objectType;
 	}
 
-	public String getActivityId() {
-		return activityId;
+	public Long getProjectId() {
+		return projectId;
 	}
 
-	public void setActivityId(String activityId) {
-		this.activityId = activityId;
+	public void setProjectId(Long projectId) {
+		this.projectId = projectId;
 	}
 
-	public String getUserRef() {
-		return userRef;
+	public String getProjectName() {
+		return projectName;
 	}
 
-	public void setUserRef(String userRef) {
-		this.userRef = userRef;
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 
-	public String getLoggedObjectRef() {
-		return loggedObjectRef;
+	public Object getDetails() {
+		return details;
 	}
 
-	public void setLoggedObjectRef(String loggedObjectRef) {
-		this.loggedObjectRef = loggedObjectRef;
-	}
-
-	public Date getLastModifiedDate() {
-		return lastModifiedDate;
-	}
-
-	public void setLastModifiedDate(Date lastModifiedDate) {
-		this.lastModifiedDate = lastModifiedDate;
-	}
-
-	public List<FieldValues> getHistory() {
-		return null == history ? new ArrayList<FieldValues>() : history;
-	}
-
-	public void setHistory(List<FieldValues> history) {
-		this.history = history;
-	}
-
-	@JsonInclude(Include.NON_NULL)
-	public static class FieldValues {
-
-	    @JsonProperty(value = "field")
-	    private String field;
-
-		@JsonProperty(value = "oldValue")
-		private String oldValue;
-
-		@JsonProperty(value = "newValue")
-		private String newValue;
-
-        public String getField() {
-            return field;
-        }
-
-        public void setField(String field) {
-            this.field = field;
-        }
-
-        public String getOldValue() {
-			return oldValue;
-		}
-
-		public void setOldValue(String oldValue) {
-			this.oldValue = oldValue;
-		}
-
-		public String getNewValue() {
-			return newValue;
-		}
-
-		public void setNewValue(String newValue) {
-			this.newValue = newValue;
-		}
-
-		@Override
-		public String toString() {
-			final StringBuilder sb = new StringBuilder("FieldValues{");
-			sb.append("oldValue='").append(oldValue).append('\'');
-			sb.append(", newValue='").append(newValue).append('\'');
-			sb.append('}');
-			return sb.toString();
-		}
+	public void setDetails(Object details) {
+		this.details = details;
 	}
 
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("ActivityResource{");
-		sb.append("activityId='").append(activityId).append('\'');
-		sb.append(", userRef='").append(userRef).append('\'');
-		sb.append(", loggedObjectRef='").append(loggedObjectRef).append('\'');
-		sb.append(", lastModifiedDate=").append(lastModifiedDate);
+		sb.append("id=").append(id);
+		sb.append(", user='").append(user).append('\'');
+		sb.append(", loggedObjectId='").append(loggedObjectId).append('\'');
+		sb.append(", lastModified=").append(lastModified);
 		sb.append(", actionType='").append(actionType).append('\'');
 		sb.append(", objectType='").append(objectType).append('\'');
-		sb.append(", projectRef='").append(projectRef).append('\'');
-		sb.append(", history=").append(history);
+		sb.append(", projectId=").append(projectId);
+		sb.append(", projectName='").append(projectName).append('\'');
+		sb.append(", details=").append(details);
 		sb.append('}');
 		return sb.toString();
 	}

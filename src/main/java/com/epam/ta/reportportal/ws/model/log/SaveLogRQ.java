@@ -1,24 +1,20 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
 package com.epam.ta.reportportal.ws.model.log;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,38 +23,48 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Arrays;
 import java.util.Date;
 
 /**
- * 
  * @author Henadzi_Vrubleuski
  * @author Andrei Varabyeu
- * 
  */
 @JsonInclude(Include.NON_NULL)
 public class SaveLogRQ {
 
-	@NotNull
-	@JsonProperty(value = "item_id", required = true)
+	@JsonProperty("uuid")
+	private String uuid;
+
+	@NotBlank
+	@JsonProperty(value = "itemId", required = true)
 	@ApiModelProperty(required = true)
-	private String testItemId;
-	
+	private String itemId;
+
 	@NotNull
 	@JsonProperty(value = "time", required = true)
 	@ApiModelProperty(required = true)
 	private Date logTime;
-	
+
 	@JsonProperty(value = "message")
 	private String message;
-	
+
 	@JsonProperty(value = "level")
 	@ApiModelProperty(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
 	private String level;
-	
+
 	@JsonProperty(value = "file")
 	private File file;
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
 
 	public Date getLogTime() {
 		return logTime;
@@ -76,12 +82,12 @@ public class SaveLogRQ {
 		this.message = message;
 	}
 
-	public void setTestItemId(String testItemId) {
-		this.testItemId = testItemId;
+	public String getItemId() {
+		return itemId;
 	}
 
-	public String getTestItemId() {
-		return testItemId;
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
 
 	public void setLevel(String level) {
@@ -105,7 +111,7 @@ public class SaveLogRQ {
 
 		@JsonProperty(value = "name")
 		private String name;
-		
+
 		@JsonIgnore
 		private byte[] content;
 
@@ -150,7 +156,7 @@ public class SaveLogRQ {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("SaveLogRQ{");
-		sb.append("testItemId='").append(testItemId).append('\'');
+		sb.append("itemId='").append(itemId).append('\'');
 		sb.append(", logTime=").append(logTime);
 		sb.append(", message='").append(message).append('\'');
 		sb.append(", level='").append(level).append('\'');

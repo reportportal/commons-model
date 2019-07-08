@@ -1,157 +1,81 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright 2018 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 
 package com.epam.ta.reportportal.ws.model.project;
 
-import com.epam.ta.reportportal.ws.model.externalsystem.ExternalSystemResource;
 import com.epam.ta.reportportal.ws.model.project.config.IssueSubTypeResource;
-import com.epam.ta.reportportal.ws.model.project.email.ProjectEmailConfigDTO;
+import com.epam.ta.reportportal.ws.model.project.config.pattern.PatternTemplateResource;
+import com.epam.ta.reportportal.ws.model.project.email.ProjectNotificationConfigDTO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Project configuration model
  *
- * @author Andrei_Ramanchuk
+ * @author <a href="mailto:pavel_bortnik@epam.com">Pavel Bortnik</a>
  */
 @JsonInclude(Include.NON_NULL)
 public class ProjectConfiguration {
-	@JsonProperty(value = "externalSystem")
-	private List<ExternalSystemResource> externalSystem;
 
-	@JsonProperty(value = "entryType")
-	private String entry;
-
-	@JsonProperty(value = "statisticCalculationStrategy")
-	@ApiModelProperty(allowableValues = "STEP_BASED, TEST_BASED")
-	private String statisticCalculationStrategy;
-
-	@JsonProperty(value = "projectSpecific")
-	private String projectSpecific;
-
-	@JsonProperty(value = "interruptedJob")
-	@ApiModelProperty(allowableValues = "ONE_HOUR, THREE_HOURS, SIX_HOURS, TWELVE_HOURS, ONE_DAY, ONE_WEEK")
-	private String interruptJobTime;
-
-	@JsonProperty(value = "keepLogs")
-	@ApiModelProperty(allowableValues = "TWO_WEEKS, ONE_MONTH, THREE_MONTHS, SIX_MONTHS")
-	private String keepLogs;
-
-	@JsonProperty(value = "keepScreenshots")
-	@ApiModelProperty(allowableValues = "ONE_WEEK, TWO_WEEKS, THREE_WEEKS, ONE_MONTH, THREE_MONTHS")
-	private String keepScreenshots;
-
-	@JsonProperty(value = "emailConfiguration")
-	private ProjectEmailConfigDTO emailConfig;
-
-	@Valid
-	@JsonProperty(value = "analyzerConfiguration")
-	private AnalyzerConfig analyzerConfig;
+	@JsonProperty(value = "attributes", required = true)
+	private Map<String, String> projectAttributes;
 
 	@JsonProperty(value = "subTypes")
 	private Map<String, List<IssueSubTypeResource>> subTypes;
 
-	public AnalyzerConfig getAnalyzerConfig() {
-		return analyzerConfig;
+	@JsonProperty(value = "notificationsConfiguration")
+	private ProjectNotificationConfigDTO projectConfig;
+
+	@JsonProperty(value = "patterns")
+	private List<PatternTemplateResource> patterns;
+
+	public Map<String, String> getProjectAttributes() {
+		return projectAttributes;
 	}
 
-	public void setAnalyzerConfig(AnalyzerConfig analyzerConfig) {
-		this.analyzerConfig = analyzerConfig;
-	}
-
-	public void setExternalSystem(List<ExternalSystemResource> value) {
-		this.externalSystem = value;
-	}
-
-	public List<ExternalSystemResource> getExternalSystem() {
-		return externalSystem;
-	}
-
-	public void setEntry(String value) {
-		this.entry = value;
-	}
-
-	public String getEntry() {
-		return entry;
-	}
-
-	public void setStatisticCalculationStrategy(String value) {
-		this.statisticCalculationStrategy = value;
-	}
-
-	public String getStatisticCalculationStrategy() {
-		return statisticCalculationStrategy;
-	}
-
-	public void setProjectSpecific(String value) {
-		this.projectSpecific = value;
-	}
-
-	public String getProjectSpecific() {
-		return projectSpecific;
-	}
-
-	public void setInterruptJobTime(String value) {
-		this.interruptJobTime = value;
-	}
-
-	public String getInterruptJobTime() {
-		return interruptJobTime;
-	}
-
-	public void setKeepLogs(String value) {
-		this.keepLogs = value;
-	}
-
-	public String getKeepLogs() {
-		return keepLogs;
-	}
-
-	public void setKeepScreenshots(String value) {
-		this.keepScreenshots = value;
-	}
-
-	public String getKeepScreenshots() {
-		return keepScreenshots;
-	}
-
-	public void setEmailConfig(ProjectEmailConfigDTO config) {
-		this.emailConfig = config;
-	}
-
-	public ProjectEmailConfigDTO getEmailConfig() {
-		return emailConfig;
-	}
-
-	public void setSubTypes(Map<String, List<IssueSubTypeResource>> types) {
-		this.subTypes = types;
+	public void setProjectAttributes(Map<String, String> projectAttributes) {
+		this.projectAttributes = projectAttributes;
 	}
 
 	public Map<String, List<IssueSubTypeResource>> getSubTypes() {
 		return subTypes;
+	}
+
+	public void setSubTypes(Map<String, List<IssueSubTypeResource>> subTypes) {
+		this.subTypes = subTypes;
+	}
+
+	public ProjectNotificationConfigDTO getProjectConfig() {
+		return projectConfig;
+	}
+
+	public void setProjectConfig(ProjectNotificationConfigDTO projectConfig) {
+		this.projectConfig = projectConfig;
+	}
+
+	public List<PatternTemplateResource> getPatterns() {
+		return patterns;
+	}
+
+	public void setPatterns(List<PatternTemplateResource> patterns) {
+		this.patterns = patterns;
 	}
 }

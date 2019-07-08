@@ -1,26 +1,23 @@
 /*
- * Copyright 2018 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 package com.epam.ta.reportportal.ws.model.project;
 
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
@@ -60,11 +57,12 @@ public class AnalyzerConfig {
 	@JsonProperty(value = "isAutoAnalyzerEnabled")
 	private Boolean isAutoAnalyzerEnabled;
 
-	@JsonProperty(value = "analyzer_mode")
+	@JsonProperty(value = "analyzerMode")
+	@In(allowedValues = { "all", "launch_name", "current_launch" })
 	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME")
 	private String analyzerMode;
 
-	@JsonProperty(value = "indexing_running")
+	@JsonProperty(value = "indexingRunning")
 	@ApiParam(hidden = true)
 	private boolean indexingRunning;
 

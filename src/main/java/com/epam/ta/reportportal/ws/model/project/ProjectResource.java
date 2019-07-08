@@ -1,55 +1,43 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ * Copyright 2018 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 package com.epam.ta.reportportal.ws.model.project;
 
-import com.epam.ta.reportportal.ws.model.ValidationConstraints;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.epam.ta.reportportal.ws.model.integration.IntegrationResource;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Project resource representation for responses
- * 
- * @author Andrei_Ramanchuk
+ *
+ * @author Pavel Bortnik
  */
-@JsonInclude(Include.NON_NULL)
 public class ProjectResource {
 
 	@NotNull
 	@JsonProperty(value = "projectId", required = true)
-	private String projectId;
+	private Long projectId;
 
 	@NotNull
-	@JsonProperty(value = "customer")
-	@Size(max = ValidationConstraints.MAX_CUSTOMER_LENGTH)
-	private String customer;
-
-	@JsonProperty(value = "addInfo")
-	private String addInfo;
+	@JsonProperty(value = "projectName", required = true)
+	private String projectName;
 
 	@NotNull
 	@JsonProperty(value = "configuration", required = true)
@@ -57,6 +45,12 @@ public class ProjectResource {
 
 	@JsonProperty(value = "users")
 	private List<ProjectUser> users;
+
+	@JsonProperty(value = "integrations")
+	private List<IntegrationResource> integrations;
+
+	@JsonProperty(value = "organization")
+	private String organization;
 
 	@NotNull
 	@JsonProperty(value = "creationDate")
@@ -70,28 +64,20 @@ public class ProjectResource {
 		this.creationDate = creationDate;
 	}
 
-	public void setProjectId(String id) {
-		this.projectId = id;
-	}
-
-	public String getProjectId() {
+	public Long getProjectId() {
 		return projectId;
 	}
 
-	public void setCustomer(String customer) {
-		this.customer = customer;
+	public void setProjectId(Long projectId) {
+		this.projectId = projectId;
 	}
 
-	public String getCustomer() {
-		return customer;
+	public String getProjectName() {
+		return projectName;
 	}
 
-	public void setAddInfo(String additional) {
-		this.addInfo = additional;
-	}
-
-	public String getAddInfo() {
-		return addInfo;
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 
 	public void setConfiguration(ProjectConfiguration configuration) {
@@ -102,12 +88,28 @@ public class ProjectResource {
 		return configuration;
 	}
 
+	public List<IntegrationResource> getIntegrations() {
+		return integrations;
+	}
+
+	public void setIntegrations(List<IntegrationResource> integrations) {
+		this.integrations = integrations;
+	}
+
 	public List<ProjectUser> getUsers() {
 		return users;
 	}
 
 	public void setUsers(List<ProjectUser> users) {
 		this.users = users;
+	}
+
+	public String getOrganization() {
+		return organization;
+	}
+
+	public void setOrganization(String organization) {
+		this.organization = organization;
 	}
 
 	public static class ProjectUser {
@@ -117,9 +119,6 @@ public class ProjectResource {
 
 		@JsonProperty(value = "projectRole")
 		private String projectRole;
-
-		@JsonProperty(value = "proposedRole")
-		private String proposedRole;
 
 		public String getLogin() {
 			return login;
@@ -137,21 +136,9 @@ public class ProjectResource {
 			return projectRole;
 		}
 
-		public void setProposedRole(String value) {
-			this.proposedRole = value;
-		}
-
-		public String getProposedRole() {
-			return proposedRole;
-		}
-
 		@Override
 		public String toString() {
-			final StringBuilder sb = new StringBuilder("ProjectUser{");
-			sb.append("projectRole='").append(projectRole).append('\'');
-			sb.append(", proposedRole='").append(proposedRole).append('\'');
-			sb.append('}');
-			return sb.toString();
+			return "ProjectUser{" + "projectRole='" + projectRole + '\'' + '}';
 		}
 	}
 }

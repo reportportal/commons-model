@@ -17,7 +17,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.externalsystem;
 
@@ -33,7 +33,7 @@ import java.util.Map;
 
 /**
  * Domain object for creating ticket in bug tracking system.
- * 
+ *
  * @author Aliaksei_Makayed
  * @author Andrei_Ramanchuk
  */
@@ -43,31 +43,31 @@ public class PostTicketRQ extends Authentic {
 	@JsonProperty(value = "fields", required = true)
 	private List<PostFormField> fields;
 
-	@JsonProperty(value = "include_logs")
+	@JsonProperty(value = "includeLogs")
 	private boolean isIncludeLogs;
 
-	@JsonProperty(value = "include_data")
+	@JsonProperty(value = "includeData")
 	private boolean isIncludeScreenshots;
 
-	@JsonProperty(value = "include_comments")
+	@JsonProperty(value = "includeComments")
 	private boolean isIncludeComments;
 
 	@Min(value = ValidationConstraints.TICKET_MIN_LOG_SIZE)
 	@Max(value = ValidationConstraints.TICKET_MAX_LOG_SIZE)
-	@JsonProperty(value = "log_quantity")
+	@JsonProperty(value = "logQuantity")
 	private int numberOfLogs;
 
 	@JsonProperty(value = "item", required = true)
-	private String testItemId;
+	private Long testItemId;
 
 	@JsonProperty(value = "backLinks", required = true)
-	private Map<String, String> backLinks;
+	private Map<Long, String> backLinks;
 
-	public Map<String, String> getBackLinks() {
+	public Map<Long, String> getBackLinks() {
 		return backLinks;
 	}
 
-	public void setBackLinks(Map<String, String> backLinks) {
+	public void setBackLinks(Map<Long, String> backLinks) {
 		this.backLinks = backLinks;
 	}
 
@@ -111,11 +111,11 @@ public class PostTicketRQ extends Authentic {
 		this.numberOfLogs = numberOfLogs;
 	}
 
-	public String getTestItemId() {
+	public Long getTestItemId() {
 		return testItemId;
 	}
 
-	public void setTestItemId(String testItemId) {
+	public void setTestItemId(Long testItemId) {
 		this.testItemId = testItemId;
 	}
 

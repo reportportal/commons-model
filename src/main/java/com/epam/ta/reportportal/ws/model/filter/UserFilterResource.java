@@ -1,46 +1,41 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 
 package com.epam.ta.reportportal.ws.model.filter;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
-
-import java.util.Set;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.Set;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
+
 /**
  * JSON Representation of Report Portal's UserFilter domain object
- * 
+ *
  * @author Aliaksei_Makayed
- * 
  */
 
 @JsonInclude(Include.NON_NULL)
@@ -48,24 +43,24 @@ public class UserFilterResource extends OwnedResource {
 
 	@NotNull
 	@JsonProperty(value = "id", required = true)
-	private String filterId;
+	private Long filterId;
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Size(min = MIN_NAME_LENGTH, max = MAX_USER_FILTER_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	private String name;
 
-	@NotNull
 	@Valid
+	@NotNull
 	@Size(min = MIN_COLLECTION_SIZE)
-	@JsonProperty(value = "entities", required = true)
-	private Set<UserFilterEntity> entities;
+	@JsonProperty(value = "conditions", required = true)
+	private Set<UserFilterCondition> conditions;
 
-	@JsonProperty(value = "selection_parameters")
-	private SelectionParameters selectionParameters;
+	@Size(min = MIN_COLLECTION_SIZE)
+	@JsonProperty(value = "orders", required = true)
+	private List<Order> orders;
 
-	// possible object types: launch; testItem; log
+	@In(allowedValues = { "launch", "testItem", "log" })
 	@NotNull
 	@JsonProperty(value = "type", required = true)
 	private String objectType;
@@ -90,19 +85,27 @@ public class UserFilterResource extends OwnedResource {
 		this.name = name;
 	}
 
-	public void setEntities(Set<UserFilterEntity> Entities) {
-		this.entities = Entities;
+	public Set<UserFilterCondition> getConditions() {
+		return conditions;
 	}
 
-	public Set<UserFilterEntity> getEntities() {
-		return entities;
+	public void setConditions(Set<UserFilterCondition> conditions) {
+		this.conditions = conditions;
 	}
 
-	public String getFilterId() {
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	public Long getFilterId() {
 		return filterId;
 	}
 
-	public void setFilterId(String filterId) {
+	public void setFilterId(Long filterId) {
 		this.filterId = filterId;
 	}
 
@@ -114,17 +117,9 @@ public class UserFilterResource extends OwnedResource {
 		this.objectType = objectType;
 	}
 
-	public SelectionParameters getSelectionParameters() {
-		return selectionParameters;
-	}
-
-	public void setSelectionParameters(SelectionParameters selectionParameters) {
-		this.selectionParameters = selectionParameters;
-	}
-
 	@Override
 	public String toString() {
-		return "UserFilterResource{" + "filterId='" + filterId + '\'' + ", name='" + name + '\'' + ", entities=" + entities
-				+ ", selectionParameters=" + selectionParameters + ", objectType='" + objectType + '\'' + ", owner='" + owner + '\'' + '}';
+		return "UserFilterResource{" + "filterId='" + filterId + '\'' + ", name='" + name + '\'' + ", conditions=" + conditions
+				+ ", orders=" + orders + ", objectType='" + objectType + '\'' + ", owner='" + owner + '\'' + "} " + super.toString();
 	}
 }
