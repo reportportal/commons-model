@@ -21,10 +21,11 @@
 
 package com.epam.ta.reportportal.ws.model.settings;
 
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -42,8 +43,7 @@ public class SamlDetailsResource implements Serializable {
     /**
      * Provider name associated with IDP
      */
-    @NotEmpty
-    @NotNull
+    @NotBlank
     private String identityProviderName;
     /**
      * Alias associated with IDP
@@ -52,8 +52,7 @@ public class SamlDetailsResource implements Serializable {
     /**
      * IDP metadata URL
      */
-    @NotNull
-    @NotEmpty
+    @NotBlank
     private String identityProviderMetadataUrl;
     /**
      * Attribute Name Format Id associated with IDP for user identification
