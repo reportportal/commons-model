@@ -1,59 +1,67 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
- 
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
 package com.epam.ta.reportportal.ws.model.widget;
 
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
- * Domain model object for creating widget
- * 
+ * Domain model object for creating and updating widget
+ *
  * @author Aliaksei_Makayed
- * 
  */
 
 @JsonInclude(Include.NON_NULL)
 public class WidgetRQ extends SharableEntityRQ {
 
-	@JsonProperty(value = "name")
-	@NotEmpty
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH,
-	max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
+	@NotBlank
+	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
 	private String name;
 
+	@NotNull
+	@JsonProperty(value = "widgetType", required = true)
+	@In(allowedValues = { "oldLineChart", "investigatedTrend", "launchStatistics", "statisticTrend", "casesTrend", "notPassed",
+			"overallStatistics", "uniqueBugTable", "bugTrend", "activityStream", "launchesComparisonChart", "launchesDurationChart",
+			"launchesTable", "topTestCases", "flakyTestCases", "passingRateSummary", "passingRatePerLaunch", "productStatus",
+			"mostTimeConsuming", "cumulative" })
+	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
+			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
+			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
+			+ " productStatus, mostTimeConsuming, cumulative")
+	private String widgetType;
+
 	@Valid
-	@JsonProperty(value = "content_parameters")
+	@JsonProperty(value = "contentParameters")
 	private ContentParameters contentParameters;
 
-	// applying filter id
-	@JsonProperty(value = "filter_id")
-	private String filterId;
+	@JsonProperty(value = "filterIds")
+	private List<Long> filterIds;
 
 	public String getName() {
 		return name;
@@ -61,6 +69,15 @@ public class WidgetRQ extends SharableEntityRQ {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@NotNull
+	public String getWidgetType() {
+		return widgetType;
+	}
+
+	public void setWidgetType(@NotNull String widgetType) {
+		this.widgetType = widgetType;
 	}
 
 	public ContentParameters getContentParameters() {
@@ -71,21 +88,17 @@ public class WidgetRQ extends SharableEntityRQ {
 		this.contentParameters = contentParameters;
 	}
 
-	public String getFilterId() {
-		return filterId;
+	public List<Long> getFilterIds() {
+		return filterIds;
 	}
 
-	public void setFilterId(String filterId) {
-		this.filterId = filterId;
+	public void setFilterIds(List<Long> filterIds) {
+		this.filterIds = filterIds;
 	}
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("WidgetRQ{");
-		sb.append("name='").append(name).append('\'');
-		sb.append(", contentParameters=").append(contentParameters);
-		sb.append(", filterId='").append(filterId).append('\'');
-		sb.append('}');
-		return sb.toString();
+		return "WidgetRQ{" + "name='" + name + '\'' + ", widgetType='" + widgetType + '\'' + ", contentParameters=" + contentParameters
+				+ ", filterIds=" + filterIds + '}';
 	}
 }

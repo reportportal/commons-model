@@ -1,34 +1,27 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.epam.ta.reportportal.ws.model;
 
 /**
  * Report Portal's exception list
- * 
+ *
  * @author Andrei Varabyeu
- * 
  */
 public enum ErrorType {
-
 
 	/**
 	 * Access Denied
@@ -103,7 +96,9 @@ public enum ErrorType {
 	/**
 	 * If specified by id UserFilter not found
 	 */
-	USER_FILTER_NOT_FOUND(40410, "User filter '{}' not found for user '{}'. Did you use correct User Filter ID?"),
+	USER_FILTER_NOT_FOUND(40410,
+			"User filter with ID '{}' is not found on project '{}' for user '{}'. Did you use correct User Filter ID?"
+	),
 
 	/**
 	 * If specified by id Activity not found
@@ -116,14 +111,14 @@ public enum ErrorType {
 	UNABLE_TO_CREATE_WIDGET(40412, "Unable to create or update widget. {}"),
 
 	/**
-	 * If specified by id ExternalSystem not found
+	 * Integration not found
 	 */
-	EXTERNAL_SYSTEM_NOT_FOUND(40413, "ExternalSystem with ID '{}' not found. Did you use correct ExternalSystem ID?"),
+	INTEGRATION_NOT_FOUND(40413, "Integration with ID '{}' not found. Did you use correct ID?"),
 
 	/**
-	 * If project not configured with ExternalSystems
+	 * If project not configured
 	 */
-	PROJECT_NOT_CONFIGURED(40414, "Project '{}' not configured with ExternalSystems."),
+	PROJECT_NOT_CONFIGURED(40414, "Project '{}' not configured."),
 
 	/**
 	 * If server settings for specified profile not found
@@ -141,7 +136,7 @@ public enum ErrorType {
 	PROJECT_SETTINGS_NOT_FOUND(40417, "Project Settings for project '{}' not found."),
 
 	/**
-	 * If specified by id ExternalSystem not found
+	 * Ticket not found
 	 */
 	TICKET_NOT_FOUND(40418, "Ticket with ID '{}' not found. Did you use correct Ticket ID?"),
 
@@ -149,6 +144,30 @@ public enum ErrorType {
 	 * If specified Authentication extension isn't found
 	 */
 	AUTH_INTEGRATION_NOT_FOUND(40419, "Auth integration '{}' not found. Did you use correct name?"),
+
+	/**
+	 * If specified by id Widget not found
+	 */
+	WIDGET_NOT_FOUND_IN_PROJECT(40420, "Widget with ID '{}' not found on project '{}'. Did you use correct Widget ID?"),
+
+	/**
+	 * If specified by id UserFilter not found
+	 */
+	USER_FILTER_NOT_FOUND_IN_PROJECT(40421, "User filter with ID '{}' not found on project '{}'. Did you use correct User Filter ID?"),
+
+	/**
+	 * If specified by id Dashboard not found
+	 */
+	DASHBOARD_NOT_FOUND_IN_PROJECT(40422, "Dashboard with ID '{}' not found on project '{}'. Did you use correct Dashboard ID?"),
+
+	/**
+	 * If pattern template with provided id is not found
+	 */
+	PATTERN_TEMPLATE_NOT_FOUND_IN_PROJECT(40423,
+			"Pattern template with ID '{}' not found on project '{}'. Did you use correct Pattern template ID?"
+	),
+
+	TEST_ITEM_OR_LAUNCH_NOT_FOUND(40424, "Test Item or Launch '{}' not found. Did you use correct ID?"),
 
 	/**
 	 * If provided filtering parameters are incorrect
@@ -161,9 +180,9 @@ public enum ErrorType {
 	INCORRECT_SORTING_PARAMETERS(40012, "Sorting parameter {} is not defined"),
 
 	/**
-	 * If it's impossible to use specified external system
+	 * If it's impossible to use specified integration
 	 */
-	INCORRECT_EXTERNAL_SYSTEM_NAME(40013, "Incorrect external system name. {}"),
+	INCORRECT_INTEGRATION_NAME(40013, "Incorrect integration name. {}"),
 
 	/**
 	 * Unable modify sharable resource
@@ -176,18 +195,17 @@ public enum ErrorType {
 	INCORRECT_AUTHENTICATION_TYPE(40015, "Incorrect authentication type: {}"),
 
 	/**
-	 * Impossible post ticket to external system
+	 * Impossible post ticket to BTS
 	 */
-	UNABLE_POST_TICKET(40301, "Impossible post ticket to external system. {}"),
+	UNABLE_POST_TICKET(40301, "Impossible post ticket. {}"),
 
 	/**
-	 * Impossible interact with external system
+	 * Impossible to interact with integration
 	 */
-	UNABLE_INTERACT_WITH_EXTRERNAL_SYSTEM(40302, "Impossible interact with external system. {}"),
+	UNABLE_INTERACT_WITH_INTEGRATION(40302, "Impossible interact with integration. {}"),
 
 	/**
 	 * "Unable assign/unassign user to/from project
-	 * 
 	 */
 	UNABLE_ASSIGN_UNASSIGN_USER_TO_PROJECT(40304, "Unable assign/unassign user to/from project. {}"),
 
@@ -230,7 +248,8 @@ public enum ErrorType {
 	 * If User filter with specified name already exists and should be unique
 	 */
 	USER_FILTER_ALREADY_EXISTS(4098,
-			"User filter with name '{}' already exists for user '{}' under the project '{}'. You couldn't create the duplicate."),
+			"User filter with name '{}' already exists for user '{}' under the project '{}'. You couldn't create the duplicate."
+	),
 
 	/**
 	 * If Project with specified settings already exists and should be unique
@@ -254,9 +273,9 @@ public enum ErrorType {
 	UNABLE_ADD_TO_FAVORITE(4099, "Unable add resource to favorites. {}"),
 
 	/**
-	 * Unable create duplicate of external system
+	 * Unable create duplicate of integration
 	 */
-	EXTERNAL_SYSTEM_ALREADY_EXISTS(40910, "External System '{}' already exists. You couldn't create the duplicate."),
+	INTEGRATION_ALREADY_EXISTS(40910, "Integration '{}' already exists. You couldn't create the duplicate."),
 
 	/**
 	 * Unable create the duplication of server settings with one profile name
@@ -331,7 +350,8 @@ public enum ErrorType {
 	 * Finish Time Earlier than start time
 	 */
 	CHILD_START_TIME_EARLIER_THAN_PARENT(40025,
-			"Start time of child ['{}'] item should be same or later than start time ['{}'] of the parent item/launch '{}'"),
+			"Start time of child ['{}'] item should be same or later than start time ['{}'] of the parent item/launch '{}'"
+	),
 
 	/**
 	 * Unsupported test item type
@@ -344,19 +364,16 @@ public enum ErrorType {
 	LOGGING_IS_NOT_ALLOWED(40027, "Logging is not allowed. {}"),
 
 	/**
-	 * 
 	 * Incorrect create widget request
 	 */
 	BAD_SAVE_WIDGET_REQUEST(40028, "Incorrect create widget request. {}"),
 
 	/**
-	 * 
 	 * Incorrect update widget request
 	 */
 	BAD_UPDATE_WIDGET_REQUEST(40029, "Incorrect update widget request. {}"),
 
 	/**
-	 * 
 	 * Unable to load history test item's history.
 	 */
 	UNABLE_LOAD_TEST_ITEM_HISTORY(40030, "Unable to load test item history. {}"),
@@ -380,6 +397,26 @@ public enum ErrorType {
 	 * Error during the xml file parsing
 	 */
 	PARSING_XML_ERROR(40037, "Error during parsing the xml file: '{}'"),
+
+	/**
+	 * Error during the object retrieving
+	 */
+	OBJECT_RETRIEVAL_ERROR(40038, "Error during object retrieving: '{}'"),
+
+	/**
+	 * Error during the plugin uploading
+	 */
+	PLUGIN_UPLOAD_ERROR(40039, "Error during plugin uploading: '{}'"),
+
+	/**
+	 * Error during the plugin removing
+	 */
+	PLUGIN_REMOVE_ERROR(40040, "Error during plugin removing: '{}'"),
+
+	/**
+	 * Unable to save child item for a retry
+	 */
+	UNABLE_TO_SAVE_CHILD_ITEM_FOR_THE_RETRY(40041, "Item with id = '{}' is a retry and can not have children"),
 
 	/**
 	 * Bad save user filter request
@@ -432,7 +469,7 @@ public enum ErrorType {
 
 	/**
 	 * Get instance by code
-	 * 
+	 *
 	 * @param code Error Code
 	 * @return ErrorType
 	 */

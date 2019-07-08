@@ -1,97 +1,87 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 
 package com.epam.ta.reportportal.ws.model.launch;
 
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
+import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Set;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
+
 @JsonInclude(Include.NON_NULL)
 public class MergeLaunchesRQ {
 
-	@NotNull
-	@JsonProperty(value = "launches", required = true)
-	@ApiModelProperty(required = true)
-	private Set<String> launches;
-
+	@NotBlank
 	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
-	@JsonProperty(value = "name")
-	@ApiModelProperty
+	@JsonProperty(value = "name", required = true)
+	@ApiModelProperty(required = true)
 	private String name;
+
+	@JsonProperty(value = "description")
+	private String description;
+
+	@Size(max = MAX_PARAMETERS_LENGTH)
+	@Valid
+	@JsonProperty("attributes")
+	private Set<ItemAttributeResource> attributes;
+
+	@JsonProperty(value = "startTime")
+	@ApiModelProperty
+	private Date startTime;
 
 	@JsonProperty("mode")
 	private Mode mode;
 
-	@JsonProperty(value = "start_time")
-	@ApiModelProperty
-	private Date startTime;
+	@NotEmpty
+	@JsonProperty(value = "launches", required = true)
+	@ApiModelProperty(required = true)
+	private Set<Long> launches;
 
-	@JsonProperty(value = "end_time")
+	@JsonProperty(value = "endTime")
 	@ApiModelProperty
 	private Date endTime;
 
 	@NotNull
-	@JsonProperty("merge_type")
+	@JsonProperty("mergeType")
 	@ApiModelProperty(allowableValues = "BASIC, DEEP")
 	private String mergeStrategyType;
 
 	@JsonProperty(value = "extendSuitesDescription", required = true)
 	private boolean extendSuitesDescription;
 
-	@JsonProperty(value = "description")
-	private String description;
-
-	@JsonProperty("tags")
-	private Set<String> tags;
-
-	public Mode getMode() {
-		return mode;
-	}
-
-	public void setMode(Mode mode) {
-		this.mode = mode;
-	}
-
+	@NotNull
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(@NotNull String name) {
 		this.name = name;
-	}
-
-	public Date getStartTime() {
-		return startTime;
-	}
-
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
 	}
 
 	public String getDescription() {
@@ -102,28 +92,37 @@ public class MergeLaunchesRQ {
 		this.description = description;
 	}
 
-	public Set<String> getTags() {
-		return tags;
+	public Set<ItemAttributeResource> getAttributes() {
+		return attributes;
 	}
 
-	public void setTags(Set<String> tags) {
-		this.tags = tags;
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
+		this.attributes = attributes;
 	}
 
-	public boolean isExtendSuitesDescription() {
-		return extendSuitesDescription;
+	public Date getStartTime() {
+		return startTime;
 	}
 
-	public void setExtendSuitesDescription(boolean extendSuitesDescription) {
-		this.extendSuitesDescription = extendSuitesDescription;
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
 	}
 
-	public void setLaunches(Set<String> values) {
-		this.launches = values;
+	public Mode getMode() {
+		return mode;
 	}
 
-	public Set<String> getLaunches() {
+	public void setMode(Mode mode) {
+		this.mode = mode;
+	}
+
+	@NotNull
+	public Set<Long> getLaunches() {
 		return launches;
+	}
+
+	public void setLaunches(@NotNull Set<Long> launches) {
+		this.launches = launches;
 	}
 
 	public Date getEndTime() {
@@ -134,19 +133,21 @@ public class MergeLaunchesRQ {
 		this.endTime = endTime;
 	}
 
+	@NotNull
 	public String getMergeStrategyType() {
 		return mergeStrategyType;
 	}
 
-	public void setMergeStrategyType(String mergeStrategyType) {
+	public void setMergeStrategyType(@NotNull String mergeStrategyType) {
 		this.mergeStrategyType = mergeStrategyType;
 	}
 
-	@Override
-	public String toString() {
-		return "MergeLaunchesRQ{" + "launches=" + launches + ", name='" + name + '\'' + ", mode=" + mode + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", mergeStrategyType='" + mergeStrategyType + '\'' + ", extendSuitesDescription="
-				+ extendSuitesDescription + ", description='" + description + '\'' + ", tags=" + tags + '}';
+	public boolean isExtendSuitesDescription() {
+		return extendSuitesDescription;
+	}
+
+	public void setExtendSuitesDescription(boolean extendSuitesDescription) {
+		this.extendSuitesDescription = extendSuitesDescription;
 	}
 
 	@Override
@@ -163,41 +164,48 @@ public class MergeLaunchesRQ {
 		if (extendSuitesDescription != that.extendSuitesDescription) {
 			return false;
 		}
-		if (launches != null ? !launches.equals(that.launches) : that.launches != null) {
-			return false;
-		}
-		if (name != null ? !name.equals(that.name) : that.name != null) {
-			return false;
-		}
-		if (mode != that.mode) {
-			return false;
-		}
-		if (startTime != null ? !startTime.equals(that.startTime) : that.startTime != null) {
-			return false;
-		}
-		if (endTime != null ? !endTime.equals(that.endTime) : that.endTime != null) {
-			return false;
-		}
-		if (mergeStrategyType != null ? !mergeStrategyType.equals(that.mergeStrategyType) : that.mergeStrategyType != null) {
+		if (!name.equals(that.name)) {
 			return false;
 		}
 		if (description != null ? !description.equals(that.description) : that.description != null) {
 			return false;
 		}
-		return tags != null ? tags.equals(that.tags) : that.tags == null;
+		if (attributes != null ? !attributes.equals(that.attributes) : that.attributes != null) {
+			return false;
+		}
+		if (startTime != null ? !startTime.equals(that.startTime) : that.startTime != null) {
+			return false;
+		}
+		if (mode != that.mode) {
+			return false;
+		}
+		if (!launches.equals(that.launches)) {
+			return false;
+		}
+		if (endTime != null ? !endTime.equals(that.endTime) : that.endTime != null) {
+			return false;
+		}
+		return mergeStrategyType.equals(that.mergeStrategyType);
 	}
 
 	@Override
 	public int hashCode() {
-		int result = launches != null ? launches.hashCode() : 0;
-		result = 31 * result + (name != null ? name.hashCode() : 0);
-		result = 31 * result + (mode != null ? mode.hashCode() : 0);
-		result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
-		result = 31 * result + (endTime != null ? endTime.hashCode() : 0);
-		result = 31 * result + (mergeStrategyType != null ? mergeStrategyType.hashCode() : 0);
-		result = 31 * result + (extendSuitesDescription ? 1 : 0);
+		int result = name.hashCode();
 		result = 31 * result + (description != null ? description.hashCode() : 0);
-		result = 31 * result + (tags != null ? tags.hashCode() : 0);
+		result = 31 * result + (attributes != null ? attributes.hashCode() : 0);
+		result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
+		result = 31 * result + (mode != null ? mode.hashCode() : 0);
+		result = 31 * result + launches.hashCode();
+		result = 31 * result + (endTime != null ? endTime.hashCode() : 0);
+		result = 31 * result + mergeStrategyType.hashCode();
+		result = 31 * result + (extendSuitesDescription ? 1 : 0);
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "MergeLaunchesRQ{" + "name='" + name + '\'' + ", description='" + description + '\'' + ", attributes=" + attributes
+				+ ", startTime=" + startTime + ", mode=" + mode + ", launches=" + launches + ", endTime=" + endTime
+				+ ", mergeStrategyType='" + mergeStrategyType + '\'' + ", extendSuitesDescription=" + extendSuitesDescription + '}';
 	}
 }

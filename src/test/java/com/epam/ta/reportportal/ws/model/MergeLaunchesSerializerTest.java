@@ -1,26 +1,23 @@
 /*
- * Copyright 2016 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.epam.ta.reportportal.ws.model.launch.MergeLaunchesRQ;
 import com.epam.ta.reportportal.ws.model.launch.Mode;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -37,8 +34,9 @@ import java.util.Date;
  */
 public class MergeLaunchesSerializerTest {
 
-	private static final String EXPECTED_JSON = "{\"launches\":[\"launch\"],\"name\":\"name\",\"mode\":\"DEFAULT\",\"start_time\":0,"
-			+ "\"end_time\":1,\"merge_type\":\"BASIC\",\"extendSuitesDescription\":true,\"description\":\"description\",\"tags\":[\"tag\"]}";
+	private static final String EXPECTED_JSON = "{\"name\":\"name\","
+			+ "\"description\":\"description\",\"attributes\":[{\"key\":\"key\",\"value\":\"value\"}],\"startTime\":0,\"mode\":\"DEFAULT\","
+			+ "\"launches\":[1],\"endTime\":1,\"mergeType\":\"BASIC\",\"extendSuitesDescription\":true}";
 
 	private ObjectMapper om = new ObjectMapper();
 
@@ -61,10 +59,11 @@ public class MergeLaunchesSerializerTest {
 		rq.setDescription("description");
 		rq.setMode(Mode.DEFAULT);
 		rq.setStartTime(new Date(0));
-		rq.setTags(Collections.singleton("tag"));
+		ItemAttributeResource itemAttributeResource = new ItemAttributeResource("key", "value");
+		rq.setAttributes(Collections.singleton(itemAttributeResource));
 		rq.setEndTime(new Date(1));
 		rq.setExtendSuitesDescription(true);
-		rq.setLaunches(Collections.singleton("launch"));
+		rq.setLaunches(Collections.singleton(1L));
 		rq.setMergeStrategyType("BASIC");
 		return rq;
 	}

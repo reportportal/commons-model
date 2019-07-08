@@ -21,11 +21,11 @@
  
 package com.epam.ta.reportportal.ws.model.role;
 
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * 
@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SaveRoleRQ {
 
 	@NotNull
-	@JsonProperty(value = "role_name", required = true)
+	@JsonProperty(value = "roleName", required = true)
 	private String roleName;
 
 	@NotNull

@@ -1,80 +1,109 @@
 /*
- * Copyright 2017 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
  */
 package com.epam.ta.reportportal.ws.model.widget;
 
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * Model object for getting widget preview content
  *
  * @author Pavel Bortnik
- *
  */
 
 @JsonInclude(Include.NON_NULL)
 public class WidgetPreviewRQ {
 
-    @Valid
-    @JsonProperty(value = "content_parameters")
-    private ContentParameters contentParameters;
+	@NotNull
+	@JsonProperty(value = "widgetType", required = true)
+	@In(allowedValues = { "oldLineChart", "investigatedTrend", "launchStatistics", "statisticTrend", "casesTrend", "notPassed",
+			"overallStatistics", "uniqueBugTable", "bugTrend", "activityStream", "launchesComparisonChart", "launchesDurationChart",
+			"launchesTable", "topTestCases", "flakyTestCases", "passingRateSummary", "passingRatePerLaunch", "productStatus",
+			"mostTimeConsuming", "cumulative" })
+	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
+			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
+			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
+			+ " productStatus, mostTimeConsuming, cumulative")
+	private String widgetType;
 
-    @JsonProperty(value = "filter_id")
-    private String filterId;
+	@Valid
+	@JsonProperty(value = "contentParameters")
+	private ContentParameters contentParameters;
 
-    public ContentParameters getContentParameters() {
-        return contentParameters;
-    }
+	@JsonProperty(value = "filterIds")
+	private List<Long> filterIds;
 
-    public void setContentParameters(ContentParameters contentParameters) {
-        this.contentParameters = contentParameters;
-    }
+	@NotNull
+	public String getWidgetType() {
+		return widgetType;
+	}
 
-    public String getFilterId() {
-        return filterId;
-    }
+	public void setWidgetType(@NotNull String widgetType) {
+		this.widgetType = widgetType;
+	}
 
-    public void setFilterId(String filterId) {
-        this.filterId = filterId;
-    }
+	public ContentParameters getContentParameters() {
+		return contentParameters;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	public void setContentParameters(ContentParameters contentParameters) {
+		this.contentParameters = contentParameters;
+	}
 
-        WidgetPreviewRQ that = (WidgetPreviewRQ) o;
+	public List<Long> getFilterIds() {
+		return filterIds;
+	}
 
-        if (contentParameters != null ? !contentParameters.equals(that.contentParameters) : that.contentParameters != null)
-            return false;
-        return filterId != null ? filterId.equals(that.filterId) : that.filterId == null;
-    }
+	public void setFilterIds(List<Long> filterIds) {
+		this.filterIds = filterIds;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = contentParameters != null ? contentParameters.hashCode() : 0;
-        result = 31 * result + (filterId != null ? filterId.hashCode() : 0);
-        return result;
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		WidgetPreviewRQ that = (WidgetPreviewRQ) o;
+
+		if (!widgetType.equals(that.widgetType)) {
+			return false;
+		}
+		if (contentParameters != null ? !contentParameters.equals(that.contentParameters) : that.contentParameters != null) {
+			return false;
+		}
+		return filterIds != null ? filterIds.equals(that.filterIds) : that.filterIds == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = widgetType.hashCode();
+		result = 31 * result + (contentParameters != null ? contentParameters.hashCode() : 0);
+		result = 31 * result + (filterIds != null ? filterIds.hashCode() : 0);
+		return result;
+	}
 }

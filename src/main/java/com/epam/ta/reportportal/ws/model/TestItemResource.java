@@ -1,28 +1,25 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.epam.ta.reportportal.ws.model.issue.Issue;
-import com.epam.ta.reportportal.ws.model.statistics.Statistics;
+import com.epam.ta.reportportal.ws.model.statistics.StatisticsResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,19 +32,22 @@ import java.util.Set;
 /**
  * JSON Representation of Report Portal domain object
  *
- * @see <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS Description</a>
- *
  * @author Andrei Varabyeu
- *
  */
 @JsonInclude(Include.NON_NULL)
 public class TestItemResource {
 
 	@JsonProperty(value = "id")
-	private String itemId;
+	private Long itemId;
+
+	@JsonProperty(value = "uuid")
+	private String uuid;
 
 	@JsonProperty(value = "name")
 	private String name;
+
+	@JsonProperty(value = "location")
+	private String location;
 
 	@JsonProperty(value = "description")
 	private String description;
@@ -55,29 +55,29 @@ public class TestItemResource {
 	@JsonProperty(value = "parameters")
 	private List<ParameterResource> parameters;
 
-	@JsonProperty(value = "tags")
-	private Set<String> tags;
+	@JsonProperty(value = "attributes")
+	private Set<ItemAttributeResource> attributes;
 
 	@JsonProperty(value = "type")
 	private String type;
 
-	@JsonProperty(value = "start_time")
+	@JsonProperty(value = "startTime")
 	private Date startTime;
 
-	@JsonProperty(value = "end_time")
+	@JsonProperty(value = "endTime")
 	private Date endTime;
 
 	@JsonProperty(value = "status")
 	private String status;
 
 	@JsonProperty(value = "statistics")
-	private Statistics statistics;
+	private StatisticsResource statisticsResource;
 
 	@JsonProperty(value = "parent")
-	private String parent;
+	private Long parent;
 
-	@JsonProperty(value = "path_names")
-	private Map<String, String> pathNames;
+	@JsonProperty(value = "pathNames")
+	private Map<Long, String> pathNames;
 
 	@JsonProperty(value = "launchStatus")
 	private String launchStatus;
@@ -85,17 +85,26 @@ public class TestItemResource {
 	@JsonProperty(value = "issue")
 	private Issue issue;
 
-	@JsonProperty(value = "has_childs")
-	private boolean hasChilds;
+	@JsonProperty(value = "hasChildren")
+	private boolean hasChildren;
+
+	@JsonProperty(value = "hasStats")
+	private boolean hasStats;
 
 	@JsonProperty(value = "launchId")
-	private String launchId;
+	private Long launchId;
 
 	@JsonProperty(value = "uniqueId")
 	private String uniqueId;
 
+	@JsonProperty(value = "patternTemplates")
+	private Set<String> patternTemplates;
+
 	@JsonProperty(value = "retries")
 	private List<TestItemResource> retries;
+
+	@JsonProperty(value = "path")
+	private String path;
 
 	public List<TestItemResource> getRetries() {
 		return retries;
@@ -105,19 +114,27 @@ public class TestItemResource {
 		this.retries = retries;
 	}
 
-	public String getLaunchId() {
+	public Long getLaunchId() {
 		return launchId;
 	}
 
-	public void setLaunchId(String launchId) {
+	public void setLaunchId(Long launchId) {
 		this.launchId = launchId;
 	}
 
-	public String getItemId() {
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+	public Long getItemId() {
 		return itemId;
 	}
 
-	public void setItemId(String itemId) {
+	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
 
@@ -137,6 +154,14 @@ public class TestItemResource {
 		this.name = name;
 	}
 
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -153,12 +178,12 @@ public class TestItemResource {
 		this.parameters = parameters;
 	}
 
-	public Set<String> getTags() {
-		return tags;
+	public Set<ItemAttributeResource> getAttributes() {
+		return attributes;
 	}
 
-	public void setTags(Set<String> value) {
-		this.tags = value;
+	public void setAttributes(Set<ItemAttributeResource> attributes) {
+		this.attributes = attributes;
 	}
 
 	public String getType() {
@@ -193,19 +218,19 @@ public class TestItemResource {
 		this.status = status;
 	}
 
-	public String getParent() {
+	public Long getParent() {
 		return parent;
 	}
 
-	public void setParent(String parent) {
+	public void setParent(Long parent) {
 		this.parent = parent;
 	}
 
-	public Map<String, String> getPathNames() {
+	public Map<Long, String> getPathNames() {
 		return pathNames;
 	}
 
-	public void setPathNames(Map<String, String> value) {
+	public void setPathNames(Map<Long, String> value) {
 		this.pathNames = value;
 	}
 
@@ -217,20 +242,28 @@ public class TestItemResource {
 		return launchStatus;
 	}
 
-	public Statistics getStatistics() {
-		return statistics;
+	public StatisticsResource getStatisticsResource() {
+		return statisticsResource;
 	}
 
-	public void setStatistics(Statistics statistics) {
-		this.statistics = statistics;
+	public void setStatisticsResource(StatisticsResource statisticsResource) {
+		this.statisticsResource = statisticsResource;
 	}
 
-	public void setHasChilds(boolean hasChilds) {
-		this.hasChilds = hasChilds;
+	public boolean isHasChildren() {
+		return hasChildren;
 	}
 
-	public boolean isHasChilds() {
-		return hasChilds;
+	public void setHasChildren(boolean hasChildren) {
+		this.hasChildren = hasChildren;
+	}
+
+	public boolean isHasStats() {
+		return hasStats;
+	}
+
+	public void setHasStats(boolean hasStats) {
+		this.hasStats = hasStats;
 	}
 
 	public String getUniqueId() {
@@ -241,26 +274,49 @@ public class TestItemResource {
 		this.uniqueId = uniqueId;
 	}
 
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public Set<String> getPatternTemplates() {
+		return patternTemplates;
+	}
+
+	public void setPatternTemplates(Set<String> patternTemplates) {
+		this.patternTemplates = patternTemplates;
+	}
+
 	@Override
 	public String toString() {
-		return "TestItemResource{" +
-				"itemId='" + itemId + '\'' +
-				", name='" + name + '\'' +
-				", description='" + description + '\'' +
-				", parameters='" + parameters + '\'' +
-				", tags=" + tags +
-				", type='" + type + '\'' +
-				", startTime=" + startTime +
-				", endTime=" + endTime +
-				", status='" + status + '\'' +
-				", statistics=" + statistics +
-				", parent='" + parent + '\'' +
-				", pathNames=" + pathNames +
-				", launchStatus='" + launchStatus + '\'' +
-				", issue=" + issue +
-				", hasChilds=" + hasChilds +
-				", launchId='" + launchId + '\'' +
-				", uniqueId='" + uniqueId + '\'' +
-				'}';
+		final StringBuilder sb = new StringBuilder("TestItemResource{");
+		sb.append("itemId=").append(itemId);
+		sb.append(", uuid='").append(uuid).append('\'');
+		sb.append(", name='").append(name).append('\'');
+		sb.append(", location='").append(location).append('\'');
+		sb.append(", description='").append(description).append('\'');
+		sb.append(", parameters=").append(parameters);
+		sb.append(", attributes=").append(attributes);
+		sb.append(", type='").append(type).append('\'');
+		sb.append(", startTime=").append(startTime);
+		sb.append(", endTime=").append(endTime);
+		sb.append(", status='").append(status).append('\'');
+		sb.append(", statisticsResource=").append(statisticsResource);
+		sb.append(", parent=").append(parent);
+		sb.append(", pathNames=").append(pathNames);
+		sb.append(", launchStatus='").append(launchStatus).append('\'');
+		sb.append(", issue=").append(issue);
+		sb.append(", hasChildren=").append(hasChildren);
+		sb.append(", hasStats=").append(hasStats);
+		sb.append(", launchId=").append(launchId);
+		sb.append(", uniqueId='").append(uniqueId).append('\'');
+		sb.append(", patternTemplates=").append(patternTemplates);
+		sb.append(", retries=").append(retries);
+		sb.append(", path='").append(path).append('\'');
+		sb.append('}');
+		return sb.toString();
 	}
 }

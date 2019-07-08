@@ -10,11 +10,11 @@ import javax.validation.constraints.NotNull;
 public class Order {
 
 	@NotNull
-	@JsonProperty(value = "sorting_column", required = true)
+	@JsonProperty(value = "sortingColumn", required = true)
 	private String sortingColumnName;
 
 	@NotNull
-	@JsonProperty(value = "is_asc", required = true)
+	@JsonProperty(value = "isAsc", required = true)
 	private boolean isAsc;
 
 	public String getSortingColumnName() {

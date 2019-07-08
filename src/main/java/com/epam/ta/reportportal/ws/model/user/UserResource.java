@@ -1,30 +1,21 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ * Copyright 2018 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 package com.epam.ta.reportportal.ws.model.user;
-
-import java.util.Date;
-import java.util.Map;
-
-import javax.validation.constraints.NotNull;
 
 import com.epam.ta.reportportal.ws.model.ModelViews;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -32,13 +23,20 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 
+import javax.validation.constraints.NotNull;
+import java.util.Map;
+
 /**
  * User resource representation for responses
- * 
+ *
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
 public class UserResource {
+
+	@NotNull
+	@JsonProperty(value = "id", required = true)
+	private Long id;
 
 	@NotNull
 	@JsonProperty(value = "userId", required = true)
@@ -50,27 +48,35 @@ public class UserResource {
 	@JsonProperty(value = "photoId")
 	private String photoId;
 
-	@JsonProperty(value = "full_name")
+	@JsonProperty(value = "fullName")
 	private String fullName;
 
-	@JsonProperty(value = "account_type")
+	@JsonProperty(value = "accountType")
 	private String accountType;
 
 	@JsonProperty(value = "userRole")
 	private String userRole;
 
-	@JsonProperty(value = "last_login")
-	private Date lastLogin;
-
-	@JsonProperty(value = "photo_loaded")
+	@JsonProperty(value = "photoLoaded")
 	private boolean isLoaded;
 
-	@JsonProperty(value = "default_project", required = true)
+	@JsonProperty(value = "metadata")
+	private Object metadata;
+
+	@JsonProperty(value = "defaultProject", required = true)
 	@JsonView(ModelViews.FullUserView.class)
 	private String defaultProject;
 
-	@JsonProperty(value = "assigned_projects")
+	@JsonProperty(value = "assignedProjects")
 	private Map<String, AssignedProject> assignedProjects;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public void setUserId(String value) {
 		this.userId = value;
@@ -120,20 +126,20 @@ public class UserResource {
 		this.userRole = value;
 	}
 
-	public void setLastlogin(Date value) {
-		this.lastLogin = value;
-	}
-
-	public Date getLastLogin() {
-		return lastLogin;
-	}
-
 	public void setDefaultProject(String value) {
 		this.defaultProject = value;
 	}
 
 	public String getDefaultProject() {
 		return defaultProject;
+	}
+
+	public Object getMetadata() {
+		return metadata;
+	}
+
+	public void setMetadata(Object metadata) {
+		this.metadata = metadata;
 	}
 
 	public void setIsLoaded(boolean value) {
@@ -155,7 +161,6 @@ public class UserResource {
 	public static class AssignedProject {
 
 		private String projectRole;
-		private String proposedRole;
 		private String entryType;
 
 		public String getEntryType() {
@@ -170,23 +175,14 @@ public class UserResource {
 			this.projectRole = projectRole;
 		}
 
-		public void setProposedRole(String proposedRole) {
-			this.proposedRole = proposedRole;
-		}
-
 		public String getProjectRole() {
 			return projectRole;
-		}
-
-		public String getProposedRole() {
-			return proposedRole;
 		}
 
 		@Override
 		public String toString() {
 			final StringBuilder sb = new StringBuilder("AssignedProject{");
 			sb.append("projectRole='").append(projectRole).append('\'');
-			sb.append(", proposedRole='").append(proposedRole).append('\'');
 			sb.append('}');
 			return sb.toString();
 		}
@@ -194,17 +190,9 @@ public class UserResource {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("UserResource{");
-		sb.append("userId='").append(userId).append('\'');
-		sb.append(", email='").append(email).append('\'');
-		sb.append(", photoId='").append(photoId).append('\'');
-		sb.append(", fullName='").append(fullName).append('\'');
-		sb.append(", accountType='").append(accountType).append('\'');
-		sb.append(", userRole='").append(userRole).append('\'');
-		sb.append(", lastLogin=").append(lastLogin);
-		sb.append(", defaultProject='").append(defaultProject).append('\'');
-		sb.append(", assignedProjects=").append(assignedProjects);
-		sb.append('}');
-		return sb.toString();
+		return "UserResource{" + "id=" + id + ", userId='" + userId + '\'' + ", email='" + email + '\'' + ", photoId='" + photoId + '\''
+				+ ", fullName='" + fullName + '\'' + ", accountType='" + accountType + '\'' + ", userRole='" + userRole + '\''
+				+ ", isLoaded=" + isLoaded + ", metadata=" + metadata + ", defaultProject='" + defaultProject + '\'' + ", assignedProjects="
+				+ assignedProjects + '}';
 	}
 }

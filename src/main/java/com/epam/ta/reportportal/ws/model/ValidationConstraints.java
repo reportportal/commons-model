@@ -1,22 +1,17 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.epam.ta.reportportal.ws.model;
@@ -34,7 +29,7 @@ public class ValidationConstraints {
 	}
 
 	/* 1 always exists as predefined type */
-	public static final int MAX_ISSUE_SUBTYPES = 11;
+	public static final int MAX_ISSUE_SUBTYPES = 15;
 
 	public static final int MIN_COLLECTION_SIZE = 1;
 	public static final int MAX_NUMBER_OF_FILTER_ENTITIES = 20;
@@ -43,6 +38,10 @@ public class ValidationConstraints {
 	public static final int MIN_FILTER_LIMIT = 1;
 	public static final int MAX_FILTER_LIMIT = 150;
 	public static final int MIN_LAUNCH_NAME_LENGTH = 1;
+	public static final int MIN_TEST_ITEM_NAME_LENGTH = 1;
+	public static final int MAX_TEST_ITEM_NAME_LENGTH = 1024;
+	public static final int MAX_TEST_ITEM_LOCATION_LENGTH = 256;
+	public static final int MIN_ITEM_ATTRIBUTE_VALUE_LENGTH = 1;
 	public static final int MIN_NAME_LENGTH = 3;
 	public static final int MAX_NAME_LENGTH = 256;
 	public static final int MIN_DESCRIPTION_LENGTH = 0;
@@ -53,6 +52,7 @@ public class ValidationConstraints {
 	public static final int MAX_WIDGET_NAME_LENGTH = 128;
 	public static final int MAX_DASHBOARD_NAME_LENGTH = 128;
 	public static final int MAX_USER_FILTER_NAME_LENGTH = 128;
+	public static final int MAX_ATTRIBUTE_LENGTH = 128;
 
 	public static final int MIN_PAGE_NUMBER = 1;
 	public static final int MAX_PAGE_NUMBER = 1024;
@@ -64,7 +64,7 @@ public class ValidationConstraints {
 	public static final int MAX_LOGIN_LENGTH = 128;
 
 	public static final int MIN_PASSWORD_LENGTH = 4;
-	public static final int MAX_PASSWORD_LENGTH = 25;
+	public static final int MAX_PASSWORD_LENGTH = 256;
 
 	public static final int TICKET_MIN_LOG_SIZE = 0;
 	public static final int TICKET_MAX_LOG_SIZE = 50;
@@ -87,8 +87,11 @@ public class ValidationConstraints {
 	public static final int MIN_SUBTYPE_LONG_NAME = 3;
 	public static final int MAX_SUBTYPE_LONG_NAME = 55;
 
-	public static final int MAX_FILTER_DESCRIPTION = 256;
-	public static final int MIN_FILTER_DESCRIPTION = 1;
+	public static final int MIN_ANALYSIS_PATTERN_NAME_LENGTH = 1;
+	public static final int MAX_ANALYSIS_PATTERN_NAME_LENGTH = 55;
+
+	public static final int MAX_DESCRIPTION = 256;
+	public static final int MIN_DESCRIPTION = 1;
 
 	public static final int MIN_DOC_FREQ = 1;
 	public static final int MAX_DOC_FREQ = 10;
@@ -98,5 +101,8 @@ public class ValidationConstraints {
 	public static final int MAX_SHOULD_MATCH = 100;
 	public static final int MIN_NUMBER_OF_LOG_LINES = -1;
 	public static final int MAX_NUMBER_OF_LOG_LINES = 5;
+
+	public static final String HEX_COLOR_REGEXP = "#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
+	public static final String PROJECT_NAME_REGEXP = "[a-zA-Z0-9-_]+";
 
 }

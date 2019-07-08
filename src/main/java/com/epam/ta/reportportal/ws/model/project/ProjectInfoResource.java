@@ -1,36 +1,30 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 package com.epam.ta.reportportal.ws.model.project;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.validation.constraints.NotNull;
-
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
 import com.epam.ta.reportportal.ws.model.ModelViews;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Project info resource representation for responses<br>
@@ -38,17 +32,19 @@ import com.fasterxml.jackson.annotation.JsonView;
  * default fields output<br>
  * {@link com.epam.ta.reportportal.ws.model.ModelViews.FullProjectInfoView} used
  * as extended fields output<br>
- * 
+ *
  * @author Dzmitry_Kavalets
  * @author Andrei_Ramanchuk
  */
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProjectInfoResource {
 
 	@NotNull
-	@NotEmpty
-	@JsonProperty(value = "projectId")
-	private String projectId;
+	@JsonProperty(value = "id")
+	private Long projectId;
+
+	@NotBlank
+	@JsonProperty(value = "projectName")
+	private String projectName;
 
 	@NotNull
 	@JsonProperty(value = "usersQuantity")
@@ -56,7 +52,7 @@ public class ProjectInfoResource {
 
 	@NotNull
 	@JsonProperty(value = "launchesQuantity")
-	private Long launchesQuantity;
+	private Integer launchesQuantity;
 
 	@JsonProperty(value = "launchesPerUser")
 	@JsonView(ModelViews.FullProjectInfoView.class)
@@ -78,17 +74,29 @@ public class ProjectInfoResource {
 	@JsonProperty(value = "creationDate")
 	private Date creationDate;
 
+	@JsonProperty(value = "entryType")
 	private String entryType;
+
+	@JsonProperty(value = "organization")
+	private String organization;
 
 	public ProjectInfoResource() {
 	}
 
-	public String getProjectId() {
+	public Long getProjectId() {
 		return projectId;
 	}
 
-	public void setProjectId(String projectId) {
+	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
+	}
+
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 
 	public Integer getUsersQuantity() {
@@ -99,11 +107,11 @@ public class ProjectInfoResource {
 		this.usersQuantity = usersQuantity;
 	}
 
-	public Long getLaunchesQuantity() {
+	public Integer getLaunchesQuantity() {
 		return launchesQuantity;
 	}
 
-	public void setLaunchesQuantity(Long launchesQuantity) {
+	public void setLaunchesQuantity(Integer launchesQuantity) {
 		this.launchesQuantity = launchesQuantity;
 	}
 
@@ -153,5 +161,13 @@ public class ProjectInfoResource {
 
 	public void setEntryType(String entryType) {
 		this.entryType = entryType;
+	}
+
+	public String getOrganization() {
+		return organization;
+	}
+
+	public void setOrganization(String organization) {
+		this.organization = organization;
 	}
 }

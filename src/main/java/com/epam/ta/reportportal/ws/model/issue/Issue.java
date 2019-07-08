@@ -1,22 +1,18 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 
 package com.epam.ta.reportportal.ws.model.issue;
@@ -26,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
@@ -38,8 +35,8 @@ import java.util.Set;
 @JsonInclude(Include.NON_NULL)
 public class Issue {
 
-	@NotNull
-	@JsonProperty(value = "issue_type", required = true)
+	@NotBlank
+	@JsonProperty(value = "issueType", required = true)
 	private String issueType;
 
 	@JsonProperty(value = "comment")
@@ -58,36 +55,27 @@ public class Issue {
 	@JsonInclude(Include.NON_NULL)
 	public static class ExternalSystemIssue {
 
+		@NotNull
 		@JsonProperty(value = "ticketId")
 		private String ticketId;
 
 		@JsonProperty(value = "submitter")
-		private String submitter;
+		private Long submitter;
 
 		@JsonProperty(value = "submitDate")
 		private Long submitDate;
 
-		@JsonProperty(value = "systemId")
-		private String externalSystemId;
+		@NotNull
+		@JsonProperty(value = "btsUrl")
+		private String btsUrl;
 
+		@NotNull
+		@JsonProperty(value = "btsProject")
+		private String btsProject;
+
+		@NotNull
 		@JsonProperty(value = "url")
 		private String url;
-
-		public Long getSubmitDate() {
-			return submitDate;
-		}
-
-		public void setSubmitDate(Long submitDate) {
-			this.submitDate = submitDate;
-		}
-
-		public void setSubmitter(String submitter) {
-			this.submitter = submitter;
-		}
-
-		public String getSubmitter() {
-			return submitter;
-		}
 
 		public void setTicketId(String ticketId) {
 			this.ticketId = ticketId;
@@ -97,12 +85,36 @@ public class Issue {
 			return ticketId;
 		}
 
-		public void setExternalSystemId(String id) {
-			this.externalSystemId = id;
+		public Long getSubmitter() {
+			return submitter;
 		}
 
-		public String getExternalSystemId() {
-			return externalSystemId;
+		public void setSubmitter(Long submitter) {
+			this.submitter = submitter;
+		}
+
+		public Long getSubmitDate() {
+			return submitDate;
+		}
+
+		public void setSubmitDate(Long submitDate) {
+			this.submitDate = submitDate;
+		}
+
+		public String getBtsUrl() {
+			return btsUrl;
+		}
+
+		public void setBtsUrl(String btsUrl) {
+			this.btsUrl = btsUrl;
+		}
+
+		public String getBtsProject() {
+			return btsProject;
+		}
+
+		public void setBtsProject(String btsProject) {
+			this.btsProject = btsProject;
 		}
 
 		public void setUrl(String value) {
@@ -118,34 +130,37 @@ public class Issue {
 			if (this == o) {
 				return true;
 			}
-			if (!(o instanceof ExternalSystemIssue)) {
+			if (o == null || getClass() != o.getClass()) {
 				return false;
 			}
 
 			ExternalSystemIssue that = (ExternalSystemIssue) o;
 
-			if (!ticketId.equals(that.ticketId)) {
+			if (ticketId != null ? !ticketId.equals(that.ticketId) : that.ticketId != null) {
 				return false;
 			}
-
-			return true;
+			if (btsUrl != null ? !btsUrl.equals(that.btsUrl) : that.btsUrl != null) {
+				return false;
+			}
+			if (btsProject != null ? !btsProject.equals(that.btsProject) : that.btsProject != null) {
+				return false;
+			}
+			return url != null ? url.equals(that.url) : that.url == null;
 		}
 
 		@Override
 		public int hashCode() {
-			return ticketId.hashCode();
+			int result = ticketId != null ? ticketId.hashCode() : 0;
+			result = 31 * result + (btsUrl != null ? btsUrl.hashCode() : 0);
+			result = 31 * result + (btsProject != null ? btsProject.hashCode() : 0);
+			result = 31 * result + (url != null ? url.hashCode() : 0);
+			return result;
 		}
 
 		@Override
 		public String toString() {
-			final StringBuilder sb = new StringBuilder("ExternalSystemIssue{");
-			sb.append("ticketId='").append(ticketId).append('\'');
-			sb.append(", submitter='").append(submitter).append('\'');
-			sb.append(", submitDate=").append(submitDate).append('\'');
-			sb.append(", externalSystemId=").append(externalSystemId).append('\'');
-			sb.append(", url=").append(url);
-			sb.append('}');
-			return sb.toString();
+			return "ExternalSystemIssue{" + "ticketId='" + ticketId + '\'' + ", btsUrl='" + btsUrl + '\'' + ", btsProject='" + btsProject
+					+ '\'' + ", url='" + url + '\'' + '}';
 		}
 	}
 

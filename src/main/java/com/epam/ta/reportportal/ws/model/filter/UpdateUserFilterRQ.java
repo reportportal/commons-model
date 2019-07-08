@@ -1,81 +1,90 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 
 package com.epam.ta.reportportal.ws.model.filter;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
-
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
-
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 
 /**
- * Domain object for updating user filters
- * 
+ * Domain object for filter actions
+ *
  * @author Aliaksei_Makayed
- * 
  */
-
 @JsonInclude(Include.NON_NULL)
 public class UpdateUserFilterRQ extends SharableEntityRQ {
 
-	@NotEmpty
+	@NotBlank
 	@Size(min = MIN_NAME_LENGTH, max = MAX_USER_FILTER_NAME_LENGTH)
-	@JsonProperty(value = "name")
-	public String name;
+	@JsonProperty(value = "name", required = true)
+	@ApiModelProperty(required = true)
+	private String name;
 
-	@JsonProperty(value = "type")
-	public String objectType;
+	@NotBlank
+	@JsonProperty(value = "type", required = true)
+	@In(allowedValues = { "launch", "testItem", "log" })
+	@ApiModelProperty(required = true, allowableValues = "launch, testitem, log")
+	private String objectType;
 
 	@Valid
+	@NotNull
 	@Size(min = MIN_COLLECTION_SIZE, max = MAX_NUMBER_OF_FILTER_ENTITIES)
-	@JsonProperty(value = "entities", required = true)
+	@JsonProperty(value = "conditions", required = true)
 	@JsonDeserialize(as = LinkedHashSet.class)
-	private Set<UserFilterEntity> entities;
+	@ApiModelProperty(required = true)
+	private Set<UserFilterCondition> conditions;
 
 	@Valid
-	@JsonProperty(value = "selection_parameters")
-	private SelectionParameters selectionParameters;
+	@NotNull
+	@Size(min = MIN_COLLECTION_SIZE)
+	@JsonProperty(value = "orders", required = true)
+	@ApiModelProperty(required = true)
+	private List<Order> orders;
 
-	@JsonProperty(value = "is_link")
-	private boolean isLink;
-
-	@Size(min = MIN_FILTER_DESCRIPTION, max = MAX_FILTER_DESCRIPTION)
-	private String description;
-
-	public String getDescription() {
-		return description;
+	public String getName() {
+		return name;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@NotNull
+	public Set<UserFilterCondition> getConditions() {
+		return conditions;
+	}
+
+	public void setConditions(@NotNull Set<UserFilterCondition> conditions) {
+		this.conditions = conditions;
 	}
 
 	public String getObjectType() {
@@ -86,41 +95,17 @@ public class UpdateUserFilterRQ extends SharableEntityRQ {
 		this.objectType = objectType;
 	}
 
-	public Set<UserFilterEntity> getEntities() {
-		return entities;
+	public List<Order> getOrders() {
+		return orders;
 	}
 
-	public void setEntities(Set<UserFilterEntity> entities) {
-		this.entities = entities;
-	}
-
-	public SelectionParameters getSelectionParameters() {
-		return selectionParameters;
-	}
-
-	public void setSelectionParameters(SelectionParameters selectionParameters) {
-		this.selectionParameters = selectionParameters;
-	}
-
-	public boolean getIsLink() {
-		return isLink;
-	}
-
-	public void setIsLink(boolean isLink) {
-		this.isLink = isLink;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	@Override
 	public String toString() {
-		return "UpdateUserFilterRQ{" + "name='" + name + '\'' + ", objectType='" + objectType + '\'' + ", entities=" + entities
-				+ ", selectionParameters=" + selectionParameters + ", isLink=" + isLink + ", description='" + description + '\'' + '}';
+		return "UpdateUserFilterRQ{" + "name='" + name + '\'' + ", objectType='" + objectType + '\'' + ", conditions=" + conditions
+				+ ", orders=" + orders + '}';
 	}
 }

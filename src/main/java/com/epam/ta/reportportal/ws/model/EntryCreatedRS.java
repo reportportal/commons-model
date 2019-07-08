@@ -35,22 +35,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class EntryCreatedRS {
 
 	@JsonProperty("id")
-	private String id;
+	private Long id;
 
 	public EntryCreatedRS() {
 
 	}
 
-	public EntryCreatedRS(String id) {
+	public EntryCreatedRS(Long id) {
 		this.id = id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getId() {
+	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override

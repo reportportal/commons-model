@@ -1,67 +1,56 @@
 /*
- * Copyright 2016 EPAM Systems
- * 
- * 
- * This file is part of EPAM Report Portal.
- * https://github.com/reportportal/commons-model
- * 
- * Report Portal is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * Report Portal is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Report Portal.  If not, see <http://www.gnu.org/licenses/>.
- */ 
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
 package com.epam.ta.reportportal.ws.model.project;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
-import com.epam.ta.reportportal.ws.annotations.NotEmpty;
+import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.PROJECT_NAME_REGEXP;
 
 /**
  * Create project request initial model
- * 
+ *
  * @author Hanna_Sukhadolava
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
 public class CreateProjectRQ {
 
-	@NotNull
-	@NotEmpty
-	@JsonProperty(value = "projectName", required = true)
-	@Pattern(regexp = "[a-zA-Z0-9-_]+")
+	@NotBlank
+	@Pattern(regexp = PROJECT_NAME_REGEXP)
 	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
+	@JsonProperty(value = "projectName", required = true)
 	@ApiModelProperty(required = true)
 	private String projectName;
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@JsonProperty(value = "entryType", required = true)
-	@ApiModelProperty(required = true, allowableValues = "INTERNAL, UPSA")
+	@In(allowedValues = "internal")
+	@ApiModelProperty(required = true, allowableValues = "INTERNAL")
 	private String entryType;
-
-	@JsonProperty(value = "customer")
-	@Size(max = ValidationConstraints.MAX_CUSTOMER_LENGTH)
-	private String customer;
-
-	@JsonProperty(value = "addInfo")
-	private String addInfo;
 
 	public String getProjectName() {
 		return projectName;
@@ -79,29 +68,11 @@ public class CreateProjectRQ {
 		this.entryType = value;
 	}
 
-	public String getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(String customer) {
-		this.customer = customer;
-	}
-
-	public String getAddInfo() {
-		return addInfo;
-	}
-
-	public void setAddInfo(String addInfo) {
-		this.addInfo = addInfo;
-	}
-
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("CreateProjectRQ{");
 		sb.append("projectName='").append(projectName).append('\'');
 		sb.append(", entryType='").append(entryType).append('\'');
-		sb.append(", customer='").append(customer).append('\'');
-		sb.append(", addInfo='").append(addInfo).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}
