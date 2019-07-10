@@ -27,9 +27,15 @@ import javax.validation.constraints.Size;
 
 @JsonInclude(Include.NON_NULL)
 public class StartLaunchRQ extends StartRQ {
-	
+
 	@JsonProperty("mode")
 	private Mode mode;
+
+	@JsonProperty("rerun")
+	private boolean rerun;
+
+	@JsonProperty("rerunOf")
+	private String rerunOf;
 
 	@Override
 	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
@@ -45,29 +51,61 @@ public class StartLaunchRQ extends StartRQ {
 		this.mode = mode;
 	}
 
+	public boolean isRerun() {
+		return rerun;
+	}
+
+	public void setRerun(boolean rerun) {
+		this.rerun = rerun;
+	}
+
+	public String getRerunOf() {
+		return rerunOf;
+	}
+
+	public void setRerunOf(String rerunOf) {
+		this.rerunOf = rerunOf;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("StartLaunchRQ{");
 		sb.append("mode=").append(mode);
+		sb.append(", rerun=").append(rerun);
+		sb.append(", rerunOf='").append(rerunOf).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		if (!super.equals(o)) {
+			return false;
+		}
 
-        StartLaunchRQ that = (StartLaunchRQ) o;
+		StartLaunchRQ that = (StartLaunchRQ) o;
 
-        return mode == that.mode;
-    }
+		if (rerun != that.rerun) {
+			return false;
+		}
+		if (mode != that.mode) {
+			return false;
+		}
+		return rerunOf != null ? rerunOf.equals(that.rerunOf) : that.rerunOf == null;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (mode != null ? mode.hashCode() : 0);
-        return result;
-    }
+	@Override
+	public int hashCode() {
+		int result = super.hashCode();
+		result = 31 * result + (mode != null ? mode.hashCode() : 0);
+		result = 31 * result + (rerun ? 1 : 0);
+		result = 31 * result + (rerunOf != null ? rerunOf.hashCode() : 0);
+		return result;
+	}
 }
