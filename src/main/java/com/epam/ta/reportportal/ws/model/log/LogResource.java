@@ -123,6 +123,9 @@ public class LogResource {
 	@JsonProperty(value = "itemId")
 	private Long itemId;
 
+	@JsonProperty(value = "launchId")
+	private Long launchId;
+
 	public Long getId() {
 		return id;
 	}
@@ -137,6 +140,14 @@ public class LogResource {
 
 	public String getUuid() {
 		return uuid;
+	}
+
+	public Long getLaunchId() {
+		return launchId;
+	}
+
+	public void setLaunchId(Long launchId) {
+		this.launchId = launchId;
 	}
 
 	public void setUuid(String uuid) {
@@ -190,13 +201,15 @@ public class LogResource {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("LogResource{");
-		sb.append("id='").append(id).append('\'');
+		sb.append("id=").append(id);
+		sb.append(", uuid='").append(uuid).append('\'');
 		sb.append(", logTime=").append(logTime);
 		sb.append(", message='").append(message).append('\'');
 		sb.append(", binaryContent=").append(binaryContent);
 		sb.append(", thumbnail='").append(thumbnail).append('\'');
 		sb.append(", level='").append(level).append('\'');
-		sb.append(", itemId='").append(itemId).append('\'');
+		sb.append(", itemId=").append(itemId);
+		sb.append(", launchId=").append(launchId);
 		sb.append('}');
 		return sb.toString();
 	}

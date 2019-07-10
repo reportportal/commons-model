@@ -64,7 +64,7 @@ public class ValidationConstraints {
 	public static final int MAX_LOGIN_LENGTH = 128;
 
 	public static final int MIN_PASSWORD_LENGTH = 4;
-	public static final int MAX_PASSWORD_LENGTH = 128;
+	public static final int MAX_PASSWORD_LENGTH = 256;
 
 	public static final int TICKET_MIN_LOG_SIZE = 0;
 	public static final int TICKET_MAX_LOG_SIZE = 50;
@@ -87,8 +87,8 @@ public class ValidationConstraints {
 	public static final int MIN_SUBTYPE_LONG_NAME = 3;
 	public static final int MAX_SUBTYPE_LONG_NAME = 55;
 
-	public static final int MIN_ANALYSIS_PATTERN_NAME_LENGTH = 3;
-	public static final int MAX_ANALYSIS_PATTERN_NAME_LENGTH = 128;
+	public static final int MIN_ANALYSIS_PATTERN_NAME_LENGTH = 1;
+	public static final int MAX_ANALYSIS_PATTERN_NAME_LENGTH = 55;
 
 	public static final int MAX_DESCRIPTION = 256;
 	public static final int MIN_DESCRIPTION = 1;

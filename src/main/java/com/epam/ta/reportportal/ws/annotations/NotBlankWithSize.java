@@ -17,20 +17,34 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
+import com.epam.ta.reportportal.ws.model.validation.NotBlankWithSizeValidator;
+
 import javax.validation.Constraint;
-import java.lang.annotation.ElementType;
+import javax.validation.Payload;
+import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = { NotNullMapValueValidator.class })
-@Target({ ElementType.FIELD })
-@Retention(value = RetentionPolicy.RUNTIME)
-public @interface NotNullMapValue {
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 
-	String message() default "Map value should not be null.";
+/**
+ * @author <a href="mailto:tatyana_gladysheva@epam.com">Tatyana Gladysheva</a>
+ */
+@Target(FIELD)
+@Documented
+@Constraint(validatedBy = NotBlankWithSizeValidator.class)
+@Retention(RUNTIME)
+public @interface NotBlankWithSize {
+
+	String message() default EMPTY;
 
 	Class<?>[] groups() default {};
 
-	Class<?>[] payload() default {};
+	Class<? extends Payload>[] payload() default {};
+
+	int min() default 0;
+
+	int max() default Integer.MAX_VALUE;
 }
