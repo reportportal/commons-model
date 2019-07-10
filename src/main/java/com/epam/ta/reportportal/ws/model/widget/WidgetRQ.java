@@ -18,6 +18,7 @@
 package com.epam.ta.reportportal.ws.model.widget;
 
 import com.epam.ta.reportportal.ws.annotations.In;
+import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -40,8 +41,8 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class WidgetRQ extends SharableEntityRQ {
 
-	@NotBlank
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
+	@NotBlankWithSize(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
+	@JsonProperty(value = "name", required = true)
 	private String name;
 
 	@NotNull
