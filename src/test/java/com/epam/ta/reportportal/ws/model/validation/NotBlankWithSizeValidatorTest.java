@@ -20,8 +20,6 @@ package com.epam.ta.reportportal.ws.model.validation;
 import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -35,13 +33,21 @@ import static org.junit.Assert.assertThat;
 /**
  * @author <a href="mailto:tatyana_gladysheva@epam.com">Tatyana Gladysheva</a>
  */
-@RunWith(MockitoJUnitRunner.class)
 public class NotBlankWithSizeValidatorTest {
 
 	private static final String NOT_NULL_PROPERTY = "{NotNull}";
 	private static final String NOT_BLANK_PROPERTY = "{NotBlank}";
 	private static final String SIZE_PROPERTY = "{Size}";
+
+	private static final String VALID_NAME = "Valid name";
 	private static final String SPACE = " ";
+	private static final String WHITESPACES_NAME = "                   ";
+	private static final String INVALID_NAME_WITH_LESS_CHARACTERS = "cc";
+	private static final String INVALID_NAME_WITH_MORE_CHARACTERS = "tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt"
+			+ "ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt";
+	private static final String VALID_NAME_WITH_NUMBER_OF_CHARS_EQUAL_TO_MIN = "ccc";
+	private static final String VALID_NAME_WITH_NUMBER_OF_CHARS_EQUAL_TO_MAX = "ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt"
+			+ "ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt";
 
 	private static Validator validator;
 
@@ -51,151 +57,289 @@ public class NotBlankWithSizeValidatorTest {
 	}
 
 	@Test
-	public void validateShouldReturnNoViolationsWhenNameIsValid() {
+	public void validateShouldReturnNoViolationsWhenNameIsValidAndValidationIsOnField() {
 		//GIVEN
-		String name = "Valid name";
-		TestClass testObject = new TestClass();
-		testObject.setName(name);
+		AnnotationOnFieldClass testObject = new AnnotationOnFieldClass();
+		testObject.setName(VALID_NAME);
 
 		//WHEN
-		Set<ConstraintViolation<TestClass>> violations = validator.validate(testObject);
+		Set<ConstraintViolation<AnnotationOnFieldClass>> violations = validator.validate(testObject);
 
 		//THEN
 		assertThat(violations.isEmpty(), is(true));
 	}
 
 	@Test
-	public void validateShouldReturnOneViolationWithNotNullMessageWhenNameIsNull() {
+	public void validateShouldReturnOneViolationWithNotNullMessageWhenNameIsNullAndValidationIsOnField() {
 		//GIVEN
-		TestClass testObject = new TestClass();
+		AnnotationOnFieldClass testObject = new AnnotationOnFieldClass();
 		testObject.setName(null);
 
 		//WHEN
-		Set<ConstraintViolation<TestClass>> violations = validator.validate(testObject);
+		Set<ConstraintViolation<AnnotationOnFieldClass>> violations = validator.validate(testObject);
 
 		//THEN
 		assertThat(violations.size(), is(1));
 
-		ConstraintViolation<TestClass> violation = violations.iterator().next();
+		ConstraintViolation<AnnotationOnFieldClass> violation = violations.iterator().next();
 		String actualMessage = violation.getMessage();
 
 		assertThat(actualMessage, is(NOT_NULL_PROPERTY));
 	}
 
 	@Test
-	public void validateShouldReturnOneViolationWithNotBlankMessageWhenNameIsEmpty() {
+	public void validateShouldReturnOneViolationWithNotBlankMessageWhenNameIsEmptyAndValidationIsOnField() {
 		//GIVEN
-		TestClass testObject = new TestClass();
+		AnnotationOnFieldClass testObject = new AnnotationOnFieldClass();
 		testObject.setName(EMPTY);
 
 		String expectedMessage = NOT_BLANK_PROPERTY + SPACE + SIZE_PROPERTY;
 
 		//WHEN
-		Set<ConstraintViolation<TestClass>> violations = validator.validate(testObject);
+		Set<ConstraintViolation<AnnotationOnFieldClass>> violations = validator.validate(testObject);
 
 		//THEN
 		assertThat(violations.size(), is(1));
 
-		ConstraintViolation<TestClass> violation = violations.iterator().next();
+		ConstraintViolation<AnnotationOnFieldClass> violation = violations.iterator().next();
 		String actualMessage = violation.getMessage();
 
 		assertThat(actualMessage, is(expectedMessage));
 	}
 
 	@Test
-	public void validateShouldReturnOneViolationWithNotBlankMessageWhenNameConsistsOfWhitespaces() {
+	public void validateShouldReturnOneViolationWithNotBlankMessageWhenNameConsistsOfWhitespacesAndValidationIsOnField() {
 		//GIVEN
-		String name = "                   ";
-		TestClass testObject = new TestClass();
-		testObject.setName(name);
+		AnnotationOnFieldClass testObject = new AnnotationOnFieldClass();
+		testObject.setName(WHITESPACES_NAME);
 
 		String expectedMessage = NOT_BLANK_PROPERTY + SPACE + SIZE_PROPERTY;
 
 		//WHEN
-		Set<ConstraintViolation<TestClass>> violations = validator.validate(testObject);
+		Set<ConstraintViolation<AnnotationOnFieldClass>> violations = validator.validate(testObject);
 
 		//THEN
 		assertThat(violations.size(), is(1));
 
-		ConstraintViolation<TestClass> violation = violations.iterator().next();
+		ConstraintViolation<AnnotationOnFieldClass> violation = violations.iterator().next();
 		String actualMessage = violation.getMessage();
 
 		assertThat(actualMessage, is(expectedMessage));
 	}
 
 	@Test
-	public void validateShouldReturnOneViolationWithSizeMessageWhenNameHasLessThanMinNumberOfCharacters() {
+	public void validateShouldReturnOneViolationWithSizeMessageWhenNameHasLessThanMinNumberOfCharactersAndValidationIsOnField() {
 		//GIVEN
-		String name = "cc";
-
-		TestClass testObject = new TestClass();
-		testObject.setName(name);
+		AnnotationOnFieldClass testObject = new AnnotationOnFieldClass();
+		testObject.setName(INVALID_NAME_WITH_LESS_CHARACTERS);
 
 		//WHEN
-		Set<ConstraintViolation<TestClass>> violations = validator.validate(testObject);
+		Set<ConstraintViolation<AnnotationOnFieldClass>> violations = validator.validate(testObject);
 
 		//THEN
 		assertThat(violations.size(), is(1));
 
-		ConstraintViolation<TestClass> violation = violations.iterator().next();
+		ConstraintViolation<AnnotationOnFieldClass> violation = violations.iterator().next();
 		String actualMessage = violation.getMessage();
 
 		assertThat(actualMessage, is(SIZE_PROPERTY));
 	}
 
 	@Test
-	public void validateShouldReturnOneViolationWithSizeMessageWhenNameHasMoreThanMaxNumberOfCharacters() {
+	public void validateShouldReturnOneViolationWithSizeMessageWhenNameHasMoreThanMaxNumberOfCharactersAndValidationIsOnField() {
 		//GIVEN
-		String name = "ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt";
-
-		TestClass testObject = new TestClass();
-		testObject.setName(name);
+		AnnotationOnFieldClass testObject = new AnnotationOnFieldClass();
+		testObject.setName(INVALID_NAME_WITH_MORE_CHARACTERS);
 
 		//WHEN
-		Set<ConstraintViolation<TestClass>> violations = validator.validate(testObject);
+		Set<ConstraintViolation<AnnotationOnFieldClass>> violations = validator.validate(testObject);
 
 		//THEN
 		assertThat(violations.size(), is(1));
 
-		ConstraintViolation<TestClass> violation = violations.iterator().next();
+		ConstraintViolation<AnnotationOnFieldClass> violation = violations.iterator().next();
 		String actualMessage = violation.getMessage();
 
 		assertThat(actualMessage, is(SIZE_PROPERTY));
 	}
 
 	@Test
-	public void validateShouldReturnNoViolationsWhenNameHasNumberOfCharactersEqualToMin() {
+	public void validateShouldReturnNoViolationsWhenNameHasNumberOfCharactersEqualToMinAndValidationIsOnField() {
 		//GIVEN
-		String name = "ccc";
-		TestClass testObject = new TestClass();
-		testObject.setName(name);
+		AnnotationOnFieldClass testObject = new AnnotationOnFieldClass();
+		testObject.setName(VALID_NAME_WITH_NUMBER_OF_CHARS_EQUAL_TO_MIN);
 
 		//WHEN
-		Set<ConstraintViolation<TestClass>> violations = validator.validate(testObject);
+		Set<ConstraintViolation<AnnotationOnFieldClass>> violations = validator.validate(testObject);
 
 		//THEN
 		assertThat(violations.isEmpty(), is(true));
 	}
 
 	@Test
-	public void validateShouldReturnNoViolationsWhenNameHasNumberOfCharactersEqualToMax() {
+	public void validateShouldReturnNoViolationsWhenNameHasNumberOfCharactersEqualToMaxAndValidationIsOnField() {
 		//GIVEN
-		String name = "tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt";
-		TestClass testObject = new TestClass();
-		testObject.setName(name);
+		AnnotationOnFieldClass testObject = new AnnotationOnFieldClass();
+		testObject.setName(VALID_NAME_WITH_NUMBER_OF_CHARS_EQUAL_TO_MAX);
 
 		//WHEN
-		Set<ConstraintViolation<TestClass>> violations = validator.validate(testObject);
+		Set<ConstraintViolation<AnnotationOnFieldClass>> violations = validator.validate(testObject);
 
 		//THEN
 		assertThat(violations.isEmpty(), is(true));
 	}
 
-	private class TestClass {
+	private class AnnotationOnFieldClass {
 
 		@NotBlankWithSize(min = 3, max = 128)
 		private String name;
 
+		public String getName() {
+			return name;
+		}
+
+		void setName(String name) {
+			this.name = name;
+		}
+	}
+
+	@Test
+	public void validateShouldReturnNoViolationsWhenNameIsValidAndValidationIsOnMethod() {
+		//GIVEN
+		AnnotationOnMethodClass testObject = new AnnotationOnMethodClass();
+		testObject.setName(VALID_NAME);
+
+		//WHEN
+		Set<ConstraintViolation<AnnotationOnMethodClass>> violations = validator.validate(testObject);
+
+		//THEN
+		assertThat(violations.isEmpty(), is(true));
+	}
+
+	@Test
+	public void validateShouldReturnOneViolationWithNotNullMessageWhenNameIsNullAndValidationIsOnMethod() {
+		//GIVEN
+		AnnotationOnMethodClass testObject = new AnnotationOnMethodClass();
+		testObject.setName(null);
+
+		//WHEN
+		Set<ConstraintViolation<AnnotationOnMethodClass>> violations = validator.validate(testObject);
+
+		//THEN
+		assertThat(violations.size(), is(1));
+
+		ConstraintViolation<AnnotationOnMethodClass> violation = violations.iterator().next();
+		String actualMessage = violation.getMessage();
+
+		assertThat(actualMessage, is(NOT_NULL_PROPERTY));
+	}
+
+	@Test
+	public void validateShouldReturnOneViolationWithNotBlankMessageWhenNameIsEmptyAndValidationIsOnMethod() {
+		//GIVEN
+		AnnotationOnMethodClass testObject = new AnnotationOnMethodClass();
+		testObject.setName(EMPTY);
+
+		String expectedMessage = NOT_BLANK_PROPERTY + SPACE + SIZE_PROPERTY;
+
+		//WHEN
+		Set<ConstraintViolation<AnnotationOnMethodClass>> violations = validator.validate(testObject);
+
+		//THEN
+		assertThat(violations.size(), is(1));
+
+		ConstraintViolation<AnnotationOnMethodClass> violation = violations.iterator().next();
+		String actualMessage = violation.getMessage();
+
+		assertThat(actualMessage, is(expectedMessage));
+	}
+
+	@Test
+	public void validateShouldReturnOneViolationWithNotBlankMessageWhenNameConsistsOfWhitespacesAndValidationIsOnMethod() {
+		//GIVEN
+		AnnotationOnMethodClass testObject = new AnnotationOnMethodClass();
+		testObject.setName(WHITESPACES_NAME);
+
+		String expectedMessage = NOT_BLANK_PROPERTY + SPACE + SIZE_PROPERTY;
+
+		//WHEN
+		Set<ConstraintViolation<AnnotationOnMethodClass>> violations = validator.validate(testObject);
+
+		//THEN
+		assertThat(violations.size(), is(1));
+
+		ConstraintViolation<AnnotationOnMethodClass> violation = violations.iterator().next();
+		String actualMessage = violation.getMessage();
+
+		assertThat(actualMessage, is(expectedMessage));
+	}
+
+	@Test
+	public void validateShouldReturnOneViolationWithSizeMessageWhenNameHasLessThanMinNumberOfCharactersAndValidationIsOnMethod() {
+		//GIVEN
+		AnnotationOnMethodClass testObject = new AnnotationOnMethodClass();
+		testObject.setName(INVALID_NAME_WITH_LESS_CHARACTERS);
+
+		//WHEN
+		Set<ConstraintViolation<AnnotationOnMethodClass>> violations = validator.validate(testObject);
+
+		//THEN
+		assertThat(violations.size(), is(1));
+
+		ConstraintViolation<AnnotationOnMethodClass> violation = violations.iterator().next();
+		String actualMessage = violation.getMessage();
+
+		assertThat(actualMessage, is(SIZE_PROPERTY));
+	}
+
+	@Test
+	public void validateShouldReturnOneViolationWithSizeMessageWhenNameHasMoreThanMaxNumberOfCharactersAndValidationIsOnMethod() {
+		//GIVEN
+		AnnotationOnMethodClass testObject = new AnnotationOnMethodClass();
+		testObject.setName(INVALID_NAME_WITH_MORE_CHARACTERS);
+
+		//WHEN
+		Set<ConstraintViolation<AnnotationOnMethodClass>> violations = validator.validate(testObject);
+
+		//THEN
+		assertThat(violations.size(), is(1));
+
+		ConstraintViolation<AnnotationOnMethodClass> violation = violations.iterator().next();
+		String actualMessage = violation.getMessage();
+
+		assertThat(actualMessage, is(SIZE_PROPERTY));
+	}
+
+	@Test
+	public void validateShouldReturnNoViolationsWhenNameHasNumberOfCharactersEqualToMinAndValidationIsOnMethod() {
+		//GIVEN
+		AnnotationOnMethodClass testObject = new AnnotationOnMethodClass();
+		testObject.setName(VALID_NAME_WITH_NUMBER_OF_CHARS_EQUAL_TO_MIN);
+
+		//WHEN
+		Set<ConstraintViolation<AnnotationOnMethodClass>> violations = validator.validate(testObject);
+
+		//THEN
+		assertThat(violations.isEmpty(), is(true));
+	}
+
+	@Test
+	public void validateShouldReturnNoViolationsWhenNameHasNumberOfCharactersEqualToMaxAndValidationIsOnMethod() {
+		//GIVEN
+		AnnotationOnMethodClass testObject = new AnnotationOnMethodClass();
+		testObject.setName(VALID_NAME_WITH_NUMBER_OF_CHARS_EQUAL_TO_MAX);
+
+		//WHEN
+		Set<ConstraintViolation<AnnotationOnMethodClass>> violations = validator.validate(testObject);
+
+		//THEN
+		assertThat(violations.isEmpty(), is(true));
+	}
+
+	private class AnnotationOnMethodClass {
+		private String name;
+
+		@NotBlankWithSize(min = 3, max = 128)
 		public String getName() {
 			return name;
 		}

@@ -17,13 +17,12 @@
  
 package com.epam.ta.reportportal.ws.model.launch;
 
+import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
 import com.epam.ta.reportportal.ws.model.StartRQ;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.validation.constraints.Size;
 
 @JsonInclude(Include.NON_NULL)
 public class StartLaunchRQ extends StartRQ {
@@ -38,7 +37,7 @@ public class StartLaunchRQ extends StartRQ {
 	private String rerunOf;
 
 	@Override
-	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
+	@NotBlankWithSize(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
 	public String getName() {
 		return name;
 	}

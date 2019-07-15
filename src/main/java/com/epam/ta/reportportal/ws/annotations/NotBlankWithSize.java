@@ -26,13 +26,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 /**
  * @author <a href="mailto:tatyana_gladysheva@epam.com">Tatyana Gladysheva</a>
  */
-@Target(FIELD)
+@Target({FIELD, METHOD})
 @Documented
 @Constraint(validatedBy = NotBlankWithSizeValidator.class)
 @Retention(RUNTIME)
