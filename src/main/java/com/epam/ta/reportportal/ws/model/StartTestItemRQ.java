@@ -43,8 +43,8 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_TEST_I
 public class StartTestItemRQ extends StartRQ {
 
 	@Size(max = MAX_TEST_ITEM_LOCATION_LENGTH)
-	@JsonProperty(value = "location")
-	private String location;
+	@JsonProperty(value = "codeRef")
+	private String codeRef;
 
 	@Valid
 	@JsonProperty(value = "parameters")
@@ -80,12 +80,12 @@ public class StartTestItemRQ extends StartRQ {
 		return name;
 	}
 
-	public String getLocation() {
-		return location;
+	public String getCodeRef() {
+		return codeRef;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setCodeRef(String codeRef) {
+		this.codeRef = codeRef;
 	}
 
 	public Boolean isRetry() {
@@ -161,7 +161,7 @@ public class StartTestItemRQ extends StartRQ {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("StartTestItemRQ{");
-		sb.append("location='").append(location).append('\'');
+		sb.append("codeRef='").append(codeRef).append('\'');
 		sb.append(", parameters=").append(parameters);
 		sb.append(", uniqueId='").append(uniqueId).append('\'');
 		sb.append(", launchId='").append(launchId).append('\'');
