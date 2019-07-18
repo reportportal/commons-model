@@ -46,8 +46,8 @@ public class TestItemResource {
 	@JsonProperty(value = "name")
 	private String name;
 
-	@JsonProperty(value = "location")
-	private String location;
+	@JsonProperty(value = "codeRef")
+	private String codeRef;
 
 	@JsonProperty(value = "description")
 	private String description;
@@ -154,12 +154,12 @@ public class TestItemResource {
 		this.name = name;
 	}
 
-	public String getLocation() {
-		return location;
+	public String getCodeRef() {
+		return codeRef;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setCodeRef(String codeRef) {
+		this.codeRef = codeRef;
 	}
 
 	public String getDescription() {
@@ -296,7 +296,7 @@ public class TestItemResource {
 		sb.append("itemId=").append(itemId);
 		sb.append(", uuid='").append(uuid).append('\'');
 		sb.append(", name='").append(name).append('\'');
-		sb.append(", location='").append(location).append('\'');
+		sb.append(", codeRef='").append(codeRef).append('\'');
 		sb.append(", description='").append(description).append('\'');
 		sb.append(", parameters=").append(parameters);
 		sb.append(", attributes=").append(attributes);
