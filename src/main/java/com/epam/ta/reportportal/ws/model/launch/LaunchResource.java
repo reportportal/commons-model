@@ -30,6 +30,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
@@ -86,7 +87,7 @@ public class LaunchResource extends OwnedResource {
 	private Mode mode;
 
 	@JsonProperty(value = "analysing")
-	private Set<String> analyzers;
+	private Set<String> analyzers = new LinkedHashSet<>();
 
 	@JsonProperty(value = "approximateDuration")
 	private double approximateDuration;
