@@ -170,6 +170,11 @@ public enum ErrorType {
 	TEST_ITEM_OR_LAUNCH_NOT_FOUND(40424, "Test Item or Launch '{}' not found. Did you use correct ID?"),
 
 	/**
+	 * If analyzer with provided name is not found
+	 */
+	ANALYZER_NOT_FOUND(40425, "Analyzer '{}' not found."),
+
+	/**
 	 * If provided filtering parameters are incorrect
 	 */
 	INCORRECT_FILTER_PARAMETERS(40011, "Incorrect filtering parameters. {}"),
