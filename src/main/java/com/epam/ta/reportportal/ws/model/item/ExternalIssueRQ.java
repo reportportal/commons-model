@@ -16,43 +16,27 @@
 
 package com.epam.ta.reportportal.ws.model.item;
 
-import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 /**
- * Request model for add link to external system issue
- *
- * @author Dzmitry_Kavalets
- * @author Andrei_Ramanchuk
+ * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class LinkExternalIssueRQ extends ExternalIssueRQ {
+public abstract class ExternalIssueRQ {
 
 	@NotEmpty
-	@Valid
-	@JsonProperty(value = "issues")
-	@ApiModelProperty(reference = "Issue.ExternalSystemIssue")
-	private List<Issue.ExternalSystemIssue> issues;
+	@JsonProperty(value = "testItemIds")
+	private List<Long> testItemIds;
 
-	public void setIssues(List<Issue.ExternalSystemIssue> values) {
-		this.issues = values;
+	public List<Long> getTestItemIds() {
+		return testItemIds;
 	}
 
-	public List<Issue.ExternalSystemIssue> getIssues() {
-		return issues;
-	}
-
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("LinkExternalIssueRQ{");
-		sb.append("issues=").append(issues);
-		sb.append('}');
-		return sb.toString();
+	public void setTestItemIds(List<Long> testItemIds) {
+		this.testItemIds = testItemIds;
 	}
 }
