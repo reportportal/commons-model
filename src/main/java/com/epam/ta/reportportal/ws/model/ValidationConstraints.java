@@ -34,7 +34,7 @@ public class ValidationConstraints {
 	public static final int MIN_COLLECTION_SIZE = 1;
 	public static final int MAX_NUMBER_OF_FILTER_ENTITIES = 20;
 	public static final int MIN_WIDGET_LIMIT = 1;
-	public static final int MAX_WIDGET_LIMIT = 150;
+	public static final int MAX_WIDGET_LIMIT = 600;
 	public static final int MIN_FILTER_LIMIT = 1;
 	public static final int MAX_FILTER_LIMIT = 150;
 	public static final int MIN_LAUNCH_NAME_LENGTH = 1;
