@@ -30,6 +30,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
@@ -85,8 +86,8 @@ public class LaunchResource extends OwnedResource {
 	@JsonProperty(value = "mode")
 	private Mode mode;
 
-	@JsonProperty(value = "isProcessing")
-	private boolean isProcessing;
+	@JsonProperty(value = "analysing")
+	private Set<String> analyzers = new LinkedHashSet<>();
 
 	@JsonProperty(value = "approximateDuration")
 	private double approximateDuration;
@@ -198,12 +199,16 @@ public class LaunchResource extends OwnedResource {
 		this.mode = mode;
 	}
 
-	public void setIsProcessing(boolean is) {
-		this.isProcessing = is;
+	public Set<String> getAnalyzers() {
+		return analyzers;
 	}
 
-	public boolean getIsProcessing() {
-		return isProcessing;
+	public void setAnalyzers(Set<String> analyzers) {
+		this.analyzers = analyzers;
+	}
+
+	public boolean isHasRetries() {
+		return hasRetries;
 	}
 
 	public boolean getHasRetries() {
@@ -229,7 +234,7 @@ public class LaunchResource extends OwnedResource {
 		sb.append(", statisticsResource=").append(statisticsResource);
 		sb.append(", attributes=").append(attributes);
 		sb.append(", mode=").append(mode);
-		sb.append(", isProcessing=").append(isProcessing);
+		sb.append(", analyzers=").append(analyzers);
 		sb.append(", approximateDuration=").append(approximateDuration);
 		sb.append(", hasRetries=").append(hasRetries);
 		sb.append('}');

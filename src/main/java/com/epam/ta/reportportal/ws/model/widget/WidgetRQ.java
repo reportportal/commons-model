@@ -18,6 +18,7 @@
 package com.epam.ta.reportportal.ws.model.widget;
 
 import com.epam.ta.reportportal.ws.annotations.In;
+import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -26,9 +27,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -40,8 +39,8 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class WidgetRQ extends SharableEntityRQ {
 
-	@NotBlank
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
+	@NotBlankWithSize(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
+	@JsonProperty(value = "name", required = true)
 	private String name;
 
 	@NotNull
@@ -49,11 +48,11 @@ public class WidgetRQ extends SharableEntityRQ {
 	@In(allowedValues = { "oldLineChart", "investigatedTrend", "launchStatistics", "statisticTrend", "casesTrend", "notPassed",
 			"overallStatistics", "uniqueBugTable", "bugTrend", "activityStream", "launchesComparisonChart", "launchesDurationChart",
 			"launchesTable", "topTestCases", "flakyTestCases", "passingRateSummary", "passingRatePerLaunch", "productStatus",
-			"mostTimeConsuming", "cumulative" })
+			"mostTimeConsuming", "cumulative", "topPatternTemplates" })
 	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
 			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
 			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
-			+ " productStatus, mostTimeConsuming, cumulative")
+			+ " productStatus, mostTimeConsuming, cumulative, topPatternTemplates")
 	private String widgetType;
 
 	@Valid

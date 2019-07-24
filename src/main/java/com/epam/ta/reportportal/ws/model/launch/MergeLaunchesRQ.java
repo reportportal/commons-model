@@ -17,6 +17,7 @@
 
 package com.epam.ta.reportportal.ws.model.launch;
 
+import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -25,7 +26,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -37,8 +37,7 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAME
 @JsonInclude(Include.NON_NULL)
 public class MergeLaunchesRQ {
 
-	@NotBlank
-	@Size(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
+	@NotBlankWithSize(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	@ApiModelProperty(required = true)
 	private String name;
@@ -75,7 +74,6 @@ public class MergeLaunchesRQ {
 	@JsonProperty(value = "extendSuitesDescription", required = true)
 	private boolean extendSuitesDescription;
 
-	@NotNull
 	public String getName() {
 		return name;
 	}
