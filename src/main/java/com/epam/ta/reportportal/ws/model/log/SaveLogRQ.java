@@ -43,6 +43,11 @@ public class SaveLogRQ {
 	@ApiModelProperty(required = true)
 	private String itemId;
 
+	@NotBlank
+	@JsonProperty(value = "launchId", required = true)
+	@ApiModelProperty(required = true)
+	private String launchId;
+
 	@NotNull
 	@JsonProperty(value = "time", required = true)
 	@ApiModelProperty(required = true)
@@ -88,6 +93,14 @@ public class SaveLogRQ {
 
 	public void setItemId(String itemId) {
 		this.itemId = itemId;
+	}
+
+	public String getLaunchId() {
+		return launchId;
+	}
+
+	public void setLaunchId(String launchId) {
+		this.launchId = launchId;
 	}
 
 	public void setLevel(String level) {

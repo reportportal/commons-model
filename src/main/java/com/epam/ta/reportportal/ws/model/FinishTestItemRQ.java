@@ -25,8 +25,10 @@ import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
 @JsonInclude(Include.NON_NULL)
 public class FinishTestItemRQ extends FinishExecutionRQ {
@@ -37,6 +39,11 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 
 	@JsonProperty(value = "retry")
 	private Boolean retry;
+
+	@NotBlank
+	@JsonProperty(value = "launchId", required = true)
+	@ApiModelProperty(required = true)
+	private String launchId;
 
 	public Boolean isRetry() {
 		return retry;
@@ -52,6 +59,14 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 
 	public void setIssue(Issue issue) {
 		this.issue = issue;
+	}
+
+	public String getLaunchId() {
+		return launchId;
+	}
+
+	public void setLaunchId(String launchId) {
+		this.launchId = launchId;
 	}
 
 	@Override
