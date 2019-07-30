@@ -18,6 +18,7 @@
 package com.epam.ta.reportportal.ws.model.filter;
 
 import com.epam.ta.reportportal.ws.annotations.In;
+import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -43,8 +44,7 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 @JsonInclude(Include.NON_NULL)
 public class UpdateUserFilterRQ extends SharableEntityRQ {
 
-	@NotBlank
-	@Size(min = MIN_NAME_LENGTH, max = MAX_USER_FILTER_NAME_LENGTH)
+	@NotBlankWithSize(min = MIN_NAME_LENGTH, max = MAX_USER_FILTER_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
 	@ApiModelProperty(required = true)
 	private String name;
