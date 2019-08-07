@@ -20,7 +20,6 @@ import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiParam;
 
 import javax.validation.Valid;
 
@@ -32,7 +31,6 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 	private Issue issue;
 
 	@JsonProperty(value = "retry")
-	@ApiParam(defaultValue = "false")
 	private Boolean retry;
 
 	public Boolean isRetry() {

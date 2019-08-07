@@ -28,7 +28,6 @@ import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiParam;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -69,7 +68,6 @@ public class StartTestItemRQ extends StartRQ {
 	private String type;
 
 	@JsonProperty(value = "retry")
-	@ApiParam(defaultValue = "false")
 	private Boolean retry;
 
 	@JsonProperty(value = "hasStats")

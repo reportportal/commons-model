@@ -23,7 +23,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiParam;
 
 @JsonInclude(Include.NON_NULL)
 public class StartLaunchRQ extends StartRQ {
@@ -32,7 +31,6 @@ public class StartLaunchRQ extends StartRQ {
 	private Mode mode;
 
 	@JsonProperty("rerun")
-	@ApiParam(defaultValue = "false")
 	private boolean rerun;
 
 	@JsonProperty("rerunOf")
