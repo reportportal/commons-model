@@ -51,7 +51,7 @@ public class StartTestItemSerializerTest {
 	private StartTestItemRQ getStartTestItem() {
 		StartTestItemRQ startTestItem = new StartTestItemRQ();
 		startTestItem.setDescription("description");
-		startTestItem.setLaunchId("1");
+		startTestItem.setLaunchUuid("1");
 		startTestItem.setType("launch");
 		startTestItem.setRetry(false);
 

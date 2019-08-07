@@ -54,9 +54,9 @@ public class StartTestItemRQ extends StartRQ {
 	private String uniqueId;
 
 	@NotBlank
-	@JsonProperty(value = "launchId", required = true)
+	@JsonProperty(value = "launchUuid", required = true)
 	@ApiModelProperty(required = true)
-	private String launchId;
+	private String launchUuid;
 
 	@NotNull
 	@JsonProperty(value = "type", required = true)
@@ -104,12 +104,12 @@ public class StartTestItemRQ extends StartRQ {
 		this.hasStats = hasStats;
 	}
 
-	public String getLaunchId() {
-		return launchId;
+	public String getLaunchUuid() {
+		return launchUuid;
 	}
 
-	public void setLaunchId(String launchId) {
-		this.launchId = launchId;
+	public void setLaunchUuid(String launchUuid) {
+		this.launchUuid = launchUuid;
 	}
 
 	public List<ParameterResource> getParameters() {
@@ -164,10 +164,11 @@ public class StartTestItemRQ extends StartRQ {
 		sb.append("codeRef='").append(codeRef).append('\'');
 		sb.append(", parameters=").append(parameters);
 		sb.append(", uniqueId='").append(uniqueId).append('\'');
-		sb.append(", launchId='").append(launchId).append('\'');
+		sb.append(", launchUuid='").append(launchUuid).append('\'');
 		sb.append(", type='").append(type).append('\'');
 		sb.append(", retry=").append(retry);
 		sb.append(", hasStats=").append(hasStats);
+		sb.append(", name='").append(name).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}
