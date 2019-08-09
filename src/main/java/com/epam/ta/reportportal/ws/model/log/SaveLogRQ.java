@@ -42,6 +42,11 @@ public class SaveLogRQ {
 	@ApiModelProperty(value = "UUID of test item owned this log", required = true)
 	private String itemUuid;
 
+	@NotBlank
+	@JsonProperty(value = "launchId", required = true)
+	@ApiModelProperty(required = true)
+	private String launchId;
+
 	@NotNull
 	@JsonProperty(value = "time", required = true)
 	@ApiModelProperty(required = true)
@@ -87,6 +92,14 @@ public class SaveLogRQ {
 
 	public void setItemUuid(String itemUuid) {
 		this.itemUuid = itemUuid;
+	}
+
+	public String getLaunchId() {
+		return launchId;
+	}
+
+	public void setLaunchId(String launchId) {
+		this.launchId = launchId;
 	}
 
 	public void setLevel(String level) {
