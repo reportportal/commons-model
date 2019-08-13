@@ -43,10 +43,16 @@ public class AnalyzeLaunchRQ {
 	private String analyzerHistoryMode;
 
 	@NotNull
+	@JsonProperty(value = "analyzerTypeName", required = true)
+	@In(allowedValues = { "autoAnalyzer", "patternAnalyzer", "auto", "pattern" })
+	@ApiModelProperty(allowableValues = "autoAnalyzer (auto), patternAnalyzer (pattern)")
+	private String analyzerTypeName;
+
+	@NotNull
 	@JsonProperty(value = "analyzeItemsMode", required = true)
 	@In(allowedValues = { "to_investigate", "auto_analyzed", "manually_analyzed" })
 	@ApiModelProperty(allowableValues = "TO_INVESTIGATE, AUTO_ANALYZED, MANUALLY_ANALYZED")
-	private List<String> analyzeItemsMode;
+	private List<String> analyzeItemsModes;
 
 	public Long getLaunchId() {
 		return launchId;
@@ -64,11 +70,11 @@ public class AnalyzeLaunchRQ {
 		this.analyzerHistoryMode = analyzerHistoryMode;
 	}
 
-	public List<String> getAnalyzeItemsMode() {
-		return analyzeItemsMode;
+	public List<String> getAnalyzeItemsModes() {
+		return analyzeItemsModes;
 	}
 
-	public void setAnalyzeItemsMode(List<String> analyzeItemsMode) {
-		this.analyzeItemsMode = analyzeItemsMode;
+	public void setAnalyzeItemsModes(List<String> analyzeItemsModes) {
+		this.analyzeItemsModes = analyzeItemsModes;
 	}
 }
