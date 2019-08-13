@@ -66,6 +66,14 @@ public class AnalyzeLaunchRQ {
 		return analyzerHistoryMode;
 	}
 
+	public String getAnalyzerTypeName() {
+		return analyzerTypeName;
+	}
+
+	public void setAnalyzerTypeName(String analyzerTypeName) {
+		this.analyzerTypeName = analyzerTypeName;
+	}
+
 	public void setAnalyzerHistoryMode(String analyzerHistoryMode) {
 		this.analyzerHistoryMode = analyzerHistoryMode;
 	}
