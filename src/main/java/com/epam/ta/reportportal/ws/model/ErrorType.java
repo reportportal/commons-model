@@ -426,7 +426,7 @@ public enum ErrorType {
 	/**
 	 * Pattern analysis error
 	 */
-	PATTER_ANALYSIS_ERROR(40042, "Pattern analysis error. {}"),
+	PATTERN_ANALYSIS_ERROR(40042, "Pattern analysis error. {}"),
 
 	/**
 	 * Bad save user filter request
