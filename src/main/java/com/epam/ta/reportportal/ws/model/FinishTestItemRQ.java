@@ -38,7 +38,7 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 	@NotBlank
 	@JsonProperty(value = "launchId", required = true)
 	@ApiModelProperty(required = true)
-	private String launchId;
+	private String launchUuid;
 
 	public Boolean isRetry() {
 		return retry;
@@ -56,16 +56,21 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 		this.issue = issue;
 	}
 
-	public String getLaunchId() {
-		return launchId;
+	public String getLaunchUuid() {
+		return launchUuid;
 	}
 
-	public void setLaunchId(String launchId) {
-		this.launchId = launchId;
+	public void setLaunchUuid(String launchUuid) {
+		this.launchUuid = launchUuid;
 	}
 
 	@Override
 	public String toString() {
-		return "FinishTestItemRQ{" + "issue=" + issue + ", retry=" + retry + "} " + super.toString();
+		final StringBuilder sb = new StringBuilder("FinishTestItemRQ{");
+		sb.append("issue=").append(issue);
+		sb.append(", retry=").append(retry);
+		sb.append(", launchUuid='").append(launchUuid).append('\'');
+		sb.append('}');
+		return sb.toString();
 	}
 }

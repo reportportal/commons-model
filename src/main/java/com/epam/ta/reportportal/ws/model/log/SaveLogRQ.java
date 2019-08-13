@@ -45,7 +45,7 @@ public class SaveLogRQ {
 	@NotBlank
 	@JsonProperty(value = "launchId", required = true)
 	@ApiModelProperty(required = true)
-	private String launchId;
+	private String launchUuid;
 
 	@NotNull
 	@JsonProperty(value = "time", required = true)
@@ -94,12 +94,12 @@ public class SaveLogRQ {
 		this.itemUuid = itemUuid;
 	}
 
-	public String getLaunchId() {
-		return launchId;
+	public String getLaunchUuid() {
+		return launchUuid;
 	}
 
-	public void setLaunchId(String launchId) {
-		this.launchId = launchId;
+	public void setLaunchUuid(String launchUuid) {
+		this.launchUuid = launchUuid;
 	}
 
 	public void setLevel(String level) {
@@ -170,6 +170,7 @@ public class SaveLogRQ {
 		final StringBuilder sb = new StringBuilder("SaveLogRQ{");
 		sb.append("uuid='").append(uuid).append('\'');
 		sb.append(", itemUuid='").append(itemUuid).append('\'');
+		sb.append(", launchUuid='").append(launchUuid).append('\'');
 		sb.append(", logTime=").append(logTime);
 		sb.append(", message='").append(message).append('\'');
 		sb.append(", level='").append(level).append('\'');
