@@ -20,6 +20,7 @@ import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
@@ -41,6 +42,8 @@ public class SearchLogRs {
 
 	private Issue issue;
 
+	private Set<String> patternTemplates;
+
 	private List<String> logMessages;
 
 	public Long getLaunchId() {
@@ -49,6 +52,14 @@ public class SearchLogRs {
 
 	public void setLaunchId(Long launchId) {
 		this.launchId = launchId;
+	}
+
+	public Set<String> getPatternTemplates() {
+		return patternTemplates;
+	}
+
+	public void setPatternTemplates(Set<String> patternTemplates) {
+		this.patternTemplates = patternTemplates;
 	}
 
 	public String getPath() {
@@ -117,6 +128,7 @@ public class SearchLogRs {
 		sb.append(", duration=").append(duration);
 		sb.append(", status='").append(status).append('\'');
 		sb.append(", issue=").append(issue);
+		sb.append(", patternTemplates=").append(patternTemplates);
 		sb.append(", logMessages=").append(logMessages);
 		sb.append('}');
 		return sb.toString();
