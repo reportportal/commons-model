@@ -27,9 +27,13 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SearchLogRs {
 
+	private Long launchId;
+
 	private Long itemId;
 
 	private String itemName;
+
+	private String path;
 
 	private double duration;
 
@@ -38,6 +42,22 @@ public class SearchLogRs {
 	private Issue issue;
 
 	private List<String> logMessages;
+
+	public Long getLaunchId() {
+		return launchId;
+	}
+
+	public void setLaunchId(Long launchId) {
+		this.launchId = launchId;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
 
 	public Long getItemId() {
 		return itemId;
@@ -90,8 +110,10 @@ public class SearchLogRs {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("SearchLogRs{");
-		sb.append("itemId=").append(itemId);
+		sb.append("launchId=").append(launchId);
+		sb.append(", itemId=").append(itemId);
 		sb.append(", itemName='").append(itemName).append('\'');
+		sb.append(", path='").append(path).append('\'');
 		sb.append(", duration=").append(duration);
 		sb.append(", status='").append(status).append('\'');
 		sb.append(", issue=").append(issue);
