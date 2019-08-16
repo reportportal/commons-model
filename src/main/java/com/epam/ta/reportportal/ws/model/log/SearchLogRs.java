@@ -20,6 +20,7 @@ import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -30,11 +31,15 @@ public class SearchLogRs {
 
 	private Long launchId;
 
+	private String launchName;
+
 	private Long itemId;
 
 	private String itemName;
 
 	private String path;
+
+	private Map<Long, String> pathNames;
 
 	private double duration;
 
@@ -45,6 +50,22 @@ public class SearchLogRs {
 	private Set<String> patternTemplates;
 
 	private List<String> logMessages;
+
+	public String getLaunchName() {
+		return launchName;
+	}
+
+	public void setLaunchName(String launchName) {
+		this.launchName = launchName;
+	}
+
+	public Map<Long, String> getPathNames() {
+		return pathNames;
+	}
+
+	public void setPathNames(Map<Long, String> pathNames) {
+		this.pathNames = pathNames;
+	}
 
 	public Long getLaunchId() {
 		return launchId;
@@ -122,9 +143,11 @@ public class SearchLogRs {
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("SearchLogRs{");
 		sb.append("launchId=").append(launchId);
+		sb.append(", launchName='").append(launchName).append('\'');
 		sb.append(", itemId=").append(itemId);
 		sb.append(", itemName='").append(itemName).append('\'');
 		sb.append(", path='").append(path).append('\'');
+		sb.append(", pathNames=").append(pathNames);
 		sb.append(", duration=").append(duration);
 		sb.append(", status='").append(status).append('\'');
 		sb.append(", issue=").append(issue);
