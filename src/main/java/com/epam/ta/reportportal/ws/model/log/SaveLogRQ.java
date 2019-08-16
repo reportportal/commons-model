@@ -42,7 +42,7 @@ public class SaveLogRQ {
 	private String itemUuid;
 
 	@NotBlank
-	@JsonProperty(value = "launchId", required = true)
+	@JsonProperty(value = "launchUuid", required = true)
 	@ApiModelProperty(required = true)
 	private String launchUuid;
 

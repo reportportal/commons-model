@@ -35,6 +35,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_TEST_ITEM_LOCATION_LENGTH;
 
@@ -155,6 +156,28 @@ public class StartTestItemRQ extends StartRQ {
 			}
 		}
 
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		if (!super.equals(o)) {
+			return false;
+		}
+		StartTestItemRQ that = (StartTestItemRQ) o;
+		return hasStats == that.hasStats && Objects.equals(codeRef, that.codeRef) && Objects.equals(parameters, that.parameters)
+				&& Objects.equals(uniqueId, that.uniqueId) && Objects.equals(launchUuid, that.launchUuid) && Objects.equals(type, that.type)
+				&& Objects.equals(retry, that.retry);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), codeRef, parameters, uniqueId, launchUuid, type, retry, hasStats);
 	}
 
 	@Override

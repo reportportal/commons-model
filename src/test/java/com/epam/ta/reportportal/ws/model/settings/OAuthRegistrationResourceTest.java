@@ -1,3 +1,19 @@
+/*
+ * Copyright 2019 EPAM Systems
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.epam.ta.reportportal.ws.model.settings;
 
 import org.junit.Assert;
@@ -13,7 +29,7 @@ import java.util.regex.Pattern;
  */
 public class OAuthRegistrationResourceTest {
 
-	private final String urlRegex = OAuthRegistrationResource.URL_PATTERN;
+	private static final String URL_REGEX = OAuthRegistrationResource.URL_PATTERN;
 
 	private final List<String> correctUrls = new ArrayList<String>() {
 		{
@@ -36,7 +52,7 @@ public class OAuthRegistrationResourceTest {
 
 	@Test
 	public void regexTestPositive() {
-		final Pattern pattern = Pattern.compile(urlRegex);
+		final Pattern pattern = Pattern.compile(URL_REGEX);
 
 		for (String url : correctUrls) {
 			Matcher matcher = pattern.matcher(url);
@@ -46,7 +62,7 @@ public class OAuthRegistrationResourceTest {
 
 	@Test
 	public void regexTestNegative() {
-		final Pattern pattern = Pattern.compile(urlRegex);
+		final Pattern pattern = Pattern.compile(URL_REGEX);
 
 		for (String url : wrongUrls) {
 			Matcher matcher = pattern.matcher(url);

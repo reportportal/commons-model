@@ -36,7 +36,7 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 	private Boolean retry;
 
 	@NotBlank
-	@JsonProperty(value = "launchId", required = true)
+	@JsonProperty(value = "launchUuid", required = true)
 	@ApiModelProperty(required = true)
 	private String launchUuid;
 
