@@ -16,19 +16,21 @@
 
 package com.epam.ta.reportportal.ws.model.launch;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
+import com.epam.ta.reportportal.ws.model.EntryCreatedAsyncRS;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class StartLaunchRS {
-
-	@JsonAlias({ "uuid", "id" })
-	private String uuid;
+public class StartLaunchRS extends EntryCreatedAsyncRS {
 
 	@JsonProperty("number")
 	private Long number;
+
+	public StartLaunchRS(String id, Long number) {
+		super(id);
+		this.number = number;
+	}
 
 	public Long getNumber() {
 		return number;
@@ -38,20 +40,4 @@ public class StartLaunchRS {
 		this.number = number;
 	}
 
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
-
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("StartLaunchRS{");
-		sb.append("uuid='").append(uuid).append('\'');
-		sb.append(", number=").append(number);
-		sb.append('}');
-		return sb.toString();
-	}
 }
