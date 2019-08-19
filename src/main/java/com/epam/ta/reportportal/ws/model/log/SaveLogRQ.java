@@ -5,14 +5,13 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 
 package com.epam.ta.reportportal.ws.model.log;
@@ -38,10 +37,14 @@ public class SaveLogRQ {
 	@JsonProperty("uuid")
 	private String uuid;
 
+	@JsonProperty(value = "itemUuid")
+	@ApiModelProperty(value = "UUID of test item owned this log")
+	private String itemUuid;
+
 	@NotBlank
-	@JsonProperty(value = "itemId", required = true)
+	@JsonProperty(value = "launchUuid", required = true)
 	@ApiModelProperty(required = true)
-	private String itemId;
+	private String launchUuid;
 
 	@NotNull
 	@JsonProperty(value = "time", required = true)
@@ -82,12 +85,20 @@ public class SaveLogRQ {
 		this.message = message;
 	}
 
-	public String getItemId() {
-		return itemId;
+	public String getItemUuid() {
+		return itemUuid;
 	}
 
-	public void setItemId(String itemId) {
-		this.itemId = itemId;
+	public void setItemUuid(String itemUuid) {
+		this.itemUuid = itemUuid;
+	}
+
+	public String getLaunchUuid() {
+		return launchUuid;
+	}
+
+	public void setLaunchUuid(String launchUuid) {
+		this.launchUuid = launchUuid;
 	}
 
 	public void setLevel(String level) {
@@ -156,7 +167,9 @@ public class SaveLogRQ {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("SaveLogRQ{");
-		sb.append("itemId='").append(itemId).append('\'');
+		sb.append("uuid='").append(uuid).append('\'');
+		sb.append(", itemUuid='").append(itemUuid).append('\'');
+		sb.append(", launchUuid='").append(launchUuid).append('\'');
 		sb.append(", logTime=").append(logTime);
 		sb.append(", message='").append(message).append('\'');
 		sb.append(", level='").append(level).append('\'');

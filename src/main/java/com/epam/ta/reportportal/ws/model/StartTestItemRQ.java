@@ -5,14 +5,13 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 
 package com.epam.ta.reportportal.ws.model;
@@ -36,6 +35,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_TEST_ITEM_LOCATION_LENGTH;
 
@@ -54,9 +54,9 @@ public class StartTestItemRQ extends StartRQ {
 	private String uniqueId;
 
 	@NotBlank
-	@JsonProperty(value = "launchId", required = true)
-	@ApiModelProperty(required = true)
-	private String launchId;
+	@JsonProperty(value = "launchUuid", required = true)
+	@ApiModelProperty(value = "UUID of parent launch", required = true)
+	private String launchUuid;
 
 	@NotNull
 	@JsonProperty(value = "type", required = true)
@@ -104,12 +104,12 @@ public class StartTestItemRQ extends StartRQ {
 		this.hasStats = hasStats;
 	}
 
-	public String getLaunchId() {
-		return launchId;
+	public String getLaunchUuid() {
+		return launchUuid;
 	}
 
-	public void setLaunchId(String launchId) {
-		this.launchId = launchId;
+	public void setLaunchUuid(String launchUuid) {
+		this.launchUuid = launchUuid;
 	}
 
 	public List<ParameterResource> getParameters() {
@@ -159,15 +159,38 @@ public class StartTestItemRQ extends StartRQ {
 	}
 
 	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		if (!super.equals(o)) {
+			return false;
+		}
+		StartTestItemRQ that = (StartTestItemRQ) o;
+		return hasStats == that.hasStats && Objects.equals(codeRef, that.codeRef) && Objects.equals(parameters, that.parameters)
+				&& Objects.equals(uniqueId, that.uniqueId) && Objects.equals(launchUuid, that.launchUuid) && Objects.equals(type, that.type)
+				&& Objects.equals(retry, that.retry);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), codeRef, parameters, uniqueId, launchUuid, type, retry, hasStats);
+	}
+
+	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("StartTestItemRQ{");
 		sb.append("codeRef='").append(codeRef).append('\'');
 		sb.append(", parameters=").append(parameters);
 		sb.append(", uniqueId='").append(uniqueId).append('\'');
-		sb.append(", launchId='").append(launchId).append('\'');
+		sb.append(", launchUuid='").append(launchUuid).append('\'');
 		sb.append(", type='").append(type).append('\'');
 		sb.append(", retry=").append(retry);
 		sb.append(", hasStats=").append(hasStats);
+		sb.append(", name='").append(name).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}

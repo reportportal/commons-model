@@ -424,6 +424,11 @@ public enum ErrorType {
 	UNABLE_TO_SAVE_CHILD_ITEM_FOR_THE_RETRY(40041, "Item with id = '{}' is a retry and can not have children"),
 
 	/**
+	 * Pattern analysis error
+	 */
+	PATTERN_ANALYSIS_ERROR(40042, "Pattern analysis error. {}"),
+
+	/**
 	 * Bad save user filter request
 	 */
 	PROJECT_DOESNT_CONTAIN_USER(4220, "Project '{}' doesn't contain user '{}'"),
