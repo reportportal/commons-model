@@ -17,6 +17,7 @@
 package com.epam.ta.reportportal.ws.model.issue;
 
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,6 +37,7 @@ public class Issue {
 
 	@NotBlank
 	@JsonProperty(value = "issueType", required = true)
+	@JsonAlias({ "issueType", "issue_type" })
 	private String issueType;
 
 	@JsonProperty(value = "comment")
