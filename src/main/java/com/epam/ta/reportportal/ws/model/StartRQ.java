@@ -49,6 +49,7 @@ public class StartRQ {
 	@Size(max = MAX_PARAMETERS_LENGTH)
 	@Valid
 	@JsonProperty("attributes")
+	@JsonAlias({ "attributes", "tags" })
 	private Set<ItemAttributesRQ> attributes;
 
 	@NotNull

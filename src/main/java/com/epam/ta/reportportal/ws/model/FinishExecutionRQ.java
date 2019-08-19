@@ -58,6 +58,7 @@ public class FinishExecutionRQ {
 	@Size(max = MAX_PARAMETERS_LENGTH)
 	@Valid
 	@JsonProperty
+	@JsonAlias({ "attributes", "tags" })
 	private Set<ItemAttributesRQ> attributes;
 
 	public String getDescription() {
