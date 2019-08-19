@@ -37,7 +37,7 @@ public class SaveLogRQ {
 	@JsonProperty("uuid")
 	private String uuid;
 
-	@JsonAlias({ "itemUuid", "itemId" })
+	@JsonAlias({ "itemUuid", "item_id" })
 	@ApiModelProperty(value = "UUID of test item owned this log")
 	private String itemUuid;
 
