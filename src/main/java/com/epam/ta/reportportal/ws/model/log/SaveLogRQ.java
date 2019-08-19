@@ -16,13 +16,13 @@
 
 package com.epam.ta.reportportal.ws.model.log;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Arrays;
 import java.util.Date;
@@ -37,12 +37,11 @@ public class SaveLogRQ {
 	@JsonProperty("uuid")
 	private String uuid;
 
-	@JsonProperty(value = "itemUuid")
+	@JsonAlias({ "itemUuid", "itemId" })
 	@ApiModelProperty(value = "UUID of test item owned this log")
 	private String itemUuid;
 
-	@NotBlank
-	@JsonProperty(value = "launchUuid", required = true)
+	@JsonProperty(value = "launchUuid")
 	@ApiModelProperty(required = true)
 	private String launchUuid;
 
