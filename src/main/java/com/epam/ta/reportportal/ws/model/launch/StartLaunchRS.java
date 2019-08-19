@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,16 @@
 
 package com.epam.ta.reportportal.ws.model.launch;
 
-import com.epam.ta.reportportal.ws.model.EntryCreatedAsyncRS;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class StartLaunchRS extends EntryCreatedAsyncRS {
+public class StartLaunchRS {
+
+	@JsonAlias({ "uuid", "id" })
+	private String uuid;
 
 	@JsonProperty("number")
 	private Long number;
@@ -35,10 +38,19 @@ public class StartLaunchRS extends EntryCreatedAsyncRS {
 		this.number = number;
 	}
 
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("StartLaunchRS{");
-		sb.append("number=").append(number);
+		sb.append("uuid='").append(uuid).append('\'');
+		sb.append(", number=").append(number);
 		sb.append('}');
 		return sb.toString();
 	}
