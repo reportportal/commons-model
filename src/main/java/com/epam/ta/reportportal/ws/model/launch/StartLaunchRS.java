@@ -27,6 +27,9 @@ public class StartLaunchRS extends EntryCreatedAsyncRS {
 	@JsonProperty("number")
 	private Long number;
 
+	public StartLaunchRS() {
+	}
+
 	public StartLaunchRS(String id, Long number) {
 		super(id);
 		this.number = number;
