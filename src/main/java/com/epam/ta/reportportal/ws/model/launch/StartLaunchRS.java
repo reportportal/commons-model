@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 EPAM Systems
+ * Copyright 2019 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,14 @@ public class StartLaunchRS extends EntryCreatedAsyncRS {
 	@JsonProperty("number")
 	private Long number;
 
+	public StartLaunchRS() {
+	}
+
+	public StartLaunchRS(String id, Long number) {
+		super(id);
+		this.number = number;
+	}
+
 	public Long getNumber() {
 		return number;
 	}
@@ -35,11 +43,4 @@ public class StartLaunchRS extends EntryCreatedAsyncRS {
 		this.number = number;
 	}
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("StartLaunchRS{");
-		sb.append("number=").append(number);
-		sb.append('}');
-		return sb.toString();
-	}
 }
