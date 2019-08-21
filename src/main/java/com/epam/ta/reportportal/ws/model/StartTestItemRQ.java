@@ -18,6 +18,7 @@ package com.epam.ta.reportportal.ws.model;
 
 import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,7 +31,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.IOException;
@@ -53,8 +53,7 @@ public class StartTestItemRQ extends StartRQ {
 	@JsonProperty(value = "uniqueId")
 	private String uniqueId;
 
-	@NotBlank
-	@JsonProperty(value = "launchUuid", required = true)
+	@JsonAlias({ "launchUuid", "launch_id" })
 	@ApiModelProperty(value = "UUID of parent launch", required = true)
 	private String launchUuid;
 
