@@ -66,6 +66,7 @@ public class IntegrationTypeResource implements Serializable {
 		this.name = name;
 	}
 
+	@JsonProperty("enabled")
 	public boolean isEnabled() {
 		return enabled;
 	}
