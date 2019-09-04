@@ -175,6 +175,16 @@ public enum ErrorType {
 	ANALYZER_NOT_FOUND(40425, "Analyzer '{}' not found."),
 
 	/**
+	 * If attachment with provided id not found
+	 */
+	ATTACHMENT_NOT_FOUND(40426, "Attachment '{}' not found"),
+
+	/**
+	 * If binary data not found
+	 */
+	UNABLE_TO_LOAD_BINARY_DATA(40427, "Unable to load binary data by id '{}'"),
+
+	/**
 	 * If provided filtering parameters are incorrect
 	 */
 	INCORRECT_FILTER_PARAMETERS(40011, "Incorrect filtering parameters. {}"),
