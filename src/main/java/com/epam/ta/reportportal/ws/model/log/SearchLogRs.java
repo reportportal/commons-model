@@ -49,7 +49,37 @@ public class SearchLogRs {
 
 	private Set<String> patternTemplates;
 
-	private List<String> logMessages;
+	private List<LogEntry> logs;
+
+	public static class LogEntry {
+		private String message;
+		private String level;
+
+		public String getMessage() {
+			return message;
+		}
+
+		public void setMessage(String message) {
+			this.message = message;
+		}
+
+		public String getLevel() {
+			return level;
+		}
+
+		public void setLevel(String level) {
+			this.level = level;
+		}
+
+		@Override
+		public String toString() {
+			final StringBuilder sb = new StringBuilder("LogEntry{");
+			sb.append("message='").append(message).append('\'');
+			sb.append(", level='").append(level).append('\'');
+			sb.append('}');
+			return sb.toString();
+		}
+	}
 
 	public String getLaunchName() {
 		return launchName;
@@ -131,12 +161,12 @@ public class SearchLogRs {
 		this.issue = issue;
 	}
 
-	public List<String> getLogMessages() {
-		return logMessages;
+	public List<LogEntry> getLogs() {
+		return logs;
 	}
 
-	public void setLogMessages(List<String> logMessages) {
-		this.logMessages = logMessages;
+	public void setLogs(List<LogEntry> logs) {
+		this.logs = logs;
 	}
 
 	@Override
@@ -152,7 +182,7 @@ public class SearchLogRs {
 		sb.append(", status='").append(status).append('\'');
 		sb.append(", issue=").append(issue);
 		sb.append(", patternTemplates=").append(patternTemplates);
-		sb.append(", logMessages=").append(logMessages);
+		sb.append(", logs=").append(logs);
 		sb.append('}');
 		return sb.toString();
 	}
