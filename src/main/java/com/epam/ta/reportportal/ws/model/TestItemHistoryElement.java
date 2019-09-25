@@ -35,7 +35,7 @@ public class TestItemHistoryElement {
 	private Long launchId;
 
 	@JsonProperty(value = "resources")
-	private List<TestItemResource> resources;
+	private List<TestItemHistoryResource> resources;
 
 	@JsonProperty(value = "launchStatus")
 	public String launchStatus;
@@ -56,11 +56,11 @@ public class TestItemHistoryElement {
 		this.launchNumber = launchNumber;
 	}
 
-	public List<TestItemResource> getResources() {
+	public List<TestItemHistoryResource> getResources() {
 		return resources;
 	}
 
-	public void setResources(List<TestItemResource> resources) {
+	public void setResources(List<TestItemHistoryResource> resources) {
 		this.resources = resources;
 	}
 
