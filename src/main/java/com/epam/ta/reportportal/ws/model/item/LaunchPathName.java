@@ -14,30 +14,46 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model.externalsystem;
+package com.epam.ta.reportportal.ws.model.item;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
+import java.io.Serializable;
 
 /**
- * Request model for external system update
- *
- * @author Andrei_Ramanchuk
+ * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
  */
-@JsonInclude(Include.NON_NULL)
-public class UpdateBugTrackingSystemRQ {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class LaunchPathName implements Serializable {
 
-	@JsonProperty(value = "fields")
-	private List<PostFormField> fields;
+	@JsonProperty(value = "name")
+	private String name;
 
-	public void setFields(List<PostFormField> form) {
-		this.fields = form;
+	@JsonProperty(value = "number")
+	private Integer number;
+
+	public LaunchPathName() {
 	}
 
-	public List<PostFormField> getFields() {
-		return fields;
+	public LaunchPathName(String name, Integer number) {
+		this.name = name;
+		this.number = number;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getNumber() {
+		return number;
+	}
+
+	public void setNumber(Integer number) {
+		this.number = number;
 	}
 }
