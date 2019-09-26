@@ -95,6 +95,8 @@ public class LaunchResource extends OwnedResource {
 	@JsonProperty(value = "hasRetries")
 	private boolean hasRetries;
 
+	private boolean rerun;
+
 	public double getApproximateDuration() {
 		return approximateDuration;
 	}
@@ -219,6 +221,14 @@ public class LaunchResource extends OwnedResource {
 		this.hasRetries = hasRetries;
 	}
 
+	public boolean isRerun() {
+		return rerun;
+	}
+
+	public void setRerun(boolean rerun) {
+		this.rerun = rerun;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("LaunchResource{");
@@ -237,6 +247,7 @@ public class LaunchResource extends OwnedResource {
 		sb.append(", analyzers=").append(analyzers);
 		sb.append(", approximateDuration=").append(approximateDuration);
 		sb.append(", hasRetries=").append(hasRetries);
+		sb.append(", rerun=").append(rerun);
 		sb.append('}');
 		return sb.toString();
 	}
