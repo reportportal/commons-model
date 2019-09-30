@@ -43,8 +43,8 @@ public class AnalyzeLaunchRQ {
 
 	@NotNull
 	@JsonProperty(value = "analyzerTypeName", required = true)
-	@In(allowedValues = { "autoAnalyzer", "patternAnalyzer", "auto", "pattern" })
-	@ApiModelProperty(allowableValues = "autoAnalyzer (auto), patternAnalyzer (pattern)")
+	@In(allowedValues = { "autoAnalyzer", "patternAnalyzer" })
+	@ApiModelProperty(allowableValues = "autoAnalyzer, patternAnalyzer")
 	private String analyzerTypeName;
 
 	@NotNull
