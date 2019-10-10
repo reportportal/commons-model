@@ -54,7 +54,7 @@ public class StartTestItemRQ extends StartRQ {
 	private String uniqueId;
 
 	@JsonProperty(value = "testCaseId")
-	private String testCaseId;
+	private Integer testCaseId;
 
 	@JsonAlias({ "launchUuid", "launch_id" })
 	@ApiModelProperty(value = "UUID of parent launch", required = true)
@@ -130,11 +130,11 @@ public class StartTestItemRQ extends StartRQ {
 		this.uniqueId = uniqueId;
 	}
 
-	public String getTestCaseId() {
+	public Integer getTestCaseId() {
 		return testCaseId;
 	}
 
-	public void setTestCaseId(String testCaseId) {
+	public void setTestCaseId(Integer testCaseId) {
 		this.testCaseId = testCaseId;
 	}
 

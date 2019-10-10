@@ -97,7 +97,7 @@ public class TestItemResource {
 	private String uniqueId;
 
 	@JsonProperty(value = "testCaseId")
-	private String testCaseId;
+	private Integer testCaseId;
 
 	@JsonProperty(value = "patternTemplates")
 	private Set<String> patternTemplates;
@@ -276,11 +276,11 @@ public class TestItemResource {
 		this.uniqueId = uniqueId;
 	}
 
-	public String getTestCaseId() {
+	public Integer getTestCaseId() {
 		return testCaseId;
 	}
 
-	public void setTestCaseId(String testCaseId) {
+	public void setTestCaseId(Integer testCaseId) {
 		this.testCaseId = testCaseId;
 	}
 
