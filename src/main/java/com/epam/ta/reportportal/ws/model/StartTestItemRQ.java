@@ -53,6 +53,9 @@ public class StartTestItemRQ extends StartRQ {
 	@JsonProperty(value = "uniqueId")
 	private String uniqueId;
 
+	@JsonProperty(value = "testCaseId")
+	private String testCaseId;
+
 	@JsonAlias({ "launchUuid", "launch_id" })
 	@ApiModelProperty(value = "UUID of parent launch", required = true)
 	private String launchUuid;
@@ -127,6 +130,14 @@ public class StartTestItemRQ extends StartRQ {
 		this.uniqueId = uniqueId;
 	}
 
+	public String getTestCaseId() {
+		return testCaseId;
+	}
+
+	public void setTestCaseId(String testCaseId) {
+		this.testCaseId = testCaseId;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -170,13 +181,14 @@ public class StartTestItemRQ extends StartRQ {
 		}
 		StartTestItemRQ that = (StartTestItemRQ) o;
 		return hasStats == that.hasStats && Objects.equals(codeRef, that.codeRef) && Objects.equals(parameters, that.parameters)
-				&& Objects.equals(uniqueId, that.uniqueId) && Objects.equals(launchUuid, that.launchUuid) && Objects.equals(type, that.type)
-				&& Objects.equals(retry, that.retry);
+				&& Objects.equals(uniqueId, that.uniqueId) && Objects.equals(testCaseId, that.testCaseId) && Objects.equals(launchUuid,
+				that.launchUuid
+		) && Objects.equals(type, that.type) && Objects.equals(retry, that.retry);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), codeRef, parameters, uniqueId, launchUuid, type, retry, hasStats);
+		return Objects.hash(super.hashCode(), codeRef, parameters, uniqueId, testCaseId, launchUuid, type, retry, hasStats);
 	}
 
 	@Override
@@ -185,6 +197,7 @@ public class StartTestItemRQ extends StartRQ {
 		sb.append("codeRef='").append(codeRef).append('\'');
 		sb.append(", parameters=").append(parameters);
 		sb.append(", uniqueId='").append(uniqueId).append('\'');
+		sb.append(", testCaseId='").append(testCaseId).append('\'');
 		sb.append(", launchUuid='").append(launchUuid).append('\'');
 		sb.append(", type='").append(type).append('\'');
 		sb.append(", retry=").append(retry);
