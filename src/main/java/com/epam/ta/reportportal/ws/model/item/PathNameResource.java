@@ -14,49 +14,47 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model.integration.auth;
+package com.epam.ta.reportportal.ws.model.item;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UpdateActiveDirectoryRQ implements Serializable {
+public class PathNameResource implements Serializable {
 
-	@Valid
-	@NotNull
-	@JsonProperty(value = "ldapAttributes")
-	private LdapAttributes ldapAttributes;
+	@JsonProperty(value = "launchPathName")
+	private LaunchPathName launchPathName;
 
-	@NotBlank
-	@JsonProperty(value = "domain")
-	private String domain;
+	@JsonProperty(value = "itemPaths")
+	private List<ItemPathName> itemPaths;
 
-	public LdapAttributes getLdapAttributes() {
-		return ldapAttributes;
+	public PathNameResource() {
 	}
 
-	public void setLdapAttributes(LdapAttributes ldapAttributes) {
-		this.ldapAttributes = ldapAttributes;
+	public PathNameResource(LaunchPathName launchPathName, List<ItemPathName> itemPaths) {
+		this.launchPathName = launchPathName;
+		this.itemPaths = itemPaths;
 	}
 
-	public String getDomain() {
-		return domain;
+	public LaunchPathName getLaunchPathName() {
+		return launchPathName;
 	}
 
-	public void setDomain(String domain) {
-		this.domain = domain;
+	public void setLaunchPathName(LaunchPathName launchPathName) {
+		this.launchPathName = launchPathName;
 	}
 
-	@Override
-	public String toString() {
-		return "UpdateActiveDirectoryRQ{" + "ldapAttributes=" + ldapAttributes + ", domain='" + domain + '\'' + '}';
+	public List<ItemPathName> getItemPaths() {
+		return itemPaths;
+	}
+
+	public void setItemPaths(List<ItemPathName> itemPaths) {
+		this.itemPaths = itemPaths;
 	}
 }

@@ -5,14 +5,13 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 
 package com.epam.ta.reportportal.ws.model.launch;
@@ -94,6 +93,8 @@ public class LaunchResource extends OwnedResource {
 
 	@JsonProperty(value = "hasRetries")
 	private boolean hasRetries;
+
+	private boolean rerun;
 
 	public double getApproximateDuration() {
 		return approximateDuration;
@@ -219,6 +220,14 @@ public class LaunchResource extends OwnedResource {
 		this.hasRetries = hasRetries;
 	}
 
+	public boolean isRerun() {
+		return rerun;
+	}
+
+	public void setRerun(boolean rerun) {
+		this.rerun = rerun;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("LaunchResource{");
@@ -237,6 +246,7 @@ public class LaunchResource extends OwnedResource {
 		sb.append(", analyzers=").append(analyzers);
 		sb.append(", approximateDuration=").append(approximateDuration);
 		sb.append(", hasRetries=").append(hasRetries);
+		sb.append(", rerun=").append(rerun);
 		sb.append('}');
 		return sb.toString();
 	}
