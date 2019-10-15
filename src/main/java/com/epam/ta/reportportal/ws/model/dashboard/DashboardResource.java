@@ -94,6 +94,9 @@ public class DashboardResource extends OwnedResource {
 		@JsonProperty(value = "widgetPosition")
 		private Position widgetPosition = new Position();
 
+		@JsonProperty(value = "share")
+		private boolean share;
+
 		public WidgetObjectModel() {
 		}
 
@@ -144,6 +147,14 @@ public class DashboardResource extends OwnedResource {
 			this.widgetPosition = widgetPosition;
 		}
 
+		public boolean isShare() {
+			return share;
+		}
+
+		public void setShare(boolean share) {
+			this.share = share;
+		}
+
 		@Override
 		public String toString() {
 			final StringBuilder sb = new StringBuilder("WidgetObjectModel{");
@@ -152,6 +163,7 @@ public class DashboardResource extends OwnedResource {
 			sb.append(", widgetType='").append(widgetType).append('\'');
 			sb.append(", widgetSize=").append(widgetSize);
 			sb.append(", widgetPosition=").append(widgetPosition);
+			sb.append(", share=").append(share);
 			sb.append('}');
 			return sb.toString();
 		}
