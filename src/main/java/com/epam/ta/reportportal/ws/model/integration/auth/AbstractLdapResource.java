@@ -25,8 +25,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class AbstractLdapResource extends AbstractAuthResource {
 
+	@JsonProperty(value = "id")
+	private Long id;
+
 	@JsonProperty(value = "ldapAttributes")
 	private LdapAttributes ldapAttributes;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public LdapAttributes getLdapAttributes() {
 		return ldapAttributes;
@@ -38,9 +49,6 @@ public abstract class AbstractLdapResource extends AbstractAuthResource {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("AbstractLdapResource{");
-		sb.append("ldapAttributes=").append(ldapAttributes);
-		sb.append('}');
-		return sb.toString();
+		return "AbstractLdapResource{" + "id=" + id + ", ldapAttributes=" + ldapAttributes + '}';
 	}
 }

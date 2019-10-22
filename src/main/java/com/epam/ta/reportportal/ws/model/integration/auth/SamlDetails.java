@@ -27,7 +27,9 @@ import javax.validation.constraints.NotEmpty;
 
 @ApiModel
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SamlDetailsResource extends AbstractAuthResource {
+public class SamlDetails {
+
+	private Long id;
 
 	/**
 	 * Provider name associated with IDP
@@ -72,6 +74,14 @@ public class SamlDetailsResource extends AbstractAuthResource {
 	 * Indicates IDP availability for authentication
 	 */
 	private boolean enabled;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getIdentityProviderName() {
 		return identityProviderName;
