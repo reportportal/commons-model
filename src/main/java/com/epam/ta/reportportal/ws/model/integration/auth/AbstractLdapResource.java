@@ -19,6 +19,8 @@ package com.epam.ta.reportportal.ws.model.integration.auth;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.Valid;
+
 /**
  * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
  */
@@ -28,6 +30,7 @@ public abstract class AbstractLdapResource extends AbstractAuthResource {
 	@JsonProperty(value = "id")
 	private Long id;
 
+	@Valid
 	@JsonProperty(value = "ldapAttributes")
 	private LdapAttributes ldapAttributes;
 
