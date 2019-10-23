@@ -27,7 +27,7 @@ import javax.validation.constraints.NotEmpty;
 
 @ApiModel
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SamlResource {
+public class SamlResource extends AbstractAuthResource {
 
 	private Long id;
 
