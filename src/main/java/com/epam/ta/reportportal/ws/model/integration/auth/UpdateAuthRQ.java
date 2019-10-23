@@ -13,7 +13,7 @@ public class UpdateAuthRQ {
 	private Boolean enabled;
 
 	@NotEmpty
-	private Map<String, String> authParams;
+	private Map<String, Object> authParams;
 
 	public Boolean getEnabled() {
 		return enabled;
@@ -23,11 +23,11 @@ public class UpdateAuthRQ {
 		this.enabled = enabled;
 	}
 
-	public Map<String, String> getAuthParams() {
+	public Map<String, Object> getAuthParams() {
 		return authParams;
 	}
 
-	public void setAuthParams(Map<String, String> authParams) {
+	public void setAuthParams(Map<String, Object> authParams) {
 		this.authParams = authParams;
 	}
 
