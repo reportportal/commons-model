@@ -24,7 +24,6 @@ plugins {
 apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/master/release-commons.gradle'
 apply from: 'build-quality.gradle'
 
-
 dependencyManagement {
     imports {
         mavenBom "org.springframework.boot:spring-boot-dependencies:2.1.5.RELEASE"
@@ -35,7 +34,6 @@ repositories {
     mavenCentral()
 }
 
-
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 description = 'EPAM Report portal. REST API model'
@@ -44,25 +42,13 @@ wrapper {
     gradleVersion = '5.4.1'
 }
 
-ext {
-    hibernateValidatorVersion = '5.4.0.Final'
-    validationApiVersion = '2.0.1.Final'
-    junitVerion = '4.12'
-    glassfishElVersion = '2.2'
-    swaggerAnnotationsVersion = '1.5.22'
-    commonsLangVersion = '3.7'
-    mockitoJunitJupiter = '2.23.0'
-    jacksonVersion = '2.9.9'
-}
-
 dependencies {
     compile "io.swagger:swagger-annotations:${swaggerAnnotationsVersion}"
-    compile "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
     compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
     compile "javax.validation:validation-api:${validationApiVersion}"
     compile "org.apache.commons:commons-lang3:${commonsLangVersion}"
 
-    testCompile "junit:junit:${junitVerion}"
+    testCompile "junit:junit:${junitVersion}"
     testCompile "org.mockito:mockito-junit-jupiter:${mockitoJunitJupiter}"
     testCompile "org.hibernate:hibernate-validator:${hibernateValidatorVersion}"
     testCompile "org.glassfish.web:el-impl:${glassfishElVersion}"
