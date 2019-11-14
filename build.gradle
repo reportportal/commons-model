@@ -26,7 +26,7 @@ apply from: 'build-quality.gradle'
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:2.1.5.RELEASE"
+        mavenBom "org.springframework.boot:spring-boot-dependencies:2.2.0.RELEASE"
     }
 }
 
@@ -50,8 +50,10 @@ dependencies {
 
     testCompile "junit:junit:${junitVersion}"
     testCompile "org.mockito:mockito-junit-jupiter:${mockitoJunitJupiter}"
-    testCompile "org.hibernate:hibernate-validator:${hibernateValidatorVersion}"
-    testCompile "org.glassfish.web:el-impl:${glassfishElVersion}"
+    testCompile "org.hibernate.validator:hibernate-validator:${hibernateValidatorVersion}"
+    testCompile "javax.el:javax.el-api:${elApiVersion}"
+    testCompile "org.glassfish:javax.el:${elApiVersion}"
+
 }
 
 
