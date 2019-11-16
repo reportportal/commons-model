@@ -2,8 +2,17 @@ language: java
 dist: trusty
 script: ./gradlew build
 
+env:
+  global:
+    - GRADLE_OPTS="-Xms128m -Xmx1g"
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle
+
 jdk:
-  - oraclejdk8
+  - oraclejdk11
 
 notifications:
   slack: reportportal:fl6xWHVQp1jvsMmCJxYW9YKP
