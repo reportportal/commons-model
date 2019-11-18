@@ -21,8 +21,8 @@ plugins {
     id "org.owasp.dependencycheck" version "5.2.0"
 }
 
-apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/update-bom/release-commons.gradle'
-apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/update-bom/build-quality.gradle'
+apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/master/release-commons.gradle'
+apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/master/build-quality.gradle'
 
 dependencyManagement {
     imports {
@@ -48,11 +48,11 @@ dependencies {
     compile "javax.validation:validation-api:${validationApiVersion}"
     compile "org.apache.commons:commons-lang3:${commonsLangVersion}"
 
-    testCompile "junit:junit:${junitVersion}"
-    testCompile "org.mockito:mockito-junit-jupiter:${mockitoJunitJupiter}"
-    testCompile "org.hibernate.validator:hibernate-validator:${hibernateValidatorVersion}"
-    testCompile "javax.el:javax.el-api:${elApiVersion}"
-    testCompile "org.glassfish:javax.el:${elApiVersion}"
+    testImplementation "junit:junit:${junitVersion}"
+    testImplementation "org.mockito:mockito-junit-jupiter:${mockitoJunitJupiter}"
+    testImplementation "org.hibernate.validator:hibernate-validator:${hibernateValidatorVersion}"
+    testImplementation "javax.el:javax.el-api:${elApiVersion}"
+    testImplementation "org.glassfish:javax.el:${elApiVersion}"
 }
 
 
