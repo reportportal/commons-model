@@ -33,6 +33,10 @@ public class DeleteBulkRQ {
 	public DeleteBulkRQ() {
 	}
 
+	public DeleteBulkRQ(@NotEmpty List<Long> ids) {
+		this.ids = ids;
+	}
+
 	public List<Long> getIds() {
 		return ids;
 	}
