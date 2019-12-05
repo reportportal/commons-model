@@ -38,6 +38,9 @@ public class ProjectResource {
 	@JsonProperty(value = "projectName", required = true)
 	private String projectName;
 
+	@JsonProperty(value = "entryType", required = true)
+	private String entryType;
+
 	@NotNull
 	@JsonProperty(value = "configuration", required = true)
 	private ProjectConfiguration configuration;
@@ -77,6 +80,14 @@ public class ProjectResource {
 
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+
+	public String getEntryType() {
+		return entryType;
+	}
+
+	public void setEntryType(String entryType) {
+		this.entryType = entryType;
 	}
 
 	public void setConfiguration(ProjectConfiguration configuration) {
