@@ -97,7 +97,10 @@ public class TestItemResource {
 	private String uniqueId;
 
 	@JsonProperty(value = "testCaseId")
-	private Integer testCaseId;
+	private String testCaseId;
+
+	@JsonProperty(value = "testCaseHash")
+	private Integer testCaseHash;
 
 	@JsonProperty(value = "patternTemplates")
 	private Set<String> patternTemplates;
@@ -276,12 +279,20 @@ public class TestItemResource {
 		this.uniqueId = uniqueId;
 	}
 
-	public Integer getTestCaseId() {
+	public String getTestCaseId() {
 		return testCaseId;
 	}
 
-	public void setTestCaseId(Integer testCaseId) {
+	public void setTestCaseId(String testCaseId) {
 		this.testCaseId = testCaseId;
+	}
+
+	public Integer getTestCaseHash() {
+		return testCaseHash;
+	}
+
+	public void setTestCaseHash(Integer testCaseHash) {
+		this.testCaseHash = testCaseHash;
 	}
 
 	public String getPath() {
@@ -324,6 +335,7 @@ public class TestItemResource {
 		sb.append(", launchId=").append(launchId);
 		sb.append(", uniqueId='").append(uniqueId).append('\'');
 		sb.append(", testCaseId='").append(testCaseId).append('\'');
+		sb.append(", testCaseHash='").append(testCaseHash).append('\'');
 		sb.append(", patternTemplates=").append(patternTemplates);
 		sb.append(", retries=").append(retries);
 		sb.append(", path='").append(path).append('\'');
