@@ -14,22 +14,12 @@
  * limitations under the License.
  */
 plugins {
-    id "io.spring.dependency-management" version "1.0.8.RELEASE"
-    id 'net.researchgate.release' version '2.8.1'
-    id "com.jfrog.bintray" version "1.8.4"
     id 'java'
     id "org.owasp.dependencycheck" version "5.2.0"
-    id "com.github.spotbugs" version "2.0.1"
 }
 
-apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/master/release-commons.gradle'
+apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/v5.1/release-commons.gradle'
 apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/v5.1/build-quality.gradle'
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:2.2.0.RELEASE"
-    }
-}
 
 repositories {
     mavenCentral()
@@ -37,7 +27,6 @@ repositories {
 
 sourceCompatibility = 11
 targetCompatibility = 11
-description = 'EPAM Report portal. REST API model'
 
 wrapper {
     gradleVersion = '6.0'
@@ -55,6 +44,8 @@ dependencies {
     testImplementation "javax.el:javax.el-api:${elApiVersion}"
     testImplementation "org.glassfish:javax.el:${elApiVersion}"
 }
+
+afterReleaseBuild.dependsOn bintrayUpload
 
 
 

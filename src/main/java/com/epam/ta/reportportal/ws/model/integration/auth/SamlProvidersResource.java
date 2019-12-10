@@ -14,36 +14,27 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model;
+package com.epam.ta.reportportal.ws.model.integration.auth;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import java.util.Map;
+import java.util.List;
 
 /**
- * @param <K> Type of Key
- * @param <T> Type of Entity
- * @author Dzmitry_Kavalets
+ * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class BulkRQ<K,T> {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class SamlProvidersResource extends AbstractAuthResource {
 
 	@Valid
-	@NotNull
-	@JsonProperty(value = "entities", required = true)
-	private Map<K, T> entities;
+	private List<SamlResource> providers;
 
-	public Map<K, T> getEntities() {
-		return entities;
+	public List<SamlResource> getProviders() {
+		return providers;
 	}
 
-	public void setEntities(Map<K, T> entities) {
-		this.entities = entities;
-	}
-
-	@Override
-	public String toString() {
-		return "BulkRQ{" + "entities=" + entities + '}';
+	public void setProviders(List<SamlResource> providers) {
+		this.providers = providers;
 	}
 }

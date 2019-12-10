@@ -14,36 +14,41 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model;
+package com.epam.ta.reportportal.ws.model.integration.auth;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Map;
 
 /**
- * @param <K> Type of Key
- * @param <T> Type of Entity
- * @author Dzmitry_Kavalets
+ * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class BulkRQ<K,T> {
+public class UpdateAuthRQ {
 
-	@Valid
 	@NotNull
-	@JsonProperty(value = "entities", required = true)
-	private Map<K, T> entities;
+	private Boolean enabled;
 
-	public Map<K, T> getEntities() {
-		return entities;
+	@NotEmpty
+	private Map<String, Object> authParams;
+
+	public Boolean getEnabled() {
+		return enabled;
 	}
 
-	public void setEntities(Map<K, T> entities) {
-		this.entities = entities;
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Map<String, Object> getAuthParams() {
+		return authParams;
+	}
+
+	public void setAuthParams(Map<String, Object> authParams) {
+		this.authParams = authParams;
 	}
 
 	@Override
 	public String toString() {
-		return "BulkRQ{" + "entities=" + entities + '}';
+		return "UpdateAuthRQ{" + "enabled=" + enabled + ", authParams=" + authParams + '}';
 	}
 }

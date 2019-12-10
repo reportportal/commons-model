@@ -13,36 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.epam.ta.reportportal.ws.model.item;
 
-import com.epam.ta.reportportal.ws.model.EntryCreatedAsyncRS;
+package com.epam.ta.reportportal.ws.model.integration.auth;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
+
 /**
- * Response Model for Start Test Item RQ
- *
- * @author Andrei Varabyeu
+ * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ItemCreatedRS extends EntryCreatedAsyncRS {
+public class AbstractAuthResource implements Serializable {
 
-	public ItemCreatedRS() {
+	private String type;
 
+	public String getType() {
+		return type;
 	}
 
-    public ItemCreatedRS(String id, String uniqueId) {
-        super(id);
-        this.uniqueId = uniqueId;
-    }
-
-    private String uniqueId;
-
-	public String getUniqueId() {
-		return uniqueId;
+	public void setType(String type) {
+		this.type = type;
 	}
-
-	public void setUniqueId(String uniqueId) {
-		this.uniqueId = uniqueId;
-	}
-
 }

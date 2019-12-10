@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -29,6 +29,9 @@ public class IntegrationActivityResource {
 	@JsonProperty(value = "projectId", required = true)
 	private Long projectId;
 
+	@JsonProperty(value = "name")
+	private String name;
+
 	@JsonProperty(value = "projectName", required = true)
 	private String projectName;
 
@@ -49,6 +52,14 @@ public class IntegrationActivityResource {
 
 	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getProjectName() {
@@ -72,6 +83,7 @@ public class IntegrationActivityResource {
 		final StringBuilder sb = new StringBuilder("IntegrationActivityResource{");
 		sb.append("id=").append(id);
 		sb.append(", projectId=").append(projectId);
+		sb.append(", name='").append(name).append('\'');
 		sb.append(", projectName='").append(projectName).append('\'');
 		sb.append(", typeName='").append(typeName).append('\'');
 		sb.append('}');
