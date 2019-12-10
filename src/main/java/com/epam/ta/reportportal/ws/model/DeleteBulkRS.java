@@ -69,11 +69,6 @@ public class DeleteBulkRS {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("DeleteLaunchesRS{");
-		sb.append("deleted=").append(deleted);
-		sb.append(", notFound=").append(notFound);
-		sb.append(", errors=").append(errors);
-		sb.append('}');
-		return sb.toString();
+		return "DeleteBulkRS{" + "deleted=" + deleted + ", notFound=" + notFound + ", errors=" + errors + '}';
 	}
 }
