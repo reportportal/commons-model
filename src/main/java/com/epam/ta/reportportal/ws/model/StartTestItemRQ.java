@@ -37,12 +37,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_TEST_ITEM_LOCATION_LENGTH;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_TEST_ITEM_UNIQUE_ID_LENGTH;
 
 @JsonInclude(Include.NON_NULL)
 public class StartTestItemRQ extends StartRQ {
 
-	@Size(max = MAX_TEST_ITEM_LOCATION_LENGTH)
 	@JsonProperty(value = "codeRef")
 	private String codeRef;
 
@@ -50,6 +49,7 @@ public class StartTestItemRQ extends StartRQ {
 	@JsonProperty(value = "parameters")
 	private List<ParameterResource> parameters;
 
+	@Size(max = MAX_TEST_ITEM_UNIQUE_ID_LENGTH)
 	@JsonProperty(value = "uniqueId")
 	private String uniqueId;
 

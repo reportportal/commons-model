@@ -16,11 +16,9 @@
 
 package com.epam.ta.reportportal.ws.model.user;
 
-import com.epam.ta.reportportal.ws.model.ModelViews;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.validation.constraints.NotNull;
 import java.util.Map;
@@ -61,10 +59,6 @@ public class UserResource {
 
 	@JsonProperty(value = "metadata")
 	private Object metadata;
-
-	@JsonProperty(value = "defaultProject", required = true)
-	@JsonView(ModelViews.FullUserView.class)
-	private String defaultProject;
 
 	@JsonProperty(value = "assignedProjects")
 	private Map<String, AssignedProject> assignedProjects;
@@ -125,14 +119,6 @@ public class UserResource {
 		this.userRole = value;
 	}
 
-	public void setDefaultProject(String value) {
-		this.defaultProject = value;
-	}
-
-	public String getDefaultProject() {
-		return defaultProject;
-	}
-
 	public Object getMetadata() {
 		return metadata;
 	}
@@ -191,7 +177,6 @@ public class UserResource {
 	public String toString() {
 		return "UserResource{" + "id=" + id + ", userId='" + userId + '\'' + ", email='" + email + '\'' + ", photoId='" + photoId + '\''
 				+ ", fullName='" + fullName + '\'' + ", accountType='" + accountType + '\'' + ", userRole='" + userRole + '\''
-				+ ", isLoaded=" + isLoaded + ", metadata=" + metadata + ", defaultProject='" + defaultProject + '\'' + ", assignedProjects="
-				+ assignedProjects + '}';
+				+ ", isLoaded=" + isLoaded + ", metadata=" + metadata + ", assignedProjects=" + assignedProjects + '}';
 	}
 }
