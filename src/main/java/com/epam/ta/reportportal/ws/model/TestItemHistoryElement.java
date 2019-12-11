@@ -25,18 +25,35 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class TestItemHistoryElement {
 
-	@JsonProperty(value = "testCaseId")
-	private Integer testCaseId;
+	@JsonProperty(value = "launchNumber")
+	private String launchNumber;
+
+	@JsonProperty(value = "startTime")
+	private String startTime;
+
+	@JsonProperty(value = "launchId")
+	private Long launchId;
 
 	@JsonProperty(value = "resources")
 	private List<TestItemResource> resources;
 
-	public Integer getTestCaseId() {
-		return testCaseId;
+	@JsonProperty(value = "launchStatus")
+	public String launchStatus;
+
+	public String getLaunchStatus() {
+		return launchStatus;
 	}
 
-	public void setTestCaseId(Integer testCaseId) {
-		this.testCaseId = testCaseId;
+	public void setLaunchStatus(String launchStatus) {
+		this.launchStatus = launchStatus;
+	}
+
+	public String getLaunchNumber() {
+		return launchNumber;
+	}
+
+	public void setLaunchNumber(String launchNumber) {
+		this.launchNumber = launchNumber;
 	}
 
 	public List<TestItemResource> getResources() {
@@ -47,8 +64,25 @@ public class TestItemHistoryElement {
 		this.resources = resources;
 	}
 
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public Long getLaunchId() {
+		return launchId;
+	}
+
+	public void setLaunchId(Long launchId) {
+		this.launchId = launchId;
+	}
+
 	@Override
 	public String toString() {
-		return "TestItemHistoryElement{" + "testCaseId=" + testCaseId + ", resources=" + resources + '}';
+		return "TestItemHistoryElement{" + "launchNumber='" + launchNumber + '\'' + ", startTime='" + startTime + '\'' + ", launchId='"
+				+ launchId + '\'' + ", resources=" + resources + ", launchStatus='" + launchStatus + '\'' + '}';
 	}
 }
