@@ -47,6 +47,7 @@ public class TestItemHistoryElement {
 		this.resources = resources;
 	}
 
+
 	@Override
 	public String toString() {
 		return "TestItemHistoryElement{" + "testCaseHash=" + testCaseHash + ", resources=" + resources + '}';
