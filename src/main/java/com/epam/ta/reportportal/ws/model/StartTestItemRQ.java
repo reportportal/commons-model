@@ -59,6 +59,7 @@ public class StartTestItemRQ extends StartRQ {
 	@JsonProperty(value = "testCaseHash")
 	private Integer testCaseHash;
 
+	@NotNull
 	@JsonAlias({ "launchUuid", "launch_id" })
 	@ApiModelProperty(value = "UUID of parent launch", required = true)
 	private String launchUuid;
