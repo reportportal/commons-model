@@ -23,7 +23,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 
 @JsonInclude(Include.NON_NULL)
 public class FinishTestItemRQ extends FinishExecutionRQ {

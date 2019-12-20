@@ -14,39 +14,29 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model;
+package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.NotEmpty;
-import java.util.List;
-
 /**
- * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
+ * Represents single item in indexing operation response.
+ *
+ * @author Ivan Sharamet
  */
-public class DeleteBulkRQ {
+public class IndexRsItem {
 
-	@NotEmpty
-	@JsonProperty(value = "ids")
-	private List<Long> ids;
+	@JsonProperty("index")
+	private IndexRsIndex index;
 
-	public DeleteBulkRQ() {
+	public IndexRsItem() {
 	}
 
-	public DeleteBulkRQ(@NotEmpty List<Long> ids) {
-		this.ids = ids;
+	public IndexRsIndex getIndex() {
+		return index;
 	}
 
-	public List<Long> getIds() {
-		return ids;
+	public void setIndex(IndexRsIndex index) {
+		this.index = index;
 	}
 
-	public void setIds(List<Long> ids) {
-		this.ids = ids;
-	}
-
-	@Override
-	public String toString() {
-		return "DeleteBulkRQ{" + "ids=" + ids + '}';
-	}
 }

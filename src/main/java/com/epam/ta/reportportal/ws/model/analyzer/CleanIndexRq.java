@@ -14,39 +14,44 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model;
+package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 /**
- * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
+ * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class DeleteBulkRQ {
+public class CleanIndexRq {
 
-	@NotEmpty
-	@JsonProperty(value = "ids")
-	private List<Long> ids;
+	@JsonProperty("project")
+	private Long projectId;
 
-	public DeleteBulkRQ() {
+	@JsonProperty("ids")
+	private List<Long> logIds;
+
+	public CleanIndexRq() {
 	}
 
-	public DeleteBulkRQ(@NotEmpty List<Long> ids) {
-		this.ids = ids;
+	public CleanIndexRq(Long projectId, List<Long> logIds) {
+		this.projectId = projectId;
+		this.logIds = logIds;
 	}
 
-	public List<Long> getIds() {
-		return ids;
+	public Long getProjectId() {
+		return projectId;
 	}
 
-	public void setIds(List<Long> ids) {
-		this.ids = ids;
+	public void setProjectId(Long projectId) {
+		this.projectId = projectId;
 	}
 
-	@Override
-	public String toString() {
-		return "DeleteBulkRQ{" + "ids=" + ids + '}';
+	public List<Long> getLogIds() {
+		return logIds;
+	}
+
+	public void setLogIds(List<Long> logIds) {
+		this.logIds = logIds;
 	}
 }

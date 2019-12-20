@@ -14,39 +14,52 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model;
+package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 /**
- * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
+ * Represents indexing operation response.
+ *
+ * @author Ivan Sharamet
  */
-public class DeleteBulkRQ {
+public class IndexRs {
 
-	@NotEmpty
-	@JsonProperty(value = "ids")
-	private List<Long> ids;
+	@JsonProperty("took")
+	private int took;
 
-	public DeleteBulkRQ() {
+	@JsonProperty("errors")
+	private boolean errors;
+
+	@JsonProperty("items")
+	private List<IndexRsItem> items;
+
+	public IndexRs() {
 	}
 
-	public DeleteBulkRQ(@NotEmpty List<Long> ids) {
-		this.ids = ids;
+	public int getTook() {
+		return took;
 	}
 
-	public List<Long> getIds() {
-		return ids;
+	public void setTook(int took) {
+		this.took = took;
 	}
 
-	public void setIds(List<Long> ids) {
-		this.ids = ids;
+	public boolean isErrors() {
+		return errors;
 	}
 
-	@Override
-	public String toString() {
-		return "DeleteBulkRQ{" + "ids=" + ids + '}';
+	public void setErrors(boolean errors) {
+		this.errors = errors;
+	}
+
+	public List<IndexRsItem> getItems() {
+		return items;
+	}
+
+	public void setItems(List<IndexRsItem> items) {
+		this.items = items;
 	}
 }

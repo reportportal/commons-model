@@ -46,9 +46,6 @@ public class LdapResource extends AbstractLdapResource {
 	@JsonProperty(value = "managerDn")
 	private String managerDn;
 
-	@JsonProperty(value = "managerPassword")
-	private String managerPassword;
-
 	public String getUserDnPattern() {
 		return userDnPattern;
 	}
@@ -105,19 +102,11 @@ public class LdapResource extends AbstractLdapResource {
 		this.managerDn = managerDn;
 	}
 
-	public String getManagerPassword() {
-		return managerPassword;
-	}
-
-	public void setManagerPassword(String managerPassword) {
-		this.managerPassword = managerPassword;
-	}
-
 	@Override
 	public String toString() {
 		return "LdapResource{" + "userDnPattern='" + userDnPattern + '\'' + ", userSearchFilter='" + userSearchFilter + '\''
 				+ ", groupSearchBase='" + groupSearchBase + '\'' + ", groupSearchFilter='" + groupSearchFilter + '\''
 				+ ", passwordEncoderType='" + passwordEncoderType + '\'' + ", passwordAttribute='" + passwordAttribute + '\''
-				+ ", managerDn='" + managerDn + '\'' + ", managerPassword='" + managerPassword + '\'' + '}';
+				+ ", managerDn='" + managerDn + '\'' + '}';
 	}
 }
