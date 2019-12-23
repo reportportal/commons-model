@@ -112,7 +112,7 @@ public class SenderCaseDTO implements Serializable {
 		this.attributes = attributes;
 	}
 
-	public Boolean getEnabled() {
+	public Boolean isEnabled() {
 		return enabled;
 	}
 
