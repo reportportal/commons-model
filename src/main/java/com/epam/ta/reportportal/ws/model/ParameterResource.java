@@ -18,6 +18,8 @@ package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Test item parameters representation
  *
@@ -25,7 +27,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class ParameterResource {
 
-    @JsonProperty(value = "key")
+    @NotNull
+    @JsonProperty(value = "key", required = true)
     private String key;
 
     @JsonProperty(value = "value")
