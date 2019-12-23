@@ -27,8 +27,10 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -62,14 +64,19 @@ public class SenderCaseDTO implements Serializable {
 	@JsonProperty(value = "attributes")
 	private Set<ItemAttributeResource> attributes;
 
+	@NotNull
+	@JsonProperty(value = "enabled", required = true)
+	private Boolean enabled;
+
 	public SenderCaseDTO() {
 	}
 
-	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes) {
+	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled) {
 		this.recipients = recs;
 		this.sendCase = sendMode;
 		this.launchNames = laNames;
 		this.attributes = attributes;
+		this.enabled = enabled;
 	}
 
 	/* Getters and setters block */
@@ -105,60 +112,37 @@ public class SenderCaseDTO implements Serializable {
 		this.attributes = attributes;
 	}
 
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	/* Auto generated methods */
 	@Override
 	public String toString() {
-		return "SenderCaseDTO [recipients=" + recipients + ", sendCase=" + sendCase + ", launchNames=" + launchNames + ", attributes=" + attributes + "]";
+		return "SenderCaseDTO{" + "recipients=" + recipients + ", sendCase='" + sendCase + '\'' + ", launchNames=" + launchNames
+				+ ", attributes=" + attributes + ", enabled=" + enabled + '}';
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		SenderCaseDTO that = (SenderCaseDTO) o;
+		return Objects.equals(recipients, that.recipients) && Objects.equals(sendCase, that.sendCase) && Objects.equals(launchNames,
+				that.launchNames
+		) && Objects.equals(attributes, that.attributes) && Objects.equals(enabled, that.enabled);
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((launchNames == null) ? 0 : launchNames.hashCode());
-		result = prime * result + ((recipients == null) ? 0 : recipients.hashCode());
-		result = prime * result + ((sendCase == null) ? 0 : sendCase.hashCode());
-		result = prime * result + ((attributes == null) ? 0 : attributes.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		SenderCaseDTO other = (SenderCaseDTO) obj;
-		if (launchNames == null) {
-			if (other.launchNames != null) {
-				return false;
-			}
-		} else if (!launchNames.equals(other.launchNames)) {
-			return false;
-		}
-		if (recipients == null) {
-			if (other.recipients != null) {
-				return false;
-			}
-		} else if (!recipients.equals(other.recipients)) {
-			return false;
-		}
-		if (sendCase == null) {
-			if (other.sendCase != null) {
-				return false;
-			}
-		} else if (!sendCase.equals(other.sendCase)) {
-			return false;
-		}
-		if (attributes == null) {
-			return other.attributes == null;
-		} else {
-			return attributes.equals(other.attributes);
-		}
+		return Objects.hash(recipients, sendCase, launchNames, attributes, enabled);
 	}
 }
