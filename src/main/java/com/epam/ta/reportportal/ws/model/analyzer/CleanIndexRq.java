@@ -29,14 +29,14 @@ public class CleanIndexRq {
 	private Long projectId;
 
 	@JsonProperty("ids")
-	private List<Long> itemIds;
+	private List<Long> logIds;
 
 	public CleanIndexRq() {
 	}
 
-	public CleanIndexRq(Long projectId, List<Long> itemIds) {
+	public CleanIndexRq(Long projectId, List<Long> logIds) {
 		this.projectId = projectId;
-		this.itemIds = itemIds;
+		this.logIds = logIds;
 	}
 
 	public Long getProjectId() {
@@ -47,11 +47,11 @@ public class CleanIndexRq {
 		this.projectId = projectId;
 	}
 
-	public List<Long> getItemIds() {
-		return itemIds;
+	public List<Long> getLogIds() {
+		return logIds;
 	}
 
-	public void setItemIds(List<Long> itemIds) {
-		this.itemIds = itemIds;
+	public void setLogIds(List<Long> logIds) {
+		this.logIds = logIds;
 	}
 }
