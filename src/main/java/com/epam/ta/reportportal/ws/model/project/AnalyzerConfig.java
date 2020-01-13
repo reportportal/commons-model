@@ -33,16 +33,6 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AnalyzerConfig {
 
-	@Min(value = MIN_DOC_FREQ)
-	@Max(value = MAX_DOC_FREQ)
-	@JsonProperty(value = "minDocFreq")
-	private Integer minDocFreq;
-
-	@Min(value = MIN_TERM_FREQ)
-	@Max(value = MAX_TERM_FREQ)
-	@JsonProperty(value = "minTermFreq")
-	private Integer minTermFreq;
-
 	@Min(value = MIN_SHOULD_MATCH)
 	@Max(value = MAX_SHOULD_MATCH)
 	@JsonProperty(value = "minShouldMatch")
@@ -71,22 +61,6 @@ public class AnalyzerConfig {
 
 	public void setIndexingRunning(boolean indexingRunning) {
 		this.indexingRunning = indexingRunning;
-	}
-
-	public Integer getMinDocFreq() {
-		return minDocFreq;
-	}
-
-	public void setMinDocFreq(Integer minDocFreq) {
-		this.minDocFreq = minDocFreq;
-	}
-
-	public Integer getMinTermFreq() {
-		return minTermFreq;
-	}
-
-	public void setMinTermFreq(Integer minTermFreq) {
-		this.minTermFreq = minTermFreq;
 	}
 
 	public Integer getMinShouldMatch() {
