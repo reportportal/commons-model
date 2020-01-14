@@ -16,7 +16,11 @@
 
 package com.epam.ta.reportportal.ws.model.settings;
 
-import javax.validation.constraints.NotBlank;
+import com.epam.ta.reportportal.ws.annotations.NotBlankString;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.Map;
@@ -27,39 +31,60 @@ import java.util.Set;
  *
  * @author Anton Machulski
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OAuthRegistrationResource implements Serializable {
 	public static final String URL_PATTERN = "^(http://|https://)?(www\\.)?([a-zA-Z0-9-]+)\\.([a-zA-Z0-9-]+\\.)*[a-z]{2,}(/[a-z_-]+)*$";
 
+	@NotNull
+	@NotBlankString
+	@JsonProperty(value = "id")
 	private String id;
 
-	@NotBlank
+	@NotNull
+	@NotBlankString
+	@JsonProperty(value = "clientId")
 	private String clientId;
 
-	@NotBlank
+	@NotNull
+	@NotBlankString
+	@JsonProperty(value = "clientSecret")
 	private String clientSecret;
 
+	@NotNull
+	@NotBlankString
+	@JsonProperty(value = "clientAuthMethod")
 	private String clientAuthMethod;
 
+	@JsonProperty(value = "authGrantType")
 	private String authGrantType;
 
+	@JsonProperty(value = "redirectUrlTemplate")
 	private String redirectUrlTemplate;
 
 	@Pattern(regexp = URL_PATTERN)
+	@JsonProperty(value = "authorizationUri")
 	private String authorizationUri;
 
 	@Pattern(regexp = URL_PATTERN)
+	@JsonProperty(value = "tokenUri")
 	private String tokenUri;
 
+	@JsonProperty(value = "userInfoEndpointUri")
 	private String userInfoEndpointUri;
 
+	@JsonProperty(value = "userInfoEndpointNameAttribute")
 	private String userInfoEndpointNameAttribute;
 
+	@JsonProperty(value = "jwkSetUri")
 	private String jwkSetUri;
 
+	@JsonProperty(value = "clientName")
 	private String clientName;
 
+	@JsonProperty(value = "scopes")
 	private Set<String> scopes;
 
+	@JsonProperty(value = "restrictions")
 	private Map<String, String> restrictions;
 
 	public String getId() {
