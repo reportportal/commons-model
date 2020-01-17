@@ -27,7 +27,6 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -64,9 +63,8 @@ public class SenderCaseDTO implements Serializable {
 	@JsonProperty(value = "attributes")
 	private Set<ItemAttributeResource> attributes;
 
-	@NotNull
-	@JsonProperty(value = "enabled", required = true)
-	private Boolean enabled;
+	@JsonProperty(value = "enabled")
+	private boolean enabled;
 
 	public SenderCaseDTO() {
 	}
@@ -112,11 +110,11 @@ public class SenderCaseDTO implements Serializable {
 		this.attributes = attributes;
 	}
 
-	public Boolean isEnabled() {
+	public boolean isEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(Boolean enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
