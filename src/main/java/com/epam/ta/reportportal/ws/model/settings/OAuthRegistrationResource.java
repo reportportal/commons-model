@@ -16,11 +16,10 @@
 
 package com.epam.ta.reportportal.ws.model.settings;
 
-import com.epam.ta.reportportal.ws.annotations.NotBlankString;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.Map;
@@ -35,23 +34,19 @@ import java.util.Set;
 public class OAuthRegistrationResource implements Serializable {
 	public static final String URL_PATTERN = "^(http://|https://)?(www\\.)?([a-zA-Z0-9-]+)\\.([a-zA-Z0-9-]+\\.)*[a-z]{2,}(/[a-z_-]+)*$";
 
-	@NotNull
-	@NotBlankString
+	@NotBlank
 	@JsonProperty(value = "id")
 	private String id;
 
-	@NotNull
-	@NotBlankString
+	@NotBlank
 	@JsonProperty(value = "clientId")
 	private String clientId;
 
-	@NotNull
-	@NotBlankString
+	@NotBlank
 	@JsonProperty(value = "clientSecret")
 	private String clientSecret;
 
-	@NotNull
-	@NotBlankString
+	@NotBlank
 	@JsonProperty(value = "clientAuthMethod")
 	private String clientAuthMethod;
 
