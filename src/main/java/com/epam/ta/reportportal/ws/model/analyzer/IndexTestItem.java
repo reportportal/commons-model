@@ -47,6 +47,9 @@ public class IndexTestItem {
     @JsonProperty("isAutoAnalyzed")
     private boolean isAutoAnalyzed;
 
+    @JsonProperty("testCaseHash")
+    private Integer testCaseHash;
+
     public IndexTestItem() {
     }
 
@@ -98,6 +101,14 @@ public class IndexTestItem {
         isAutoAnalyzed = autoAnalyzed;
     }
 
+    public Integer getTestCaseHash() {
+        return testCaseHash;
+    }
+
+    public void setTestCaseHash(Integer testCaseHash) {
+        this.testCaseHash = testCaseHash;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -108,11 +119,12 @@ public class IndexTestItem {
                 Objects.equals(issueTypeLocator, that.issueTypeLocator) &&
                 Objects.equals(startTime, that.startTime) &&
                 Objects.equals(logs, that.logs) &&
-                Objects.equals(uniqueId, that.uniqueId);
+                Objects.equals(uniqueId, that.uniqueId) &&
+                Objects.equals(testCaseHash, that.testCaseHash);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(testItemId, issueTypeLocator, startTime, logs, uniqueId, isAutoAnalyzed);
+        return Objects.hash(testItemId, issueTypeLocator, startTime, logs, uniqueId, isAutoAnalyzed, testCaseHash);
     }
 }
