@@ -18,8 +18,8 @@ plugins {
     id "org.owasp.dependencycheck" version "5.2.0"
 }
 
-apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/develop/release-commons.gradle'
-apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/develop/build-quality.gradle'
+apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/5.1.0-RC/release-commons.gradle'
+apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/5.1.0-RC/build-quality.gradle'
 
 repositories {
     mavenCentral()
