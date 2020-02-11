@@ -14,44 +14,41 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model.analyzer;
+package com.epam.ta.reportportal.ws.model.integration.auth;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.List;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.Map;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class CleanIndexRq {
+public class UpdateAuthRQ {
 
-	@JsonProperty("project")
-	private Long projectId;
+	@NotNull
+	private Boolean enabled;
 
-	@JsonProperty("ids")
-	private List<Long> logIds;
+	@NotEmpty
+	private Map<String, Object> authParams;
 
-	public CleanIndexRq() {
+	public Boolean getEnabled() {
+		return enabled;
 	}
 
-	public CleanIndexRq(Long projectId, List<Long> logIds) {
-		this.projectId = projectId;
-		this.logIds = logIds;
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 
-	public Long getProjectId() {
-		return projectId;
+	public Map<String, Object> getAuthParams() {
+		return authParams;
 	}
 
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
+	public void setAuthParams(Map<String, Object> authParams) {
+		this.authParams = authParams;
 	}
 
-	public List<Long> getLogIds() {
-		return logIds;
-	}
-
-	public void setLogIds(List<Long> logIds) {
-		this.logIds = logIds;
+	@Override
+	public String toString() {
+		return "UpdateAuthRQ{" + "enabled=" + enabled + ", authParams=" + authParams + '}';
 	}
 }

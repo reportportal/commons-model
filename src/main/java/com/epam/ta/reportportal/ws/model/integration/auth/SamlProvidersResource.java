@@ -14,44 +14,27 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model.analyzer;
+package com.epam.ta.reportportal.ws.model.integration.auth;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class CleanIndexRq {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class SamlProvidersResource extends AbstractAuthResource {
 
-	@JsonProperty("project")
-	private Long projectId;
+	@Valid
+	private List<SamlResource> providers;
 
-	@JsonProperty("ids")
-	private List<Long> logIds;
-
-	public CleanIndexRq() {
+	public List<SamlResource> getProviders() {
+		return providers;
 	}
 
-	public CleanIndexRq(Long projectId, List<Long> logIds) {
-		this.projectId = projectId;
-		this.logIds = logIds;
-	}
-
-	public Long getProjectId() {
-		return projectId;
-	}
-
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
-	}
-
-	public List<Long> getLogIds() {
-		return logIds;
-	}
-
-	public void setLogIds(List<Long> logIds) {
-		this.logIds = logIds;
+	public void setProviders(List<SamlResource> providers) {
+		this.providers = providers;
 	}
 }

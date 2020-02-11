@@ -14,44 +14,25 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model.analyzer;
+package com.epam.ta.reportportal.ws.model.integration.auth;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class CleanIndexRq {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class AbstractAuthResource implements Serializable {
 
-	@JsonProperty("project")
-	private Long projectId;
+	private String type;
 
-	@JsonProperty("ids")
-	private List<Long> logIds;
-
-	public CleanIndexRq() {
+	public String getType() {
+		return type;
 	}
 
-	public CleanIndexRq(Long projectId, List<Long> logIds) {
-		this.projectId = projectId;
-		this.logIds = logIds;
-	}
-
-	public Long getProjectId() {
-		return projectId;
-	}
-
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
-	}
-
-	public List<Long> getLogIds() {
-		return logIds;
-	}
-
-	public void setLogIds(List<Long> logIds) {
-		this.logIds = logIds;
+	public void setType(String type) {
+		this.type = type;
 	}
 }
