@@ -39,6 +39,11 @@ public class OAuthRegistrationResourceTest {
 			add("www.github.com/login/oauth/access_token");
 			add("http://www.github.com:8080/login/oauth/access_token");
 			add("www.github.com:8080/login/oauth/access_token");
+			add("localhost:8080/login/oauth/access_token");
+			add("http://localhost:8080/login/oauth/access_token");
+			add("https://localhost:8080/login/oauth/access_token");
+			add("http://localhost:8080/user");
+			add("http://localhost:8080/login/oauth/authorize");
 		}
 
 	};
