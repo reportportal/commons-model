@@ -29,7 +29,7 @@ public class UpdateAuthRQ {
 	private Boolean enabled;
 
 	@NotEmpty
-	private Map<String, Object> authParams;
+	private Map<String, Object> integrationParams;
 
 	public Boolean getEnabled() {
 		return enabled;
@@ -39,16 +39,16 @@ public class UpdateAuthRQ {
 		this.enabled = enabled;
 	}
 
-	public Map<String, Object> getAuthParams() {
-		return authParams;
+	public Map<String, Object> getIntegrationParams() {
+		return integrationParams;
 	}
 
-	public void setAuthParams(Map<String, Object> authParams) {
-		this.authParams = authParams;
+	public void setIntegrationParams(Map<String, Object> integrationParams) {
+		this.integrationParams = integrationParams;
 	}
 
 	@Override
 	public String toString() {
-		return "UpdateAuthRQ{" + "enabled=" + enabled + ", authParams=" + authParams + '}';
+		return "UpdateAuthRQ{" + "enabled=" + enabled + ", authParams=" + integrationParams + '}';
 	}
 }
