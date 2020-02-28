@@ -16,6 +16,9 @@
 
 package com.epam.ta.reportportal.ws.model.integration.auth;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Map;
@@ -23,12 +26,14 @@ import java.util.Map;
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UpdateAuthRQ {
 
 	@NotNull
 	private Boolean enabled;
 
 	@NotEmpty
+	@JsonProperty("integrationParameters")
 	private Map<String, Object> integrationParams;
 
 	public Boolean getEnabled() {
