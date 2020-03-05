@@ -54,6 +54,9 @@ public class ProjectResource {
 	@JsonProperty(value = "organization")
 	private String organization;
 
+	@JsonProperty(value = "allocatedStorage")
+	private String allocatedStorage;
+
 	@NotNull
 	@JsonProperty(value = "creationDate")
 	private Date creationDate;
@@ -120,6 +123,14 @@ public class ProjectResource {
 
 	public void setOrganization(String organization) {
 		this.organization = organization;
+	}
+
+	public String getAllocatedStorage() {
+		return allocatedStorage;
+	}
+
+	public void setAllocatedStorage(String allocatedStorage) {
+		this.allocatedStorage = allocatedStorage;
 	}
 
 	public static class ProjectUser {
