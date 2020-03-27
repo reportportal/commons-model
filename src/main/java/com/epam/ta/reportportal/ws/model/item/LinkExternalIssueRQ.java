@@ -50,9 +50,6 @@ public class LinkExternalIssueRQ extends ExternalIssueRQ {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("LinkExternalIssueRQ{");
-		sb.append("issues=").append(issues);
-		sb.append('}');
-		return sb.toString();
+		return "LinkExternalIssueRQ{" + "issues=" + issues + '}';
 	}
 }
