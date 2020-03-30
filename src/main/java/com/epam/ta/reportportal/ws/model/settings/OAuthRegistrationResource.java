@@ -32,9 +32,8 @@ import java.util.Set;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OAuthRegistrationResource implements Serializable {
-	public static final String URL_PATTERN = "^(http://|https://)?(www\\.)?([a-zA-Z0-9-]+)\\.([a-zA-Z0-9-]+\\.)*[a-z]{2,}(/[a-z_-]+)*$";
+	public static final String URL_PATTERN = "^(http://|https://)?(www\\.)?([a-zA-Z0-9-]+)(\\.[a-zA-Z0-9-]+)*(:[0-9]+)?(/[a-z_-]+)*$";
 
-	@NotBlank
 	@JsonProperty(value = "id")
 	private String id;
 
@@ -46,7 +45,6 @@ public class OAuthRegistrationResource implements Serializable {
 	@JsonProperty(value = "clientSecret")
 	private String clientSecret;
 
-	@NotBlank
 	@JsonProperty(value = "clientAuthMethod")
 	private String clientAuthMethod;
 

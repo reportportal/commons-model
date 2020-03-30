@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -50,28 +51,29 @@ public class Issue {
 	@JsonProperty(value = "ignoreAnalyzer")
 	private boolean ignoreAnalyzer;
 
+	@Valid
 	@JsonProperty(value = "externalSystemIssues")
 	private Set<ExternalSystemIssue> externalSystemIssues;
 
 	@JsonInclude(Include.NON_NULL)
 	public static class ExternalSystemIssue {
 
-		@NotNull
+		@NotBlank
 		@JsonProperty(value = "ticketId")
 		private String ticketId;
 
 		@JsonProperty(value = "submitDate")
 		private Long submitDate;
 
-		@NotNull
+		@NotBlank
 		@JsonProperty(value = "btsUrl")
 		private String btsUrl;
 
-		@NotNull
+		@NotBlank
 		@JsonProperty(value = "btsProject")
 		private String btsProject;
 
-		@NotNull
+		@NotBlank
 		@JsonProperty(value = "url")
 		private String url;
 

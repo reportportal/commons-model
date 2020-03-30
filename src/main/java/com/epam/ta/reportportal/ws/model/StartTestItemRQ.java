@@ -56,9 +56,6 @@ public class StartTestItemRQ extends StartRQ {
 	@JsonProperty(value = "testCaseId")
 	private String testCaseId;
 
-	@JsonProperty(value = "testCaseHash")
-	private Integer testCaseHash;
-
 	@NotNull
 	@JsonAlias({ "launchUuid", "launch_id" })
 	@ApiModelProperty(value = "UUID of parent launch", required = true)
@@ -142,14 +139,6 @@ public class StartTestItemRQ extends StartRQ {
 		this.testCaseId = testCaseId;
 	}
 
-	public Integer getTestCaseHash() {
-		return testCaseHash;
-	}
-
-	public void setTestCaseHash(Integer testCaseHash) {
-		this.testCaseHash = testCaseHash;
-	}
-
 	public String getType() {
 		return type;
 	}
@@ -193,30 +182,20 @@ public class StartTestItemRQ extends StartRQ {
 		}
 		StartTestItemRQ that = (StartTestItemRQ) o;
 		return hasStats == that.hasStats && Objects.equals(codeRef, that.codeRef) && Objects.equals(parameters, that.parameters)
-				&& Objects.equals(uniqueId, that.uniqueId) && Objects.equals(testCaseId, that.testCaseId) && Objects.equals(testCaseHash,
-				that.testCaseHash
-		) && Objects.equals(launchUuid, that.launchUuid) && Objects.equals(type, that.type) && Objects.equals(retry, that.retry);
+				&& Objects.equals(uniqueId, that.uniqueId) && Objects.equals(testCaseId, that.testCaseId) && Objects.equals(launchUuid,
+				that.launchUuid
+		) && Objects.equals(type, that.type) && Objects.equals(retry, that.retry);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), codeRef, parameters, uniqueId, testCaseId, testCaseHash, launchUuid, type, retry, hasStats);
+		return Objects.hash(super.hashCode(), codeRef, parameters, uniqueId, testCaseId, launchUuid, type, retry, hasStats);
 	}
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("StartTestItemRQ{");
-		sb.append("codeRef='").append(codeRef).append('\'');
-		sb.append(", parameters=").append(parameters);
-		sb.append(", uniqueId='").append(uniqueId).append('\'');
-		sb.append(", testCaseId='").append(testCaseId).append('\'');
-		sb.append(", testCaseHash='").append(testCaseHash).append('\'');
-		sb.append(", launchUuid='").append(launchUuid).append('\'');
-		sb.append(", type='").append(type).append('\'');
-		sb.append(", retry=").append(retry);
-		sb.append(", hasStats=").append(hasStats);
-		sb.append(", name='").append(name).append('\'');
-		sb.append('}');
-		return sb.toString();
+		return "StartTestItemRQ{" + "codeRef='" + codeRef + '\'' + ", parameters=" + parameters + ", uniqueId='" + uniqueId + '\''
+				+ ", testCaseId='" + testCaseId + '\'' + ", launchUuid='" + launchUuid + '\'' + ", type='" + type + '\'' + ", retry="
+				+ retry + ", hasStats=" + hasStats + ", name='" + name + '\'' + '}';
 	}
 }

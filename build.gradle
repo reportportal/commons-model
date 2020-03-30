@@ -1,3 +1,5 @@
+import org.owasp.dependencycheck.reporting.ReportGenerator
+
 /*
  * Copyright 2019 EPAM Systems
  *
@@ -15,11 +17,11 @@
  */
 plugins {
     id 'java'
-    id "org.owasp.dependencycheck" version "5.2.0"
+    id "org.owasp.dependencycheck" version "5.3.1"
 }
 
-apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/5.1.0-RC/release-commons.gradle'
-apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/5.1.0-RC/build-quality.gradle'
+apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/develop/release-commons.gradle'
+apply from: 'https://raw.githubusercontent.com/reportportal/gradle-scripts/develop/build-quality.gradle'
 
 repositories {
     mavenCentral()
@@ -37,12 +39,18 @@ dependencies {
     compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
     compile "javax.validation:validation-api:${validationApiVersion}"
     compile "org.apache.commons:commons-lang3:${commonsLangVersion}"
+    compile group: 'com.google.guava', name: 'guava', version: '28.2-jre'
+
 
     testImplementation "junit:junit:${junitVersion}"
     testImplementation "org.mockito:mockito-junit-jupiter:${mockitoJunitJupiter}"
     testImplementation "org.hibernate.validator:hibernate-validator:${hibernateValidatorVersion}"
     testImplementation "javax.el:javax.el-api:${elApiVersion}"
     testImplementation "org.glassfish:javax.el:${elApiVersion}"
+}
+
+dependencyCheck {
+    formats = [ReportGenerator.Format.HTML, ReportGenerator.Format.XML]
 }
 
 afterReleaseBuild.dependsOn bintrayUpload

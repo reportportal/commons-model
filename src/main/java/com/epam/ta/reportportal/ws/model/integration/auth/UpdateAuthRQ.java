@@ -16,6 +16,9 @@
 
 package com.epam.ta.reportportal.ws.model.integration.auth;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Map;
@@ -23,13 +26,15 @@ import java.util.Map;
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UpdateAuthRQ {
 
 	@NotNull
 	private Boolean enabled;
 
 	@NotEmpty
-	private Map<String, Object> authParams;
+	@JsonProperty("integrationParameters")
+	private Map<String, Object> integrationParams;
 
 	public Boolean getEnabled() {
 		return enabled;
@@ -39,16 +44,16 @@ public class UpdateAuthRQ {
 		this.enabled = enabled;
 	}
 
-	public Map<String, Object> getAuthParams() {
-		return authParams;
+	public Map<String, Object> getIntegrationParams() {
+		return integrationParams;
 	}
 
-	public void setAuthParams(Map<String, Object> authParams) {
-		this.authParams = authParams;
+	public void setIntegrationParams(Map<String, Object> integrationParams) {
+		this.integrationParams = integrationParams;
 	}
 
 	@Override
 	public String toString() {
-		return "UpdateAuthRQ{" + "enabled=" + enabled + ", authParams=" + authParams + '}';
+		return "UpdateAuthRQ{" + "enabled=" + enabled + ", authParams=" + integrationParams + '}';
 	}
 }
