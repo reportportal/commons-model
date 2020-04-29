@@ -55,6 +55,9 @@ public class FinishExecutionRQ {
 	@JsonProperty(value = "description")
 	private String description;
 
+	@JsonProperty(value = "testCaseId")
+	private String testCaseId;
+
 	@Size(max = MAX_PARAMETERS_LENGTH)
 	@Valid
 	@JsonProperty
@@ -67,6 +70,14 @@ public class FinishExecutionRQ {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getTestCaseId() {
+		return testCaseId;
+	}
+
+	public void setTestCaseId(String testCaseId) {
+		this.testCaseId = testCaseId;
 	}
 
 	public Set<ItemAttributesRQ> getAttributes() {
@@ -97,11 +108,11 @@ public class FinishExecutionRQ {
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("FinishExecutionRQ{");
 		sb.append("endTime=").append(endTime);
-		sb.append(", description=").append(description).append("\'");
-		sb.append(", attributes").append(attributes).append("\'");
 		sb.append(", status='").append(status).append('\'');
+		sb.append(", description='").append(description).append('\'');
+		sb.append(", testCaseId='").append(testCaseId).append('\'');
+		sb.append(", attributes=").append(attributes);
 		sb.append('}');
 		return sb.toString();
 	}
-
 }
