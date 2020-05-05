@@ -48,8 +48,8 @@ public class FinishExecutionRQ {
 	private Date endTime;
 
 	@JsonProperty(value = "status")
-	@In(allowedValues = { "passed", "failed", "stopped", "skipped", "interrupted", "cancelled" })
-	@ApiModelProperty(allowableValues = "PASSED, FAILED, STOPPED, SKIPPED, RESETED, CANCELLED")
+	@In(allowedValues = { "passed", "failed", "stopped", "skipped", "interrupted", "cancelled", "info", "warn" })
+	@ApiModelProperty(allowableValues = "PASSED, FAILED, STOPPED, SKIPPED, INTERRUPTED, CANCELLED, INFO, WARN")
 	private String status;
 
 	@JsonProperty(value = "description")
@@ -97,11 +97,10 @@ public class FinishExecutionRQ {
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("FinishExecutionRQ{");
 		sb.append("endTime=").append(endTime);
-		sb.append(", description=").append(description).append("\'");
-		sb.append(", attributes").append(attributes).append("\'");
 		sb.append(", status='").append(status).append('\'');
+		sb.append(", description='").append(description).append('\'');
+		sb.append(", attributes=").append(attributes);
 		sb.append('}');
 		return sb.toString();
 	}
-
 }

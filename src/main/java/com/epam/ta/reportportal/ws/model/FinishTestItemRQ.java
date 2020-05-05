@@ -38,6 +38,9 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 	@ApiModelProperty(required = true)
 	private String launchUuid;
 
+	@JsonProperty(value = "testCaseId")
+	private String testCaseId;
+
 	public Boolean isRetry() {
 		return retry;
 	}
@@ -60,6 +63,14 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 
 	public void setLaunchUuid(String launchUuid) {
 		this.launchUuid = launchUuid;
+	}
+
+	public String getTestCaseId() {
+		return testCaseId;
+	}
+
+	public void setTestCaseId(String testCaseId) {
+		this.testCaseId = testCaseId;
 	}
 
 	@Override
