@@ -26,7 +26,7 @@ import java.util.List;
 public class TestItemHistoryElement {
 
 	@JsonProperty(value = "groupingField")
-	private Integer groupingField;
+	private String groupingField;
 
 	@JsonProperty(value = "resources")
 	private List<TestItemResource> resources;
@@ -34,11 +34,11 @@ public class TestItemHistoryElement {
 	public TestItemHistoryElement() {
 	}
 
-	public Integer getGroupingField() {
+	public String getGroupingField() {
 		return groupingField;
 	}
 
-	public void setGroupingField(Integer groupingField) {
+	public void setGroupingField(String groupingField) {
 		this.groupingField = groupingField;
 	}
 
