@@ -25,18 +25,21 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class TestItemHistoryElement {
 
-	@JsonProperty(value = "testCaseHash")
-	private Integer testCaseHash;
+	@JsonProperty(value = "groupingField")
+	private Integer groupingField;
 
 	@JsonProperty(value = "resources")
 	private List<TestItemResource> resources;
 
-	public Integer getTestCaseHash() {
-		return testCaseHash;
+	public TestItemHistoryElement() {
 	}
 
-	public void setTestCaseHash(Integer testCaseHash) {
-		this.testCaseHash = testCaseHash;
+	public Integer getGroupingField() {
+		return groupingField;
+	}
+
+	public void setGroupingField(Integer groupingField) {
+		this.groupingField = groupingField;
 	}
 
 	public List<TestItemResource> getResources() {
@@ -50,6 +53,6 @@ public class TestItemHistoryElement {
 
 	@Override
 	public String toString() {
-		return "TestItemHistoryElement{" + "testCaseHash=" + testCaseHash + ", resources=" + resources + '}';
+		return "TestItemHistoryElement{" + "groupingField=" + groupingField + ", resources=" + resources + '}';
 	}
 }
