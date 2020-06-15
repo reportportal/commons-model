@@ -21,7 +21,6 @@ import com.epam.ta.reportportal.ws.model.item.PathNameResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
@@ -29,7 +28,7 @@ import java.util.Set;
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SearchLogRs implements Serializable {
+public class SearchLogRs {
 
 	@JsonProperty(value = "launchId")
 	private Long launchId;
