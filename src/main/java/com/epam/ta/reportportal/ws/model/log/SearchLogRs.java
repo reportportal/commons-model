@@ -31,6 +31,9 @@ import java.util.Set;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SearchLogRs implements Serializable {
 
+	@JsonProperty(value = "launchId")
+	private Long launchId;
+
 	@JsonProperty(value = "itemId")
 	private Long itemId;
 
@@ -86,6 +89,14 @@ public class SearchLogRs implements Serializable {
 			sb.append('}');
 			return sb.toString();
 		}
+	}
+
+	public Long getLaunchId() {
+		return launchId;
+	}
+
+	public void setLaunchId(Long launchId) {
+		this.launchId = launchId;
 	}
 
 	public PathNameResource getPathNames() {
@@ -163,6 +174,7 @@ public class SearchLogRs implements Serializable {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("SearchLogRs{");
+		sb.append(", launchId=").append(launchId);
 		sb.append(", itemId=").append(itemId);
 		sb.append(", itemName='").append(itemName).append('\'');
 		sb.append(", path='").append(path).append('\'');
