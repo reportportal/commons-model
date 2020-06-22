@@ -17,10 +17,11 @@
 package com.epam.ta.reportportal.ws.model.log;
 
 import com.epam.ta.reportportal.ws.model.issue.Issue;
+import com.epam.ta.reportportal.ws.model.item.PathNameResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -29,26 +30,34 @@ import java.util.Set;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SearchLogRs {
 
+	@JsonProperty(value = "launchId")
 	private Long launchId;
 
-	private String launchName;
-
+	@JsonProperty(value = "itemId")
 	private Long itemId;
 
+	@JsonProperty(value = "itemName")
 	private String itemName;
 
+	@JsonProperty(value = "path")
 	private String path;
 
-	private Map<Long, String> pathNames;
+	@JsonProperty(value = "pathNames")
+	private PathNameResource pathNames;
 
+	@JsonProperty(value = "duration")
 	private double duration;
 
+	@JsonProperty(value = "status")
 	private String status;
 
+	@JsonProperty(value = "issue")
 	private Issue issue;
 
+	@JsonProperty(value = "patternTemplates")
 	private Set<String> patternTemplates;
 
+	@JsonProperty(value = "logs")
 	private List<LogEntry> logs;
 
 	public static class LogEntry {
@@ -81,28 +90,20 @@ public class SearchLogRs {
 		}
 	}
 
-	public String getLaunchName() {
-		return launchName;
-	}
-
-	public void setLaunchName(String launchName) {
-		this.launchName = launchName;
-	}
-
-	public Map<Long, String> getPathNames() {
-		return pathNames;
-	}
-
-	public void setPathNames(Map<Long, String> pathNames) {
-		this.pathNames = pathNames;
-	}
-
 	public Long getLaunchId() {
 		return launchId;
 	}
 
 	public void setLaunchId(Long launchId) {
 		this.launchId = launchId;
+	}
+
+	public PathNameResource getPathNames() {
+		return pathNames;
+	}
+
+	public void setPathNames(PathNameResource pathNames) {
+		this.pathNames = pathNames;
 	}
 
 	public Set<String> getPatternTemplates() {
@@ -172,8 +173,7 @@ public class SearchLogRs {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("SearchLogRs{");
-		sb.append("launchId=").append(launchId);
-		sb.append(", launchName='").append(launchName).append('\'');
+		sb.append(", launchId=").append(launchId);
 		sb.append(", itemId=").append(itemId);
 		sb.append(", itemName='").append(itemName).append('\'');
 		sb.append(", path='").append(path).append('\'');
