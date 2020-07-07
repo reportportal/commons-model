@@ -77,6 +77,9 @@ public class StartTestItemRQ extends StartRQ {
 	@JsonProperty(value = "hasStats")
 	private boolean hasStats = true;
 
+	@JsonProperty(value = "retryOf")
+	private String retryOf;
+
 	@Override
 	@NotBlankWithSize(min = ValidationConstraints.MIN_TEST_ITEM_NAME_LENGTH, max = ValidationConstraints.MAX_TEST_ITEM_NAME_LENGTH)
 	public String getName() {
@@ -105,6 +108,14 @@ public class StartTestItemRQ extends StartRQ {
 
 	public void setHasStats(boolean hasStats) {
 		this.hasStats = hasStats;
+	}
+
+	public String getRetryOf() {
+		return retryOf;
+	}
+
+	public void setRetryOf(String retryOf) {
+		this.retryOf = retryOf;
 	}
 
 	public String getLaunchUuid() {
@@ -181,21 +192,21 @@ public class StartTestItemRQ extends StartRQ {
 			return false;
 		}
 		StartTestItemRQ that = (StartTestItemRQ) o;
-		return hasStats == that.hasStats && Objects.equals(codeRef, that.codeRef) && Objects.equals(parameters, that.parameters)
-				&& Objects.equals(uniqueId, that.uniqueId) && Objects.equals(testCaseId, that.testCaseId) && Objects.equals(launchUuid,
-				that.launchUuid
-		) && Objects.equals(type, that.type) && Objects.equals(retry, that.retry);
+		return hasStats == that.hasStats && Objects.equals(retryOf, that.retryOf) && Objects.equals(codeRef, that.codeRef)
+				&& Objects.equals(parameters, that.parameters) && Objects.equals(uniqueId, that.uniqueId) && Objects.equals(testCaseId,
+				that.testCaseId
+		) && Objects.equals(launchUuid, that.launchUuid) && Objects.equals(type, that.type) && Objects.equals(retry, that.retry);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), codeRef, parameters, uniqueId, testCaseId, launchUuid, type, retry, hasStats);
+		return Objects.hash(super.hashCode(), codeRef, parameters, uniqueId, testCaseId, launchUuid, type, retry, hasStats, retryOf);
 	}
 
 	@Override
 	public String toString() {
 		return "StartTestItemRQ{" + "codeRef='" + codeRef + '\'' + ", parameters=" + parameters + ", uniqueId='" + uniqueId + '\''
 				+ ", testCaseId='" + testCaseId + '\'' + ", launchUuid='" + launchUuid + '\'' + ", type='" + type + '\'' + ", retry="
-				+ retry + ", hasStats=" + hasStats + ", name='" + name + '\'' + '}';
+				+ retry + ", hasStats=" + hasStats + ", retryOf=" + retryOf + ", name='" + name + '\'' + '}';
 	}
 }

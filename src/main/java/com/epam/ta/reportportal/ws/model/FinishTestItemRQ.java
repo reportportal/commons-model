@@ -41,6 +41,9 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 	@JsonProperty(value = "testCaseId")
 	private String testCaseId;
 
+	@JsonProperty(value = "retryOf")
+	private String retryOf;
+
 	public Boolean isRetry() {
 		return retry;
 	}
@@ -73,12 +76,22 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 		this.testCaseId = testCaseId;
 	}
 
+	public String getRetryOf() {
+		return retryOf;
+	}
+
+	public void setRetryOf(String retryOf) {
+		this.retryOf = retryOf;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("FinishTestItemRQ{");
 		sb.append("issue=").append(issue);
 		sb.append(", retry=").append(retry);
 		sb.append(", launchUuid='").append(launchUuid).append('\'');
+		sb.append(", testCaseId='").append(testCaseId).append('\'');
+		sb.append(", retryOf='").append(retryOf).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}
