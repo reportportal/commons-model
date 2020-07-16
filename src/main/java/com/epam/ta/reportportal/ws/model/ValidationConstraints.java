@@ -73,7 +73,7 @@ public class ValidationConstraints {
 	public static final int MAX_SUBTYPE_LONG_NAME = 55;
 	public static final int MIN_ANALYSIS_PATTERN_NAME_LENGTH = 1;
 	public static final int MAX_ANALYSIS_PATTERN_NAME_LENGTH = 55;
-	public static final int MAX_DESCRIPTION = 256;
+	public static final int MAX_SHAREABLE_DESCRIPTION = 1500;
 	public static final int MIN_DESCRIPTION = 1;
 	public static final int MIN_SHOULD_MATCH = 50;
 	public static final int MAX_SHOULD_MATCH = 100;
