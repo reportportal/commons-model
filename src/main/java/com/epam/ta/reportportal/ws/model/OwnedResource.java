@@ -22,8 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.Size;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_DESCRIPTION;
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_DESCRIPTION;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 
 /**
  * Base entity for sharable resources. This resource should contains owner in
@@ -41,7 +40,7 @@ public class OwnedResource {
 	@JsonProperty(value = "share")
 	private boolean share;
 
-	@Size(min = MIN_DESCRIPTION, max = MAX_DESCRIPTION)
+	@Size(min = MIN_DESCRIPTION, max = MAX_SHAREABLE_DESCRIPTION)
 	private String description;
 
 	public String getDescription() {
