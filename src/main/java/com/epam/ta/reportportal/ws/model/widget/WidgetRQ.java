@@ -47,11 +47,11 @@ public class WidgetRQ extends SharableEntityRQ {
 	@In(allowedValues = { "oldLineChart", "investigatedTrend", "launchStatistics", "statisticTrend", "casesTrend", "notPassed",
 			"overallStatistics", "uniqueBugTable", "bugTrend", "activityStream", "launchesComparisonChart", "launchesDurationChart",
 			"launchesTable", "topTestCases", "flakyTestCases", "passingRateSummary", "passingRatePerLaunch", "productStatus",
-			"mostTimeConsuming", "cumulative", "topPatternTemplates", "componentHealthCheck" })
+			"mostTimeConsuming", "cumulative", "topPatternTemplates", "componentHealthCheck", "componentHealthCheckTable" })
 	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
 			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
 			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
-			+ " productStatus, mostTimeConsuming, cumulative, topPatternTemplates, componentHealthCheck")
+			+ " productStatus, mostTimeConsuming, cumulative, topPatternTemplates, componentHealthCheck, componentHealthCheckTable")
 	private String widgetType;
 
 	@Valid
