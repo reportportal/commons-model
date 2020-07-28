@@ -16,9 +16,12 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * @author Konstantin Antipin
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class EntryCreatedAsyncRS {
 
 	private String id;
