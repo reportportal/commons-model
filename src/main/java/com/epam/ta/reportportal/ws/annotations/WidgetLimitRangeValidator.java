@@ -22,10 +22,10 @@ public class WidgetLimitRangeValidator implements ConstraintValidator<WidgetLimi
 			WidgetRQ widgetRQ = (WidgetRQ) value;
 			int limit = widgetRQ.getContentParameters().getItemsCount();
 			if (Arrays.stream(MaterializedWidgetType.values()).anyMatch(it -> it.getType().equalsIgnoreCase(widgetRQ.getWidgetType()))) {
-				return limit > MIN_WIDGET_LIMIT;
+				return limit >= MIN_WIDGET_LIMIT;
 			}
 			updateValidationMessage("Widget item limit size must be between " + MIN_WIDGET_LIMIT + " and " + MAX_WIDGET_LIMIT, context);
-			return limit > MIN_WIDGET_LIMIT && limit < MAX_WIDGET_LIMIT;
+			return limit >= MIN_WIDGET_LIMIT && limit <= MAX_WIDGET_LIMIT;
 		}
 		return false;
 	}
