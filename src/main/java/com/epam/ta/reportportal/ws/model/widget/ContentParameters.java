@@ -42,8 +42,6 @@ public class ContentParameters {
 	private List<String> contentFields;
 
 	@NotNull
-	@Min(value = MIN_WIDGET_LIMIT)
-	@Max(value = MAX_WIDGET_LIMIT)
 	@JsonProperty(value = "itemsCount", required = true)
 	private int itemsCount;
 

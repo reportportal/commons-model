@@ -18,6 +18,7 @@ package com.epam.ta.reportportal.ws.model.widget;
 
 import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
+import com.epam.ta.reportportal.ws.annotations.WidgetLimitRange;
 import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -35,6 +36,7 @@ import java.util.List;
  * @author Aliaksei_Makayed
  */
 
+@WidgetLimitRange
 @JsonInclude(Include.NON_NULL)
 public class WidgetRQ extends SharableEntityRQ {
 
