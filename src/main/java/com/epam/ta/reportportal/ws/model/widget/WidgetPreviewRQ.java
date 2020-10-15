@@ -33,7 +33,6 @@ import java.util.List;
  */
 
 @JsonInclude(Include.NON_NULL)
-@WidgetLimitRange
 public class WidgetPreviewRQ {
 
 	@NotNull
