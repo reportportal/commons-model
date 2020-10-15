@@ -9,7 +9,8 @@ import java.util.Optional;
  */
 public enum MaterializedWidgetType {
 
-	COMPONENT_HEALTH_CHECK_TABLE("componentHealthCheckTable");
+	COMPONENT_HEALTH_CHECK_TABLE("componentHealthCheckTable"),
+	CUMULATIVE_TREND_CHART("cumulative");
 
 	private final String type;
 
