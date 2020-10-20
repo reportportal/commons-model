@@ -78,7 +78,6 @@ public class ValidationConstraints {
 	public static final int MIN_SHOULD_MATCH = 50;
 	public static final int MAX_SHOULD_MATCH = 100;
 	public static final int MIN_NUMBER_OF_LOG_LINES = -1;
-	public static final int MAX_NUMBER_OF_LOG_LINES = 5;
 	public static final String HEX_COLOR_REGEXP = "#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
 	public static final String PROJECT_NAME_REGEXP = "[a-zA-Z0-9-_]+";
 

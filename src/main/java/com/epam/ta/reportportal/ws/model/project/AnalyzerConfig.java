@@ -39,7 +39,6 @@ public class AnalyzerConfig {
 	private Integer minShouldMatch;
 
 	@Min(value = MIN_NUMBER_OF_LOG_LINES)
-	@Max(value = MAX_NUMBER_OF_LOG_LINES)
 	@JsonProperty(value = "numberOfLogLines")
 	private Integer numberOfLogLines;
 
