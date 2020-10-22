@@ -35,6 +35,9 @@ public class NestedStepResource implements Serializable {
 	@JsonProperty(value = "name")
 	private String name;
 
+	@JsonProperty(value = "uuid")
+	private String uuid;
+
 	@JsonProperty(value = "type")
 	private String type;
 
@@ -129,5 +132,13 @@ public class NestedStepResource implements Serializable {
 
 	public void setAttachmentsCount(Integer attachmentsCount) {
 		this.attachmentsCount = attachmentsCount;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 }
