@@ -30,6 +30,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -94,7 +95,11 @@ public class LaunchResource extends OwnedResource {
 	@JsonProperty(value = "hasRetries")
 	private boolean hasRetries;
 
+	@JsonProperty(value = "rerun")
 	private boolean rerun;
+
+	@JsonProperty(value = "metadata")
+	private Map<String, Object> metadata;
 
 	public double getApproximateDuration() {
 		return approximateDuration;
@@ -228,6 +233,14 @@ public class LaunchResource extends OwnedResource {
 		this.rerun = rerun;
 	}
 
+	public Map<String, Object> getMetadata() {
+		return metadata;
+	}
+
+	public void setMetadata(Map<String, Object> metadata) {
+		this.metadata = metadata;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("LaunchResource{");
@@ -247,6 +260,7 @@ public class LaunchResource extends OwnedResource {
 		sb.append(", approximateDuration=").append(approximateDuration);
 		sb.append(", hasRetries=").append(hasRetries);
 		sb.append(", rerun=").append(rerun);
+		sb.append(", metadata=").append(metadata);
 		sb.append('}');
 		return sb.toString();
 	}
