@@ -27,7 +27,7 @@ apply from: scriptsUrl + '/release-commons.gradle'
 apply from: scriptsUrl + '/build-quality.gradle'
 
 repositories {
-    mavenCentral()
+    mavenCentral { url "https://repo1.maven.org/maven2" }
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
