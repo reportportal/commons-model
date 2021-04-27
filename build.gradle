@@ -26,7 +26,7 @@ def scriptsUrl = 'https://raw.githubusercontent.com/reportportal/gradle-scripts/
 project.ext.publishRepo = "https://maven.pkg.github.com/reportportal/commons-model"
 
 apply from: scriptsUrl + '/release-commons.gradle'
-apply from: scriptsUrl + '/release-github.gradle'
+apply from: scriptsUrl + '/signing.gradle'
 apply from: scriptsUrl + '/build-quality.gradle'
 
 repositories {
