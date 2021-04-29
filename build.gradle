@@ -21,7 +21,7 @@ plugins {
 }
 
 def scriptsUrl = 'https://raw.githubusercontent.com/reportportal/gradle-scripts/' +
-        (project.hasProperty("releaseMode") ? getProperty('scripts.version') : 'github-release-action')
+        (project.hasProperty("releaseMode") ? getProperty('scripts.version') : 'develop')
 
 project.ext.publishRepo = "https://maven.pkg.github.com/reportportal/commons-model"
 
