@@ -32,6 +32,9 @@ public class IndexTestItem {
     @JsonProperty("testItemId")
     private Long testItemId;
 
+    @JsonProperty("testItemName")
+    private String testItemName;
+
     @JsonProperty("issueType")
     private String issueTypeLocator;
 
@@ -59,6 +62,14 @@ public class IndexTestItem {
 
     public void setTestItemId(Long testItemId) {
         this.testItemId = testItemId;
+    }
+
+    public String getTestItemName() {
+        return testItemName;
+    }
+
+    public void setTestItemName(String testItemName) {
+        this.testItemName = testItemName;
     }
 
     public String getUniqueId() {
