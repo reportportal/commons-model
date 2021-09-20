@@ -54,6 +54,9 @@ public class AnalyzerConfig {
 	@ApiParam(hidden = true)
 	private boolean indexingRunning;
 
+	@JsonProperty(value = "allMessagesShouldMatch")
+	private boolean allMessagesShouldMatch;
+
 	public boolean isIndexingRunning() {
 		return indexingRunning;
 	}
@@ -94,4 +97,11 @@ public class AnalyzerConfig {
 		this.analyzerMode = analyzerMode;
 	}
 
+	public boolean isAllMessagesShouldMatch() {
+		return allMessagesShouldMatch;
+	}
+
+	public void setAllMessagesShouldMatch(boolean allMessagesShouldMatch) {
+		this.allMessagesShouldMatch = allMessagesShouldMatch;
+	}
 }
