@@ -20,6 +20,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -36,6 +37,7 @@ public class DefineIssueRQ {
 
 	@NotNull
 	@Valid
+	@Size(max = 300)
 	@JsonProperty(value = "issues", required = true)
 	private List<IssueDefinition> issues;
 
