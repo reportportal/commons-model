@@ -23,6 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -36,6 +37,7 @@ public class LinkExternalIssueRQ extends ExternalIssueRQ {
 
 	@NotEmpty
 	@Valid
+	@Size(max = 300)
 	@JsonProperty(value = "issues")
 	@ApiModelProperty(reference = "Issue.ExternalSystemIssue")
 	private List<Issue.ExternalSystemIssue> issues;
