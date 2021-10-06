@@ -2,14 +2,10 @@ name: Release
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - '.github/**'
-      - README.md
-      - CHANGELOG.md
-      - gradle.properties
+    inputs:
+      version:
+        description: 'Release version'
+        required: true
 
 env:
   GH_USER_NAME: github.actor
