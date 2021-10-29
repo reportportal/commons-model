@@ -16,6 +16,8 @@
 
 package com.epam.ta.reportportal.ws.model.analyzer;
 
+import com.epam.ta.reportportal.ws.model.project.AnalyzerConfig;
+
 import java.util.List;
 
 /**
@@ -36,6 +38,8 @@ public class SearchRq {
 	private List<String> logMessages;
 
 	private Integer logLines;
+
+	private AnalyzerConfig analyzerConfig;
 
 	public Long getLaunchId() {
 		return launchId;
@@ -91,5 +95,13 @@ public class SearchRq {
 
 	public void setLogMessages(List<String> logMessages) {
 		this.logMessages = logMessages;
+	}
+
+	public AnalyzerConfig getAnalyzerConfig() {
+		return analyzerConfig;
+	}
+
+	public void setAnalyzerConfig(AnalyzerConfig analyzerConfig) {
+		this.analyzerConfig = analyzerConfig;
 	}
 }

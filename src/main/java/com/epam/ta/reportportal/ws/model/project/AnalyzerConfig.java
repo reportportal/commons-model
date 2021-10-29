@@ -38,6 +38,11 @@ public class AnalyzerConfig {
 	@JsonProperty(value = "minShouldMatch")
 	private Integer minShouldMatch;
 
+	@Min(value = MIN_SHOULD_MATCH)
+	@Max(value = MAX_SHOULD_MATCH)
+	@JsonProperty(value = "searchLogsMinShouldMatch")
+	private Integer searchLogsMinShouldMatch;
+
 	@Min(value = MIN_NUMBER_OF_LOG_LINES)
 	@JsonProperty(value = "numberOfLogLines")
 	private Integer numberOfLogLines;
@@ -71,6 +76,14 @@ public class AnalyzerConfig {
 
 	public void setMinShouldMatch(Integer minShouldMatch) {
 		this.minShouldMatch = minShouldMatch;
+	}
+
+	public Integer getSearchLogsMinShouldMatch() {
+		return searchLogsMinShouldMatch;
+	}
+
+	public void setSearchLogsMinShouldMatch(Integer searchLogsMinShouldMatch) {
+		this.searchLogsMinShouldMatch = searchLogsMinShouldMatch;
 	}
 
 	public Integer getNumberOfLogLines() {
