@@ -17,6 +17,7 @@
 package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.epam.ta.reportportal.ws.model.project.AnalyzerConfig;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
@@ -27,6 +28,7 @@ import java.util.Map;
  *
  * @author Ivan Sharamet
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class IndexLaunch {
 
 	@JsonProperty("launchId")
