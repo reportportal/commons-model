@@ -20,6 +20,7 @@ import com.epam.ta.reportportal.ws.model.project.AnalyzerConfig;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Represents launch container in index/analysis request/response.
@@ -42,6 +43,9 @@ public class IndexLaunch {
 
 	@JsonProperty("testItems")
 	private List<IndexTestItem> testItems;
+
+	@JsonProperty("clusters")
+	private Map<Long, String> clusters;
 
 	public IndexLaunch() {
 	}
@@ -84,5 +88,13 @@ public class IndexLaunch {
 
 	public void setTestItems(List<IndexTestItem> testItems) {
 		this.testItems = testItems;
+	}
+
+	public Map<Long, String> getClusters() {
+		return clusters;
+	}
+
+	public void setClusters(Map<Long, String> clusters) {
+		this.clusters = clusters;
 	}
 }
