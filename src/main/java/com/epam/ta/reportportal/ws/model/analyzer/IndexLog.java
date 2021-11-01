@@ -16,6 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.analyzer;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
@@ -25,6 +26,7 @@ import java.util.Objects;
  *
  * @author Ivan Sharamet
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class IndexLog {
 
 	@JsonProperty("logId")
