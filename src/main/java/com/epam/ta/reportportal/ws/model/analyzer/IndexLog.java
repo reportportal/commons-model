@@ -36,6 +36,9 @@ public class IndexLog {
 	@JsonProperty("message")
 	private String message;
 
+	@JsonProperty("clusterId")
+	private Long clusterId;
+
 	public IndexLog() {
 	}
 
@@ -63,6 +66,14 @@ public class IndexLog {
 		this.message = message;
 	}
 
+	public Long getClusterId() {
+		return clusterId;
+	}
+
+	public void setClusterId(Long clusterId) {
+		this.clusterId = clusterId;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
@@ -72,12 +83,12 @@ public class IndexLog {
 			return false;
 		}
 		IndexLog indexLog = (IndexLog) o;
-		return logLevel == indexLog.logLevel && Objects.equals(message, indexLog.message);
+		return logLevel == indexLog.logLevel && Objects.equals(message, indexLog.message) && Objects.equals(clusterId, indexLog.clusterId);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(logLevel, message);
+		return Objects.hash(logLevel, message, clusterId);
 	}
 
 	@Override
