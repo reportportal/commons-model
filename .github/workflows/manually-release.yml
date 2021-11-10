@@ -1,20 +1,19 @@
-name: Release
+name: Manual Release
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - '.github/**'
-      - README.md
-      - CHANGELOG.md
-      - gradle.properties
+    inputs:
+      version:
+        description: 'Release version'
+        required: true
+      gradle_scripts:
+        description: 'Gradle scripts version'
+        required: true
 
 env:
   GH_USER_NAME: github.actor
-  SCRIPTS_VERSION: 5.5.0
-  RELEASE_VERSION: 5.6.0
+  RELEASE_VERSION: ${{ github.event.inputs.version }}
+  SCRIPTS_VERSION: ${{ github.event.inputs.gradle_scripts }}
 
 jobs:
   release:
