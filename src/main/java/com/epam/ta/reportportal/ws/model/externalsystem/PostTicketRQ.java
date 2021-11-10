@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Map;
 
@@ -55,6 +56,7 @@ public class PostTicketRQ extends Authentic {
 	@JsonProperty(value = "item", required = true)
 	private Long testItemId;
 
+	@Size(max = 300)
 	@JsonProperty(value = "backLinks", required = true)
 	private Map<Long, String> backLinks;
 

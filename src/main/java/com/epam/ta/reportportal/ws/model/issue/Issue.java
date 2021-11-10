@@ -52,6 +52,7 @@ public class Issue {
 	private boolean ignoreAnalyzer;
 
 	@Valid
+	@Size(max = 300)
 	@JsonProperty(value = "externalSystemIssues")
 	private Set<ExternalSystemIssue> externalSystemIssues;
 

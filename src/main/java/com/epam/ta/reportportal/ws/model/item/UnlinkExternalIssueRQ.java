@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -33,6 +34,7 @@ public class UnlinkExternalIssueRQ extends ExternalIssueRQ {
 	@Valid
 	@NotEmpty
 	@NotBlankStringCollection
+	@Size(max = 300)
 	@JsonProperty(value = "ticketIds")
 	private List<String> ticketIds;
 
