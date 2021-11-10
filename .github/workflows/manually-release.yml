@@ -6,11 +6,14 @@ on:
       version:
         description: 'Release version'
         required: true
+      gradle_scripts:
+        description: 'Gradle scripts version'
+        required: true
 
 env:
   GH_USER_NAME: github.actor
-  SCRIPTS_VERSION: 5.5.0
-  RELEASE_VERSION: 5.5.1
+  RELEASE_VERSION: ${{ github.event.inputs.version }}
+  SCRIPTS_VERSION: ${{ github.event.inputs.gradle_scripts }}
 
 jobs:
   release:
