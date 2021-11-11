@@ -185,6 +185,11 @@ public enum ErrorType {
 	UNABLE_TO_LOAD_BINARY_DATA(40427, "Unable to load binary data by id '{}'"),
 
 	/**
+	 * If cluster with provided id not found
+	 */
+	CLUSTER_NOT_FOUND(40428, "Cluster '{}' not found"),
+
+	/**
 	 * If provided filtering parameters are incorrect
 	 */
 	INCORRECT_FILTER_PARAMETERS(40011, "Incorrect filtering parameters. {}"),
