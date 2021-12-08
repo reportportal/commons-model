@@ -19,6 +19,8 @@ package com.epam.ta.reportportal.ws.model.launch.cluster;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Map;
+
 /**
  * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
  */
@@ -33,6 +35,9 @@ public class ClusterInfoResource {
 
 	@JsonProperty(value = "message")
 	private String message;
+
+	@JsonProperty(value = "metadata")
+	private Map<String, Object> metadata;
 
 	public ClusterInfoResource() {
 	}
@@ -59,5 +64,13 @@ public class ClusterInfoResource {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public Map<String, Object> getMetadata() {
+		return metadata;
+	}
+
+	public void setMetadata(Map<String, Object> metadata) {
+		this.metadata = metadata;
 	}
 }
