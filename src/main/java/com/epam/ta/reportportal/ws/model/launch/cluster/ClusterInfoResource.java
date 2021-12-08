@@ -30,6 +30,9 @@ public class ClusterInfoResource {
 	@JsonProperty(value = "id")
 	private Long id;
 
+	@JsonProperty(value = "index")
+	private Long index;
+
 	@JsonProperty(value = "launchId")
 	private Long launchId;
 
@@ -48,6 +51,14 @@ public class ClusterInfoResource {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getIndex() {
+		return index;
+	}
+
+	public void setIndex(Long index) {
+		this.index = index;
 	}
 
 	public Long getLaunchId() {
