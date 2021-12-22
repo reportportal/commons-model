@@ -12,28 +12,33 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model.externalsystem;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Objects;
+
 @JsonInclude(Include.NON_NULL)
 public class Ticket {
 
 	@JsonProperty(value = "id")
 	private String id;
-	
+
 	@JsonProperty(value = "summary")
 	private String summary;
-	
+
 	@JsonProperty(value = "status")
 	private String status;
-	
+
 	@JsonProperty(value = "url")
 	private String ticketUrl;
+
+	@JsonProperty(value = "pluginName")
+	private String pluginName;
 
 	public String getId() {
 		return id;
@@ -67,14 +72,35 @@ public class Ticket {
 		this.ticketUrl = ticketUrl;
 	}
 
+	public String getPluginName() {
+		return pluginName;
+	}
+
+	public void setPluginName(String pluginName) {
+		this.pluginName = pluginName;
+	}
+
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("Ticket{");
-		sb.append("id='").append(id).append('\'');
-		sb.append(", summary='").append(summary).append('\'');
-		sb.append(", status='").append(status).append('\'');
-		sb.append(", ticketUrl='").append(ticketUrl).append('\'');
-		sb.append('}');
-		return sb.toString();
+		return "Ticket{" + "id='" + id + '\'' + ", summary='" + summary + '\'' + ", status='" + status + '\'' + ", ticketUrl='" + ticketUrl
+				+ '\'' + ", pluginName='" + pluginName + '\'' + '}';
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Ticket ticket = (Ticket) o;
+		return Objects.equals(id, ticket.id) && Objects.equals(summary, ticket.summary) && Objects.equals(status, ticket.status)
+				&& ticketUrl.equals(ticket.ticketUrl) && Objects.equals(pluginName, ticket.pluginName);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, summary, status, ticketUrl, pluginName);
 	}
 }
