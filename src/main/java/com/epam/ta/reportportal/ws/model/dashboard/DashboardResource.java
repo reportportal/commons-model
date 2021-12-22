@@ -77,6 +77,7 @@ public class DashboardResource extends OwnedResource {
 		this.widgets = widgets;
 	}
 
+	@JsonInclude(Include.NON_NULL)
 	public static class WidgetObjectModel {
 
 		@JsonProperty(value = "widgetName")
