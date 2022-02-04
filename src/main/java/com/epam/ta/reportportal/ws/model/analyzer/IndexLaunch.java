@@ -20,6 +20,8 @@ import com.epam.ta.reportportal.ws.model.project.AnalyzerConfig;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -36,6 +38,9 @@ public class IndexLaunch {
 
 	@JsonProperty("launchName")
 	private String launchName;
+
+	@JsonProperty("launchStartTime")
+	private LocalDateTime launchStartTime;
 
 	@JsonProperty("project")
 	private Long projectId;
@@ -66,6 +71,14 @@ public class IndexLaunch {
 
 	public void setLaunchName(String launchName) {
 		this.launchName = launchName;
+	}
+
+	public LocalDateTime getLaunchStartTime() {
+		return launchStartTime;
+	}
+
+	public void setLaunchStartTime(LocalDateTime launchStartTime) {
+		this.launchStartTime = launchStartTime;
 	}
 
 	public Long getProjectId() {
