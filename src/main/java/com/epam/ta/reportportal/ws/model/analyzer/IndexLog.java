@@ -19,6 +19,7 @@ package com.epam.ta.reportportal.ws.model.analyzer;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -34,6 +35,9 @@ public class IndexLog {
 
 	@JsonProperty("logLevel")
 	private int logLevel;
+
+	@JsonProperty("logTime")
+	private LocalDateTime logTime;
 
 	@JsonProperty("message")
 	private String message;
@@ -58,6 +62,14 @@ public class IndexLog {
 
 	public void setLogLevel(int logLevel) {
 		this.logLevel = logLevel;
+	}
+
+	public LocalDateTime getLogTime() {
+		return logTime;
+	}
+
+	public void setLogTime(LocalDateTime logTime) {
+		this.logTime = logTime;
 	}
 
 	public String getMessage() {
