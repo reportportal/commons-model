@@ -25,6 +25,7 @@ package com.epam.ta.reportportal.ws.model;
 public class ValidationConstraints {
 
 	/* 1 always exists as predefined type */
+	public static final int MAX_ISSUE_TYPES_AND_SUBTYPES = 75;
 	public static final int MAX_ISSUE_SUBTYPES = 15;
 	public static final int MIN_COLLECTION_SIZE = 1;
 	public static final int MAX_NUMBER_OF_FILTER_ENTITIES = 20;

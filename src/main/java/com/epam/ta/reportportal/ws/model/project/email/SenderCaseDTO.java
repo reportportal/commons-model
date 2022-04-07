@@ -44,6 +44,13 @@ public class SenderCaseDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -3546546654348861010L;
 
+	@JsonProperty("id")
+	private Long id;
+
+	@NotEmpty
+	@JsonProperty("ruleName")
+	private String ruleName;
+
 	@NotEmpty
 	@NotBlankStringCollection
 	@JsonProperty(value = "recipients")
@@ -75,17 +82,34 @@ public class SenderCaseDTO implements Serializable {
 	public SenderCaseDTO() {
 	}
 
-	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled,
-			String attributesOperator) {
+	public SenderCaseDTO(Long id, String ruleName, List<String> recs, String sendMode,
+			List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled) {
+		this.id = id;
+		this.ruleName = ruleName;
 		this.recipients = recs;
 		this.sendCase = sendMode;
 		this.launchNames = laNames;
 		this.attributes = attributes;
 		this.enabled = enabled;
-		this.attributesOperator = attributesOperator;
 	}
 
 	/* Getters and setters block */
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getRuleName() {
+		return ruleName;
+	}
+
+	public void setRuleName(String ruleName) {
+		this.ruleName = ruleName;
+	}
+
 	public void setRecipients(List<String> recipients) {
 		this.recipients = recipients;
 	}
