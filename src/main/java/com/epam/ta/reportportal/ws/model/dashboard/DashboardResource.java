@@ -28,6 +28,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Domain model DashBoard resource object. JSON Representation of Report Portal
@@ -76,6 +77,7 @@ public class DashboardResource extends OwnedResource {
 		this.widgets = widgets;
 	}
 
+	@JsonInclude(Include.NON_NULL)
 	public static class WidgetObjectModel {
 
 		@JsonProperty(value = "widgetName")
@@ -96,6 +98,9 @@ public class DashboardResource extends OwnedResource {
 
 		@JsonProperty(value = "share")
 		private boolean share;
+
+		@JsonProperty(value = "widgetOptions")
+		private Map<String, Object> widgetOptions;
 
 		public WidgetObjectModel() {
 		}
@@ -155,6 +160,14 @@ public class DashboardResource extends OwnedResource {
 			this.share = share;
 		}
 
+		public Map<String, Object> getWidgetOptions() {
+			return widgetOptions;
+		}
+
+		public void setWidgetOptions(Map<String, Object> widgetOptions) {
+			this.widgetOptions = widgetOptions;
+		}
+
 		@Override
 		public String toString() {
 			final StringBuilder sb = new StringBuilder("WidgetObjectModel{");
@@ -164,6 +177,7 @@ public class DashboardResource extends OwnedResource {
 			sb.append(", widgetSize=").append(widgetSize);
 			sb.append(", widgetPosition=").append(widgetPosition);
 			sb.append(", share=").append(share);
+			sb.append(", widgetOptions=").append(widgetOptions);
 			sb.append('}');
 			return sb.toString();
 		}

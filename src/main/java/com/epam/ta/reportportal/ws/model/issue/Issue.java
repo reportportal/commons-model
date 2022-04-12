@@ -26,6 +26,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -78,6 +79,9 @@ public class Issue {
 		@JsonProperty(value = "url")
 		private String url;
 
+		@JsonProperty(value = "pluginName")
+		private String pluginName;
+
 		public void setTicketId(String ticketId) {
 			this.ticketId = ticketId;
 		}
@@ -118,6 +122,20 @@ public class Issue {
 			return url;
 		}
 
+		public String getPluginName() {
+			return pluginName;
+		}
+
+		public void setPluginName(String pluginName) {
+			this.pluginName = pluginName;
+		}
+
+		@Override
+		public String toString() {
+			return "ExternalSystemIssue{" + "ticketId='" + ticketId + '\'' + ", submitDate=" + submitDate + ", btsUrl='" + btsUrl + '\''
+					+ ", btsProject='" + btsProject + '\'' + ", url='" + url + '\'' + ", pluginName='" + pluginName + '\'' + '}';
+		}
+
 		@Override
 		public boolean equals(Object o) {
 			if (this == o) {
@@ -126,34 +144,17 @@ public class Issue {
 			if (o == null || getClass() != o.getClass()) {
 				return false;
 			}
-
 			ExternalSystemIssue that = (ExternalSystemIssue) o;
-
-			if (ticketId != null ? !ticketId.equals(that.ticketId) : that.ticketId != null) {
-				return false;
-			}
-			if (btsUrl != null ? !btsUrl.equals(that.btsUrl) : that.btsUrl != null) {
-				return false;
-			}
-			if (btsProject != null ? !btsProject.equals(that.btsProject) : that.btsProject != null) {
-				return false;
-			}
-			return url != null ? url.equals(that.url) : that.url == null;
+			return Objects.equals(ticketId, that.ticketId) && Objects.equals(submitDate, that.submitDate) && Objects.equals(btsUrl,
+					that.btsUrl
+			) && Objects.equals(btsProject, that.btsProject) && Objects.equals(url, that.url) && Objects.equals(pluginName,
+					that.pluginName
+			);
 		}
 
 		@Override
 		public int hashCode() {
-			int result = ticketId != null ? ticketId.hashCode() : 0;
-			result = 31 * result + (btsUrl != null ? btsUrl.hashCode() : 0);
-			result = 31 * result + (btsProject != null ? btsProject.hashCode() : 0);
-			result = 31 * result + (url != null ? url.hashCode() : 0);
-			return result;
-		}
-
-		@Override
-		public String toString() {
-			return "ExternalSystemIssue{" + "ticketId='" + ticketId + '\'' + ", btsUrl='" + btsUrl + '\'' + ", btsProject='" + btsProject
-					+ '\'' + ", url='" + url + '\'' + '}';
+			return Objects.hash(ticketId, submitDate, btsUrl, btsProject, url, pluginName);
 		}
 	}
 

@@ -16,8 +16,10 @@
 
 package com.epam.ta.reportportal.ws.model.analyzer;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -25,6 +27,7 @@ import java.util.Objects;
  *
  * @author Ivan Sharamet
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class IndexLog {
 
 	@JsonProperty("logId")
@@ -33,8 +36,14 @@ public class IndexLog {
 	@JsonProperty("logLevel")
 	private int logLevel;
 
+	@JsonProperty("logTime")
+	private LocalDateTime logTime;
+
 	@JsonProperty("message")
 	private String message;
+
+	@JsonProperty("clusterId")
+	private Long clusterId;
 
 	public IndexLog() {
 	}
@@ -55,12 +64,28 @@ public class IndexLog {
 		this.logLevel = logLevel;
 	}
 
+	public LocalDateTime getLogTime() {
+		return logTime;
+	}
+
+	public void setLogTime(LocalDateTime logTime) {
+		this.logTime = logTime;
+	}
+
 	public String getMessage() {
 		return message;
 	}
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public Long getClusterId() {
+		return clusterId;
+	}
+
+	public void setClusterId(Long clusterId) {
+		this.clusterId = clusterId;
 	}
 
 	@Override
@@ -72,12 +97,12 @@ public class IndexLog {
 			return false;
 		}
 		IndexLog indexLog = (IndexLog) o;
-		return logLevel == indexLog.logLevel && Objects.equals(message, indexLog.message);
+		return logLevel == indexLog.logLevel && Objects.equals(message, indexLog.message) && Objects.equals(clusterId, indexLog.clusterId);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(logLevel, message);
+		return Objects.hash(logLevel, message, clusterId);
 	}
 
 	@Override
