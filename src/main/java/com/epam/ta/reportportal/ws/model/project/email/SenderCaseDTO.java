@@ -161,7 +161,7 @@ public class SenderCaseDTO implements Serializable {
 	/* Auto generated methods */
 	@Override
 	public String toString() {
-		return "SenderCaseDTO{" + "recipients=" + recipients + ", sendCase='" + sendCase + '\'' +
+		return "SenderCaseDTO{" + "ruleName=" + ruleName + "recipients=" + recipients + ", sendCase='" + sendCase + '\'' +
 				", launchNames=" + launchNames + ", attributes=" + attributes + ", enabled=" + enabled + ", attributesOperator=" + attributesOperator + '}';
 	}
 
