@@ -174,13 +174,13 @@ public class SenderCaseDTO implements Serializable {
 			return false;
 		}
 		SenderCaseDTO that = (SenderCaseDTO) o;
-		return Objects.equals(recipients, that.recipients) && Objects.equals(sendCase, that.sendCase)
+		return Objects.equals(ruleName, that.ruleName) &&Objects.equals(recipients, that.recipients) && Objects.equals(sendCase, that.sendCase)
 				&& Objects.equals(launchNames, that.launchNames) && Objects.equals(attributes, that.attributes)
 				&& Objects.equals(enabled, that.enabled) && Objects.equals(attributesOperator, that.attributesOperator);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(recipients, sendCase, launchNames, attributes, enabled, attributesOperator);
+		return Objects.hash(ruleName, recipients, sendCase, launchNames, attributes, enabled, attributesOperator);
 	}
 }
