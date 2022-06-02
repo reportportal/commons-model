@@ -45,6 +45,10 @@ public class SenderCaseDTO implements Serializable {
 	private static final long serialVersionUID = -3546546654348861010L;
 
 	@NotEmpty
+	@JsonProperty("ruleName")
+	private String ruleName;
+
+	@NotEmpty
 	@NotBlankStringCollection
 	@JsonProperty(value = "recipients")
 	private List<String> recipients;
@@ -69,7 +73,8 @@ public class SenderCaseDTO implements Serializable {
 	public SenderCaseDTO() {
 	}
 
-	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled) {
+	public SenderCaseDTO(String ruleName, List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled) {
+		this.ruleName = ruleName;
 		this.recipients = recs;
 		this.sendCase = sendMode;
 		this.launchNames = laNames;
@@ -78,6 +83,14 @@ public class SenderCaseDTO implements Serializable {
 	}
 
 	/* Getters and setters block */
+	public String getRuleName() {
+		return ruleName;
+	}
+
+	public void setRuleName(String ruleName) {
+		this.ruleName = ruleName;
+	}
+
 	public void setRecipients(List<String> recipients) {
 		this.recipients = recipients;
 	}
@@ -134,13 +147,13 @@ public class SenderCaseDTO implements Serializable {
 			return false;
 		}
 		SenderCaseDTO that = (SenderCaseDTO) o;
-		return Objects.equals(recipients, that.recipients) && Objects.equals(sendCase, that.sendCase) && Objects.equals(launchNames,
-				that.launchNames
-		) && Objects.equals(attributes, that.attributes) && Objects.equals(enabled, that.enabled);
+		return Objects.equals(ruleName, that.ruleName) && Objects.equals(recipients, that.recipients)
+				&& Objects.equals(sendCase, that.sendCase) && Objects.equals(launchNames, that.launchNames)
+				&& Objects.equals(attributes, that.attributes) && Objects.equals(enabled, that.enabled);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(recipients, sendCase, launchNames, attributes, enabled);
+		return Objects.hash(ruleName, recipients, sendCase, launchNames, attributes, enabled);
 	}
 }
