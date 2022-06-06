@@ -43,7 +43,7 @@ public class ValidationConstraints {
 	public static final int MIN_DESCRIPTION_LENGTH = 0;
 	public static final int MAX_DESCRIPTION_LENGTH = 65536;
 	public static final int MAX_PARAMETERS_LENGTH = 256;
-	public static final int MAX_LAUNCH_DESCRIPTION_LENGTH = 1024;
+	public static final int MAX_LAUNCH_DESCRIPTION_LENGTH = 16000;
 	public static final int MAX_WIDGET_NAME_LENGTH = 128;
 	public static final int MAX_DASHBOARD_NAME_LENGTH = 128;
 	public static final int MAX_USER_FILTER_NAME_LENGTH = 128;
