@@ -161,7 +161,7 @@ public class SenderCaseDTO implements Serializable {
 	/* Auto generated methods */
 	@Override
 	public String toString() {
-		return "SenderCaseDTO{" + "ruleName=" + ruleName + "recipients=" + recipients + ", sendCase='" + sendCase + '\'' +
+		return "SenderCaseDTO{" + "id=" + id + ", ruleName=" + ruleName + ", recipients=" + recipients + ", sendCase='" + sendCase + '\'' +
 				", launchNames=" + launchNames + ", attributes=" + attributes + ", enabled=" + enabled + ", attributesOperator=" + attributesOperator + '}';
 	}
 
@@ -174,13 +174,13 @@ public class SenderCaseDTO implements Serializable {
 			return false;
 		}
 		SenderCaseDTO that = (SenderCaseDTO) o;
-		return Objects.equals(ruleName, that.ruleName) &&Objects.equals(recipients, that.recipients) && Objects.equals(sendCase, that.sendCase)
+		return Objects.equals(id, that.id) && Objects.equals(ruleName, that.ruleName) &&Objects.equals(recipients, that.recipients) && Objects.equals(sendCase, that.sendCase)
 				&& Objects.equals(launchNames, that.launchNames) && Objects.equals(attributes, that.attributes)
 				&& Objects.equals(enabled, that.enabled) && Objects.equals(attributesOperator, that.attributesOperator);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(ruleName, recipients, sendCase, launchNames, attributes, enabled, attributesOperator);
+		return Objects.hash(id, ruleName, recipients, sendCase, launchNames, attributes, enabled, attributesOperator);
 	}
 }
