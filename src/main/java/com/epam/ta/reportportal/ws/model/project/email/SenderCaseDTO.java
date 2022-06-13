@@ -44,6 +44,9 @@ public class SenderCaseDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -3546546654348861010L;
 
+	@JsonProperty("id")
+	private Long id;
+
 	@NotEmpty
 	@JsonProperty("ruleName")
 	private String ruleName;
@@ -73,7 +76,8 @@ public class SenderCaseDTO implements Serializable {
 	public SenderCaseDTO() {
 	}
 
-	public SenderCaseDTO(String ruleName, List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled) {
+	public SenderCaseDTO(Long id, String ruleName, List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled) {
+		this.id = id;
 		this.ruleName = ruleName;
 		this.recipients = recs;
 		this.sendCase = sendMode;
@@ -83,6 +87,14 @@ public class SenderCaseDTO implements Serializable {
 	}
 
 	/* Getters and setters block */
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getRuleName() {
 		return ruleName;
 	}
@@ -134,8 +146,8 @@ public class SenderCaseDTO implements Serializable {
 	/* Auto generated methods */
 	@Override
 	public String toString() {
-		return "SenderCaseDTO{" + "ruleName=" + ruleName + "recipients=" + recipients + ", sendCase='" + sendCase + '\'' + ", launchNames=" + launchNames
-				+ ", attributes=" + attributes + ", enabled=" + enabled + '}';
+		return "SenderCaseDTO{" + "id=" + id + ", ruleName=" + ruleName + ", recipients=" + recipients + ", sendCase='" + sendCase + '\'' +
+				", launchNames=" + launchNames + ", attributes=" + attributes + ", enabled=" + enabled + '}';
 	}
 
 	@Override
@@ -147,13 +159,13 @@ public class SenderCaseDTO implements Serializable {
 			return false;
 		}
 		SenderCaseDTO that = (SenderCaseDTO) o;
-		return Objects.equals(ruleName, that.ruleName) && Objects.equals(recipients, that.recipients)
+		return Objects.equals(id, that.id) && Objects.equals(ruleName, that.ruleName) && Objects.equals(recipients, that.recipients)
 				&& Objects.equals(sendCase, that.sendCase) && Objects.equals(launchNames, that.launchNames)
 				&& Objects.equals(attributes, that.attributes) && Objects.equals(enabled, that.enabled);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(ruleName, recipients, sendCase, launchNames, attributes, enabled);
+		return Objects.hash(id, ruleName, recipients, sendCase, launchNames, attributes, enabled);
 	}
 }
