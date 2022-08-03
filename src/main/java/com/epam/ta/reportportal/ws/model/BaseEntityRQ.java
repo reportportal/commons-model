@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.Size;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_SHAREABLE_DESCRIPTION;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ENTITY_DESCRIPTION;
 
 /**
  * Base entity for manipulating sharable resources
@@ -30,12 +30,9 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_SHAREA
  * @author Aliaksei_Makayed
  */
 @JsonInclude(Include.NON_NULL)
-public class SharableEntityRQ {
+public class BaseEntityRQ {
 
-	@JsonProperty(value = "share")
-	private Boolean share;
-
-	@Size(max = MAX_SHAREABLE_DESCRIPTION)
+	@Size(max = MAX_ENTITY_DESCRIPTION)
 	@JsonProperty(value = "description")
 	private String description;
 
@@ -45,14 +42,6 @@ public class SharableEntityRQ {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public Boolean getShare() {
-		return share;
-	}
-
-	public void setShare(Boolean share) {
-		this.share = share;
 	}
 
 }
