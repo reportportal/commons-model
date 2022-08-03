@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  */
 @JsonInclude(Include.NON_NULL)
-public class SharedEntity {
+public class OwnedEntity {
 
 	@JsonProperty(value = "id")
 	private String id;
@@ -76,7 +76,7 @@ public class SharedEntity {
 
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("SharedEntity{");
+		final StringBuilder sb = new StringBuilder("OwnedEntity{");
 		sb.append("name='").append(name).append('\'');
 		sb.append(", owner='").append(owner).append('\'');
 		sb.append(", description='").append(description).append('\'');

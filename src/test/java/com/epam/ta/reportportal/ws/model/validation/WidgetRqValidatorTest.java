@@ -62,7 +62,6 @@ public class WidgetRqValidatorTest {
 		widgetRQ.setWidgetType("componentHealthCheck");
 		widgetRQ.setFilterIds(Collections.emptyList());
 		widgetRQ.setDescription("testDescription");
-		widgetRQ.setShare(false);
 
 		ContentParameters contentParameters = new ContentParameters();
 		contentParameters.setContentFields(Collections.emptyList());
