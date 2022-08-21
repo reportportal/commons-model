@@ -16,6 +16,8 @@
 
 package com.epam.ta.reportportal.ws.model.attribute;
 
+import org.apache.commons.lang3.StringUtils;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -40,7 +42,7 @@ public class ItemAttributeResource implements Serializable {
 
 	public ItemAttributeResource(String key, String value) {
 		this.key = key;
-		this.value = value;
+		this.value = StringUtils.left(value, MAX_ATTRIBUTE_LENGTH);
 	}
 
 	public String getKey() {
@@ -56,7 +58,7 @@ public class ItemAttributeResource implements Serializable {
 	}
 
 	public void setValue(String value) {
-		this.value = value;
+		this.value = StringUtils.left(value, MAX_ATTRIBUTE_LENGTH);
 	}
 
 	@Override
