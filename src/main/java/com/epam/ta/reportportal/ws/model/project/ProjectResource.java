@@ -58,6 +58,9 @@ public class ProjectResource {
 	@JsonProperty(value = "organization")
 	private String organization;
 
+	@JsonProperty(value = "organizationSlug")
+	private String organizationSlug;
+
 	@JsonProperty(value = "allocatedStorage")
 	private Long allocatedStorage;
 
@@ -135,6 +138,14 @@ public class ProjectResource {
 
 	public void setOrganization(String organization) {
 		this.organization = organization;
+	}
+
+	public String getOrganizationSlug() {
+		return organizationSlug;
+	}
+
+	public void setOrganizationSlug(String organizationSlug) {
+		this.organizationSlug = organizationSlug;
 	}
 
 	public Long getAllocatedStorage() {
