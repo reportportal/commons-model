@@ -63,7 +63,7 @@ public class UserResource {
 	@JsonProperty(value = "assignedProjects")
 	private Map<String, AssignedProject> assignedProjects;
 
-	@JsonProperty(value = "assignedProjects")
+	@JsonProperty(value = "assignedOrganization")
 	private Map<String, AssignedOrganization> assignedOrganizations;
 
 	public Long getId() {
@@ -216,6 +216,6 @@ public class UserResource {
 	public String toString() {
 		return "UserResource{" + "id=" + id + ", userId='" + userId + '\'' + ", email='" + email + '\'' + ", photoId='" + photoId + '\''
 				+ ", fullName='" + fullName + '\'' + ", accountType='" + accountType + '\'' + ", userRole='" + userRole + '\''
-				+ ", isLoaded=" + isLoaded + ", metadata=" + metadata + ", assignedProjects=" + assignedProjects + '}';
+				+ ", isLoaded=" + isLoaded + ", metadata=" + metadata + ", assignedProjects=" + assignedProjects + ", assignedOrganization=" + assignedOrganizations + '}';
 	}
 }
