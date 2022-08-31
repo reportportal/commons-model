@@ -63,6 +63,9 @@ public class UserResource {
 	@JsonProperty(value = "assignedProjects")
 	private Map<String, AssignedProject> assignedProjects;
 
+	@JsonProperty(value = "assignedProjects")
+	private Map<String, AssignedOrganization> assignedOrganizations;
+
 	public Long getId() {
 		return id;
 	}
@@ -143,6 +146,14 @@ public class UserResource {
 		this.assignedProjects = assignedProjects;
 	}
 
+	public Map<String, AssignedOrganization> getAssignedOrganizations() {
+		return assignedOrganizations;
+	}
+
+	public void setAssignedOrganizations(Map<String, AssignedOrganization> assignedOrganizations) {
+		this.assignedOrganizations = assignedOrganizations;
+	}
+
 	public static class AssignedProject {
 
 		private String projectRole;
@@ -170,6 +181,34 @@ public class UserResource {
 			sb.append("projectRole='").append(projectRole).append('\'');
 			sb.append('}');
 			return sb.toString();
+		}
+	}
+
+	public static class AssignedOrganization {
+
+		private String organizationRole;
+		private String organizationName;
+
+		public String getOrganizationRole() {
+			return organizationRole;
+		}
+
+		public void setOrganizationRole(String organizationRole) {
+			this.organizationRole = organizationRole;
+		}
+
+		public String getOrganizationName() {
+			return organizationName;
+		}
+
+		public void setOrganizationName(String organizationName) {
+			this.organizationName = organizationName;
+		}
+
+		@Override
+		public String toString() {
+			return "AssignedOrganization{" + "organizationRole='" + organizationRole + '\'' + ", organizationName='" + organizationName
+					+ '\'' + '}';
 		}
 	}
 
