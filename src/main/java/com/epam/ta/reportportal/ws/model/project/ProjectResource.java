@@ -38,6 +38,10 @@ public class ProjectResource {
 	@JsonProperty(value = "projectName", required = true)
 	private String projectName;
 
+	@NotNull
+	@JsonProperty(value = "projectKey", required = true)
+	private String projectKey;
+
 	@JsonProperty(value = "entryType", required = true)
 	private String entryType;
 
@@ -53,6 +57,9 @@ public class ProjectResource {
 
 	@JsonProperty(value = "organization")
 	private String organization;
+
+	@JsonProperty(value = "organizationSlug")
+	private String organizationSlug;
 
 	@JsonProperty(value = "allocatedStorage")
 	private Long allocatedStorage;
@@ -83,6 +90,14 @@ public class ProjectResource {
 
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+
+	public String getProjectKey() {
+		return projectKey;
+	}
+
+	public void setProjectKey(String projectKey) {
+		this.projectKey = projectKey;
 	}
 
 	public String getEntryType() {
@@ -123,6 +138,14 @@ public class ProjectResource {
 
 	public void setOrganization(String organization) {
 		this.organization = organization;
+	}
+
+	public String getOrganizationSlug() {
+		return organizationSlug;
+	}
+
+	public void setOrganizationSlug(String organizationSlug) {
+		this.organizationSlug = organizationSlug;
 	}
 
 	public Long getAllocatedStorage() {
