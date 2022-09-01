@@ -63,6 +63,9 @@ public class UserResource {
 	@JsonProperty(value = "assignedProjects")
 	private Map<String, AssignedProject> assignedProjects;
 
+	@JsonProperty(value = "assignedOrganization")
+	private Map<String, AssignedOrganization> assignedOrganizations;
+
 	public Long getId() {
 		return id;
 	}
@@ -143,6 +146,14 @@ public class UserResource {
 		this.assignedProjects = assignedProjects;
 	}
 
+	public Map<String, AssignedOrganization> getAssignedOrganizations() {
+		return assignedOrganizations;
+	}
+
+	public void setAssignedOrganizations(Map<String, AssignedOrganization> assignedOrganizations) {
+		this.assignedOrganizations = assignedOrganizations;
+	}
+
 	public static class AssignedProject {
 
 		private String projectRole;
@@ -173,10 +184,38 @@ public class UserResource {
 		}
 	}
 
+	public static class AssignedOrganization {
+
+		private String organizationRole;
+		private String organizationName;
+
+		public String getOrganizationRole() {
+			return organizationRole;
+		}
+
+		public void setOrganizationRole(String organizationRole) {
+			this.organizationRole = organizationRole;
+		}
+
+		public String getOrganizationName() {
+			return organizationName;
+		}
+
+		public void setOrganizationName(String organizationName) {
+			this.organizationName = organizationName;
+		}
+
+		@Override
+		public String toString() {
+			return "AssignedOrganization{" + "organizationRole='" + organizationRole + '\'' + ", organizationName='" + organizationName
+					+ '\'' + '}';
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "UserResource{" + "id=" + id + ", userId='" + userId + '\'' + ", email='" + email + '\'' + ", photoId='" + photoId + '\''
 				+ ", fullName='" + fullName + '\'' + ", accountType='" + accountType + '\'' + ", userRole='" + userRole + '\''
-				+ ", isLoaded=" + isLoaded + ", metadata=" + metadata + ", assignedProjects=" + assignedProjects + '}';
+				+ ", isLoaded=" + isLoaded + ", metadata=" + metadata + ", assignedProjects=" + assignedProjects + ", assignedOrganization=" + assignedOrganizations + '}';
 	}
 }
