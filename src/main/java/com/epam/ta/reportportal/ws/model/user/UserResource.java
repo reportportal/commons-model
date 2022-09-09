@@ -158,6 +158,7 @@ public class UserResource {
 
 		private String projectRole;
 		private String entryType;
+		private String projectName;
 
 		public String getEntryType() {
 			return entryType;
@@ -175,12 +176,18 @@ public class UserResource {
 			return projectRole;
 		}
 
+		public String getProjectName() {
+			return projectName;
+		}
+
+		public void setProjectName(String projectName) {
+			this.projectName = projectName;
+		}
+
 		@Override
 		public String toString() {
-			final StringBuilder sb = new StringBuilder("AssignedProject{");
-			sb.append("projectRole='").append(projectRole).append('\'');
-			sb.append('}');
-			return sb.toString();
+			return "AssignedProject{" + "projectRole='" + projectRole + '\'' + ", entryType='" + entryType + '\'' + ", projectName='"
+					+ projectName + '\'' + '}';
 		}
 	}
 
