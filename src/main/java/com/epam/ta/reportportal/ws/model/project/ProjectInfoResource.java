@@ -45,6 +45,10 @@ public class ProjectInfoResource {
 	@JsonProperty(value = "projectName")
 	private String projectName;
 
+	@NotBlank
+	@JsonProperty(value = "projectKey")
+	private String projectKey;
+
 	@NotNull
 	@JsonProperty(value = "usersQuantity")
 	private Integer usersQuantity;
@@ -96,6 +100,14 @@ public class ProjectInfoResource {
 
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+
+	public String getProjectKey() {
+		return projectKey;
+	}
+
+	public void setProjectKey(String projectKey) {
+		this.projectKey = projectKey;
 	}
 
 	public Integer getUsersQuantity() {
