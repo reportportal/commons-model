@@ -69,8 +69,8 @@ public class CreateUserRQFull {
 
 	@NotNull
 	@JsonProperty(value = "projectRole", required = true)
-	@In(allowedValues = { "operator", "customer", "member", "project_manager" })
-	@ApiModelProperty(required = true, allowableValues = "CUSTOMER, MEMBER, LEAD, PROJECT_MANAGER")
+	@In(allowedValues = { "member", "project_manager" })
+	@ApiModelProperty(required = true, allowableValues = "MEMBER, PROJECT_MANAGER")
 	private String projectRole;
 
 	@NotBlank
