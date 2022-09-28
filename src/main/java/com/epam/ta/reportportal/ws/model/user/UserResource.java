@@ -195,6 +195,7 @@ public class UserResource {
 
 		private String organizationRole;
 		private String organizationName;
+		private String organizationSlug;
 
 		public String getOrganizationRole() {
 			return organizationRole;
@@ -212,10 +213,18 @@ public class UserResource {
 			this.organizationName = organizationName;
 		}
 
+		public String getOrganizationSlug() {
+			return organizationSlug;
+		}
+
+		public void setOrganizationSlug(String organizationSlug) {
+			this.organizationSlug = organizationSlug;
+		}
+
 		@Override
 		public String toString() {
 			return "AssignedOrganization{" + "organizationRole='" + organizationRole + '\'' + ", organizationName='" + organizationName
-					+ '\'' + '}';
+					+ '\'' + ", organizationSlug='" + organizationSlug + '\'' + '}';
 		}
 	}
 
