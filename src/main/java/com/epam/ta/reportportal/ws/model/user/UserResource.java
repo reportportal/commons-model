@@ -159,6 +159,7 @@ public class UserResource {
 		private String projectRole;
 		private String entryType;
 		private String projectName;
+		private String organizationSlug;
 
 		public String getEntryType() {
 			return entryType;
@@ -184,10 +185,18 @@ public class UserResource {
 			this.projectName = projectName;
 		}
 
+		public String getOrganizationSlug() {
+			return organizationSlug;
+		}
+
+		public void setOrganizationSlug(String organizationSlug) {
+			this.organizationSlug = organizationSlug;
+		}
+
 		@Override
 		public String toString() {
 			return "AssignedProject{" + "projectRole='" + projectRole + '\'' + ", entryType='" + entryType + '\'' + ", projectName='"
-					+ projectName + '\'' + '}';
+					+ projectName + '\'' + ", organizationSlug='" + organizationSlug + '\'' + '}';
 		}
 	}
 
@@ -195,7 +204,6 @@ public class UserResource {
 
 		private String organizationRole;
 		private String organizationName;
-		private String organizationSlug;
 
 		public String getOrganizationRole() {
 			return organizationRole;
@@ -213,18 +221,10 @@ public class UserResource {
 			this.organizationName = organizationName;
 		}
 
-		public String getOrganizationSlug() {
-			return organizationSlug;
-		}
-
-		public void setOrganizationSlug(String organizationSlug) {
-			this.organizationSlug = organizationSlug;
-		}
-
 		@Override
 		public String toString() {
 			return "AssignedOrganization{" + "organizationRole='" + organizationRole + '\'' + ", organizationName='" + organizationName
-					+ '\'' + ", organizationSlug='" + organizationSlug + '\'' + '}';
+					+ '\'' + '}';
 		}
 	}
 
