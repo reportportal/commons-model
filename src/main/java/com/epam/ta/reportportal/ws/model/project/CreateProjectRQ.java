@@ -27,6 +27,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.PROJECT_KEY_REGEXP;
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.PROJECT_NAME_REGEXP;
 
 /**
@@ -46,10 +47,22 @@ public class CreateProjectRQ {
 	private String projectName;
 
 	@NotBlank
+	@Pattern(regexp = PROJECT_KEY_REGEXP)
+	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
+	@JsonProperty(value = "projectKey", required = true)
+	@ApiModelProperty(required = true)
+	private String projectKey;
+
+	@NotBlank
 	@JsonProperty(value = "entryType", required = true)
 	@In(allowedValues = "internal")
 	@ApiModelProperty(required = true, allowableValues = "INTERNAL")
 	private String entryType;
+
+	@NotBlank
+	@JsonProperty(value = "organizationId", required = true)
+	@ApiModelProperty(required = false)
+	private Long organizationId;
 
 	public String getProjectName() {
 		return projectName;
@@ -57,6 +70,14 @@ public class CreateProjectRQ {
 
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+
+	public String getProjectKey() {
+		return projectKey;
+	}
+
+	public void setProjectKey(String projectKey) {
+		this.projectKey = projectKey;
 	}
 
 	public String getEntryType() {
@@ -67,11 +88,21 @@ public class CreateProjectRQ {
 		this.entryType = value;
 	}
 
+	public Long getOrganizationId() {
+		return organizationId;
+	}
+
+	public void setOrganizationId(Long organizationId) {
+		this.organizationId = organizationId;
+	}
+
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("CreateProjectRQ{");
 		sb.append("projectName='").append(projectName).append('\'');
+		sb.append(", projectKey='").append(projectKey).append('\'');
 		sb.append(", entryType='").append(entryType).append('\'');
+		sb.append(", organizationId='").append(organizationId).append('\'');
 		sb.append('}');
 		return sb.toString();
 	}

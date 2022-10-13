@@ -470,6 +470,11 @@ public enum ErrorType {
 	DEMO_DATA_GENERATION_ERROR(40034, "Demo Data Generation error: {}"),
 
 	/**
+	 * If specified by id Organization not found
+	 */
+	ORGANIZATION_NOT_FOUND(40035, "Organization '{}' not found. Did you use correct Organization ID?"),
+
+	/**
 	 * Use it If there are no any other exceptions. There should by no such
 	 * exception
 	 */
