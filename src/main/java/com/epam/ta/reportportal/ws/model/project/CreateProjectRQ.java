@@ -59,9 +59,7 @@ public class CreateProjectRQ {
 	@ApiModelProperty(required = true, allowableValues = "INTERNAL")
 	private String entryType;
 
-	@NotBlank
-	@JsonProperty(value = "organizationId", required = true)
-	@ApiModelProperty(required = false)
+	@JsonProperty(value = "organizationId")
 	private Long organizationId;
 
 	public String getProjectName() {
