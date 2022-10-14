@@ -83,6 +83,9 @@ public class ProjectInfoResource {
 	@JsonProperty(value = "organization")
 	private String organization;
 
+	@JsonProperty(value = "organizationSlug")
+	private String organizationSlug;
+
 	public ProjectInfoResource() {
 	}
 
@@ -180,5 +183,13 @@ public class ProjectInfoResource {
 
 	public void setOrganization(String organization) {
 		this.organization = organization;
+	}
+
+	public String getOrganizationSlug() {
+		return organizationSlug;
+	}
+
+	public void setOrganizationSlug(String organizationSlug) {
+		this.organizationSlug = organizationSlug;
 	}
 }
