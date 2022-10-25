@@ -66,6 +66,11 @@ public class SenderCaseDTO implements Serializable {
 	@JsonProperty(value = "enabled")
 	private boolean enabled;
 
+	@JsonProperty(value = "sendCase")
+	@In(allowedValues = { "and", "or" })
+	@ApiModelProperty(allowableValues = "AND, OR")
+	private String attributesOperator;
+
 	public SenderCaseDTO() {
 	}
 
@@ -118,11 +123,19 @@ public class SenderCaseDTO implements Serializable {
 		this.enabled = enabled;
 	}
 
+	public String getAttributesOperator() {
+		return attributesOperator;
+	}
+
+	public void setAttributesOperator(String attributesOperator) {
+		this.attributesOperator = attributesOperator;
+	}
+
 	/* Auto generated methods */
 	@Override
 	public String toString() {
-		return "SenderCaseDTO{" + "recipients=" + recipients + ", sendCase='" + sendCase + '\'' + ", launchNames=" + launchNames
-				+ ", attributes=" + attributes + ", enabled=" + enabled + '}';
+		return "SenderCaseDTO{" + "recipients=" + recipients + ", sendCase='" + sendCase + '\'' +
+				", launchNames=" + launchNames + ", attributes=" + attributes + ", enabled=" + enabled + ", attributesOperator=" + attributesOperator + '}';
 	}
 
 	@Override
@@ -134,13 +147,13 @@ public class SenderCaseDTO implements Serializable {
 			return false;
 		}
 		SenderCaseDTO that = (SenderCaseDTO) o;
-		return Objects.equals(recipients, that.recipients) && Objects.equals(sendCase, that.sendCase) && Objects.equals(launchNames,
-				that.launchNames
-		) && Objects.equals(attributes, that.attributes) && Objects.equals(enabled, that.enabled);
+		return Objects.equals(recipients, that.recipients) && Objects.equals(sendCase, that.sendCase)
+				&& Objects.equals(launchNames, that.launchNames) && Objects.equals(attributes, that.attributes)
+				&& Objects.equals(enabled, that.enabled) && Objects.equals(attributesOperator, that.attributesOperator);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(recipients, sendCase, launchNames, attributes, enabled);
+		return Objects.hash(recipients, sendCase, launchNames, attributes, enabled, attributesOperator);
 	}
 }
