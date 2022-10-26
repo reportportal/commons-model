@@ -66,7 +66,7 @@ public class SenderCaseDTO implements Serializable {
 	@JsonProperty(value = "enabled")
 	private boolean enabled;
 
-	@JsonProperty(value = "sendCase")
+	@JsonProperty(value = "attributesOperator")
 	@In(allowedValues = { "and", "or" })
 	@ApiModelProperty(allowableValues = "AND, OR")
 	private String attributesOperator;
@@ -74,12 +74,14 @@ public class SenderCaseDTO implements Serializable {
 	public SenderCaseDTO() {
 	}
 
-	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled) {
+	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled,
+			String attributesOperator) {
 		this.recipients = recs;
 		this.sendCase = sendMode;
 		this.launchNames = laNames;
 		this.attributes = attributes;
 		this.enabled = enabled;
+		this.attributesOperator = attributesOperator;
 	}
 
 	/* Getters and setters block */
