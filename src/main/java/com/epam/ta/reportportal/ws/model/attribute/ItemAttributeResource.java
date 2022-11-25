@@ -28,18 +28,23 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_ITEM_A
  */
 public class ItemAttributeResource implements Serializable {
 
-	@Size(max = MAX_ATTRIBUTE_LENGTH)
 	private String key;
 
 	@NotBlank
-	@Size(min = MIN_ITEM_ATTRIBUTE_VALUE_LENGTH, max = MAX_ATTRIBUTE_LENGTH)
+	@Size(min = MIN_ITEM_ATTRIBUTE_VALUE_LENGTH)
 	private String value;
 
 	public ItemAttributeResource() {
 	}
 
 	public ItemAttributeResource(String key, String value) {
+		if (key != null && key.length() > MAX_ATTRIBUTE_LENGTH) {
+			key = key.substring(0, MAX_ATTRIBUTE_LENGTH);
+		}
 		this.key = key;
+		if (value != null && value.length() > MAX_ATTRIBUTE_LENGTH) {
+			value = value.substring(0, MAX_ATTRIBUTE_LENGTH);
+		}
 		this.value = value;
 	}
 
@@ -48,6 +53,9 @@ public class ItemAttributeResource implements Serializable {
 	}
 
 	public void setKey(String key) {
+		if (key != null && key.length() > MAX_ATTRIBUTE_LENGTH) {
+			key = key.substring(0, MAX_ATTRIBUTE_LENGTH);
+		}
 		this.key = key;
 	}
 
@@ -56,6 +64,9 @@ public class ItemAttributeResource implements Serializable {
 	}
 
 	public void setValue(String value) {
+		if (value != null && value.length() > MAX_ATTRIBUTE_LENGTH) {
+			value = value.substring(0, MAX_ATTRIBUTE_LENGTH);
+		}
 		this.value = value;
 	}
 
