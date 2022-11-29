@@ -20,7 +20,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ATTRIBUTE_LENGTH;
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_ITEM_ATTRIBUTE_VALUE_LENGTH;
 
 /**
@@ -38,13 +37,7 @@ public class ItemAttributeResource implements Serializable {
 	}
 
 	public ItemAttributeResource(String key, String value) {
-		if (key != null && key.length() > MAX_ATTRIBUTE_LENGTH) {
-			key = key.substring(0, MAX_ATTRIBUTE_LENGTH);
-		}
 		this.key = key;
-		if (value != null && value.length() > MAX_ATTRIBUTE_LENGTH) {
-			value = value.substring(0, MAX_ATTRIBUTE_LENGTH);
-		}
 		this.value = value;
 	}
 
@@ -53,9 +46,6 @@ public class ItemAttributeResource implements Serializable {
 	}
 
 	public void setKey(String key) {
-		if (key != null && key.length() > MAX_ATTRIBUTE_LENGTH) {
-			key = key.substring(0, MAX_ATTRIBUTE_LENGTH);
-		}
 		this.key = key;
 	}
 
@@ -64,9 +54,6 @@ public class ItemAttributeResource implements Serializable {
 	}
 
 	public void setValue(String value) {
-		if (value != null && value.length() > MAX_ATTRIBUTE_LENGTH) {
-			value = value.substring(0, MAX_ATTRIBUTE_LENGTH);
-		}
 		this.value = value;
 	}
 
