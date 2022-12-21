@@ -14,7 +14,7 @@ on:
 env:
   GH_USER_NAME: github.actor
   SCRIPTS_VERSION: 5.7.0
-  RELEASE_VERSION: 5.7.0
+  RELEASE_VERSION: 5.7.3
 
 jobs:
   release:
