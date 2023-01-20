@@ -66,6 +66,7 @@ public class SenderCaseDTO implements Serializable {
 	@JsonProperty(value = "enabled")
 	private boolean enabled;
 
+	@NotBlank
 	@JsonProperty(value = "attributesOperator")
 	@In(allowedValues = { "and", "or" })
 	@ApiModelProperty(allowableValues = "AND, OR")
