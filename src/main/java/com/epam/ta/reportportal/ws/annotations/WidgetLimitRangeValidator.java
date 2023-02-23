@@ -1,6 +1,6 @@
 package com.epam.ta.reportportal.ws.annotations;
 
-import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
+import com.epam.ta.reportportal.ws.model.BaseEntityRQ;
 import com.epam.ta.reportportal.ws.model.widget.MaterializedWidgetType;
 import com.epam.ta.reportportal.ws.model.widget.WidgetRQ;
 
@@ -14,10 +14,10 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_WIDGET
 /**
  * @author <a href="mailto:pavel_bortnik@epam.com">Pavel Bortnik</a>
  */
-public class WidgetLimitRangeValidator implements ConstraintValidator<WidgetLimitRange, SharableEntityRQ> {
+public class WidgetLimitRangeValidator implements ConstraintValidator<WidgetLimitRange, BaseEntityRQ> {
 
 	@Override
-	public boolean isValid(SharableEntityRQ value, ConstraintValidatorContext context) {
+	public boolean isValid(BaseEntityRQ value, ConstraintValidatorContext context) {
 		if (value instanceof WidgetRQ) {
 			WidgetRQ widgetRQ = (WidgetRQ) value;
 			int limit = widgetRQ.getContentParameters().getItemsCount();
