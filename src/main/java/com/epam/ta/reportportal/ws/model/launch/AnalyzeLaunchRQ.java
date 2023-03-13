@@ -20,9 +20,8 @@ import com.epam.ta.reportportal.ws.annotations.In;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.constraints.NotNull;
 import java.util.List;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author <a href="mailto:pavel_bortnik@epam.com">Pavel Bortnik</a>
@@ -30,58 +29,58 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AnalyzeLaunchRQ {
 
-	@NotNull
-	@JsonProperty(value = "launchId", required = true)
-	@ApiModelProperty
-	private Long launchId;
+  @NotNull
+  @JsonProperty(value = "launchId", required = true)
+  @ApiModelProperty
+  private Long launchId;
 
-	@NotNull
-	@JsonProperty(value = "analyzerMode", required = true)
-	@In(allowedValues = { "all", "launch_name", "current_launch" })
-	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME, CURRENT_LAUNCH")
-	private String analyzerHistoryMode;
+  @NotNull
+  @JsonProperty(value = "analyzerMode", required = true)
+  @In(allowedValues = {"all", "launch_name", "current_launch"})
+  @ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME, CURRENT_LAUNCH")
+  private String analyzerHistoryMode;
 
-	@NotNull
-	@JsonProperty(value = "analyzerTypeName", required = true)
-	@In(allowedValues = { "autoAnalyzer", "patternAnalyzer" })
-	@ApiModelProperty(allowableValues = "autoAnalyzer, patternAnalyzer")
-	private String analyzerTypeName;
+  @NotNull
+  @JsonProperty(value = "analyzerTypeName", required = true)
+  @In(allowedValues = {"autoAnalyzer", "patternAnalyzer"})
+  @ApiModelProperty(allowableValues = "autoAnalyzer, patternAnalyzer")
+  private String analyzerTypeName;
 
-	@NotNull
-	@JsonProperty(value = "analyzeItemsMode", required = true)
-	@In(allowedValues = { "to_investigate", "auto_analyzed", "manually_analyzed" })
-	@ApiModelProperty(allowableValues = "TO_INVESTIGATE, AUTO_ANALYZED, MANUALLY_ANALYZED")
-	private List<String> analyzeItemsModes;
+  @NotNull
+  @JsonProperty(value = "analyzeItemsMode", required = true)
+  @In(allowedValues = {"to_investigate", "auto_analyzed", "manually_analyzed"})
+  @ApiModelProperty(allowableValues = "TO_INVESTIGATE, AUTO_ANALYZED, MANUALLY_ANALYZED")
+  private List<String> analyzeItemsModes;
 
-	public Long getLaunchId() {
-		return launchId;
-	}
+  public Long getLaunchId() {
+    return launchId;
+  }
 
-	public void setLaunchId(Long launchId) {
-		this.launchId = launchId;
-	}
+  public void setLaunchId(Long launchId) {
+    this.launchId = launchId;
+  }
 
-	public String getAnalyzerHistoryMode() {
-		return analyzerHistoryMode;
-	}
+  public String getAnalyzerHistoryMode() {
+    return analyzerHistoryMode;
+  }
 
-	public String getAnalyzerTypeName() {
-		return analyzerTypeName;
-	}
+  public void setAnalyzerHistoryMode(String analyzerHistoryMode) {
+    this.analyzerHistoryMode = analyzerHistoryMode;
+  }
 
-	public void setAnalyzerTypeName(String analyzerTypeName) {
-		this.analyzerTypeName = analyzerTypeName;
-	}
+  public String getAnalyzerTypeName() {
+    return analyzerTypeName;
+  }
 
-	public void setAnalyzerHistoryMode(String analyzerHistoryMode) {
-		this.analyzerHistoryMode = analyzerHistoryMode;
-	}
+  public void setAnalyzerTypeName(String analyzerTypeName) {
+    this.analyzerTypeName = analyzerTypeName;
+  }
 
-	public List<String> getAnalyzeItemsModes() {
-		return analyzeItemsModes;
-	}
+  public List<String> getAnalyzeItemsModes() {
+    return analyzeItemsModes;
+  }
 
-	public void setAnalyzeItemsModes(List<String> analyzeItemsModes) {
-		this.analyzeItemsModes = analyzeItemsModes;
-	}
+  public void setAnalyzeItemsModes(List<String> analyzeItemsModes) {
+    this.analyzeItemsModes = analyzeItemsModes;
+  }
 }

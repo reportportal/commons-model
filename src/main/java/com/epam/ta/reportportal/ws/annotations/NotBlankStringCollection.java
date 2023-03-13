@@ -16,27 +16,29 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import javax.validation.Constraint;
-import java.lang.annotation.*;
 
 /**
- * Can be used with collection of strings.
- * Checks if collection contains only not blank elements.
+ * Can be used with collection of strings. Checks if collection contains only not blank elements.
  * <p>
- * {@code null} - valid value.
- * {@code empty collection} - valid value.
+ * {@code null} - valid value. {@code empty collection} - valid value.
  *
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 @Documented
 @Constraint(validatedBy = NotBlankStringCollectionValidator.class)
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.FIELD, ElementType.PARAMETER })
+@Target({ElementType.FIELD, ElementType.PARAMETER})
 public @interface NotBlankStringCollection {
 
-	String message() default "Collection should not contain blank elements";
+  String message() default "Collection should not contain blank elements";
 
-	Class<?>[] groups() default {};
+  Class<?>[] groups() default {};
 
-	Class<?>[] payload() default {};
+  Class<?>[] payload() default {};
 }

@@ -19,40 +19,40 @@ package com.epam.ta.reportportal.ws.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 @JsonInclude(Include.NON_NULL)
 public class TestItemHistoryElement {
 
-	@JsonProperty(value = "groupingField")
-	private String groupingField;
+  @JsonProperty(value = "groupingField")
+  private String groupingField;
 
-	@JsonProperty(value = "resources")
-	private List<TestItemResource> resources;
+  @JsonProperty(value = "resources")
+  private List<TestItemResource> resources;
 
-	public TestItemHistoryElement() {
-	}
+  public TestItemHistoryElement() {
+  }
 
-	public String getGroupingField() {
-		return groupingField;
-	}
+  public String getGroupingField() {
+    return groupingField;
+  }
 
-	public void setGroupingField(String groupingField) {
-		this.groupingField = groupingField;
-	}
+  public void setGroupingField(String groupingField) {
+    this.groupingField = groupingField;
+  }
 
-	public List<TestItemResource> getResources() {
-		return resources;
-	}
+  public List<TestItemResource> getResources() {
+    return resources;
+  }
 
-	public void setResources(List<TestItemResource> resources) {
-		this.resources = resources;
-	}
+  public void setResources(List<TestItemResource> resources) {
+    this.resources = resources;
+  }
 
 
-	@Override
-	public String toString() {
-		return "TestItemHistoryElement{" + "groupingField=" + groupingField + ", resources=" + resources + '}';
-	}
+  @Override
+  public String toString() {
+    return "TestItemHistoryElement{" + "groupingField=" + groupingField + ", resources=" + resources
+        + '}';
+  }
 }

@@ -17,7 +17,6 @@
 package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 /**
@@ -27,39 +26,39 @@ import java.util.List;
  */
 public class IndexRs {
 
-	@JsonProperty("took")
-	private int took;
+  @JsonProperty("took")
+  private int took;
 
-	@JsonProperty("errors")
-	private boolean errors;
+  @JsonProperty("errors")
+  private boolean errors;
 
-	@JsonProperty("items")
-	private List<IndexRsItem> items;
+  @JsonProperty("items")
+  private List<IndexRsItem> items;
 
-	public IndexRs() {
-	}
+  public IndexRs() {
+  }
 
-	public int getTook() {
-		return took;
-	}
+  public int getTook() {
+    return took;
+  }
 
-	public void setTook(int took) {
-		this.took = took;
-	}
+  public void setTook(int took) {
+    this.took = took;
+  }
 
-	public boolean isErrors() {
-		return errors;
-	}
+  public boolean isErrors() {
+    return errors;
+  }
 
-	public void setErrors(boolean errors) {
-		this.errors = errors;
-	}
+  public void setErrors(boolean errors) {
+    this.errors = errors;
+  }
 
-	public List<IndexRsItem> getItems() {
-		return items;
-	}
+  public List<IndexRsItem> getItems() {
+    return items;
+  }
 
-	public void setItems(List<IndexRsItem> items) {
-		this.items = items;
-	}
+  public void setItems(List<IndexRsItem> items) {
+    this.items = items;
+  }
 }

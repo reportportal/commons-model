@@ -23,58 +23,58 @@ import java.io.Serializable;
  */
 public class ItemAttributesRQ extends ItemAttributeResource implements Serializable {
 
-	private boolean system;
+  private boolean system;
 
-	public ItemAttributesRQ() {
-	}
+  public ItemAttributesRQ() {
+  }
 
-	public ItemAttributesRQ(String value) {
-		super(null, value);
-	}
+  public ItemAttributesRQ(String value) {
+    super(null, value);
+  }
 
-	public ItemAttributesRQ(String key, String value) {
-		super(key, value);
-	}
+  public ItemAttributesRQ(String key, String value) {
+    super(key, value);
+  }
 
-	public ItemAttributesRQ(String key, String value, boolean system) {
-		super(key, value);
-		this.system = system;
-	}
+  public ItemAttributesRQ(String key, String value, boolean system) {
+    super(key, value);
+    this.system = system;
+  }
 
-	public boolean isSystem() {
-		return system;
-	}
+  public boolean isSystem() {
+    return system;
+  }
 
-	public void setSystem(boolean system) {
-		this.system = system;
-	}
+  public void setSystem(boolean system) {
+    this.system = system;
+  }
 
-	@Override
-	public String toString() {
-		return "ItemAttributesRQ{" + "system=" + system + "} " + super.toString();
-	}
+  @Override
+  public String toString() {
+    return "ItemAttributesRQ{" + "system=" + system + "} " + super.toString();
+  }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		if (!super.equals(o)) {
-			return false;
-		}
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    if (!super.equals(o)) {
+      return false;
+    }
 
-		ItemAttributesRQ that = (ItemAttributesRQ) o;
+    ItemAttributesRQ that = (ItemAttributesRQ) o;
 
-		return system == that.system;
-	}
+    return system == that.system;
+  }
 
-	@Override
-	public int hashCode() {
-		int result = super.hashCode();
-		result = 31 * result + (system ? 1 : 0);
-		return result;
-	}
+  @Override
+  public int hashCode() {
+    int result = super.hashCode();
+    result = 31 * result + (system ? 1 : 0);
+    return result;
+  }
 }

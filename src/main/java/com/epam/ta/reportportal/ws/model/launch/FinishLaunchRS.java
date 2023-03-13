@@ -27,43 +27,43 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FinishLaunchRS extends EntryCreatedAsyncRS {
 
-	@JsonProperty("number")
-	private Long number;
+  @JsonProperty("number")
+  private Long number;
 
-	@JsonProperty("link")
-	private String link;
+  @JsonProperty("link")
+  private String link;
 
-	public FinishLaunchRS() {
-	}
+  public FinishLaunchRS() {
+  }
 
-	public FinishLaunchRS(String id, Long number, String link) {
-		super(id);
-		this.number = number;
-		this.link = link;
-	}
+  public FinishLaunchRS(String id, Long number, String link) {
+    super(id);
+    this.number = number;
+    this.link = link;
+  }
 
-	public Long getNumber() {
-		return number;
-	}
+  public Long getNumber() {
+    return number;
+  }
 
-	public void setNumber(Long number) {
-		this.number = number;
-	}
+  public void setNumber(Long number) {
+    this.number = number;
+  }
 
-	public String getLink() {
-		return link;
-	}
+  public String getLink() {
+    return link;
+  }
 
-	public void setLink(String link) {
-		this.link = link;
-	}
+  public void setLink(String link) {
+    this.link = link;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("FinishLaunchRS{");
-		sb.append("number=").append(number);
-		sb.append(", link='").append(link).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("FinishLaunchRS{");
+    sb.append("number=").append(number);
+    sb.append(", link='").append(link).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

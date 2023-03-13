@@ -22,7 +22,6 @@ import com.epam.ta.reportportal.ws.model.project.email.ProjectNotificationConfig
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 import java.util.Map;
 
@@ -34,47 +33,47 @@ import java.util.Map;
 @JsonInclude(Include.NON_NULL)
 public class ProjectConfiguration {
 
-	@JsonProperty(value = "attributes", required = true)
-	private Map<String, String> projectAttributes;
+  @JsonProperty(value = "attributes", required = true)
+  private Map<String, String> projectAttributes;
 
-	@JsonProperty(value = "subTypes")
-	private Map<String, List<IssueSubTypeResource>> subTypes;
+  @JsonProperty(value = "subTypes")
+  private Map<String, List<IssueSubTypeResource>> subTypes;
 
-	@JsonProperty(value = "notificationsConfiguration")
-	private ProjectNotificationConfigDTO projectConfig;
+  @JsonProperty(value = "notificationsConfiguration")
+  private ProjectNotificationConfigDTO projectConfig;
 
-	@JsonProperty(value = "patterns")
-	private List<PatternTemplateResource> patterns;
+  @JsonProperty(value = "patterns")
+  private List<PatternTemplateResource> patterns;
 
-	public Map<String, String> getProjectAttributes() {
-		return projectAttributes;
-	}
+  public Map<String, String> getProjectAttributes() {
+    return projectAttributes;
+  }
 
-	public void setProjectAttributes(Map<String, String> projectAttributes) {
-		this.projectAttributes = projectAttributes;
-	}
+  public void setProjectAttributes(Map<String, String> projectAttributes) {
+    this.projectAttributes = projectAttributes;
+  }
 
-	public Map<String, List<IssueSubTypeResource>> getSubTypes() {
-		return subTypes;
-	}
+  public Map<String, List<IssueSubTypeResource>> getSubTypes() {
+    return subTypes;
+  }
 
-	public void setSubTypes(Map<String, List<IssueSubTypeResource>> subTypes) {
-		this.subTypes = subTypes;
-	}
+  public void setSubTypes(Map<String, List<IssueSubTypeResource>> subTypes) {
+    this.subTypes = subTypes;
+  }
 
-	public ProjectNotificationConfigDTO getProjectConfig() {
-		return projectConfig;
-	}
+  public ProjectNotificationConfigDTO getProjectConfig() {
+    return projectConfig;
+  }
 
-	public void setProjectConfig(ProjectNotificationConfigDTO projectConfig) {
-		this.projectConfig = projectConfig;
-	}
+  public void setProjectConfig(ProjectNotificationConfigDTO projectConfig) {
+    this.projectConfig = projectConfig;
+  }
 
-	public List<PatternTemplateResource> getPatterns() {
-		return patterns;
-	}
+  public List<PatternTemplateResource> getPatterns() {
+    return patterns;
+  }
 
-	public void setPatterns(List<PatternTemplateResource> patterns) {
-		this.patterns = patterns;
-	}
+  public void setPatterns(List<PatternTemplateResource> patterns) {
+    this.patterns = patterns;
+  }
 }

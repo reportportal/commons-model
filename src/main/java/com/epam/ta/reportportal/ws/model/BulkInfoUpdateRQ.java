@@ -17,76 +17,75 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.epam.ta.reportportal.ws.model.attribute.UpdateItemAttributeRQ;
-
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 public class BulkInfoUpdateRQ {
 
-	@NotNull
-	@Size(min = 1)
-	private List<Long> ids;
+  @NotNull
+  @Size(min = 1)
+  private List<Long> ids;
 
-	private Description description;
+  private Description description;
 
-	@Valid
-	private List<UpdateItemAttributeRQ> attributes;
+  @Valid
+  private List<UpdateItemAttributeRQ> attributes;
 
-	public List<Long> getIds() {
-		return ids;
-	}
+  public List<Long> getIds() {
+    return ids;
+  }
 
-	public void setIds(List<Long> ids) {
-		this.ids = ids;
-	}
+  public void setIds(List<Long> ids) {
+    this.ids = ids;
+  }
 
-	public Description getDescription() {
-		return description;
-	}
+  public Description getDescription() {
+    return description;
+  }
 
-	public void setDescription(Description description) {
-		this.description = description;
-	}
+  public void setDescription(Description description) {
+    this.description = description;
+  }
 
-	public List<UpdateItemAttributeRQ> getAttributes() {
-		return attributes;
-	}
+  public List<UpdateItemAttributeRQ> getAttributes() {
+    return attributes;
+  }
 
-	public void setAttributes(List<UpdateItemAttributeRQ> attributes) {
-		this.attributes = attributes;
-	}
+  public void setAttributes(List<UpdateItemAttributeRQ> attributes) {
+    this.attributes = attributes;
+  }
 
-	public enum Action {
-		DELETE,
-		UPDATE,
-		CREATE
-	}
+  public enum Action {
+    DELETE,
+    UPDATE,
+    CREATE
+  }
 
-	public static class Description {
+  public static class Description {
 
-		String comment;
+    String comment;
 
-		Action action;
+    Action action;
 
-		public String getComment() {
-			return comment;
-		}
+    public String getComment() {
+      return comment;
+    }
 
-		public void setComment(String comment) {
-			this.comment = comment;
-		}
+    public void setComment(String comment) {
+      this.comment = comment;
+    }
 
-		public Action getAction() {
-			return action;
-		}
+    public Action getAction() {
+      return action;
+    }
 
-		public void setAction(Action action) {
-			this.action = action;
-		}
-	}
+    public void setAction(Action action) {
+      this.action = action;
+    }
+  }
 }

@@ -20,9 +20,8 @@ import com.epam.ta.reportportal.ws.model.project.config.ProjectConfigurationUpda
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.validation.Valid;
 import java.util.Map;
+import javax.validation.Valid;
 
 /**
  * Update project request model
@@ -32,41 +31,41 @@ import java.util.Map;
 @JsonInclude(Include.NON_NULL)
 public class UpdateProjectRQ {
 
-	@JsonProperty(value = "users")
-	private Map<String, String> userRoles;
+  @JsonProperty(value = "users")
+  private Map<String, String> userRoles;
 
-	@Valid
-	@JsonProperty(value = "configuration")
-	private ProjectConfigurationUpdate configuration;
+  @Valid
+  @JsonProperty(value = "configuration")
+  private ProjectConfigurationUpdate configuration;
 
-	/**
-	 * @return the userRoles
-	 */
-	public Map<String, String> getUserRoles() {
-		return userRoles;
-	}
+  /**
+   * @return the userRoles
+   */
+  public Map<String, String> getUserRoles() {
+    return userRoles;
+  }
 
-	/**
-	 * @param userRoles the userRoles to set
-	 */
-	public void setUserRoles(Map<String, String> userRoles) {
-		this.userRoles = userRoles;
-	}
+  /**
+   * @param userRoles the userRoles to set
+   */
+  public void setUserRoles(Map<String, String> userRoles) {
+    this.userRoles = userRoles;
+  }
 
-	public ProjectConfigurationUpdate getConfiguration() {
-		return configuration;
-	}
+  public ProjectConfigurationUpdate getConfiguration() {
+    return configuration;
+  }
 
-	public void setConfiguration(ProjectConfigurationUpdate configuration) {
-		this.configuration = configuration;
-	}
+  public void setConfiguration(ProjectConfigurationUpdate configuration) {
+    this.configuration = configuration;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("UpdateProjectRQ{");
-		sb.append(", userRoles=").append(userRoles);
-		sb.append(", configuration=").append(configuration);
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("UpdateProjectRQ{");
+    sb.append(", userRoles=").append(userRoles);
+    sb.append(", configuration=").append(configuration);
+    sb.append('}');
+    return sb.toString();
+  }
 }

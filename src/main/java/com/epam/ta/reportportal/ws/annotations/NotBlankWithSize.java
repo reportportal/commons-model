@@ -16,18 +16,17 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
-import com.epam.ta.reportportal.ws.model.validation.NotBlankWithSizeValidator;
-
-import javax.validation.Constraint;
-import javax.validation.Payload;
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
+
+import com.epam.ta.reportportal.ws.model.validation.NotBlankWithSizeValidator;
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+import javax.validation.Constraint;
+import javax.validation.Payload;
 
 /**
  * @author <a href="mailto:tatyana_gladysheva@epam.com">Tatyana Gladysheva</a>
@@ -38,13 +37,13 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
 @Retention(RUNTIME)
 public @interface NotBlankWithSize {
 
-	String message() default EMPTY;
+  String message() default EMPTY;
 
-	Class<?>[] groups() default {};
+  Class<?>[] groups() default {};
 
-	Class<? extends Payload>[] payload() default {};
+  Class<? extends Payload>[] payload() default {};
 
-	int min() default 0;
+  int min() default 0;
 
-	int max() default Integer.MAX_VALUE;
+  int max() default Integer.MAX_VALUE;
 }

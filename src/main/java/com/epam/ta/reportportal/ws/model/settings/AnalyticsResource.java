@@ -18,47 +18,46 @@ package com.epam.ta.reportportal.ws.model.settings;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
+import javax.validation.constraints.NotBlank;
 
 @JsonInclude(Include.NON_NULL)
 public class AnalyticsResource implements Serializable {
 
-	private Boolean enabled;
+  private Boolean enabled;
 
-	@NotBlank
-	private String type;
+  @NotBlank
+  private String type;
 
-	public AnalyticsResource() {
-	}
+  public AnalyticsResource() {
+  }
 
-	public AnalyticsResource(Boolean enabled) {
-		this.enabled = enabled;
-	}
+  public AnalyticsResource(Boolean enabled) {
+    this.enabled = enabled;
+  }
 
-	public Boolean getEnabled() {
-		return enabled;
-	}
+  public Boolean getEnabled() {
+    return enabled;
+  }
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
 
-	public String getType() {
-		return type;
-	}
+  public String getType() {
+    return type;
+  }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+  public void setType(String type) {
+    this.type = type;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("AnalyticsResource{");
-		sb.append(", enabled=").append(enabled);
-		sb.append(", type='").append(type).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("AnalyticsResource{");
+    sb.append(", enabled=").append(enabled);
+    sb.append(", type='").append(type).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

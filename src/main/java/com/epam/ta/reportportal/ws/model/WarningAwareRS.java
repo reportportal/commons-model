@@ -20,21 +20,21 @@ package com.epam.ta.reportportal.ws.model;
  */
 public class WarningAwareRS {
 
-	private String warning;
+  private String warning;
 
-	public String getWarning() {
-		return warning;
-	}
+  public String getWarning() {
+    return warning;
+  }
 
-	public void setWarning(String warning) {
-		this.warning = warning;
-	}
+  public void setWarning(String warning) {
+    this.warning = warning;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("WarningAwareRS{");
-		sb.append("warning='").append(warning).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("WarningAwareRS{");
+    sb.append("warning='").append(warning).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

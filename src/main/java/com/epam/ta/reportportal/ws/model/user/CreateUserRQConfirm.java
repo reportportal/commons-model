@@ -21,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -34,71 +33,71 @@ import javax.validation.constraints.Size;
 @JsonInclude(Include.NON_NULL)
 public class CreateUserRQConfirm {
 
-	@NotBlank
-	@Pattern(regexp = "[a-zA-Z0-9-_.]+")
-	@Size(min = ValidationConstraints.MIN_LOGIN_LENGTH, max = ValidationConstraints.MAX_LOGIN_LENGTH)
-	@JsonProperty(value = "login", required = true)
-	@ApiModelProperty(required = true)
-	private String login;
+  @NotBlank
+  @Pattern(regexp = "[a-zA-Z0-9-_.]+")
+  @Size(min = ValidationConstraints.MIN_LOGIN_LENGTH, max = ValidationConstraints.MAX_LOGIN_LENGTH)
+  @JsonProperty(value = "login", required = true)
+  @ApiModelProperty(required = true)
+  private String login;
 
-	@NotBlank
-	@Size(min = ValidationConstraints.MIN_PASSWORD_LENGTH, max = ValidationConstraints.MAX_PASSWORD_LENGTH)
-	@JsonProperty(value = "password", required = true)
-	@ApiModelProperty(required = true)
-	private String password;
+  @NotBlank
+  @Size(min = ValidationConstraints.MIN_PASSWORD_LENGTH, max = ValidationConstraints.MAX_PASSWORD_LENGTH)
+  @JsonProperty(value = "password", required = true)
+  @ApiModelProperty(required = true)
+  private String password;
 
-	@NotBlank
-	@Pattern(regexp = "[\\pL0-9-_ \\.]+")
-	@Size(min = ValidationConstraints.MIN_USER_NAME_LENGTH, max = ValidationConstraints.MAX_USER_NAME_LENGTH)
-	@JsonProperty(value = "fullName", required = true)
-	@ApiModelProperty(required = true)
-	private String fullName;
+  @NotBlank
+  @Pattern(regexp = "[\\pL0-9-_ \\.]+")
+  @Size(min = ValidationConstraints.MIN_USER_NAME_LENGTH, max = ValidationConstraints.MAX_USER_NAME_LENGTH)
+  @JsonProperty(value = "fullName", required = true)
+  @ApiModelProperty(required = true)
+  private String fullName;
 
-	@NotBlank
-	@JsonProperty(value = "email", required = true)
-	@ApiModelProperty(required = true)
-	private String email;
+  @NotBlank
+  @JsonProperty(value = "email", required = true)
+  @ApiModelProperty(required = true)
+  private String email;
 
-	public void setLogin(String value) {
-		this.login = value;
-	}
+  public String getLogin() {
+    return login;
+  }
 
-	public String getLogin() {
-		return login;
-	}
+  public void setLogin(String value) {
+    this.login = value;
+  }
 
-	public void setPassword(String value) {
-		this.password = value;
-	}
+  public String getPassword() {
+    return password;
+  }
 
-	public String getPassword() {
-		return password;
-	}
+  public void setPassword(String value) {
+    this.password = value;
+  }
 
-	public void setFullName(String value) {
-		this.fullName = value;
-	}
+  public String getFullName() {
+    return fullName;
+  }
 
-	public String getFullName() {
-		return fullName;
-	}
+  public void setFullName(String value) {
+    this.fullName = value;
+  }
 
-	public String getEmail() {
-		return email;
-	}
+  public String getEmail() {
+    return email;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("CreateUserRQConfirm{");
-		sb.append("login='").append(login).append('\'');
-		sb.append(", password='").append(password).append('\'');
-		sb.append(", fullName='").append(fullName).append('\'');
-		sb.append(", email='").append(email).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("CreateUserRQConfirm{");
+    sb.append("login='").append(login).append('\'');
+    sb.append(", password='").append(password).append('\'');
+    sb.append(", fullName='").append(fullName).append('\'');
+    sb.append(", email='").append(email).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

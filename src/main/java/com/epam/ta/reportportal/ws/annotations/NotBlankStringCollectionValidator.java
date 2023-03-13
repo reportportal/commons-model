@@ -16,25 +16,26 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
+import java.util.Collection;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.util.Collection;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
-public class NotBlankStringCollectionValidator implements ConstraintValidator<NotBlankStringCollection, Collection<String>> {
+public class NotBlankStringCollectionValidator implements
+    ConstraintValidator<NotBlankStringCollection, Collection<String>> {
 
-	@Override
-	public boolean isValid(Collection<String> value, ConstraintValidatorContext context) {
-		if (null == value) {
-			return true;
-		}
-		for (String next : value) {
-			if (next.trim().isEmpty()) {
-				return false;
-			}
-		}
-		return true;
-	}
+  @Override
+  public boolean isValid(Collection<String> value, ConstraintValidatorContext context) {
+    if (null == value) {
+      return true;
+    }
+    for (String next : value) {
+      if (next.trim().isEmpty()) {
+        return false;
+      }
+    }
+    return true;
+  }
 }

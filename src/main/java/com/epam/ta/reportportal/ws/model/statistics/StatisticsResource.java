@@ -19,40 +19,39 @@ package com.epam.ta.reportportal.ws.model.statistics;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Map;
 
 @JsonInclude(Include.NON_NULL)
 public class StatisticsResource {
 
-	@JsonProperty(value = "executions")
-	private Map<String, Integer> executions;
+  @JsonProperty(value = "executions")
+  private Map<String, Integer> executions;
 
-	@JsonProperty(value = "defects")
-	private Map<String, Map<String, Integer>> defects;
+  @JsonProperty(value = "defects")
+  private Map<String, Map<String, Integer>> defects;
 
-	public Map<String, Integer> getExecutions() {
-		return executions;
-	}
+  public Map<String, Integer> getExecutions() {
+    return executions;
+  }
 
-	public void setExecutions(Map<String, Integer> executions) {
-		this.executions = executions;
-	}
+  public void setExecutions(Map<String, Integer> executions) {
+    this.executions = executions;
+  }
 
-	public Map<String, Map<String, Integer>> getDefects() {
-		return defects;
-	}
+  public Map<String, Map<String, Integer>> getDefects() {
+    return defects;
+  }
 
-	public void setDefects(Map<String, Map<String, Integer>> defects) {
-		this.defects = defects;
-	}
+  public void setDefects(Map<String, Map<String, Integer>> defects) {
+    this.defects = defects;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("Statistics{");
-		sb.append("executions=").append(executions);
-		sb.append(", defects=").append(defects);
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("Statistics{");
+    sb.append("executions=").append(executions);
+    sb.append(", defects=").append(defects);
+    sb.append('}');
+    return sb.toString();
+  }
 }

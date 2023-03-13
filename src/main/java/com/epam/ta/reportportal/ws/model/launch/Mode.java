@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.launch;
 
@@ -20,17 +20,17 @@ package com.epam.ta.reportportal.ws.model.launch;
  * Defile possible executing modes. Executing mode specify visibility of launch.
  *
  * @author Aliaksei_Makayed
- *
  */
 public enum Mode {
 
-	DEFAULT, DEBUG;
+  DEFAULT, DEBUG;
 
-	public static boolean isExists(String name) {
-		for (Mode mode : values()) {
-			if (mode.name().equalsIgnoreCase(name))
-				return true;
-		}
-		return false;
-	}
+  public static boolean isExists(String name) {
+    for (Mode mode : values()) {
+      if (mode.name().equalsIgnoreCase(name)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

@@ -20,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.constraints.NotEmpty;
 import java.util.List;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * Un-assign users request template
@@ -32,24 +31,24 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class UnassignUsersRQ {
 
-	@NotEmpty
-	@JsonProperty(value = "userNames", required = true)
-	@ApiModelProperty(required = true)
-	private List<String> usernames;
+  @NotEmpty
+  @JsonProperty(value = "userNames", required = true)
+  @ApiModelProperty(required = true)
+  private List<String> usernames;
 
-	public void setUsernames(List<String> value) {
-		this.usernames = value;
-	}
+  public List<String> getUsernames() {
+    return usernames;
+  }
 
-	public List<String> getUsernames() {
-		return usernames;
-	}
+  public void setUsernames(List<String> value) {
+    this.usernames = value;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("UnassignUsersRQ{");
-		sb.append("usernames=").append(usernames);
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("UnassignUsersRQ{");
+    sb.append("usernames=").append(usernames);
+    sb.append('}');
+    return sb.toString();
+  }
 }

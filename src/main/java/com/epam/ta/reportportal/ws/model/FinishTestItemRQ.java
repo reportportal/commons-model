@@ -21,78 +21,77 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
 import javax.validation.Valid;
 
 @JsonInclude(Include.NON_NULL)
 public class FinishTestItemRQ extends FinishExecutionRQ {
 
-	@Valid
-	@JsonProperty(value = "issue")
-	private Issue issue;
+  @Valid
+  @JsonProperty(value = "issue")
+  private Issue issue;
 
-	@JsonProperty(value = "retry")
-	private Boolean retry;
+  @JsonProperty(value = "retry")
+  private Boolean retry;
 
-	@JsonProperty(value = "launchUuid")
-	@ApiModelProperty(required = true)
-	private String launchUuid;
+  @JsonProperty(value = "launchUuid")
+  @ApiModelProperty(required = true)
+  private String launchUuid;
 
-	@JsonProperty(value = "testCaseId")
-	private String testCaseId;
+  @JsonProperty(value = "testCaseId")
+  private String testCaseId;
 
-	@JsonProperty(value = "retryOf")
-	private String retryOf;
+  @JsonProperty(value = "retryOf")
+  private String retryOf;
 
-	public Boolean isRetry() {
-		return retry;
-	}
+  public Boolean isRetry() {
+    return retry;
+  }
 
-	public void setRetry(Boolean retry) {
-		this.retry = retry;
-	}
+  public void setRetry(Boolean retry) {
+    this.retry = retry;
+  }
 
-	public Issue getIssue() {
-		return issue;
-	}
+  public Issue getIssue() {
+    return issue;
+  }
 
-	public void setIssue(Issue issue) {
-		this.issue = issue;
-	}
+  public void setIssue(Issue issue) {
+    this.issue = issue;
+  }
 
-	public String getLaunchUuid() {
-		return launchUuid;
-	}
+  public String getLaunchUuid() {
+    return launchUuid;
+  }
 
-	public void setLaunchUuid(String launchUuid) {
-		this.launchUuid = launchUuid;
-	}
+  public void setLaunchUuid(String launchUuid) {
+    this.launchUuid = launchUuid;
+  }
 
-	public String getTestCaseId() {
-		return testCaseId;
-	}
+  public String getTestCaseId() {
+    return testCaseId;
+  }
 
-	public void setTestCaseId(String testCaseId) {
-		this.testCaseId = testCaseId;
-	}
+  public void setTestCaseId(String testCaseId) {
+    this.testCaseId = testCaseId;
+  }
 
-	public String getRetryOf() {
-		return retryOf;
-	}
+  public String getRetryOf() {
+    return retryOf;
+  }
 
-	public void setRetryOf(String retryOf) {
-		this.retryOf = retryOf;
-	}
+  public void setRetryOf(String retryOf) {
+    this.retryOf = retryOf;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("FinishTestItemRQ{");
-		sb.append("issue=").append(issue);
-		sb.append(", retry=").append(retry);
-		sb.append(", launchUuid='").append(launchUuid).append('\'');
-		sb.append(", testCaseId='").append(testCaseId).append('\'');
-		sb.append(", retryOf='").append(retryOf).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("FinishTestItemRQ{");
+    sb.append("issue=").append(issue);
+    sb.append(", retry=").append(retry);
+    sb.append(", launchUuid='").append(launchUuid).append('\'');
+    sb.append(", testCaseId='").append(testCaseId).append('\'');
+    sb.append(", retryOf='").append(retryOf).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

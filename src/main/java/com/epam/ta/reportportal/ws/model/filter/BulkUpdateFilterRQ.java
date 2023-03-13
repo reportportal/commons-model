@@ -18,7 +18,6 @@ package com.epam.ta.reportportal.ws.model.filter;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.NotBlank;
 
 /**
@@ -29,20 +28,20 @@ import javax.validation.constraints.NotBlank;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BulkUpdateFilterRQ extends UpdateUserFilterRQ {
 
-	@NotBlank
-	@JsonProperty(value = "id")
-	private String id;
+  @NotBlank
+  @JsonProperty(value = "id")
+  private String id;
 
-	public String getId() {
-		return id;
-	}
+  public String getId() {
+    return id;
+  }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+  public void setId(String id) {
+    this.id = id;
+  }
 
-	@Override
-	public String toString() {
-		return "BulkUpdateFilterRQ{" + "id='" + id + '\'' + '}';
-	}
+  @Override
+  public String toString() {
+    return "BulkUpdateFilterRQ{" + "id='" + id + '\'' + '}';
+  }
 }

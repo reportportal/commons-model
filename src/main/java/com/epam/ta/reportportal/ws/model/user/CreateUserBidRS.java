@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.user;
 
@@ -23,36 +23,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(Include.NON_NULL)
 public class CreateUserBidRS {
 
-	@JsonProperty(value = "message")
-	private String message;
+  @JsonProperty(value = "message")
+  private String message;
 
-	@JsonProperty(value = "bid")
-	private String bid;
+  @JsonProperty(value = "bid")
+  private String bid;
 
-	@JsonProperty(value = "backLink")
-	private String backLink;
+  @JsonProperty(value = "backLink")
+  private String backLink;
 
-	public void setMessage(String value) {
-		this.message = value;
-	}
+  public String getMessage() {
+    return message;
+  }
 
-	public String getMessage() {
-		return message;
-	}
+  public void setMessage(String value) {
+    this.message = value;
+  }
 
-	public void setBid(String uuid) {
-		this.bid = uuid;
-	}
+  public String getBid() {
+    return bid;
+  }
 
-	public String getBid() {
-		return bid;
-	}
+  public void setBid(String uuid) {
+    this.bid = uuid;
+  }
 
-	public void setBackLink(String link) {
-		this.backLink = link;
-	}
+  public String getBackLink() {
+    return backLink;
+  }
 
-	public String getBackLink() {
-		return backLink;
-	}
+  public void setBackLink(String link) {
+    this.backLink = link;
+  }
 }

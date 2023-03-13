@@ -25,30 +25,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ActiveDirectoryResource extends AbstractLdapResource {
 
-	@JsonProperty(value = "domain")
-	private String domain;
+  @JsonProperty(value = "domain")
+  private String domain;
 
-	@JsonProperty(value = "searchFilter")
-	private String searchFilter;
+  @JsonProperty(value = "searchFilter")
+  private String searchFilter;
 
-	public String getDomain() {
-		return domain;
-	}
+  public String getDomain() {
+    return domain;
+  }
 
-	public void setDomain(String domain) {
-		this.domain = domain;
-	}
+  public void setDomain(String domain) {
+    this.domain = domain;
+  }
 
-	public String getSearchFilter() {
-		return searchFilter;
-	}
+  public String getSearchFilter() {
+    return searchFilter;
+  }
 
-	public void setSearchFilter(String searchFilter) {
-		this.searchFilter = searchFilter;
-	}
+  public void setSearchFilter(String searchFilter) {
+    this.searchFilter = searchFilter;
+  }
 
-	@Override
-	public String toString() {
-		return "ActiveDirectoryResource{" + "domain='" + domain + '\'' + ", searchFilter='" + searchFilter + '\'' + '}';
-	}
+  @Override
+  public String toString() {
+    return "ActiveDirectoryResource{" + "domain='" + domain + '\'' + ", searchFilter='"
+        + searchFilter + '\'' + '}';
+  }
 }

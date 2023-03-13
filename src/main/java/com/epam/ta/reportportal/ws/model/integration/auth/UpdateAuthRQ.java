@@ -18,10 +18,9 @@ package com.epam.ta.reportportal.ws.model.integration.auth;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.util.Map;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.Map;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
@@ -29,31 +28,31 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UpdateAuthRQ {
 
-	@NotNull
-	private Boolean enabled;
+  @NotNull
+  private Boolean enabled;
 
-	@NotEmpty
-	@JsonProperty("integrationParameters")
-	private Map<String, Object> integrationParams;
+  @NotEmpty
+  @JsonProperty("integrationParameters")
+  private Map<String, Object> integrationParams;
 
-	public Boolean getEnabled() {
-		return enabled;
-	}
+  public Boolean getEnabled() {
+    return enabled;
+  }
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
 
-	public Map<String, Object> getIntegrationParams() {
-		return integrationParams;
-	}
+  public Map<String, Object> getIntegrationParams() {
+    return integrationParams;
+  }
 
-	public void setIntegrationParams(Map<String, Object> integrationParams) {
-		this.integrationParams = integrationParams;
-	}
+  public void setIntegrationParams(Map<String, Object> integrationParams) {
+    this.integrationParams = integrationParams;
+  }
 
-	@Override
-	public String toString() {
-		return "UpdateAuthRQ{" + "enabled=" + enabled + ", authParams=" + integrationParams + '}';
-	}
+  @Override
+  public String toString() {
+    return "UpdateAuthRQ{" + "enabled=" + enabled + ", authParams=" + integrationParams + '}';
+  }
 }

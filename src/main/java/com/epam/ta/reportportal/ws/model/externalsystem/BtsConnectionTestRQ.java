@@ -17,7 +17,6 @@
 package com.epam.ta.reportportal.ws.model.externalsystem;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import javax.validation.constraints.NotBlank;
 
 /**
@@ -26,28 +25,28 @@ import javax.validation.constraints.NotBlank;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BtsConnectionTestRQ {
 
-	@NotBlank
-	private String url;
+  @NotBlank
+  private String url;
 
-	@NotBlank
-	private String btsProject;
+  @NotBlank
+  private String btsProject;
 
-	public BtsConnectionTestRQ() {
-	}
+  public BtsConnectionTestRQ() {
+  }
 
-	public String getUrl() {
-		return url;
-	}
+  public String getUrl() {
+    return url;
+  }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+  public void setUrl(String url) {
+    this.url = url;
+  }
 
-	public String getBtsProject() {
-		return btsProject;
-	}
+  public String getBtsProject() {
+    return btsProject;
+  }
 
-	public void setBtsProject(String btsProject) {
-		this.btsProject = btsProject;
-	}
+  public void setBtsProject(String btsProject) {
+    this.btsProject = btsProject;
+  }
 }

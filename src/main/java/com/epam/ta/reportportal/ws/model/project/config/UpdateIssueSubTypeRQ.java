@@ -35,10 +35,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
-import java.util.List;
 
 /**
  * Request model for existing issue sub type update for specified project.<br>
@@ -48,20 +47,20 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class UpdateIssueSubTypeRQ {
 
-	@Valid
-	@NotEmpty
-	@JsonProperty(value = "ids", required = true)
-	@ApiModelProperty(required = true)
-	private List<UpdateOneIssueSubTypeRQ> ids;
+  @Valid
+  @NotEmpty
+  @JsonProperty(value = "ids", required = true)
+  @ApiModelProperty(required = true)
+  private List<UpdateOneIssueSubTypeRQ> ids;
 
-	public UpdateIssueSubTypeRQ() {
-	}
+  public UpdateIssueSubTypeRQ() {
+  }
 
-	public void setIds(List<UpdateOneIssueSubTypeRQ> values) {
-		this.ids = values;
-	}
+  public List<UpdateOneIssueSubTypeRQ> getIds() {
+    return ids;
+  }
 
-	public List<UpdateOneIssueSubTypeRQ> getIds() {
-		return ids;
-	}
+  public void setIds(List<UpdateOneIssueSubTypeRQ> values) {
+    this.ids = values;
+  }
 }

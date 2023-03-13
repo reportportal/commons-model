@@ -16,12 +16,15 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import javax.validation.Constraint;
-import java.lang.annotation.*;
 
 /**
- * Can be used with strings.
- * Checks if string is blank.
+ * Can be used with strings. Checks if string is blank.
  * <p>
  * {@code null} value is valid.
  *
@@ -30,12 +33,12 @@ import java.lang.annotation.*;
 @Documented
 @Constraint(validatedBy = NotBlankStringValidator.class)
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.FIELD, ElementType.PARAMETER })
+@Target({ElementType.FIELD, ElementType.PARAMETER})
 public @interface NotBlankString {
 
-	String message() default "Should not be blank";
+  String message() default "Should not be blank";
 
-	Class<?>[] groups() default {};
+  Class<?>[] groups() default {};
 
-	Class<?>[] payload() default {};
+  Class<?>[] payload() default {};
 }

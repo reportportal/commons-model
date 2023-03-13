@@ -12,24 +12,26 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model;
 
 /**
  * Container of view classes
- * 
+ *
  * @author Andrei Varabyeu
- * 
  */
 public class ModelViews {
 
-	public static class DefaultView {
-	}
+  public static class DefaultView {
 
-	public static class FullUserView extends DefaultView {
-	}
+  }
 
-	public static class FullProjectInfoView extends DefaultView {
-	}
+  public static class FullUserView extends DefaultView {
+
+  }
+
+  public static class FullProjectInfoView extends DefaultView {
+
+  }
 }

@@ -23,14 +23,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * Cases object for notifications sending declarations
@@ -39,133 +38,138 @@ import java.util.Set;
  */
 @JsonInclude(Include.NON_NULL)
 public class SenderCaseDTO implements Serializable {
-	/**
-	 * Generated SVUID
-	 */
-	private static final long serialVersionUID = -3546546654348861010L;
 
-	@JsonProperty("id")
-	private Long id;
+  /**
+   * Generated SVUID
+   */
+  private static final long serialVersionUID = -3546546654348861010L;
 
-	@NotEmpty
-	@JsonProperty("ruleName")
-	private String ruleName;
+  @JsonProperty("id")
+  private Long id;
 
-	@NotEmpty
-	@NotBlankStringCollection
-	@JsonProperty(value = "recipients")
-	private List<String> recipients;
+  @NotEmpty
+  @JsonProperty("ruleName")
+  private String ruleName;
 
-	@NotBlank
-	@JsonProperty(value = "sendCase")
-	@In(allowedValues = { "always", "failed", "toInvestigate", "more10", "more20", "more50" })
-	@ApiModelProperty(allowableValues = "ALWAYS, FAILED, MORE_10, MORE_20, MORE_50")
-	private String sendCase;
+  @NotEmpty
+  @NotBlankStringCollection
+  @JsonProperty(value = "recipients")
+  private List<String> recipients;
 
-	@NotBlankStringCollection
-	@JsonProperty(value = "launchNames")
-	private List<String> launchNames;
+  @NotBlank
+  @JsonProperty(value = "sendCase")
+  @In(allowedValues = {"always", "failed", "toInvestigate", "more10", "more20", "more50"})
+  @ApiModelProperty(allowableValues = "ALWAYS, FAILED, MORE_10, MORE_20, MORE_50")
+  private String sendCase;
 
-	@Valid
-	@JsonProperty(value = "attributes")
-	private Set<ItemAttributeResource> attributes;
+  @NotBlankStringCollection
+  @JsonProperty(value = "launchNames")
+  private List<String> launchNames;
 
-	@JsonProperty(value = "enabled")
-	private boolean enabled;
+  @Valid
+  @JsonProperty(value = "attributes")
+  private Set<ItemAttributeResource> attributes;
 
-	public SenderCaseDTO() {
-	}
+  @JsonProperty(value = "enabled")
+  private boolean enabled;
 
-	public SenderCaseDTO(Long id, String ruleName, List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled) {
-		this.id = id;
-		this.ruleName = ruleName;
-		this.recipients = recs;
-		this.sendCase = sendMode;
-		this.launchNames = laNames;
-		this.attributes = attributes;
-		this.enabled = enabled;
-	}
+  public SenderCaseDTO() {
+  }
 
-	/* Getters and setters block */
-	public Long getId() {
-		return id;
-	}
+  public SenderCaseDTO(Long id, String ruleName, List<String> recs, String sendMode,
+      List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled) {
+    this.id = id;
+    this.ruleName = ruleName;
+    this.recipients = recs;
+    this.sendCase = sendMode;
+    this.launchNames = laNames;
+    this.attributes = attributes;
+    this.enabled = enabled;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  /* Getters and setters block */
+  public Long getId() {
+    return id;
+  }
 
-	public String getRuleName() {
-		return ruleName;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public void setRuleName(String ruleName) {
-		this.ruleName = ruleName;
-	}
+  public String getRuleName() {
+    return ruleName;
+  }
 
-	public void setRecipients(List<String> recipients) {
-		this.recipients = recipients;
-	}
+  public void setRuleName(String ruleName) {
+    this.ruleName = ruleName;
+  }
 
-	public List<String> getRecipients() {
-		return recipients;
-	}
+  public List<String> getRecipients() {
+    return recipients;
+  }
 
-	public void setSendCase(String value) {
-		this.sendCase = value;
-	}
+  public void setRecipients(List<String> recipients) {
+    this.recipients = recipients;
+  }
 
-	public String getSendCase() {
-		return sendCase;
-	}
+  public String getSendCase() {
+    return sendCase;
+  }
 
-	public void setLaunchNames(List<String> value) {
-		this.launchNames = value;
-	}
+  public void setSendCase(String value) {
+    this.sendCase = value;
+  }
 
-	public List<String> getLaunchNames() {
-		return launchNames;
-	}
+  public List<String> getLaunchNames() {
+    return launchNames;
+  }
 
-	public Set<ItemAttributeResource> getAttributes() {
-		return attributes;
-	}
+  public void setLaunchNames(List<String> value) {
+    this.launchNames = value;
+  }
 
-	public void setAttributes(Set<ItemAttributeResource> attributes) {
-		this.attributes = attributes;
-	}
+  public Set<ItemAttributeResource> getAttributes() {
+    return attributes;
+  }
 
-	public boolean isEnabled() {
-		return enabled;
-	}
+  public void setAttributes(Set<ItemAttributeResource> attributes) {
+    this.attributes = attributes;
+  }
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+  public boolean isEnabled() {
+    return enabled;
+  }
 
-	/* Auto generated methods */
-	@Override
-	public String toString() {
-		return "SenderCaseDTO{" + "id=" + id + ", ruleName=" + ruleName + ", recipients=" + recipients + ", sendCase='" + sendCase + '\'' +
-				", launchNames=" + launchNames + ", attributes=" + attributes + ", enabled=" + enabled + '}';
-	}
+  public void setEnabled(boolean enabled) {
+    this.enabled = enabled;
+  }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		SenderCaseDTO that = (SenderCaseDTO) o;
-		return Objects.equals(id, that.id) && Objects.equals(ruleName, that.ruleName) && Objects.equals(recipients, that.recipients)
-				&& Objects.equals(sendCase, that.sendCase) && Objects.equals(launchNames, that.launchNames)
-				&& Objects.equals(attributes, that.attributes) && Objects.equals(enabled, that.enabled);
-	}
+  /* Auto generated methods */
+  @Override
+  public String toString() {
+    return "SenderCaseDTO{" + "id=" + id + ", ruleName=" + ruleName + ", recipients=" + recipients
+        + ", sendCase='" + sendCase + '\'' +
+        ", launchNames=" + launchNames + ", attributes=" + attributes + ", enabled=" + enabled
+        + '}';
+  }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, ruleName, recipients, sendCase, launchNames, attributes, enabled);
-	}
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SenderCaseDTO that = (SenderCaseDTO) o;
+    return Objects.equals(id, that.id) && Objects.equals(ruleName, that.ruleName) && Objects.equals(
+        recipients, that.recipients)
+        && Objects.equals(sendCase, that.sendCase) && Objects.equals(launchNames, that.launchNames)
+        && Objects.equals(attributes, that.attributes) && Objects.equals(enabled, that.enabled);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, ruleName, recipients, sendCase, launchNames, attributes, enabled);
+  }
 }

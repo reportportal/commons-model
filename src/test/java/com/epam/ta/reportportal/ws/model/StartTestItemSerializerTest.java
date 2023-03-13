@@ -19,10 +19,9 @@ package com.epam.ta.reportportal.ws.model;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import java.io.IOException;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.io.IOException;
 
 /**
  * Test Item custom serializer test
@@ -31,35 +30,34 @@ import java.io.IOException;
  */
 public class StartTestItemSerializerTest {
 
-	private ObjectMapper om = getObjectMapper();
+  private static final String START_ITEM_RQ = "{\"launchUuid\":\"1\",\"description\":\"description\",\"type\":\"LAUNCH\",\"retry\":false,\"hasStats\":true}";
+  private ObjectMapper om = getObjectMapper();
 
-	private static final String START_ITEM_RQ = "{\"launchUuid\":\"1\",\"description\":\"description\",\"type\":\"LAUNCH\",\"retry\":false,\"hasStats\":true}";
+  @Test
+  public void testSerializer() throws JsonProcessingException {
+    String json = om.writeValueAsString(getStartTestItem());
+    Assert.assertEquals("Incorrect serialization result", START_ITEM_RQ, json);
+  }
 
-	@Test
-	public void testSerializer() throws JsonProcessingException {
-		String json = om.writeValueAsString(getStartTestItem());
-		Assert.assertEquals("Incorrect serialization result", START_ITEM_RQ, json);
-	}
+  @Test
+  public void testDeserializer() throws IOException {
+    StartTestItemRQ rq = om.readValue(START_ITEM_RQ, StartTestItemRQ.class);
+    Assert.assertEquals("Incorrect deserialization result", rq.getType(), "LAUNCH");
+  }
 
-	@Test
-	public void testDeserializer() throws IOException {
-		StartTestItemRQ rq = om.readValue(START_ITEM_RQ, StartTestItemRQ.class);
-		Assert.assertEquals("Incorrect deserialization result", rq.getType(), "LAUNCH");
-	}
+  private StartTestItemRQ getStartTestItem() {
+    StartTestItemRQ startTestItem = new StartTestItemRQ();
+    startTestItem.setDescription("description");
+    startTestItem.setLaunchUuid("1");
+    startTestItem.setType("launch");
+    startTestItem.setRetry(false);
 
-	private StartTestItemRQ getStartTestItem() {
-		StartTestItemRQ startTestItem = new StartTestItemRQ();
-		startTestItem.setDescription("description");
-		startTestItem.setLaunchUuid("1");
-		startTestItem.setType("launch");
-		startTestItem.setRetry(false);
+    return startTestItem;
+  }
 
-		return startTestItem;
-	}
-
-	private ObjectMapper getObjectMapper() {
-		ObjectMapper om = new ObjectMapper();
-		om.configure(SerializationFeature.INDENT_OUTPUT, false);
-		return om;
-	}
+  private ObjectMapper getObjectMapper() {
+    ObjectMapper om = new ObjectMapper();
+    om.configure(SerializationFeature.INDENT_OUTPUT, false);
+    return om;
+  }
 }

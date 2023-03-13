@@ -17,36 +17,35 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.validation.constraints.NotEmpty;
 import java.util.List;
+import javax.validation.constraints.NotEmpty;
 
 /**
  * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
  */
 public class DeleteBulkRQ {
 
-	@NotEmpty
-	@JsonProperty(value = "ids")
-	private List<Long> ids;
+  @NotEmpty
+  @JsonProperty(value = "ids")
+  private List<Long> ids;
 
-	public DeleteBulkRQ() {
-	}
+  public DeleteBulkRQ() {
+  }
 
-	public DeleteBulkRQ(@NotEmpty List<Long> ids) {
-		this.ids = ids;
-	}
+  public DeleteBulkRQ(@NotEmpty List<Long> ids) {
+    this.ids = ids;
+  }
 
-	public List<Long> getIds() {
-		return ids;
-	}
+  public List<Long> getIds() {
+    return ids;
+  }
 
-	public void setIds(List<Long> ids) {
-		this.ids = ids;
-	}
+  public void setIds(List<Long> ids) {
+    this.ids = ids;
+  }
 
-	@Override
-	public String toString() {
-		return "DeleteBulkRQ{" + "ids=" + ids + '}';
-	}
+  @Override
+  public String toString() {
+    return "DeleteBulkRQ{" + "ids=" + ids + '}';
+  }
 }

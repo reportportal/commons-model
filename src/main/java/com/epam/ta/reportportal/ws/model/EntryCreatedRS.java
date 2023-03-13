@@ -12,8 +12,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,38 +22,37 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Response when some entry has been created and we need to return ID
- * 
+ *
  * @author Andrei Varabyeu
- * 
  */
 @JsonInclude(Include.NON_NULL)
 public class EntryCreatedRS {
 
-	@JsonProperty("id")
-	private Long id;
+  @JsonProperty("id")
+  private Long id;
 
-	public EntryCreatedRS() {
+  public EntryCreatedRS() {
 
-	}
+  }
 
-	public EntryCreatedRS(Long id) {
-		this.id = id;
-	}
+  public EntryCreatedRS(Long id) {
+    this.id = id;
+  }
 
-	public Long getId() {
-		return id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("EntryCreatedRS{");
-		sb.append("id='").append(id).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("EntryCreatedRS{");
+    sb.append("id='").append(id).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 
 }

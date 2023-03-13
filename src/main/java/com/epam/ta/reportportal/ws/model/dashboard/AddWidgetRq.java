@@ -18,7 +18,6 @@ package com.epam.ta.reportportal.ws.model.dashboard;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -28,16 +27,16 @@ import javax.validation.constraints.NotNull;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AddWidgetRq {
 
-	@Valid
-	@NotNull
-	@JsonProperty(value = "addWidget")
-	private DashboardResource.WidgetObjectModel addWidget;
+  @Valid
+  @NotNull
+  @JsonProperty(value = "addWidget")
+  private DashboardResource.WidgetObjectModel addWidget;
 
-	public DashboardResource.WidgetObjectModel getAddWidget() {
-		return addWidget;
-	}
+  public DashboardResource.WidgetObjectModel getAddWidget() {
+    return addWidget;
+  }
 
-	public void setAddWidget(DashboardResource.WidgetObjectModel addWidget) {
-		this.addWidget = addWidget;
-	}
+  public void setAddWidget(DashboardResource.WidgetObjectModel addWidget) {
+    this.addWidget = addWidget;
+  }
 }

@@ -28,36 +28,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(Include.NON_NULL)
 public class UserBidRS {
 
-	@JsonProperty("uuid")
-	private String uuid;
+  @JsonProperty("uuid")
+  private String uuid;
 
-	@JsonProperty("isActive")
-	private boolean isActive;
+  @JsonProperty("isActive")
+  private boolean isActive;
 
-	@JsonProperty("email")
-	private String email;
+  @JsonProperty("email")
+  private String email;
 
-	public String getUuid() {
-		return uuid;
-	}
+  public String getUuid() {
+    return uuid;
+  }
 
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
 
-	public void setIsActive(boolean value) {
-		this.isActive = value;
-	}
+  public boolean getIsActive() {
+    return isActive;
+  }
 
-	public boolean getIsActive() {
-		return isActive;
-	}
+  public void setIsActive(boolean value) {
+    this.isActive = value;
+  }
 
-	public void setEmail(String value) {
-		this.email = value;
-	}
+  public String getEmail() {
+    return email;
+  }
 
-	public String getEmail() {
-		return email;
-	}
+  public void setEmail(String value) {
+    this.email = value;
+  }
 }

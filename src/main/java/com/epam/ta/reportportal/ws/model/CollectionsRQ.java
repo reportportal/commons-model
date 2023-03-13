@@ -17,10 +17,9 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
  * @deprecated use {@link BulkRQ} instead
@@ -28,24 +27,24 @@ import java.util.List;
 @Deprecated
 public class CollectionsRQ<T> {
 
-	@Valid
-	@NotNull
-	@JsonProperty(value = "elements", required = true)
-	private List<T> elements;
+  @Valid
+  @NotNull
+  @JsonProperty(value = "elements", required = true)
+  private List<T> elements;
 
-	public List<T> getElements() {
-		return elements;
-	}
+  public List<T> getElements() {
+    return elements;
+  }
 
-	public void setElements(List<T> elements) {
-		this.elements = elements;
-	}
+  public void setElements(List<T> elements) {
+    this.elements = elements;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("CollectionsRQ{");
-		sb.append("elements=").append(elements);
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("CollectionsRQ{");
+    sb.append("elements=").append(elements);
+    sb.append('}');
+    return sb.toString();
+  }
 }

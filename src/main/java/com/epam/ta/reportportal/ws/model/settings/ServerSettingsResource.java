@@ -12,59 +12,57 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.settings;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Map;
 
 /**
  * Global server settings response of stored properties
- * 
- * @author Andrei_Ramanchuk
  *
+ * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
 public class ServerSettingsResource {
 
-	private String profile;
+  private String profile;
 
-	private boolean active;
+  private boolean active;
 
-	@JsonProperty(value = "serverEmailConfig")
-	private ServerEmailResource serverEmailResource;
+  @JsonProperty(value = "serverEmailConfig")
+  private ServerEmailResource serverEmailResource;
 
 //	private Map<String, OAuthDetailsResource> oauthConfigs;
 
-	private Map<String, AnalyticsResource> analyticsResource;
+  private Map<String, AnalyticsResource> analyticsResource;
 
-	public void setProfile(String id) {
-		this.profile = id;
-	}
+  public String getProfile() {
+    return profile;
+  }
 
-	public String getProfile() {
-		return profile;
-	}
+  public void setProfile(String id) {
+    this.profile = id;
+  }
 
-	public void setActive(boolean is) {
-		this.active = is;
-	}
+  public boolean getActive() {
+    return active;
+  }
 
-	public boolean getActive() {
-		return active;
-	}
+  public void setActive(boolean is) {
+    this.active = is;
+  }
 
-	public void setServerEmailResource(ServerEmailResource config) {
-		this.serverEmailResource = config;
-	}
+  public ServerEmailResource getServerEmailResource() {
+    return serverEmailResource;
+  }
 
-	public ServerEmailResource getServerEmailResource() {
-		return serverEmailResource;
-	}
+  public void setServerEmailResource(ServerEmailResource config) {
+    this.serverEmailResource = config;
+  }
 
 //	public Map<String, OAuthDetailsResource> getOauthConfigs() {
 //		return oauthConfigs;
@@ -74,11 +72,11 @@ public class ServerSettingsResource {
 //		this.oauthConfigs = oauthConfigs;
 //	}
 
-    public Map<String, AnalyticsResource> getAnalyticsResource() {
-        return analyticsResource;
-    }
+  public Map<String, AnalyticsResource> getAnalyticsResource() {
+    return analyticsResource;
+  }
 
-    public void setAnalyticsResource(Map<String, AnalyticsResource> analyticsResource) {
-        this.analyticsResource = analyticsResource;
-    }
+  public void setAnalyticsResource(Map<String, AnalyticsResource> analyticsResource) {
+    this.analyticsResource = analyticsResource;
+  }
 }

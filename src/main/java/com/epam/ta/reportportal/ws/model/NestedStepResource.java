@@ -19,7 +19,6 @@ package com.epam.ta.reportportal.ws.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -29,116 +28,116 @@ import java.util.Date;
 @JsonInclude(Include.NON_NULL)
 public class NestedStepResource implements Serializable {
 
-	@JsonProperty(value = "id")
-	private Long id;
+  @JsonProperty(value = "id")
+  private Long id;
 
-	@JsonProperty(value = "name")
-	private String name;
+  @JsonProperty(value = "name")
+  private String name;
 
-	@JsonProperty(value = "uuid")
-	private String uuid;
+  @JsonProperty(value = "uuid")
+  private String uuid;
 
-	@JsonProperty(value = "type")
-	private String type;
+  @JsonProperty(value = "type")
+  private String type;
 
-	@JsonProperty(value = "startTime")
-	private Date startTime;
+  @JsonProperty(value = "startTime")
+  private Date startTime;
 
-	@JsonProperty(value = "endTime")
-	private Date endTime;
+  @JsonProperty(value = "endTime")
+  private Date endTime;
 
-	@JsonProperty(value = "status")
-	private String status;
+  @JsonProperty(value = "status")
+  private String status;
 
-	@JsonProperty(value = "duration")
-	private Double duration;
+  @JsonProperty(value = "duration")
+  private Double duration;
 
-	@JsonProperty(value = "hasContent")
-	private Boolean hasContent;
+  @JsonProperty(value = "hasContent")
+  private Boolean hasContent;
 
-	@JsonProperty(value = "attachmentsCount")
-	private Integer attachmentsCount;
+  @JsonProperty(value = "attachmentsCount")
+  private Integer attachmentsCount;
 
-	public NestedStepResource() {
-	}
+  public NestedStepResource() {
+  }
 
-	public Long getId() {
-		return id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public String getType() {
-		return type;
-	}
+  public String getType() {
+    return type;
+  }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+  public void setType(String type) {
+    this.type = type;
+  }
 
-	public Date getStartTime() {
-		return startTime;
-	}
+  public Date getStartTime() {
+    return startTime;
+  }
 
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
-	}
+  public void setStartTime(Date startTime) {
+    this.startTime = startTime;
+  }
 
-	public Date getEndTime() {
-		return endTime;
-	}
+  public Date getEndTime() {
+    return endTime;
+  }
 
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
-	}
+  public void setEndTime(Date endTime) {
+    this.endTime = endTime;
+  }
 
-	public String getStatus() {
-		return status;
-	}
+  public String getStatus() {
+    return status;
+  }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
-	public Double getDuration() {
-		return duration;
-	}
+  public Double getDuration() {
+    return duration;
+  }
 
-	public void setDuration(Double duration) {
-		this.duration = duration;
-	}
+  public void setDuration(Double duration) {
+    this.duration = duration;
+  }
 
-	public Boolean getHasContent() {
-		return hasContent;
-	}
+  public Boolean getHasContent() {
+    return hasContent;
+  }
 
-	public void setHasContent(Boolean hasContent) {
-		this.hasContent = hasContent;
-	}
+  public void setHasContent(Boolean hasContent) {
+    this.hasContent = hasContent;
+  }
 
-	public Integer getAttachmentsCount() {
-		return attachmentsCount;
-	}
+  public Integer getAttachmentsCount() {
+    return attachmentsCount;
+  }
 
-	public void setAttachmentsCount(Integer attachmentsCount) {
-		this.attachmentsCount = attachmentsCount;
-	}
+  public void setAttachmentsCount(Integer attachmentsCount) {
+    this.attachmentsCount = attachmentsCount;
+  }
 
-	public String getUuid() {
-		return uuid;
-	}
+  public String getUuid() {
+    return uuid;
+  }
 
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
 }

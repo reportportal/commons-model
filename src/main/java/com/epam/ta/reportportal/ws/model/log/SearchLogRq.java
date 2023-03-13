@@ -20,7 +20,6 @@ import com.epam.ta.reportportal.ws.annotations.In;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
 import javax.validation.constraints.NotNull;
 
 /**
@@ -29,36 +28,36 @@ import javax.validation.constraints.NotNull;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SearchLogRq {
 
-	@NotNull
-	@JsonProperty(value = "searchMode", required = true)
-	@In(allowedValues = { "launchName", "currentLaunch", "filer" })
-	@ApiModelProperty(allowableValues = "currentLaunch, launchName, filter")
-	private String searchMode;
+  @NotNull
+  @JsonProperty(value = "searchMode", required = true)
+  @In(allowedValues = {"launchName", "currentLaunch", "filer"})
+  @ApiModelProperty(allowableValues = "currentLaunch, launchName, filter")
+  private String searchMode;
 
-	private Long filterId;
+  private Long filterId;
 
-	public String getSearchMode() {
-		return searchMode;
-	}
+  public String getSearchMode() {
+    return searchMode;
+  }
 
-	public void setSearchMode(String searchMode) {
-		this.searchMode = searchMode;
-	}
+  public void setSearchMode(String searchMode) {
+    this.searchMode = searchMode;
+  }
 
-	public Long getFilterId() {
-		return filterId;
-	}
+  public Long getFilterId() {
+    return filterId;
+  }
 
-	public void setFilterId(Long filterId) {
-		this.filterId = filterId;
-	}
+  public void setFilterId(Long filterId) {
+    this.filterId = filterId;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("SearchLogRq{");
-		sb.append("searchMode='").append(searchMode).append('\'');
-		sb.append(", filterId=").append(filterId);
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("SearchLogRq{");
+    sb.append("searchMode='").append(searchMode).append('\'');
+    sb.append(", filterId=").append(filterId);
+    sb.append('}');
+    return sb.toString();
+  }
 }
