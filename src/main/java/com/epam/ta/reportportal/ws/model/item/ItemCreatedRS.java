@@ -26,23 +26,23 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ItemCreatedRS extends EntryCreatedAsyncRS {
 
-	public ItemCreatedRS() {
+  private String uniqueId;
 
-	}
+  public ItemCreatedRS() {
 
-    public ItemCreatedRS(String id, String uniqueId) {
-        super(id);
-        this.uniqueId = uniqueId;
-    }
+  }
 
-    private String uniqueId;
+  public ItemCreatedRS(String id, String uniqueId) {
+    super(id);
+    this.uniqueId = uniqueId;
+  }
 
-	public String getUniqueId() {
-		return uniqueId;
-	}
+  public String getUniqueId() {
+    return uniqueId;
+  }
 
-	public void setUniqueId(String uniqueId) {
-		this.uniqueId = uniqueId;
-	}
+  public void setUniqueId(String uniqueId) {
+    this.uniqueId = uniqueId;
+  }
 
 }

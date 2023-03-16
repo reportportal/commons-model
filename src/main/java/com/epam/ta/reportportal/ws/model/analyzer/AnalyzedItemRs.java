@@ -17,7 +17,6 @@
 package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Objects;
 
 /**
@@ -25,58 +24,59 @@ import java.util.Objects;
  */
 public class AnalyzedItemRs {
 
-	@JsonProperty("testItem")
-	private Long itemId;
+  @JsonProperty("testItem")
+  private Long itemId;
 
-	@JsonProperty("relevantItem")
-	private Long relevantItemId;
+  @JsonProperty("relevantItem")
+  private Long relevantItemId;
 
-	@JsonProperty("issueType")
-	private String locator;
+  @JsonProperty("issueType")
+  private String locator;
 
-	public Long getItemId() {
-		return itemId;
-	}
+  public Long getItemId() {
+    return itemId;
+  }
 
-	public void setItemId(Long itemId) {
-		this.itemId = itemId;
-	}
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
 
-	public Long getRelevantItemId() {
-		return relevantItemId;
-	}
+  public Long getRelevantItemId() {
+    return relevantItemId;
+  }
 
-	public void setRelevantItemId(Long relevantItemId) {
-		this.relevantItemId = relevantItemId;
-	}
+  public void setRelevantItemId(Long relevantItemId) {
+    this.relevantItemId = relevantItemId;
+  }
 
-	public String getLocator() {
-		return locator;
-	}
+  public String getLocator() {
+    return locator;
+  }
 
-	public void setLocator(String locator) {
-		this.locator = locator;
-	}
+  public void setLocator(String locator) {
+    this.locator = locator;
+  }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		AnalyzedItemRs that = (AnalyzedItemRs) o;
-		return Objects.equals(itemId, that.itemId);
-	}
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    AnalyzedItemRs that = (AnalyzedItemRs) o;
+    return Objects.equals(itemId, that.itemId);
+  }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(itemId);
-	}
+  @Override
+  public int hashCode() {
+    return Objects.hash(itemId);
+  }
 
-	@Override
-	public String toString() {
-		return "AnalyzedItemRs{" + "itemId=" + itemId + ", relevantItemId=" + relevantItemId + ", issueTypeLocator=" + locator + '}';
-	}
+  @Override
+  public String toString() {
+    return "AnalyzedItemRs{" + "itemId=" + itemId + ", relevantItemId=" + relevantItemId
+        + ", issueTypeLocator=" + locator + '}';
+  }
 }

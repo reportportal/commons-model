@@ -20,42 +20,41 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Basic representation of launches information per user for specified project<br>
- * Current view is:<br>
- * String:user_id : {String:fullname, Integer:launchesCount}<br>
+ * Basic representation of launches information per user for specified project<br> Current view
+ * is:<br> String:user_id : {String:fullname, Integer:launchesCount}<br>
  *
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LaunchesPerUser {
 
-	@JsonProperty(value = "fullName")
-	private String fullUsername;
+  @JsonProperty(value = "fullName")
+  private String fullUsername;
 
-	@JsonProperty(value = "count")
-	private Integer launchCount;
+  @JsonProperty(value = "count")
+  private Integer launchCount;
 
-	public LaunchesPerUser() {
-	}
+  public LaunchesPerUser() {
+  }
 
-	public LaunchesPerUser(String fullname, Integer count) {
-		this.fullUsername = fullname;
-		this.launchCount = count;
-	}
+  public LaunchesPerUser(String fullname, Integer count) {
+    this.fullUsername = fullname;
+    this.launchCount = count;
+  }
 
-	public void setFullUsername(String value) {
-		this.fullUsername = value;
-	}
+  public String getFullUsername() {
+    return fullUsername;
+  }
 
-	public String getFullUsername() {
-		return fullUsername;
-	}
+  public void setFullUsername(String value) {
+    this.fullUsername = value;
+  }
 
-	public void setLaunchCount(Integer value) {
-		this.launchCount = value;
-	}
+  public Integer getLaunchCount() {
+    return launchCount;
+  }
 
-	public Integer getLaunchCount() {
-		return launchCount;
-	}
+  public void setLaunchCount(Integer value) {
+    this.launchCount = value;
+  }
 }

@@ -19,7 +19,6 @@ package com.epam.ta.reportportal.ws.model.user;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
 import javax.validation.constraints.NotBlank;
 
 /**
@@ -28,44 +27,44 @@ import javax.validation.constraints.NotBlank;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RestorePasswordRQ {
 
-	@NotBlank
-	@JsonProperty(value = "email")
-	@ApiModelProperty(required = true)
-	private String email;
+  @NotBlank
+  @JsonProperty(value = "email")
+  @ApiModelProperty(required = true)
+  private String email;
 
-	public String getEmail() {
-		return email;
-	}
+  public String getEmail() {
+    return email;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
-		RestorePasswordRQ that = (RestorePasswordRQ) o;
+    RestorePasswordRQ that = (RestorePasswordRQ) o;
 
-		return !(email != null ? !email.equals(that.email) : that.email != null);
+    return !(email != null ? !email.equals(that.email) : that.email != null);
 
-	}
+  }
 
-	@Override
-	public int hashCode() {
-		return email != null ? email.hashCode() : 0;
-	}
+  @Override
+  public int hashCode() {
+    return email != null ? email.hashCode() : 0;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("ResetPasswordRQ{");
-		sb.append("email='").append(email).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("ResetPasswordRQ{");
+    sb.append("email='").append(email).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

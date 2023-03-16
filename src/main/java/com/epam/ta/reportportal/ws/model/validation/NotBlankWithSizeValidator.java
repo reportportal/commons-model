@@ -17,56 +17,56 @@
 package com.epam.ta.reportportal.ws.model.validation;
 
 import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
-import org.apache.commons.lang3.StringUtils;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author <a href="mailto:tatyana_gladysheva@epam.com">Tatyana Gladysheva</a>
  */
 public class NotBlankWithSizeValidator implements ConstraintValidator<NotBlankWithSize, String> {
 
-	private static final String NOT_NULL_PROPERTY = "{NotNull}";
-	private static final String NOT_BLANK_PROPERTY = "{NotBlank}";
-	private static final String SIZE_PROPERTY = "{Size}";
-	private static final String SPACE = " ";
+  private static final String NOT_NULL_PROPERTY = "{NotNull}";
+  private static final String NOT_BLANK_PROPERTY = "{NotBlank}";
+  private static final String SIZE_PROPERTY = "{Size}";
+  private static final String SPACE = " ";
 
-	private int min;
-	private int max;
+  private int min;
+  private int max;
 
-	@Override
-	public void initialize(NotBlankWithSize notBlankWithSizeAnnotation) {
-		this.min = notBlankWithSizeAnnotation.min();
-		this.max = notBlankWithSizeAnnotation.max();
-	}
+  @Override
+  public void initialize(NotBlankWithSize notBlankWithSizeAnnotation) {
+    this.min = notBlankWithSizeAnnotation.min();
+    this.max = notBlankWithSizeAnnotation.max();
+  }
 
-	@Override
-	public boolean isValid(String value, ConstraintValidatorContext context) {
-		boolean result;
-		if (value == null) {
-			result = false;
+  @Override
+  public boolean isValid(String value, ConstraintValidatorContext context) {
+    boolean result;
+    if (value == null) {
+      result = false;
 
-			setValidationMessage(NOT_NULL_PROPERTY, context);
+      setValidationMessage(NOT_NULL_PROPERTY, context);
 
-		} else if (StringUtils.isBlank(value)) {
-			result = false;
+    } else if (StringUtils.isBlank(value)) {
+      result = false;
 
-			String message = NOT_BLANK_PROPERTY + SPACE + SIZE_PROPERTY;
-			setValidationMessage(message, context);
+      String message = NOT_BLANK_PROPERTY + SPACE + SIZE_PROPERTY;
+      setValidationMessage(message, context);
 
-		} else if (value.length() < min || value.length() > max) {
-			result = false;
+    } else if (value.length() < min || value.length() > max) {
+      result = false;
 
-			setValidationMessage(SIZE_PROPERTY, context);
+      setValidationMessage(SIZE_PROPERTY, context);
 
-		} else {
-			result = true;
-		} return result;
-	}
+    } else {
+      result = true;
+    }
+    return result;
+  }
 
-	private void setValidationMessage(String message, ConstraintValidatorContext context) {
-		context.disableDefaultConstraintViolation();
-		context.buildConstraintViolationWithTemplate(message).addConstraintViolation();
-	}
+  private void setValidationMessage(String message, ConstraintValidatorContext context) {
+    context.disableDefaultConstraintViolation();
+    context.buildConstraintViolationWithTemplate(message).addConstraintViolation();
+  }
 }

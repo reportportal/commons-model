@@ -9,28 +9,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UniqueErrorConfig {
 
-	@JsonProperty(value = "isAutoAnalyzerEnabled")
-	private boolean enabled;
+  @JsonProperty(value = "isAutoAnalyzerEnabled")
+  private boolean enabled;
 
-	@JsonProperty(value = "isAutoAnalyzerEnabled")
-	private boolean removeNumbers;
+  @JsonProperty(value = "isAutoAnalyzerEnabled")
+  private boolean removeNumbers;
 
-	public UniqueErrorConfig() {
-	}
+  public UniqueErrorConfig() {
+  }
 
-	public boolean isEnabled() {
-		return enabled;
-	}
+  public boolean isEnabled() {
+    return enabled;
+  }
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+  public void setEnabled(boolean enabled) {
+    this.enabled = enabled;
+  }
 
-	public boolean isRemoveNumbers() {
-		return removeNumbers;
-	}
+  public boolean isRemoveNumbers() {
+    return removeNumbers;
+  }
 
-	public void setRemoveNumbers(boolean removeNumbers) {
-		this.removeNumbers = removeNumbers;
-	}
+  public void setRemoveNumbers(boolean removeNumbers) {
+    this.removeNumbers = removeNumbers;
+  }
 }

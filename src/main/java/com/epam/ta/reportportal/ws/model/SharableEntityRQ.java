@@ -16,13 +16,12 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_SHAREABLE_DESCRIPTION;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.Size;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_SHAREABLE_DESCRIPTION;
 
 /**
  * Base entity for manipulating sharable resources
@@ -32,27 +31,27 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_SHAREA
 @JsonInclude(Include.NON_NULL)
 public class SharableEntityRQ {
 
-	@JsonProperty(value = "share")
-	private Boolean share;
+  @JsonProperty(value = "share")
+  private Boolean share;
 
-	@Size(max = MAX_SHAREABLE_DESCRIPTION)
-	@JsonProperty(value = "description")
-	private String description;
+  @Size(max = MAX_SHAREABLE_DESCRIPTION)
+  @JsonProperty(value = "description")
+  private String description;
 
-	public String getDescription() {
-		return description;
-	}
+  public String getDescription() {
+    return description;
+  }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-	public Boolean getShare() {
-		return share;
-	}
+  public Boolean getShare() {
+    return share;
+  }
 
-	public void setShare(Boolean share) {
-		this.share = share;
-	}
+  public void setShare(Boolean share) {
+    this.share = share;
+  }
 
 }

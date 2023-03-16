@@ -17,7 +17,6 @@
 package com.epam.ta.reportportal.ws.model.launch;
 
 import com.epam.ta.reportportal.ws.model.EntryCreatedAsyncRS;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -25,23 +24,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class StartLaunchRS extends EntryCreatedAsyncRS {
 
-	@JsonProperty("number")
-	private Long number;
+  @JsonProperty("number")
+  private Long number;
 
-	public StartLaunchRS() {
-	}
+  public StartLaunchRS() {
+  }
 
-	public StartLaunchRS(String id, Long number) {
-		super(id);
-		this.number = number;
-	}
+  public StartLaunchRS(String id, Long number) {
+    super(id);
+    this.number = number;
+  }
 
-	public Long getNumber() {
-		return number;
-	}
+  public Long getNumber() {
+    return number;
+  }
 
-	public void setNumber(Long number) {
-		this.number = number;
-	}
+  public void setNumber(Long number) {
+    this.number = number;
+  }
 
 }

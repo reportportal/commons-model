@@ -16,15 +16,13 @@
 package com.epam.ta.reportportal.ws.model.widget;
 
 import com.epam.ta.reportportal.ws.annotations.In;
-import com.epam.ta.reportportal.ws.annotations.WidgetLimitRange;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
  * Model object for getting widget preview content
@@ -35,75 +33,80 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class WidgetPreviewRQ {
 
-	@NotNull
-	@JsonProperty(value = "widgetType", required = true)
-	@In(allowedValues = { "oldLineChart", "investigatedTrend", "launchStatistics", "statisticTrend", "casesTrend", "notPassed",
-			"overallStatistics", "uniqueBugTable", "bugTrend", "activityStream", "launchesComparisonChart", "launchesDurationChart",
-			"launchesTable", "topTestCases", "flakyTestCases", "passingRateSummary", "passingRatePerLaunch", "productStatus",
-			"mostTimeConsuming", "cumulative" })
-	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
-			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
-			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
-			+ " productStatus, mostTimeConsuming, cumulative")
-	private String widgetType;
+  @NotNull
+  @JsonProperty(value = "widgetType", required = true)
+  @In(allowedValues = {"oldLineChart", "investigatedTrend", "launchStatistics", "statisticTrend",
+      "casesTrend", "notPassed",
+      "overallStatistics", "uniqueBugTable", "bugTrend", "activityStream",
+      "launchesComparisonChart", "launchesDurationChart",
+      "launchesTable", "topTestCases", "flakyTestCases", "passingRateSummary",
+      "passingRatePerLaunch", "productStatus",
+      "mostTimeConsuming", "cumulative"})
+  @ApiModelProperty(required = true, allowableValues =
+      "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
+          + " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
+          + " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
+          + " productStatus, mostTimeConsuming, cumulative")
+  private String widgetType;
 
-	@Valid
-	@JsonProperty(value = "contentParameters")
-	private ContentParameters contentParameters;
+  @Valid
+  @JsonProperty(value = "contentParameters")
+  private ContentParameters contentParameters;
 
-	@JsonProperty(value = "filterIds")
-	private List<Long> filterIds;
+  @JsonProperty(value = "filterIds")
+  private List<Long> filterIds;
 
-	@NotNull
-	public String getWidgetType() {
-		return widgetType;
-	}
+  @NotNull
+  public String getWidgetType() {
+    return widgetType;
+  }
 
-	public void setWidgetType(@NotNull String widgetType) {
-		this.widgetType = widgetType;
-	}
+  public void setWidgetType(@NotNull String widgetType) {
+    this.widgetType = widgetType;
+  }
 
-	public ContentParameters getContentParameters() {
-		return contentParameters;
-	}
+  public ContentParameters getContentParameters() {
+    return contentParameters;
+  }
 
-	public void setContentParameters(ContentParameters contentParameters) {
-		this.contentParameters = contentParameters;
-	}
+  public void setContentParameters(ContentParameters contentParameters) {
+    this.contentParameters = contentParameters;
+  }
 
-	public List<Long> getFilterIds() {
-		return filterIds;
-	}
+  public List<Long> getFilterIds() {
+    return filterIds;
+  }
 
-	public void setFilterIds(List<Long> filterIds) {
-		this.filterIds = filterIds;
-	}
+  public void setFilterIds(List<Long> filterIds) {
+    this.filterIds = filterIds;
+  }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
-		WidgetPreviewRQ that = (WidgetPreviewRQ) o;
+    WidgetPreviewRQ that = (WidgetPreviewRQ) o;
 
-		if (!widgetType.equals(that.widgetType)) {
-			return false;
-		}
-		if (contentParameters != null ? !contentParameters.equals(that.contentParameters) : that.contentParameters != null) {
-			return false;
-		}
-		return filterIds != null ? filterIds.equals(that.filterIds) : that.filterIds == null;
-	}
+    if (!widgetType.equals(that.widgetType)) {
+      return false;
+    }
+    if (contentParameters != null ? !contentParameters.equals(that.contentParameters)
+        : that.contentParameters != null) {
+      return false;
+    }
+    return filterIds != null ? filterIds.equals(that.filterIds) : that.filterIds == null;
+  }
 
-	@Override
-	public int hashCode() {
-		int result = widgetType.hashCode();
-		result = 31 * result + (contentParameters != null ? contentParameters.hashCode() : 0);
-		result = 31 * result + (filterIds != null ? filterIds.hashCode() : 0);
-		return result;
-	}
+  @Override
+  public int hashCode() {
+    int result = widgetType.hashCode();
+    result = 31 * result + (contentParameters != null ? contentParameters.hashCode() : 0);
+    result = 31 * result + (filterIds != null ? filterIds.hashCode() : 0);
+    return result;
+  }
 }

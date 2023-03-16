@@ -19,11 +19,10 @@ package com.epam.ta.reportportal.ws.model.item;
 import com.epam.ta.reportportal.ws.annotations.NotBlankStringCollection;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 /**
  * @author Pavel Bortnik
@@ -31,26 +30,26 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UnlinkExternalIssueRQ extends ExternalIssueRQ {
 
-	@Valid
-	@NotEmpty
-	@NotBlankStringCollection
-	@Size(max = 300)
-	@JsonProperty(value = "ticketIds")
-	private List<String> ticketIds;
+  @Valid
+  @NotEmpty
+  @NotBlankStringCollection
+  @Size(max = 300)
+  @JsonProperty(value = "ticketIds")
+  private List<String> ticketIds;
 
-	public List<String> getTicketIds() {
-		return ticketIds;
-	}
+  public List<String> getTicketIds() {
+    return ticketIds;
+  }
 
-	public void setTicketIds(List<String> ticketIds) {
-		this.ticketIds = ticketIds;
-	}
+  public void setTicketIds(List<String> ticketIds) {
+    this.ticketIds = ticketIds;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("UnlinkExternalIssueRQ{");
-		sb.append("ticketIds=").append(ticketIds);
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("UnlinkExternalIssueRQ{");
+    sb.append("ticketIds=").append(ticketIds);
+    sb.append('}');
+    return sb.toString();
+  }
 }

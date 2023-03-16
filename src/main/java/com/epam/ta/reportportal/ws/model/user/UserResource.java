@@ -19,9 +19,8 @@ package com.epam.ta.reportportal.ws.model.user;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.validation.constraints.NotNull;
 import java.util.Map;
+import javax.validation.constraints.NotNull;
 
 /**
  * User resource representation for responses
@@ -31,152 +30,155 @@ import java.util.Map;
 @JsonInclude(Include.NON_NULL)
 public class UserResource {
 
-	@NotNull
-	@JsonProperty(value = "id", required = true)
-	private Long id;
+  @NotNull
+  @JsonProperty(value = "id", required = true)
+  private Long id;
 
-	@NotNull
-	@JsonProperty(value = "userId", required = true)
-	private String userId;
+  @NotNull
+  @JsonProperty(value = "userId", required = true)
+  private String userId;
 
-	@JsonProperty(value = "email", required = true)
-	private String email;
+  @JsonProperty(value = "email", required = true)
+  private String email;
 
-	@JsonProperty(value = "photoId")
-	private String photoId;
+  @JsonProperty(value = "photoId")
+  private String photoId;
 
-	@JsonProperty(value = "fullName")
-	private String fullName;
+  @JsonProperty(value = "fullName")
+  private String fullName;
 
-	@JsonProperty(value = "accountType")
-	private String accountType;
+  @JsonProperty(value = "accountType")
+  private String accountType;
 
-	@JsonProperty(value = "userRole")
-	private String userRole;
+  @JsonProperty(value = "userRole")
+  private String userRole;
 
-	@JsonProperty(value = "photoLoaded")
-	private boolean isLoaded;
+  @JsonProperty(value = "photoLoaded")
+  private boolean isLoaded;
 
-	@JsonProperty(value = "metadata")
-	private Object metadata;
+  @JsonProperty(value = "metadata")
+  private Object metadata;
 
-	@JsonProperty(value = "assignedProjects")
-	private Map<String, AssignedProject> assignedProjects;
+  @JsonProperty(value = "assignedProjects")
+  private Map<String, AssignedProject> assignedProjects;
 
-	public Long getId() {
-		return id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public void setUserId(String value) {
-		this.userId = value;
-	}
+  public String getUserId() {
+    return userId;
+  }
 
-	public String getUserId() {
-		return userId;
-	}
+  public void setUserId(String value) {
+    this.userId = value;
+  }
 
-	public void setEmail(String value) {
-		this.email = value;
-	}
+  public String getEmail() {
+    return email;
+  }
 
-	public String getEmail() {
-		return email;
-	}
+  public void setEmail(String value) {
+    this.email = value;
+  }
 
-	public void setPhotoId(String value) {
-		this.photoId = value;
-	}
+  public String getPhotoId() {
+    return photoId;
+  }
 
-	public String getPhotoId() {
-		return photoId;
-	}
+  public void setPhotoId(String value) {
+    this.photoId = value;
+  }
 
-	public void setFullName(String value) {
-		this.fullName = value;
-	}
+  public String getFullName() {
+    return fullName;
+  }
 
-	public String getFullName() {
-		return fullName;
-	}
+  public void setFullName(String value) {
+    this.fullName = value;
+  }
 
-	public void setAccountType(String value) {
-		this.accountType = value;
-	}
+  public String getAccountType() {
+    return accountType;
+  }
 
-	public String getAccountType() {
-		return accountType;
-	}
+  public void setAccountType(String value) {
+    this.accountType = value;
+  }
 
-	public String getUserRole() {
-		return userRole;
-	}
+  public String getUserRole() {
+    return userRole;
+  }
 
-	public void setUserRole(String value) {
-		this.userRole = value;
-	}
+  public void setUserRole(String value) {
+    this.userRole = value;
+  }
 
-	public Object getMetadata() {
-		return metadata;
-	}
+  public Object getMetadata() {
+    return metadata;
+  }
 
-	public void setMetadata(Object metadata) {
-		this.metadata = metadata;
-	}
+  public void setMetadata(Object metadata) {
+    this.metadata = metadata;
+  }
 
-	public void setIsLoaded(boolean value) {
-		this.isLoaded = value;
-	}
+  public boolean getIsLoaded() {
+    return isLoaded;
+  }
 
-	public boolean getIsLoaded() {
-		return isLoaded;
-	}
+  public void setIsLoaded(boolean value) {
+    this.isLoaded = value;
+  }
 
-	public Map<String, AssignedProject> getAssignedProjects() {
-		return assignedProjects;
-	}
+  public Map<String, AssignedProject> getAssignedProjects() {
+    return assignedProjects;
+  }
 
-	public void setAssignedProjects(Map<String, AssignedProject> assignedProjects) {
-		this.assignedProjects = assignedProjects;
-	}
+  public void setAssignedProjects(Map<String, AssignedProject> assignedProjects) {
+    this.assignedProjects = assignedProjects;
+  }
 
-	public static class AssignedProject {
+  @Override
+  public String toString() {
+    return "UserResource{" + "id=" + id + ", userId='" + userId + '\'' + ", email='" + email + '\''
+        + ", photoId='" + photoId + '\''
+        + ", fullName='" + fullName + '\'' + ", accountType='" + accountType + '\'' + ", userRole='"
+        + userRole + '\''
+        + ", isLoaded=" + isLoaded + ", metadata=" + metadata + ", assignedProjects="
+        + assignedProjects + '}';
+  }
 
-		private String projectRole;
-		private String entryType;
+  public static class AssignedProject {
 
-		public String getEntryType() {
-			return entryType;
-		}
+    private String projectRole;
+    private String entryType;
 
-		public void setEntryType(String entryType) {
-			this.entryType = entryType;
-		}
+    public String getEntryType() {
+      return entryType;
+    }
 
-		public void setProjectRole(String projectRole) {
-			this.projectRole = projectRole;
-		}
+    public void setEntryType(String entryType) {
+      this.entryType = entryType;
+    }
 
-		public String getProjectRole() {
-			return projectRole;
-		}
+    public String getProjectRole() {
+      return projectRole;
+    }
 
-		@Override
-		public String toString() {
-			final StringBuilder sb = new StringBuilder("AssignedProject{");
-			sb.append("projectRole='").append(projectRole).append('\'');
-			sb.append('}');
-			return sb.toString();
-		}
-	}
+    public void setProjectRole(String projectRole) {
+      this.projectRole = projectRole;
+    }
 
-	@Override
-	public String toString() {
-		return "UserResource{" + "id=" + id + ", userId='" + userId + '\'' + ", email='" + email + '\'' + ", photoId='" + photoId + '\''
-				+ ", fullName='" + fullName + '\'' + ", accountType='" + accountType + '\'' + ", userRole='" + userRole + '\''
-				+ ", isLoaded=" + isLoaded + ", metadata=" + metadata + ", assignedProjects=" + assignedProjects + '}';
-	}
+    @Override
+    public String toString() {
+      final StringBuilder sb = new StringBuilder("AssignedProject{");
+      sb.append("projectRole='").append(projectRole).append('\'');
+      sb.append('}');
+      return sb.toString();
+    }
+  }
 }

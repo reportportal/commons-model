@@ -18,7 +18,6 @@ package com.epam.ta.reportportal.ws.model.integration;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Map;
 
 /**
@@ -27,36 +26,36 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class IntegrationRQ {
 
-	@JsonProperty("name")
-	private String name;
+  @JsonProperty("name")
+  private String name;
 
-	@JsonProperty("integrationParameters")
-	private Map<String, Object> integrationParams;
+  @JsonProperty("integrationParameters")
+  private Map<String, Object> integrationParams;
 
-	@JsonProperty("enabled")
-	private Boolean enabled;
+  @JsonProperty("enabled")
+  private Boolean enabled;
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public Map<String, Object> getIntegrationParams() {
-		return integrationParams;
-	}
+  public Map<String, Object> getIntegrationParams() {
+    return integrationParams;
+  }
 
-	public void setIntegrationParams(Map<String, Object> integrationParams) {
-		this.integrationParams = integrationParams;
-	}
+  public void setIntegrationParams(Map<String, Object> integrationParams) {
+    this.integrationParams = integrationParams;
+  }
 
-	public Boolean getEnabled() {
-		return enabled;
-	}
+  public Boolean getEnabled() {
+    return enabled;
+  }
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
 }

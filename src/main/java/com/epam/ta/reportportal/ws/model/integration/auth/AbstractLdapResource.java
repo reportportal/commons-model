@@ -18,7 +18,6 @@ package com.epam.ta.reportportal.ws.model.integration.auth;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.Valid;
 
 /**
@@ -27,31 +26,31 @@ import javax.validation.Valid;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class AbstractLdapResource extends AbstractAuthResource {
 
-	@JsonProperty(value = "id")
-	private Long id;
+  @JsonProperty(value = "id")
+  private Long id;
 
-	@Valid
-	@JsonProperty(value = "ldapAttributes")
-	private LdapAttributes ldapAttributes;
+  @Valid
+  @JsonProperty(value = "ldapAttributes")
+  private LdapAttributes ldapAttributes;
 
-	public Long getId() {
-		return id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public LdapAttributes getLdapAttributes() {
-		return ldapAttributes;
-	}
+  public LdapAttributes getLdapAttributes() {
+    return ldapAttributes;
+  }
 
-	public void setLdapAttributes(LdapAttributes ldapAttributes) {
-		this.ldapAttributes = ldapAttributes;
-	}
+  public void setLdapAttributes(LdapAttributes ldapAttributes) {
+    this.ldapAttributes = ldapAttributes;
+  }
 
-	@Override
-	public String toString() {
-		return "AbstractLdapResource{" + "id=" + id + ", ldapAttributes=" + ldapAttributes + '}';
-	}
+  @Override
+  public String toString() {
+    return "AbstractLdapResource{" + "id=" + id + ", ldapAttributes=" + ldapAttributes + '}';
+  }
 }

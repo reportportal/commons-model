@@ -19,15 +19,9 @@ package com.epam.ta.reportportal.ws.model.widget;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Map;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_WIDGET_LIMIT;
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_WIDGET_LIMIT;
+import javax.validation.constraints.NotNull;
 
 /**
  * Part of widget domain object. Describe chart parameters
@@ -37,38 +31,38 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_WIDGET
 @JsonInclude(Include.NON_NULL)
 public class ContentParameters {
 
-	// fields for main data(for example: graphs at the chart)
-	@JsonProperty(value = "contentFields", required = true)
-	private List<String> contentFields;
+  // fields for main data(for example: graphs at the chart)
+  @JsonProperty(value = "contentFields", required = true)
+  private List<String> contentFields;
 
-	@NotNull
-	@JsonProperty(value = "itemsCount", required = true)
-	private int itemsCount;
+  @NotNull
+  @JsonProperty(value = "itemsCount", required = true)
+  private int itemsCount;
 
-	@JsonProperty(value = "widgetOptions")
-	private Map<String, Object> widgetOptions;
+  @JsonProperty(value = "widgetOptions")
+  private Map<String, Object> widgetOptions;
 
-	public List<String> getContentFields() {
-		return contentFields;
-	}
+  public List<String> getContentFields() {
+    return contentFields;
+  }
 
-	public void setContentFields(List<String> contentFields) {
-		this.contentFields = contentFields;
-	}
+  public void setContentFields(List<String> contentFields) {
+    this.contentFields = contentFields;
+  }
 
-	public int getItemsCount() {
-		return itemsCount;
-	}
+  public int getItemsCount() {
+    return itemsCount;
+  }
 
-	public void setItemsCount(int itemsCount) {
-		this.itemsCount = itemsCount;
-	}
+  public void setItemsCount(int itemsCount) {
+    this.itemsCount = itemsCount;
+  }
 
-	public Map<String, Object> getWidgetOptions() {
-		return widgetOptions;
-	}
+  public Map<String, Object> getWidgetOptions() {
+    return widgetOptions;
+  }
 
-	public void setWidgetOptions(Map<String, Object> widgetOptions) {
-		this.widgetOptions = widgetOptions;
-	}
+  public void setWidgetOptions(Map<String, Object> widgetOptions) {
+    this.widgetOptions = widgetOptions;
+  }
 }

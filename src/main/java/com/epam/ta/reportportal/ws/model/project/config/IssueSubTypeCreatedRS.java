@@ -26,22 +26,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class IssueSubTypeCreatedRS extends EntryCreatedRS {
 
-	@JsonProperty(value = "locator")
-	private String locator;
+  @JsonProperty(value = "locator")
+  private String locator;
 
-	public IssueSubTypeCreatedRS() {
-	}
+  public IssueSubTypeCreatedRS() {
+  }
 
-	public IssueSubTypeCreatedRS(Long id, String locator) {
-		super(id);
-		this.locator = locator;
-	}
+  public IssueSubTypeCreatedRS(Long id, String locator) {
+    super(id);
+    this.locator = locator;
+  }
 
-	public String getLocator() {
-		return locator;
-	}
+  public String getLocator() {
+    return locator;
+  }
 
-	public void setLocator(String locator) {
-		this.locator = locator;
-	}
+  public void setLocator(String locator) {
+    this.locator = locator;
+  }
 }

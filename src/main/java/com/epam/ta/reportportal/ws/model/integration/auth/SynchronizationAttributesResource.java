@@ -18,9 +18,8 @@ package com.epam.ta.reportportal.ws.model.integration.auth;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
+import javax.validation.constraints.NotBlank;
 
 /**
  * @author <a href="mailto:ivan_budayeu@epam.com">Ivan Budayeu</a>
@@ -28,42 +27,43 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SynchronizationAttributesResource implements Serializable {
 
-	@NotBlank
-	@JsonProperty(value = "email")
-	private String email;
+  @NotBlank
+  @JsonProperty(value = "email")
+  private String email;
 
-	@JsonProperty(value = "fullName")
-	private String fullName;
+  @JsonProperty(value = "fullName")
+  private String fullName;
 
-	@JsonProperty(value = "photo")
-	private String photo;
+  @JsonProperty(value = "photo")
+  private String photo;
 
-	public String getEmail() {
-		return email;
-	}
+  public String getEmail() {
+    return email;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-	public String getFullName() {
-		return fullName;
-	}
+  public String getFullName() {
+    return fullName;
+  }
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
+  }
 
-	public String getPhoto() {
-		return photo;
-	}
+  public String getPhoto() {
+    return photo;
+  }
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
+  public void setPhoto(String photo) {
+    this.photo = photo;
+  }
 
-	@Override
-	public String toString() {
-		return "SynchronizationAttributesResource{" + "email='" + email + '\'' + ", fullName='" + fullName + '\'' + ", photo='" + photo + '\'' + '}';
-	}
+  @Override
+  public String toString() {
+    return "SynchronizationAttributesResource{" + "email='" + email + '\'' + ", fullName='"
+        + fullName + '\'' + ", photo='" + photo + '\'' + '}';
+  }
 }

@@ -16,16 +16,17 @@
 
 package com.epam.ta.reportportal.ws.model.project;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_SHOULD_MATCH;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_NUMBER_OF_LOG_LINES;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_SHOULD_MATCH;
+
 import com.epam.ta.reportportal.ws.annotations.In;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 
 /**
  * @author Pavel Bortnik
@@ -33,88 +34,88 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AnalyzerConfig {
 
-	@Min(value = MIN_SHOULD_MATCH)
-	@Max(value = MAX_SHOULD_MATCH)
-	@JsonProperty(value = "minShouldMatch")
-	private Integer minShouldMatch;
+  @Min(value = MIN_SHOULD_MATCH)
+  @Max(value = MAX_SHOULD_MATCH)
+  @JsonProperty(value = "minShouldMatch")
+  private Integer minShouldMatch;
 
-	@Min(value = MIN_SHOULD_MATCH)
-	@Max(value = MAX_SHOULD_MATCH)
-	@JsonProperty(value = "searchLogsMinShouldMatch")
-	private Integer searchLogsMinShouldMatch;
+  @Min(value = MIN_SHOULD_MATCH)
+  @Max(value = MAX_SHOULD_MATCH)
+  @JsonProperty(value = "searchLogsMinShouldMatch")
+  private Integer searchLogsMinShouldMatch;
 
-	@Min(value = MIN_NUMBER_OF_LOG_LINES)
-	@JsonProperty(value = "numberOfLogLines")
-	private Integer numberOfLogLines;
+  @Min(value = MIN_NUMBER_OF_LOG_LINES)
+  @JsonProperty(value = "numberOfLogLines")
+  private Integer numberOfLogLines;
 
-	@JsonProperty(value = "isAutoAnalyzerEnabled")
-	private Boolean isAutoAnalyzerEnabled;
+  @JsonProperty(value = "isAutoAnalyzerEnabled")
+  private Boolean isAutoAnalyzerEnabled;
 
-	@JsonProperty(value = "analyzerMode")
-	@In(allowedValues = { "all", "launch_name", "current_launch" })
-	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME")
-	private String analyzerMode;
+  @JsonProperty(value = "analyzerMode")
+  @In(allowedValues = {"all", "launch_name", "current_launch"})
+  @ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME")
+  private String analyzerMode;
 
-	@JsonProperty(value = "indexingRunning")
-	@ApiParam(hidden = true)
-	private boolean indexingRunning;
+  @JsonProperty(value = "indexingRunning")
+  @ApiParam(hidden = true)
+  private boolean indexingRunning;
 
-	@JsonProperty(value = "allMessagesShouldMatch")
-	private boolean allMessagesShouldMatch;
+  @JsonProperty(value = "allMessagesShouldMatch")
+  private boolean allMessagesShouldMatch;
 
-	public boolean isIndexingRunning() {
-		return indexingRunning;
-	}
+  public boolean isIndexingRunning() {
+    return indexingRunning;
+  }
 
-	public void setIndexingRunning(boolean indexingRunning) {
-		this.indexingRunning = indexingRunning;
-	}
+  public void setIndexingRunning(boolean indexingRunning) {
+    this.indexingRunning = indexingRunning;
+  }
 
-	public Integer getMinShouldMatch() {
-		return minShouldMatch;
-	}
+  public Integer getMinShouldMatch() {
+    return minShouldMatch;
+  }
 
-	public void setMinShouldMatch(Integer minShouldMatch) {
-		this.minShouldMatch = minShouldMatch;
-	}
+  public void setMinShouldMatch(Integer minShouldMatch) {
+    this.minShouldMatch = minShouldMatch;
+  }
 
-	public Integer getSearchLogsMinShouldMatch() {
-		return searchLogsMinShouldMatch;
-	}
+  public Integer getSearchLogsMinShouldMatch() {
+    return searchLogsMinShouldMatch;
+  }
 
-	public void setSearchLogsMinShouldMatch(Integer searchLogsMinShouldMatch) {
-		this.searchLogsMinShouldMatch = searchLogsMinShouldMatch;
-	}
+  public void setSearchLogsMinShouldMatch(Integer searchLogsMinShouldMatch) {
+    this.searchLogsMinShouldMatch = searchLogsMinShouldMatch;
+  }
 
-	public Integer getNumberOfLogLines() {
-		return numberOfLogLines;
-	}
+  public Integer getNumberOfLogLines() {
+    return numberOfLogLines;
+  }
 
-	public void setNumberOfLogLines(Integer numberOfLogLines) {
-		this.numberOfLogLines = numberOfLogLines;
-	}
+  public void setNumberOfLogLines(Integer numberOfLogLines) {
+    this.numberOfLogLines = numberOfLogLines;
+  }
 
-	public Boolean getIsAutoAnalyzerEnabled() {
-		return isAutoAnalyzerEnabled;
-	}
+  public Boolean getIsAutoAnalyzerEnabled() {
+    return isAutoAnalyzerEnabled;
+  }
 
-	public void setIsAutoAnalyzerEnabled(Boolean autoAnalyzerEnabled) {
-		isAutoAnalyzerEnabled = autoAnalyzerEnabled;
-	}
+  public void setIsAutoAnalyzerEnabled(Boolean autoAnalyzerEnabled) {
+    isAutoAnalyzerEnabled = autoAnalyzerEnabled;
+  }
 
-	public String getAnalyzerMode() {
-		return analyzerMode;
-	}
+  public String getAnalyzerMode() {
+    return analyzerMode;
+  }
 
-	public void setAnalyzerMode(String analyzerMode) {
-		this.analyzerMode = analyzerMode;
-	}
+  public void setAnalyzerMode(String analyzerMode) {
+    this.analyzerMode = analyzerMode;
+  }
 
-	public boolean isAllMessagesShouldMatch() {
-		return allMessagesShouldMatch;
-	}
+  public boolean isAllMessagesShouldMatch() {
+    return allMessagesShouldMatch;
+  }
 
-	public void setAllMessagesShouldMatch(boolean allMessagesShouldMatch) {
-		this.allMessagesShouldMatch = allMessagesShouldMatch;
-	}
+  public void setAllMessagesShouldMatch(boolean allMessagesShouldMatch) {
+    this.allMessagesShouldMatch = allMessagesShouldMatch;
+  }
 }

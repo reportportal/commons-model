@@ -23,19 +23,20 @@ import javax.validation.ConstraintValidatorContext;
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 public class NotBlankStringValidator implements ConstraintValidator<NotBlankString, String> {
-	@Override
-	public void initialize(NotBlankString constraintAnnotation) {
 
-	}
+  @Override
+  public void initialize(NotBlankString constraintAnnotation) {
 
-	@Override
-	public boolean isValid(String value, ConstraintValidatorContext context) {
-		if (null == value) {
-			return true;
-		}
-		if (value.trim().isEmpty()) {
-			return false;
-		}
-		return true;
-	}
+  }
+
+  @Override
+  public boolean isValid(String value, ConstraintValidatorContext context) {
+    if (null == value) {
+      return true;
+    }
+    if (value.trim().isEmpty()) {
+      return false;
+    }
+    return true;
+  }
 }

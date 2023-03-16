@@ -25,67 +25,68 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PatternTemplateResource {
 
-	@JsonProperty(value = "id")
-	private Long id;
+  @JsonProperty(value = "id")
+  private Long id;
 
-	@JsonProperty(value = "name")
-	private String name;
+  @JsonProperty(value = "name")
+  private String name;
 
-	@JsonProperty(value = "value")
-	private String value;
+  @JsonProperty(value = "value")
+  private String value;
 
-	@JsonProperty(value = "type")
-	private String type;
+  @JsonProperty(value = "type")
+  private String type;
 
-	@JsonProperty(value = "enabled")
-	private Boolean enabled;
+  @JsonProperty(value = "enabled")
+  private Boolean enabled;
 
-	public PatternTemplateResource() {
-	}
+  public PatternTemplateResource() {
+  }
 
-	public Long getId() {
-		return id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public String getValue() {
-		return value;
-	}
+  public String getValue() {
+    return value;
+  }
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+  public void setValue(String value) {
+    this.value = value;
+  }
 
-	public String getType() {
-		return type;
-	}
+  public String getType() {
+    return type;
+  }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+  public void setType(String type) {
+    this.type = type;
+  }
 
-	public Boolean getEnabled() {
-		return enabled;
-	}
+  public Boolean getEnabled() {
+    return enabled;
+  }
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
-	}
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
 
-	@Override
-	public String toString() {
-		return "UpdatePatternTemplateRQ{" + "name='" + name + '\'' + ", value='" + value + '\'' + ", type='" + type + '\'' + ", enabled="
-				+ enabled + '}';
-	}
+  @Override
+  public String toString() {
+    return "UpdatePatternTemplateRQ{" + "name='" + name + '\'' + ", value='" + value + '\''
+        + ", type='" + type + '\'' + ", enabled="
+        + enabled + '}';
+  }
 }

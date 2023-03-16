@@ -12,27 +12,26 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
+ */
 package com.epam.ta.reportportal.ws.model;
-
-import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.Set;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @author Dzmitry_Kavalets
  */
 public class ErrorTypeTest {
 
-	@Test
-	public void duplicateCodes() {
-		final int length = ErrorType.values().length;
-		Set<Integer> codes = new HashSet<Integer>();
-		for (ErrorType errorType : ErrorType.values()) {
-			codes.add(errorType.getCode());
-		}
-		Assert.assertEquals(length, codes.size());
-	}
+  @Test
+  public void duplicateCodes() {
+    final int length = ErrorType.values().length;
+    Set<Integer> codes = new HashSet<Integer>();
+    for (ErrorType errorType : ErrorType.values()) {
+      codes.add(errorType.getCode());
+    }
+    Assert.assertEquals(length, codes.size());
+  }
 }

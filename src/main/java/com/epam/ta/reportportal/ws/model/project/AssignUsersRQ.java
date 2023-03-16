@@ -12,43 +12,41 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model.project;
-
-import java.util.Map;
-
-import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Map;
+import javax.validation.constraints.NotNull;
 
 /**
  * Assign users from project request model
- * 
+ *
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
 public class AssignUsersRQ {
 
-	@NotNull
-	@JsonProperty(value = "userNames", required = true)
-	private Map<String, String> userNames;
+  @NotNull
+  @JsonProperty(value = "userNames", required = true)
+  private Map<String, String> userNames;
 
-	public void setUserNames(Map<String, String> value) {
-		this.userNames = value;
-	}
+  public Map<String, String> getUserNames() {
+    return userNames;
+  }
 
-	public Map<String, String> getUserNames() {
-		return userNames;
-	}
+  public void setUserNames(Map<String, String> value) {
+    this.userNames = value;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("AssignUsersRQ{");
-		sb.append("userNames=").append(userNames.keySet());
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("AssignUsersRQ{");
+    sb.append("userNames=").append(userNames.keySet());
+    sb.append('}');
+    return sb.toString();
+  }
 }

@@ -12,50 +12,48 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
 /**
  * Response with results of completion save batch operation.
- * 
- * @author Aliaksei_Makayed
  *
+ * @author Aliaksei_Makayed
  */
 @JsonInclude(Include.NON_NULL)
 public class BatchSaveOperatingRS {
 
-	@JsonProperty("responses")
-	List<BatchElementCreatedRS> responses;
-	
-	public BatchSaveOperatingRS() {
-		responses = new ArrayList<BatchElementCreatedRS>();
-	}
+  @JsonProperty("responses")
+  List<BatchElementCreatedRS> responses;
 
-	public List<BatchElementCreatedRS> getResponses() {
-		return responses;
-	}
-	
-	public void addResponse(BatchElementCreatedRS elementCreatedRS) {
-		responses.add(elementCreatedRS);
-	}
+  public BatchSaveOperatingRS() {
+    responses = new ArrayList<>();
+  }
 
-	public void setResponses(List<BatchElementCreatedRS> responses) {
-		this.responses = responses;
-	}
+  public List<BatchElementCreatedRS> getResponses() {
+    return responses;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("BatchSaveOperatingRS{");
-		sb.append("responses=").append(responses);
-		sb.append('}');
-		return sb.toString();
-	}
+  public void setResponses(List<BatchElementCreatedRS> responses) {
+    this.responses = responses;
+  }
+
+  public void addResponse(BatchElementCreatedRS elementCreatedRS) {
+    responses.add(elementCreatedRS);
+  }
+
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("BatchSaveOperatingRS{");
+    sb.append("responses=").append(responses);
+    sb.append('}');
+    return sb.toString();
+  }
 }

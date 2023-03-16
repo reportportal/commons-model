@@ -18,7 +18,6 @@ package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -30,83 +29,84 @@ import java.util.Objects;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class IndexLog {
 
-	@JsonProperty("logId")
-	private Long logId;
+  @JsonProperty("logId")
+  private Long logId;
 
-	@JsonProperty("logLevel")
-	private int logLevel;
+  @JsonProperty("logLevel")
+  private int logLevel;
 
-	@JsonProperty("logTime")
-	private LocalDateTime logTime;
+  @JsonProperty("logTime")
+  private LocalDateTime logTime;
 
-	@JsonProperty("message")
-	private String message;
+  @JsonProperty("message")
+  private String message;
 
-	@JsonProperty("clusterId")
-	private Long clusterId;
+  @JsonProperty("clusterId")
+  private Long clusterId;
 
-	public IndexLog() {
-	}
+  public IndexLog() {
+  }
 
-	public Long getLogId() {
-		return logId;
-	}
+  public Long getLogId() {
+    return logId;
+  }
 
-	public void setLogId(Long logId) {
-		this.logId = logId;
-	}
+  public void setLogId(Long logId) {
+    this.logId = logId;
+  }
 
-	public int getLogLevel() {
-		return logLevel;
-	}
+  public int getLogLevel() {
+    return logLevel;
+  }
 
-	public void setLogLevel(int logLevel) {
-		this.logLevel = logLevel;
-	}
+  public void setLogLevel(int logLevel) {
+    this.logLevel = logLevel;
+  }
 
-	public LocalDateTime getLogTime() {
-		return logTime;
-	}
+  public LocalDateTime getLogTime() {
+    return logTime;
+  }
 
-	public void setLogTime(LocalDateTime logTime) {
-		this.logTime = logTime;
-	}
+  public void setLogTime(LocalDateTime logTime) {
+    this.logTime = logTime;
+  }
 
-	public String getMessage() {
-		return message;
-	}
+  public String getMessage() {
+    return message;
+  }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-	public Long getClusterId() {
-		return clusterId;
-	}
+  public Long getClusterId() {
+    return clusterId;
+  }
 
-	public void setClusterId(Long clusterId) {
-		this.clusterId = clusterId;
-	}
+  public void setClusterId(Long clusterId) {
+    this.clusterId = clusterId;
+  }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		IndexLog indexLog = (IndexLog) o;
-		return logLevel == indexLog.logLevel && Objects.equals(message, indexLog.message) && Objects.equals(clusterId, indexLog.clusterId);
-	}
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    IndexLog indexLog = (IndexLog) o;
+    return logLevel == indexLog.logLevel && Objects.equals(message, indexLog.message)
+        && Objects.equals(clusterId, indexLog.clusterId);
+  }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(logLevel, message, clusterId);
-	}
+  @Override
+  public int hashCode() {
+    return Objects.hash(logLevel, message, clusterId);
+  }
 
-	@Override
-	public String toString() {
-		return "IndexLog{" + "logLevel=" + logLevel + ", message='" + message + '\'' + '}';
-	}
+  @Override
+  public String toString() {
+    return "IndexLog{" + "logLevel=" + logLevel + ", message='" + message + '\'' + '}';
+  }
 }

@@ -20,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.constraints.NotNull;
 import java.util.Date;
+import javax.validation.constraints.NotNull;
 
 /**
  * JSON Representation of Report Portal's Log domain object
@@ -32,185 +31,177 @@ import java.util.Date;
 @JsonInclude(Include.NON_NULL)
 public class LogResource {
 
-	@JsonInclude(Include.NON_NULL)
-	public static class BinaryContent {
+  @JsonProperty(value = "id", required = true)
+  private Long id;
+  @JsonProperty(value = "uuid", required = true)
+  private String uuid;
+  @JsonProperty(value = "time")
+  private Date logTime;
+  @JsonProperty(value = "message")
+  private String message;
+  @JsonProperty(value = "binaryContent")
+  private BinaryContent binaryContent;
+  @JsonProperty(value = "thumbnail")
+  private String thumbnail;
+  @JsonProperty(value = "level")
+  @ApiModelProperty(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
+  private String level;
+  @JsonProperty(value = "itemId")
+  private Long itemId;
+  @JsonProperty(value = "launchId")
+  private Long launchId;
 
-		@NotNull
-		@JsonProperty(value = "id", required = true)
-		private String binaryDataId;
+  public Long getId() {
+    return id;
+  }
 
-		@JsonProperty(value = "thumbnailId", required = true)
-		private String thumbnailId;
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-		@JsonProperty(value = "contentType", required = true)
-		private String contentType;
+  public Date getLogTime() {
+    return logTime;
+  }
 
-		/**
-		 * @return the binaryDataId
-		 */
-		public String getBinaryDataId() {
-			return binaryDataId;
-		}
+  public void setLogTime(Date logTime) {
+    this.logTime = logTime;
+  }
 
-		/**
-		 * @param binaryDataId the binaryDataId to set
-		 */
-		public void setBinaryDataId(String binaryDataId) {
-			this.binaryDataId = binaryDataId;
-		}
+  public String getUuid() {
+    return uuid;
+  }
 
-		/**
-		 * @return the thumbnailId
-		 */
-		public String getThumbnailId() {
-			return thumbnailId;
-		}
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
 
-		/**
-		 * @param thumbnailId the thumbnailId to set
-		 */
-		public void setThumbnailId(String thumbnailId) {
-			this.thumbnailId = thumbnailId;
-		}
+  public Long getLaunchId() {
+    return launchId;
+  }
 
-		/**
-		 * @return the contentType
-		 */
-		public String getContentType() {
-			return contentType;
-		}
+  public void setLaunchId(Long launchId) {
+    this.launchId = launchId;
+  }
 
-		/**
-		 * @param contentType the contentType to set
-		 */
-		public void setContentType(String contentType) {
-			this.contentType = contentType;
-		}
+  public String getMessage() {
+    return message;
+  }
 
-		@Override
-		public String toString() {
-			final StringBuilder sb = new StringBuilder("BinaryContent{");
-			sb.append("binaryDataId='").append(binaryDataId).append('\'');
-			sb.append(", thumbnailId='").append(thumbnailId).append('\'');
-			sb.append(", contentType='").append(contentType).append('\'');
-			sb.append('}');
-			return sb.toString();
-		}
-	}
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-	@JsonProperty(value = "id", required = true)
-	private Long id;
+  public String getLevel() {
+    return level;
+  }
 
-	@JsonProperty(value = "uuid", required = true)
-	private String uuid;
+  public void setLevel(String level) {
+    this.level = level;
+  }
 
-	@JsonProperty(value = "time")
-	private Date logTime;
+  public Long getItemId() {
+    return itemId;
+  }
 
-	@JsonProperty(value = "message")
-	private String message;
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
 
-	@JsonProperty(value = "binaryContent")
-	private BinaryContent binaryContent;
+  public String getThumbnail() {
+    return thumbnail;
+  }
 
-	@JsonProperty(value = "thumbnail")
-	private String thumbnail;
+  public void setThumbnail(String thumbnail) {
+    this.thumbnail = thumbnail;
+  }
 
-	@JsonProperty(value = "level")
-	@ApiModelProperty(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
-	private String level;
+  public BinaryContent getBinaryContent() {
+    return binaryContent;
+  }
 
-	@JsonProperty(value = "itemId")
-	private Long itemId;
+  public void setBinaryContent(BinaryContent binaryContent) {
+    this.binaryContent = binaryContent;
+  }
 
-	@JsonProperty(value = "launchId")
-	private Long launchId;
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("LogResource{");
+    sb.append("id=").append(id);
+    sb.append(", uuid='").append(uuid).append('\'');
+    sb.append(", logTime=").append(logTime);
+    sb.append(", message='").append(message).append('\'');
+    sb.append(", binaryContent=").append(binaryContent);
+    sb.append(", thumbnail='").append(thumbnail).append('\'');
+    sb.append(", level='").append(level).append('\'');
+    sb.append(", itemId=").append(itemId);
+    sb.append(", launchId=").append(launchId);
+    sb.append('}');
+    return sb.toString();
+  }
 
-	public Long getId() {
-		return id;
-	}
+  @JsonInclude(Include.NON_NULL)
+  public static class BinaryContent {
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @NotNull
+    @JsonProperty(value = "id", required = true)
+    private String binaryDataId;
 
-	public Date getLogTime() {
-		return logTime;
-	}
+    @JsonProperty(value = "thumbnailId", required = true)
+    private String thumbnailId;
 
-	public String getUuid() {
-		return uuid;
-	}
+    @JsonProperty(value = "contentType", required = true)
+    private String contentType;
 
-	public Long getLaunchId() {
-		return launchId;
-	}
+    /**
+     * @return the binaryDataId
+     */
+    public String getBinaryDataId() {
+      return binaryDataId;
+    }
 
-	public void setLaunchId(Long launchId) {
-		this.launchId = launchId;
-	}
+    /**
+     * @param binaryDataId the binaryDataId to set
+     */
+    public void setBinaryDataId(String binaryDataId) {
+      this.binaryDataId = binaryDataId;
+    }
 
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
+    /**
+     * @return the thumbnailId
+     */
+    public String getThumbnailId() {
+      return thumbnailId;
+    }
 
-	public void setLogTime(Date logTime) {
-		this.logTime = logTime;
-	}
+    /**
+     * @param thumbnailId the thumbnailId to set
+     */
+    public void setThumbnailId(String thumbnailId) {
+      this.thumbnailId = thumbnailId;
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    /**
+     * @return the contentType
+     */
+    public String getContentType() {
+      return contentType;
+    }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    /**
+     * @param contentType the contentType to set
+     */
+    public void setContentType(String contentType) {
+      this.contentType = contentType;
+    }
 
-	public String getLevel() {
-		return level;
-	}
-
-	public void setLevel(String level) {
-		this.level = level;
-	}
-
-	public Long getItemId() {
-		return itemId;
-	}
-
-	public void setItemId(Long itemId) {
-		this.itemId = itemId;
-	}
-
-	public String getThumbnail() {
-		return thumbnail;
-	}
-
-	public void setThumbnail(String thumbnail) {
-		this.thumbnail = thumbnail;
-	}
-
-	public void setBinaryContent(BinaryContent binaryContent) {
-		this.binaryContent = binaryContent;
-	}
-
-	public BinaryContent getBinaryContent() {
-		return binaryContent;
-	}
-
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("LogResource{");
-		sb.append("id=").append(id);
-		sb.append(", uuid='").append(uuid).append('\'');
-		sb.append(", logTime=").append(logTime);
-		sb.append(", message='").append(message).append('\'');
-		sb.append(", binaryContent=").append(binaryContent);
-		sb.append(", thumbnail='").append(thumbnail).append('\'');
-		sb.append(", level='").append(level).append('\'');
-		sb.append(", itemId=").append(itemId);
-		sb.append(", launchId=").append(launchId);
-		sb.append('}');
-		return sb.toString();
-	}
+    @Override
+    public String toString() {
+      final StringBuilder sb = new StringBuilder("BinaryContent{");
+      sb.append("binaryDataId='").append(binaryDataId).append('\'');
+      sb.append(", thumbnailId='").append(thumbnailId).append('\'');
+      sb.append(", contentType='").append(contentType).append('\'');
+      sb.append('}');
+      return sb.toString();
+    }
+  }
 }

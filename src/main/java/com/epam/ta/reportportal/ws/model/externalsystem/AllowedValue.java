@@ -12,51 +12,50 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model.externalsystem;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.io.Serializable;
 
 /**
  * Allowed field value instance class
- * 
+ *
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
 public class AllowedValue implements Serializable {
 
-	@JsonProperty(value = "valueId")
-	private String valueId;
+  @JsonProperty(value = "valueId")
+  private String valueId;
 
-	@JsonProperty(value = "valueName")
-	private String valueName;
-	
-	public AllowedValue() {
-	}
+  @JsonProperty(value = "valueName")
+  private String valueName;
 
-	public AllowedValue(String id, String name) {
-		this.valueId = id;
-		this.valueName = name;
-	}
+  public AllowedValue() {
+  }
 
-	public void setValueId(String id) {
-		this.valueId = id;
-	}
+  public AllowedValue(String id, String name) {
+    this.valueId = id;
+    this.valueName = name;
+  }
 
-	public String getValueId() {
-		return valueId;
-	}
+  public String getValueId() {
+    return valueId;
+  }
 
-	public void setValueName(String value) {
-		this.valueName = value;
-	}
+  public void setValueId(String id) {
+    this.valueId = id;
+  }
 
-	public String getValueName() {
-		return valueName;
-	}
+  public String getValueName() {
+    return valueName;
+  }
+
+  public void setValueName(String value) {
+    this.valueName = value;
+  }
 }

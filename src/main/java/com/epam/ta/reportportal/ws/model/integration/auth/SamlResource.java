@@ -19,7 +19,6 @@ package com.epam.ta.reportportal.ws.model.integration.auth;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
-
 import javax.validation.constraints.NotEmpty;
 
 /**
@@ -30,148 +29,148 @@ import javax.validation.constraints.NotEmpty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SamlResource extends AbstractAuthResource {
 
-	private Long id;
+  private Long id;
 
-	@JsonProperty(value = "callbackUrl")
-	private String callbackUrl;
+  @JsonProperty(value = "callbackUrl")
+  private String callbackUrl;
 
-	/**
-	 * Provider name associated with IDP
-	 */
-	@NotEmpty
-	private String identityProviderName;
-	/**
-	 * Alias associated with IDP
-	 */
-	private String identityProviderAlias;
-	/**
-	 * IDP metadata URL
-	 */
-	@NotEmpty
-	private String identityProviderMetadataUrl;
-	/**
-	 * Attribute Name Format Id associated with IDP for user identification
-	 */
-	private String identityProviderNameId;
-	/**
-	 * IDP URL
-	 */
-	private String identityProviderUrl;
-	/**
-	 * Attribute name associated with full name of user in SAML response
-	 */
-	private String fullNameAttribute;
-	/**
-	 * Attribute name associated with first name of user in SAML response
-	 */
-	private String firstNameAttribute;
-	/**
-	 * Attribute name associated with last name of user in SAML response
-	 */
-	private String lastNameAttribute;
-	/**
-	 * Attribute name associated with email of user in SAML response
-	 */
-	@NotEmpty
-	private String emailAttribute;
-	/**
-	 * Indicates IDP availability for authentication
-	 */
-	private boolean enabled;
+  /**
+   * Provider name associated with IDP
+   */
+  @NotEmpty
+  private String identityProviderName;
+  /**
+   * Alias associated with IDP
+   */
+  private String identityProviderAlias;
+  /**
+   * IDP metadata URL
+   */
+  @NotEmpty
+  private String identityProviderMetadataUrl;
+  /**
+   * Attribute Name Format Id associated with IDP for user identification
+   */
+  private String identityProviderNameId;
+  /**
+   * IDP URL
+   */
+  private String identityProviderUrl;
+  /**
+   * Attribute name associated with full name of user in SAML response
+   */
+  private String fullNameAttribute;
+  /**
+   * Attribute name associated with first name of user in SAML response
+   */
+  private String firstNameAttribute;
+  /**
+   * Attribute name associated with last name of user in SAML response
+   */
+  private String lastNameAttribute;
+  /**
+   * Attribute name associated with email of user in SAML response
+   */
+  @NotEmpty
+  private String emailAttribute;
+  /**
+   * Indicates IDP availability for authentication
+   */
+  private boolean enabled;
 
-	public Long getId() {
-		return id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public String getCallbackUrl() {
-		return callbackUrl;
-	}
+  public String getCallbackUrl() {
+    return callbackUrl;
+  }
 
-	public void setCallbackUrl(String callbackUrl) {
-		this.callbackUrl = callbackUrl;
-	}
+  public void setCallbackUrl(String callbackUrl) {
+    this.callbackUrl = callbackUrl;
+  }
 
-	public String getIdentityProviderName() {
-		return identityProviderName;
-	}
+  public String getIdentityProviderName() {
+    return identityProviderName;
+  }
 
-	public void setIdentityProviderName(String identityProviderName) {
-		this.identityProviderName = identityProviderName;
-	}
+  public void setIdentityProviderName(String identityProviderName) {
+    this.identityProviderName = identityProviderName;
+  }
 
-	public String getIdentityProviderAlias() {
-		return identityProviderAlias;
-	}
+  public String getIdentityProviderAlias() {
+    return identityProviderAlias;
+  }
 
-	public void setIdentityProviderAlias(String identityProviderAlias) {
-		this.identityProviderAlias = identityProviderAlias;
-	}
+  public void setIdentityProviderAlias(String identityProviderAlias) {
+    this.identityProviderAlias = identityProviderAlias;
+  }
 
-	public String getIdentityProviderMetadataUrl() {
-		return identityProviderMetadataUrl;
-	}
+  public String getIdentityProviderMetadataUrl() {
+    return identityProviderMetadataUrl;
+  }
 
-	public void setIdentityProviderMetadataUrl(String identityProviderMetadataUrl) {
-		this.identityProviderMetadataUrl = identityProviderMetadataUrl;
-	}
+  public void setIdentityProviderMetadataUrl(String identityProviderMetadataUrl) {
+    this.identityProviderMetadataUrl = identityProviderMetadataUrl;
+  }
 
-	public String getIdentityProviderNameId() {
-		return identityProviderNameId;
-	}
+  public String getIdentityProviderNameId() {
+    return identityProviderNameId;
+  }
 
-	public void setIdentityProviderNameId(String identityProviderNameId) {
-		this.identityProviderNameId = identityProviderNameId;
-	}
+  public void setIdentityProviderNameId(String identityProviderNameId) {
+    this.identityProviderNameId = identityProviderNameId;
+  }
 
-	public String getIdentityProviderUrl() {
-		return identityProviderUrl;
-	}
+  public String getIdentityProviderUrl() {
+    return identityProviderUrl;
+  }
 
-	public void setIdentityProviderUrl(String identityProviderUrl) {
-		this.identityProviderUrl = identityProviderUrl;
-	}
+  public void setIdentityProviderUrl(String identityProviderUrl) {
+    this.identityProviderUrl = identityProviderUrl;
+  }
 
-	public String getFullNameAttribute() {
-		return fullNameAttribute;
-	}
+  public String getFullNameAttribute() {
+    return fullNameAttribute;
+  }
 
-	public void setFullNameAttribute(String fullNameAttribute) {
-		this.fullNameAttribute = fullNameAttribute;
-	}
+  public void setFullNameAttribute(String fullNameAttribute) {
+    this.fullNameAttribute = fullNameAttribute;
+  }
 
-	public String getFirstNameAttribute() {
-		return firstNameAttribute;
-	}
+  public String getFirstNameAttribute() {
+    return firstNameAttribute;
+  }
 
-	public void setFirstNameAttribute(String firstNameAttribute) {
-		this.firstNameAttribute = firstNameAttribute;
-	}
+  public void setFirstNameAttribute(String firstNameAttribute) {
+    this.firstNameAttribute = firstNameAttribute;
+  }
 
-	public String getLastNameAttribute() {
-		return lastNameAttribute;
-	}
+  public String getLastNameAttribute() {
+    return lastNameAttribute;
+  }
 
-	public void setLastNameAttribute(String lastNameAttribute) {
-		this.lastNameAttribute = lastNameAttribute;
-	}
+  public void setLastNameAttribute(String lastNameAttribute) {
+    this.lastNameAttribute = lastNameAttribute;
+  }
 
-	public String getEmailAttribute() {
-		return emailAttribute;
-	}
+  public String getEmailAttribute() {
+    return emailAttribute;
+  }
 
-	public void setEmailAttribute(String emailAttribute) {
-		this.emailAttribute = emailAttribute;
-	}
+  public void setEmailAttribute(String emailAttribute) {
+    this.emailAttribute = emailAttribute;
+  }
 
-	public boolean isEnabled() {
-		return enabled;
-	}
+  public boolean isEnabled() {
+    return enabled;
+  }
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+  public void setEnabled(boolean enabled) {
+    this.enabled = enabled;
+  }
 }

@@ -16,130 +16,134 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 public class InValidatorTest {
 
-	private static Validator validator;
+  private static Validator validator;
 
-	@BeforeClass
-	public static void init() {
-		validator = Validation.buildDefaultValidatorFactory().getValidator();
-	}
+  @BeforeClass
+  public static void init() {
+    validator = Validation.buildDefaultValidatorFactory().getValidator();
+  }
 
-	@Test
-	public void testNegative() {
-		StringTestEntity stringTestEntity = new StringTestEntity();
-		stringTestEntity.setField("notAllowed");
+  @Test
+  public void testNegative() {
+    StringTestEntity stringTestEntity = new StringTestEntity();
+    stringTestEntity.setField("notAllowed");
 
-		Set<ConstraintViolation<StringTestEntity>> constraints = validator.validate(stringTestEntity);
+    Set<ConstraintViolation<StringTestEntity>> constraints = validator.validate(stringTestEntity);
 
-		boolean found = false;
-		for (ConstraintViolation<?> cv : constraints) {
-			if ("field".equals(cv.getPropertyPath().iterator().next().getName()) && cv.getMessage().contains("not allowed")) {
-				found = true;
-				break;
-			}
-		}
+    boolean found = false;
+    for (ConstraintViolation<?> cv : constraints) {
+      if ("field".equals(cv.getPropertyPath().iterator().next().getName()) && cv.getMessage()
+          .contains("not allowed")) {
+        found = true;
+        break;
+      }
+    }
 
-		assertTrue(found);
-	}
+    assertTrue(found);
+  }
 
-	@Test
-	public void testPositive() {
-		StringTestEntity stringTestEntity = new StringTestEntity();
-		stringTestEntity.setField("ALLowed1");
+  @Test
+  public void testPositive() {
+    StringTestEntity stringTestEntity = new StringTestEntity();
+    stringTestEntity.setField("ALLowed1");
 
-		Set<ConstraintViolation<StringTestEntity>> constraints = validator.validate(stringTestEntity);
+    Set<ConstraintViolation<StringTestEntity>> constraints = validator.validate(stringTestEntity);
 
-		boolean found = false;
-		for (ConstraintViolation<?> cv : constraints) {
-			if ("field".equals(cv.getPropertyPath().iterator().next().getName()) && cv.getMessage().contains("not allowed")) {
-				found = true;
-				break;
-			}
-		}
+    boolean found = false;
+    for (ConstraintViolation<?> cv : constraints) {
+      if ("field".equals(cv.getPropertyPath().iterator().next().getName()) && cv.getMessage()
+          .contains("not allowed")) {
+        found = true;
+        break;
+      }
+    }
 
-		assertFalse(found);
-	}
+    assertFalse(found);
+  }
 
-	@Test
-	public void testNull() {
-		StringTestEntity stringTestEntity = new StringTestEntity();
-		stringTestEntity.setField(null);
+  @Test
+  public void testNull() {
+    StringTestEntity stringTestEntity = new StringTestEntity();
+    stringTestEntity.setField(null);
 
-		Set<ConstraintViolation<StringTestEntity>> constraints = validator.validate(stringTestEntity);
+    Set<ConstraintViolation<StringTestEntity>> constraints = validator.validate(stringTestEntity);
 
-		boolean found = false;
-		for (ConstraintViolation<?> cv : constraints) {
-			if ("field".equals(cv.getPropertyPath().iterator().next().getName()) && cv.getMessage().contains("not allowed")) {
-				found = true;
-				break;
-			}
-		}
+    boolean found = false;
+    for (ConstraintViolation<?> cv : constraints) {
+      if ("field".equals(cv.getPropertyPath().iterator().next().getName()) && cv.getMessage()
+          .contains("not allowed")) {
+        found = true;
+        break;
+      }
+    }
 
-		assertFalse(found);
-	}
+    assertFalse(found);
+  }
 
-	@Test
-	public void testCollectionPositive() {
-		CollectionTestEntity collectionTestEntity = new CollectionTestEntity();
-		collectionTestEntity.setField(Arrays.asList("ALLOWED1", "allowed2"));
+  @Test
+  public void testCollectionPositive() {
+    CollectionTestEntity collectionTestEntity = new CollectionTestEntity();
+    collectionTestEntity.setField(Arrays.asList("ALLOWED1", "allowed2"));
 
-		Set<ConstraintViolation<CollectionTestEntity>> constaints = validator.validate(collectionTestEntity);
+    Set<ConstraintViolation<CollectionTestEntity>> constaints = validator.validate(
+        collectionTestEntity);
 
-		assertTrue(constaints.isEmpty());
-	}
+    assertTrue(constaints.isEmpty());
+  }
 
-	@Test
-	public void testCollectionNegative() {
-		CollectionTestEntity collectionTestEntity = new CollectionTestEntity();
-		collectionTestEntity.setField(Arrays.asList("notAllowed", "allowed1", "allowed2"));
+  @Test
+  public void testCollectionNegative() {
+    CollectionTestEntity collectionTestEntity = new CollectionTestEntity();
+    collectionTestEntity.setField(Arrays.asList("notAllowed", "allowed1", "allowed2"));
 
-		Set<ConstraintViolation<CollectionTestEntity>> constaints = validator.validate(collectionTestEntity);
+    Set<ConstraintViolation<CollectionTestEntity>> constaints = validator.validate(
+        collectionTestEntity);
 
-		assertFalse(constaints.isEmpty());
-	}
+    assertFalse(constaints.isEmpty());
+  }
 
-	private static class StringTestEntity {
+  private static class StringTestEntity {
 
-		@In(allowedValues = { "allowed1", "allowed2" })
-		private String field;
+    @In(allowedValues = {"allowed1", "allowed2"})
+    private String field;
 
-		public String getField() {
-			return field;
-		}
+    public String getField() {
+      return field;
+    }
 
-		public void setField(String field) {
-			this.field = field;
-		}
-	}
+    public void setField(String field) {
+      this.field = field;
+    }
+  }
 
-	private static class CollectionTestEntity {
+  private static class CollectionTestEntity {
 
-		@In(allowedValues = { "allowed1", "allowed2" })
-		private List<String> field;
+    @In(allowedValues = {"allowed1", "allowed2"})
+    private List<String> field;
 
-		public List<String> getField() {
-			return field;
-		}
+    public List<String> getField() {
+      return field;
+    }
 
-		public void setField(List<String> field) {
-			this.field = field;
-		}
-	}
+    public void setField(List<String> field) {
+      this.field = field;
+    }
+  }
 }

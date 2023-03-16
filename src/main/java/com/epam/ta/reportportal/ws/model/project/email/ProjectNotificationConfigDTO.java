@@ -19,10 +19,9 @@ package com.epam.ta.reportportal.ws.model.project.email;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
+import javax.validation.Valid;
 
 /**
  * Project notifications configuration object
@@ -31,44 +30,46 @@ import java.util.List;
  */
 @JsonInclude(Include.NON_NULL)
 public class ProjectNotificationConfigDTO implements Serializable {
-	/**
-	 * Generated SVUID
-	 */
-	private static final long serialVersionUID = -961365872944240700L;
 
-	@JsonProperty(value = "enabled")
-	private boolean enabled;
+  /**
+   * Generated SVUID
+   */
+  private static final long serialVersionUID = -961365872944240700L;
 
-	@Valid
-	@JsonProperty(value = "cases")
-	private List<SenderCaseDTO> senderCases;
+  @JsonProperty(value = "enabled")
+  private boolean enabled;
 
-	public ProjectNotificationConfigDTO() {
-	}
+  @Valid
+  @JsonProperty(value = "cases")
+  private List<SenderCaseDTO> senderCases;
 
-	public ProjectNotificationConfigDTO(boolean enabled, List<SenderCaseDTO> senderCases) {
-		this.enabled = enabled;
-		this.senderCases = senderCases;
-	}
+  public ProjectNotificationConfigDTO() {
+  }
 
-	public boolean isEnabled() {
-		return enabled;
-	}
+  public ProjectNotificationConfigDTO(boolean enabled, List<SenderCaseDTO> senderCases) {
+    this.enabled = enabled;
+    this.senderCases = senderCases;
+  }
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+  public boolean isEnabled() {
+    return enabled;
+  }
 
-	public List<SenderCaseDTO> getSenderCases() {
-		return senderCases;
-	}
+  public void setEnabled(boolean enabled) {
+    this.enabled = enabled;
+  }
 
-	public void setSenderCases(List<SenderCaseDTO> senderCases) {
-		this.senderCases = senderCases;
-	}
+  public List<SenderCaseDTO> getSenderCases() {
+    return senderCases;
+  }
 
-	@Override
-	public String toString() {
-		return "ProjectNotificationConfigDTO{" + "enabled=" + enabled + ", senderCases=" + senderCases + '}';
-	}
+  public void setSenderCases(List<SenderCaseDTO> senderCases) {
+    this.senderCases = senderCases;
+  }
+
+  @Override
+  public String toString() {
+    return "ProjectNotificationConfigDTO{" + "enabled=" + enabled + ", senderCases=" + senderCases
+        + '}';
+  }
 }

@@ -25,10 +25,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
  * Domain model object for creating and updating widget
@@ -40,65 +39,71 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class WidgetRQ extends SharableEntityRQ {
 
-	@NotBlankWithSize(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
-	@JsonProperty(value = "name", required = true)
-	private String name;
+  @NotBlankWithSize(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_WIDGET_NAME_LENGTH)
+  @JsonProperty(value = "name", required = true)
+  private String name;
 
-	@NotNull
-	@JsonProperty(value = "widgetType", required = true)
-	@In(allowedValues = { "oldLineChart", "investigatedTrend", "launchStatistics", "statisticTrend", "casesTrend", "notPassed",
-			"overallStatistics", "uniqueBugTable", "bugTrend", "activityStream", "launchesComparisonChart", "launchesDurationChart",
-			"launchesTable", "topTestCases", "flakyTestCases", "passingRateSummary", "passingRatePerLaunch", "productStatus",
-			"mostTimeConsuming", "cumulative", "topPatternTemplates", "componentHealthCheck", "componentHealthCheckTable" })
-	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
-			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
-			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
-			+ " productStatus, mostTimeConsuming, cumulative, topPatternTemplates, componentHealthCheck, componentHealthCheckTable")
-	private String widgetType;
+  @NotNull
+  @JsonProperty(value = "widgetType", required = true)
+  @In(allowedValues = {"oldLineChart", "investigatedTrend", "launchStatistics", "statisticTrend",
+      "casesTrend", "notPassed",
+      "overallStatistics", "uniqueBugTable", "bugTrend", "activityStream",
+      "launchesComparisonChart", "launchesDurationChart",
+      "launchesTable", "topTestCases", "flakyTestCases", "passingRateSummary",
+      "passingRatePerLaunch", "productStatus",
+      "mostTimeConsuming", "cumulative", "topPatternTemplates", "componentHealthCheck",
+      "componentHealthCheckTable"})
+  @ApiModelProperty(required = true, allowableValues =
+      "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
+          + " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
+          + " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
+          + " productStatus, mostTimeConsuming, cumulative, topPatternTemplates, componentHealthCheck, componentHealthCheckTable")
+  private String widgetType;
 
-	@Valid
-	@JsonProperty(value = "contentParameters")
-	private ContentParameters contentParameters;
+  @Valid
+  @JsonProperty(value = "contentParameters")
+  private ContentParameters contentParameters;
 
-	@JsonProperty(value = "filterIds")
-	private List<Long> filterIds;
+  @JsonProperty(value = "filterIds")
+  private List<Long> filterIds;
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	@NotNull
-	public String getWidgetType() {
-		return widgetType;
-	}
+  @NotNull
+  public String getWidgetType() {
+    return widgetType;
+  }
 
-	public void setWidgetType(@NotNull String widgetType) {
-		this.widgetType = widgetType;
-	}
+  public void setWidgetType(@NotNull String widgetType) {
+    this.widgetType = widgetType;
+  }
 
-	public ContentParameters getContentParameters() {
-		return contentParameters;
-	}
+  public ContentParameters getContentParameters() {
+    return contentParameters;
+  }
 
-	public void setContentParameters(ContentParameters contentParameters) {
-		this.contentParameters = contentParameters;
-	}
+  public void setContentParameters(ContentParameters contentParameters) {
+    this.contentParameters = contentParameters;
+  }
 
-	public List<Long> getFilterIds() {
-		return filterIds;
-	}
+  public List<Long> getFilterIds() {
+    return filterIds;
+  }
 
-	public void setFilterIds(List<Long> filterIds) {
-		this.filterIds = filterIds;
-	}
+  public void setFilterIds(List<Long> filterIds) {
+    this.filterIds = filterIds;
+  }
 
-	@Override
-	public String toString() {
-		return "WidgetRQ{" + "name='" + name + '\'' + ", widgetType='" + widgetType + '\'' + ", contentParameters=" + contentParameters
-				+ ", filterIds=" + filterIds + '}';
-	}
+  @Override
+  public String toString() {
+    return "WidgetRQ{" + "name='" + name + '\'' + ", widgetType='" + widgetType + '\''
+        + ", contentParameters=" + contentParameters
+        + ", filterIds=" + filterIds + '}';
+  }
 }

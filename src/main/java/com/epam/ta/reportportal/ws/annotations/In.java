@@ -16,28 +16,31 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import javax.validation.Constraint;
-import java.lang.annotation.*;
 
 /**
- * Can be used with strings.
- * Checks if string value is contained in allowed values ignoring case.
+ * Can be used with strings. Checks if string value is contained in allowed values ignoring case.
  * <p>
  * {@code null} - valid value.
  *
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 @Documented
-@Constraint(validatedBy = { InValidator.class, InCollectionValidator.class })
+@Constraint(validatedBy = {InValidator.class, InCollectionValidator.class})
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.FIELD, ElementType.PARAMETER })
+@Target({ElementType.FIELD, ElementType.PARAMETER})
 public @interface In {
 
-	String message() default "Value is not allowed";
+  String message() default "Value is not allowed";
 
-	Class<?>[] groups() default {};
+  Class<?>[] groups() default {};
 
-	Class<?>[] payload() default {};
+  Class<?>[] payload() default {};
 
-	String[] allowedValues() default {};
+  String[] allowedValues() default {};
 }

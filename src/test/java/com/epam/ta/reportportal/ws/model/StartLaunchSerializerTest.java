@@ -1,6 +1,5 @@
 package com.epam.ta.reportportal.ws.model;
 
-import com.epam.ta.reportportal.ws.model.launch.StartLaunchRQ;
 import com.epam.ta.reportportal.ws.model.launch.StartLaunchRS;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,33 +12,33 @@ import org.junit.Test;
  */
 public class StartLaunchSerializerTest {
 
-	private ObjectMapper om = getObjectMapper();
+  private ObjectMapper om = getObjectMapper();
 
-	@Test
-	public void testSerializerNotNull() throws JsonProcessingException {
-		String json = om.writeValueAsString(getLaunchRs());
-		Assert.assertEquals("Incorrect serialization result", "{\"id\":\"1\"}", json);
-	}
+  @Test
+  public void testSerializerNotNull() throws JsonProcessingException {
+    String json = om.writeValueAsString(getLaunchRs());
+    Assert.assertEquals("Incorrect serialization result", "{\"id\":\"1\"}", json);
+  }
 
-	@Test
-	public void testSerializerFull() throws JsonProcessingException {
-		final StartLaunchRS startTestItem = getLaunchRs();
-		startTestItem.setNumber(1L);
-		String json = om.writeValueAsString(startTestItem);
-		Assert.assertEquals("Incorrect serialization result", "{\"id\":\"1\",\"number\":1}", json);
-	}
+  @Test
+  public void testSerializerFull() throws JsonProcessingException {
+    final StartLaunchRS startTestItem = getLaunchRs();
+    startTestItem.setNumber(1L);
+    String json = om.writeValueAsString(startTestItem);
+    Assert.assertEquals("Incorrect serialization result", "{\"id\":\"1\",\"number\":1}", json);
+  }
 
-	private StartLaunchRS getLaunchRs() {
-		StartLaunchRS rs = new StartLaunchRS();
-		rs.setId("1");
-		rs.setNumber(null);
-		return rs;
-	}
+  private StartLaunchRS getLaunchRs() {
+    StartLaunchRS rs = new StartLaunchRS();
+    rs.setId("1");
+    rs.setNumber(null);
+    return rs;
+  }
 
-	private ObjectMapper getObjectMapper() {
-		ObjectMapper om = new ObjectMapper();
-		om.configure(SerializationFeature.INDENT_OUTPUT, false);
-		return om;
-	}
+  private ObjectMapper getObjectMapper() {
+    ObjectMapper om = new ObjectMapper();
+    om.configure(SerializationFeature.INDENT_OUTPUT, false);
+    return om;
+  }
 
 }

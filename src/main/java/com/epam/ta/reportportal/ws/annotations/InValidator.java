@@ -24,23 +24,23 @@ import javax.validation.ConstraintValidatorContext;
  */
 public class InValidator implements ConstraintValidator<In, String> {
 
-	private String[] allowedValues;
+  private String[] allowedValues;
 
-	@Override
-	public void initialize(In constraintAnnotation) {
-		allowedValues = constraintAnnotation.allowedValues();
-	}
+  @Override
+  public void initialize(In constraintAnnotation) {
+    allowedValues = constraintAnnotation.allowedValues();
+  }
 
-	@Override
-	public boolean isValid(String value, ConstraintValidatorContext context) {
-		if (null == value) {
-			return true;
-		}
-		for (String next : allowedValues) {
-			if (value.equalsIgnoreCase(next)) {
-				return true;
-			}
-		}
-		return false;
-	}
+  @Override
+  public boolean isValid(String value, ConstraintValidatorContext context) {
+    if (null == value) {
+      return true;
+    }
+    for (String next : allowedValues) {
+      if (value.equalsIgnoreCase(next)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

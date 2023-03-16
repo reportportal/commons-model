@@ -16,64 +16,62 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_SHAREABLE_DESCRIPTION;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_DESCRIPTION;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.Size;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
-
 /**
- * Base entity for sharable resources. This resource should contains owner in
- * response.
- * 
+ * Base entity for sharable resources. This resource should contains owner in response.
+ *
  * @author Aliaksei_Makayed
- * 
  */
 @JsonInclude(Include.NON_NULL)
 public class OwnedResource {
 
-	@JsonProperty(value = "owner")
-	private String owner;
+  @JsonProperty(value = "owner")
+  private String owner;
 
-	@JsonProperty(value = "share")
-	private boolean share;
+  @JsonProperty(value = "share")
+  private boolean share;
 
-	@Size(min = MIN_DESCRIPTION, max = MAX_SHAREABLE_DESCRIPTION)
-	private String description;
+  @Size(min = MIN_DESCRIPTION, max = MAX_SHAREABLE_DESCRIPTION)
+  private String description;
 
-	public String getDescription() {
-		return description;
-	}
+  public String getDescription() {
+    return description;
+  }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-	public String getOwner() {
-		return owner;
-	}
+  public String getOwner() {
+    return owner;
+  }
 
-	public void setOwner(String owner) {
-		this.owner = owner;
-	}
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
 
-	public boolean isShare() {
-		return share;
-	}
+  public boolean isShare() {
+    return share;
+  }
 
-	public void setShare(boolean share) {
-		this.share = share;
-	}
+  public void setShare(boolean share) {
+    this.share = share;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("OwnedResource{");
-		sb.append("owner='").append(owner).append('\'');
-		sb.append(", share=").append(share);
-		sb.append(", description='").append(description).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("OwnedResource{");
+    sb.append("owner='").append(owner).append('\'');
+    sb.append(", share=").append(share);
+    sb.append(", description='").append(description).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

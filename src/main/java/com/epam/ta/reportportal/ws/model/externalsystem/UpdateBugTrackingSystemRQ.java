@@ -19,7 +19,6 @@ package com.epam.ta.reportportal.ws.model.externalsystem;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 /**
@@ -30,14 +29,14 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class UpdateBugTrackingSystemRQ {
 
-	@JsonProperty(value = "fields")
-	private List<PostFormField> fields;
+  @JsonProperty(value = "fields")
+  private List<PostFormField> fields;
 
-	public void setFields(List<PostFormField> form) {
-		this.fields = form;
-	}
+  public List<PostFormField> getFields() {
+    return fields;
+  }
 
-	public List<PostFormField> getFields() {
-		return fields;
-	}
+  public void setFields(List<PostFormField> form) {
+    this.fields = form;
+  }
 }
