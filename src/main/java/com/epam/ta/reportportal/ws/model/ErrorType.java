@@ -285,7 +285,7 @@ public enum ErrorType {
 	 * If widget content can't be loaded because some of properties are
 	 * incorrect
 	 */
-	UNABLE_LOAD_WIDGET_CONTENT(4097, "Unable to load widget content. Widget proprties contains errors: {}"),
+	UNABLE_LOAD_WIDGET_CONTENT(4097, "Unable to load widget content. Widget properties contain errors: {}"),
 
 	/**
 	 * Unable add resource to favorites

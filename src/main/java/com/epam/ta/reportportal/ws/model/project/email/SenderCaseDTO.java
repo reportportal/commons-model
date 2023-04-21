@@ -66,15 +66,23 @@ public class SenderCaseDTO implements Serializable {
 	@JsonProperty(value = "enabled")
 	private boolean enabled;
 
+	@NotBlank
+	@JsonProperty(value = "attributesOperator")
+	@In(allowedValues = { "and", "or" })
+	@ApiModelProperty(allowableValues = "AND, OR")
+	private String attributesOperator;
+
 	public SenderCaseDTO() {
 	}
 
-	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled) {
+	public SenderCaseDTO(List<String> recs, String sendMode, List<String> laNames, Set<ItemAttributeResource> attributes, boolean enabled,
+			String attributesOperator) {
 		this.recipients = recs;
 		this.sendCase = sendMode;
 		this.launchNames = laNames;
 		this.attributes = attributes;
 		this.enabled = enabled;
+		this.attributesOperator = attributesOperator;
 	}
 
 	/* Getters and setters block */
@@ -118,11 +126,19 @@ public class SenderCaseDTO implements Serializable {
 		this.enabled = enabled;
 	}
 
+	public String getAttributesOperator() {
+		return attributesOperator;
+	}
+
+	public void setAttributesOperator(String attributesOperator) {
+		this.attributesOperator = attributesOperator;
+	}
+
 	/* Auto generated methods */
 	@Override
 	public String toString() {
-		return "SenderCaseDTO{" + "recipients=" + recipients + ", sendCase='" + sendCase + '\'' + ", launchNames=" + launchNames
-				+ ", attributes=" + attributes + ", enabled=" + enabled + '}';
+		return "SenderCaseDTO{" + "recipients=" + recipients + ", sendCase='" + sendCase + '\'' +
+				", launchNames=" + launchNames + ", attributes=" + attributes + ", enabled=" + enabled + ", attributesOperator=" + attributesOperator + '}';
 	}
 
 	@Override
@@ -134,13 +150,13 @@ public class SenderCaseDTO implements Serializable {
 			return false;
 		}
 		SenderCaseDTO that = (SenderCaseDTO) o;
-		return Objects.equals(recipients, that.recipients) && Objects.equals(sendCase, that.sendCase) && Objects.equals(launchNames,
-				that.launchNames
-		) && Objects.equals(attributes, that.attributes) && Objects.equals(enabled, that.enabled);
+		return Objects.equals(recipients, that.recipients) && Objects.equals(sendCase, that.sendCase)
+				&& Objects.equals(launchNames, that.launchNames) && Objects.equals(attributes, that.attributes)
+				&& Objects.equals(enabled, that.enabled) && Objects.equals(attributesOperator, that.attributesOperator);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(recipients, sendCase, launchNames, attributes, enabled);
+		return Objects.hash(recipients, sendCase, launchNames, attributes, enabled, attributesOperator);
 	}
 }
