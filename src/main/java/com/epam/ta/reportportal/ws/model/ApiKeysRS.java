@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 EPAM Systems
+ * Copyright 2023 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,31 +19,31 @@ package com.epam.ta.reportportal.ws.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 import javax.validation.constraints.NotNull;
 
 /**
- * Api key representation for responses
  * @author Andrei Piankouski
  */
 @JsonInclude(Include.NON_NULL)
-public class ApiKeyRQ {
+public class ApiKeysRS {
 
   @NotNull
-  @JsonProperty(value = "name", required = true)
-  private String name;
+  @JsonProperty(value = "items", required = true)
+  private List<ApiKeyRS> apiKeys;
 
-  public String getName() {
-    return name;
+  public List<ApiKeyRS> getApiKeys() {
+    return apiKeys;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setApiKeys(List<ApiKeyRS> apiKeys) {
+    this.apiKeys = apiKeys;
   }
 
   @Override
   public String toString() {
-    return "ApiKeyRQ{" +
-        "name='" + name + '\'' +
+    return "ApiKeysRS{" +
+        "apiKeys=" + apiKeys +
         '}';
   }
 }

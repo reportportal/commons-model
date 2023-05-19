@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 EPAM Systems
+ * Copyright 2023 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,18 +19,41 @@ package com.epam.ta.reportportal.ws.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.time.LocalDateTime;
 import javax.validation.constraints.NotNull;
 
 /**
- * Api key representation for responses
  * @author Andrei Piankouski
  */
 @JsonInclude(Include.NON_NULL)
-public class ApiKeyRQ {
+public class ApiKeyRS {
+
+  @NotNull
+  @JsonProperty(value = "id", required = true)
+  private Long id;
 
   @NotNull
   @JsonProperty(value = "name", required = true)
   private String name;
+
+  @NotNull
+  @JsonProperty(value = "user_id", required = true)
+  private Long userId;
+
+  @NotNull
+  @JsonProperty(value = "created_at")
+  private LocalDateTime createdAt;
+
+  @JsonProperty(value = "api_key")
+  private String apiKey;
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public String getName() {
     return name;
@@ -40,10 +63,38 @@ public class ApiKeyRQ {
     this.name = name;
   }
 
+  public Long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(Long userId) {
+    this.userId = userId;
+  }
+
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getApiKey() {
+    return apiKey;
+  }
+
+  public void setApiKey(String apiKey) {
+    this.apiKey = apiKey;
+  }
+
   @Override
   public String toString() {
-    return "ApiKeyRQ{" +
-        "name='" + name + '\'' +
+    return "ApiKeyRS{" +
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", userId=" + userId +
+        ", createdAt=" + createdAt +
+        ", apiKey='" + apiKey + '\'' +
         '}';
   }
 }
