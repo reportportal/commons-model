@@ -19,7 +19,7 @@ package com.epam.ta.reportportal.ws.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.time.LocalDateTime;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -42,7 +42,7 @@ public class ApiKeyRS {
 
   @NotNull
   @JsonProperty(value = "created_at")
-  private LocalDateTime createdAt;
+  private Date createdAt;
 
   @JsonProperty(value = "api_key")
   private String apiKey;
@@ -71,11 +71,11 @@ public class ApiKeyRS {
     this.userId = userId;
   }
 
-  public LocalDateTime getCreatedAt() {
+  public Date getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(LocalDateTime createdAt) {
+  public void setCreatedAt(Date createdAt) {
     this.createdAt = createdAt;
   }
 
