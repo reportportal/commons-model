@@ -22,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotNull;
 
 /**
- * Api key representation for responses
+ * Api key representation for request
+ *
  * @author Andrei Piankouski
  */
 @JsonInclude(Include.NON_NULL)
@@ -42,8 +43,8 @@ public class ApiKeyRQ {
 
   @Override
   public String toString() {
-    return "ApiKeyRQ{" +
-        "name='" + name + '\'' +
-        '}';
+    return "ApiKeyRQ{"
+        + "name='" + name + '\''
+        + '}';
   }
 }

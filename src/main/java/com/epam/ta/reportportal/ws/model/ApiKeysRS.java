@@ -23,6 +23,8 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 
 /**
+ * Container for ApiKeysRS
+ *
  * @author Andrei Piankouski
  */
 @JsonInclude(Include.NON_NULL)
@@ -42,8 +44,8 @@ public class ApiKeysRS {
 
   @Override
   public String toString() {
-    return "ApiKeysRS{" +
-        "apiKeys=" + apiKeys +
-        '}';
+    return "ApiKeysRS{"
+        + "apiKeys=" + apiKeys
+        + '}';
   }
 }

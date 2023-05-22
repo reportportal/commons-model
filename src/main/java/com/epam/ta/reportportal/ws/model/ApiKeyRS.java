@@ -23,6 +23,8 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 
 /**
+ * Api key representation for response
+ *
  * @author Andrei Piankouski
  */
 @JsonInclude(Include.NON_NULL)
@@ -89,12 +91,12 @@ public class ApiKeyRS {
 
   @Override
   public String toString() {
-    return "ApiKeyRS{" +
-        "id=" + id +
-        ", name='" + name + '\'' +
-        ", userId=" + userId +
-        ", createdAt=" + createdAt +
-        ", apiKey='" + apiKey + '\'' +
-        '}';
+    return "ApiKeyRS{"
+        + "id=" + id
+        + ", name='" + name + '\''
+        + ", userId=" + userId
+        + ", createdAt=" + createdAt
+        + ", apiKey='" + apiKey + '\''
+        + '}';
   }
 }
