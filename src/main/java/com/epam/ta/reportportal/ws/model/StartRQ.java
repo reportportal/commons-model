@@ -16,20 +16,19 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
+
 import com.epam.ta.reportportal.ws.model.attribute.ItemAttributesRQ;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.util.Date;
+import java.util.Set;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.Set;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
 
 /**
  * Base entity for start requests
@@ -39,109 +38,110 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAME
 @JsonInclude(Include.NON_NULL)
 public class StartRQ {
 
-	@JsonProperty(value = "name", required = true)
-	@ApiModelProperty(required = true)
-	protected String name;
+  @JsonProperty(value = "name", required = true)
+  @ApiModelProperty(required = true)
+  protected String name;
 
-	@JsonProperty(value = "description")
-	private String description;
+  @JsonProperty(value = "description")
+  private String description;
 
-	@Size(max = MAX_PARAMETERS_LENGTH)
-	@Valid
-	@JsonProperty("attributes")
-	@JsonAlias({ "attributes", "tags" })
-	private Set<ItemAttributesRQ> attributes;
+  @Size(max = MAX_PARAMETERS_LENGTH)
+  @Valid
+  @JsonProperty("attributes")
+  @JsonAlias({"attributes", "tags"})
+  private Set<ItemAttributesRQ> attributes;
 
-	@NotNull
-	@JsonProperty(required = true)
-	@JsonAlias({ "startTime", "start_time" })
-	@ApiModelProperty(required = true)
-	private Date startTime;
+  @NotNull
+  @JsonProperty(required = true)
+  @JsonAlias({"startTime", "start_time"})
+  @ApiModelProperty(required = true)
+  private Date startTime;
 
-	@ApiModelProperty(hidden = true)
-	@JsonProperty(value = "uuid")
-	private String uuid;
+  @ApiModelProperty(hidden = true)
+  @JsonProperty(value = "uuid")
+  private String uuid;
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public String getDescription() {
-		return description;
-	}
+  public String getDescription() {
+    return description;
+  }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-	public Set<ItemAttributesRQ> getAttributes() {
-		return attributes;
-	}
+  public Set<ItemAttributesRQ> getAttributes() {
+    return attributes;
+  }
 
-	public void setAttributes(Set<ItemAttributesRQ> attributes) {
-		this.attributes = attributes;
-	}
+  public void setAttributes(Set<ItemAttributesRQ> attributes) {
+    this.attributes = attributes;
+  }
 
-	public String getUuid() {
-		return uuid;
-	}
+  public String getUuid() {
+    return uuid;
+  }
 
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
 
-	public Date getStartTime() {
-		return startTime;
-	}
+  public Date getStartTime() {
+    return startTime;
+  }
 
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
-	}
+  public void setStartTime(Date startTime) {
+    this.startTime = startTime;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("StartRQ{");
-		sb.append("name='").append(name).append('\'');
-		sb.append(", description='").append(description).append('\'');
-		sb.append(", attributes=").append(attributes);
-		sb.append(", startTime=").append(startTime);
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("StartRQ{");
+    sb.append("name='").append(name).append('\'');
+    sb.append(", description='").append(description).append('\'');
+    sb.append(", attributes=").append(attributes);
+    sb.append(", startTime=").append(startTime);
+    sb.append('}');
+    return sb.toString();
+  }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
-		StartRQ startRQ = (StartRQ) o;
+    StartRQ startRQ = (StartRQ) o;
 
-		if (name != null ? !name.equals(startRQ.name) : startRQ.name != null) {
-			return false;
-		}
-		if (description != null ? !description.equals(startRQ.description) : startRQ.description != null) {
-			return false;
-		}
-		if (attributes != null ? !attributes.equals(startRQ.attributes) : startRQ.attributes != null) {
-			return false;
-		}
-		return startTime != null ? startTime.equals(startRQ.startTime) : startRQ.startTime == null;
-	}
+    if (name != null ? !name.equals(startRQ.name) : startRQ.name != null) {
+      return false;
+    }
+    if (description != null ? !description.equals(startRQ.description)
+        : startRQ.description != null) {
+      return false;
+    }
+    if (attributes != null ? !attributes.equals(startRQ.attributes) : startRQ.attributes != null) {
+      return false;
+    }
+    return startTime != null ? startTime.equals(startRQ.startTime) : startRQ.startTime == null;
+  }
 
-	@Override
-	public int hashCode() {
-		int result = name != null ? name.hashCode() : 0;
-		result = 31 * result + (description != null ? description.hashCode() : 0);
-		result = 31 * result + (attributes != null ? attributes.hashCode() : 0);
-		result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
-		return result;
-	}
+  @Override
+  public int hashCode() {
+    int result = name != null ? name.hashCode() : 0;
+    result = 31 * result + (description != null ? description.hashCode() : 0);
+    result = 31 * result + (attributes != null ? attributes.hashCode() : 0);
+    result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
+    return result;
+  }
 }

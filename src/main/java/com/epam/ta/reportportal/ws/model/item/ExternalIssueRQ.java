@@ -18,10 +18,9 @@ package com.epam.ta.reportportal.ws.model.item;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.util.List;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
@@ -29,16 +28,16 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class ExternalIssueRQ {
 
-	@NotEmpty
-	@Size(max = 300)
-	@JsonProperty(value = "testItemIds")
-	private List<Long> testItemIds;
+  @NotEmpty
+  @Size(max = 300)
+  @JsonProperty(value = "testItemIds")
+  private List<Long> testItemIds;
 
-	public List<Long> getTestItemIds() {
-		return testItemIds;
-	}
+  public List<Long> getTestItemIds() {
+    return testItemIds;
+  }
 
-	public void setTestItemIds(List<Long> testItemIds) {
-		this.testItemIds = testItemIds;
-	}
+  public void setTestItemIds(List<Long> testItemIds) {
+    this.testItemIds = testItemIds;
+  }
 }

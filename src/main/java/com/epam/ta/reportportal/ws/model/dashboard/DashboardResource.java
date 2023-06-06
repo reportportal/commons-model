@@ -23,139 +23,148 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
-import java.util.Map;
 
 /**
- * Domain model DashBoard resource object. JSON Representation of Report Portal
- * domain object.
+ * Domain model DashBoard resource object. JSON Representation of Report Portal domain object.
  *
  * @author Aliaksei_Makayed
  */
 @JsonInclude(Include.NON_NULL)
 public class DashboardResource extends OwnedResource {
 
-	@NotNull
-	@JsonProperty(value = "id", required = true)
-	@ApiModelProperty(required = true)
-	private Long dashboardId;
+  @NotNull
+  @JsonProperty(value = "id", required = true)
+  @ApiModelProperty(required = true)
+  private Long dashboardId;
 
-	@NotBlank
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
-	@JsonProperty(value = "name", required = true)
-	@ApiModelProperty(required = true)
-	private String name;
+  @NotBlank
+  @Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
+  @JsonProperty(value = "name", required = true)
+  @ApiModelProperty(required = true)
+  private String name;
 
-	@JsonProperty(value = "widgets")
-	private List<WidgetObjectModel> widgets;
+  @JsonProperty(value = "widgets")
+  private List<WidgetObjectModel> widgets;
 
-	public Long getDashboardId() {
-		return dashboardId;
-	}
+  public Long getDashboardId() {
+    return dashboardId;
+  }
 
-	public void setDashboardId(Long dashboardId) {
-		this.dashboardId = dashboardId;
-	}
+  public void setDashboardId(Long dashboardId) {
+    this.dashboardId = dashboardId;
+  }
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public List<WidgetObjectModel> getWidgets() {
-		return widgets;
-	}
+  public List<WidgetObjectModel> getWidgets() {
+    return widgets;
+  }
 
-	public void setWidgets(List<WidgetObjectModel> widgets) {
-		this.widgets = widgets;
-	}
+  public void setWidgets(List<WidgetObjectModel> widgets) {
+    this.widgets = widgets;
+  }
 
-	@JsonInclude(Include.NON_NULL)
-	public static class WidgetObjectModel {
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("DashboardResource{");
+    sb.append("dashboardId='").append(dashboardId).append('\'');
+    sb.append(", name='").append(name).append('\'');
+    sb.append(", widgets=").append(widgets);
+    sb.append('}');
+    return sb.toString();
+  }
 
-		@JsonProperty(value = "widgetName")
-		private String name;
+  @JsonInclude(Include.NON_NULL)
+  public static class WidgetObjectModel {
 
-		@NotNull
-		@JsonProperty(value = "widgetId")
-		private Long widgetId;
+    @JsonProperty(value = "widgetName")
+    private String name;
 
-		@JsonProperty(value = "widgetType")
-		private String widgetType;
+    @NotNull
+    @JsonProperty(value = "widgetId")
+    private Long widgetId;
 
-		@JsonProperty(value = "widgetSize")
-		private com.epam.ta.reportportal.ws.model.Size widgetSize = new com.epam.ta.reportportal.ws.model.Size();
+    @JsonProperty(value = "widgetType")
+    private String widgetType;
 
-		@JsonProperty(value = "widgetPosition")
-		private Position widgetPosition = new Position();
+    @JsonProperty(value = "widgetSize")
+    private com.epam.ta.reportportal.ws.model.Size widgetSize = new com.epam.ta.reportportal.ws.model.Size();
+
+    @JsonProperty(value = "widgetPosition")
+    private Position widgetPosition = new Position();
 
 		@JsonProperty(value = "widgetOptions")
 		private Map<String, Object> widgetOptions;
 
-		public WidgetObjectModel() {
-		}
+    public WidgetObjectModel() {
+    }
 
-		public WidgetObjectModel(String name, Long widgetId, com.epam.ta.reportportal.ws.model.Size widgetSize, Position widgetPosition) {
-			this.name = name;
-			this.widgetId = widgetId;
-			this.widgetSize = widgetSize;
-			this.widgetPosition = widgetPosition;
-		}
+    public WidgetObjectModel(String name, Long widgetId,
+        com.epam.ta.reportportal.ws.model.Size widgetSize, Position widgetPosition) {
+      this.name = name;
+      this.widgetId = widgetId;
+      this.widgetSize = widgetSize;
+      this.widgetPosition = widgetPosition;
+    }
 
-		public Long getWidgetId() {
-			return widgetId;
-		}
+    public Long getWidgetId() {
+      return widgetId;
+    }
 
-		public void setWidgetId(Long widgetId) {
-			this.widgetId = widgetId;
-		}
+    public void setWidgetId(Long widgetId) {
+      this.widgetId = widgetId;
+    }
 
-		public String getWidgetType() {
-			return widgetType;
-		}
+    public String getWidgetType() {
+      return widgetType;
+    }
 
-		public void setWidgetType(String widgetType) {
-			this.widgetType = widgetType;
-		}
+    public void setWidgetType(String widgetType) {
+      this.widgetType = widgetType;
+    }
 
-		public String getName() {
-			return name;
-		}
+    public String getName() {
+      return name;
+    }
 
-		public void setName(String name) {
-			this.name = name;
-		}
+    public void setName(String name) {
+      this.name = name;
+    }
 
-		public com.epam.ta.reportportal.ws.model.Size getWidgetSize() {
-			return widgetSize;
-		}
+    public com.epam.ta.reportportal.ws.model.Size getWidgetSize() {
+      return widgetSize;
+    }
 
-		public void setWidgetSize(com.epam.ta.reportportal.ws.model.Size widgetSize) {
-			this.widgetSize = widgetSize;
-		}
+    public void setWidgetSize(com.epam.ta.reportportal.ws.model.Size widgetSize) {
+      this.widgetSize = widgetSize;
+    }
 
-		public Position getWidgetPosition() {
-			return widgetPosition;
-		}
+    public Position getWidgetPosition() {
+      return widgetPosition;
+    }
 
-		public void setWidgetPosition(Position widgetPosition) {
-			this.widgetPosition = widgetPosition;
-		}
+    public void setWidgetPosition(Position widgetPosition) {
+      this.widgetPosition = widgetPosition;
+    }
 
 		public Map<String, Object> getWidgetOptions() {
 			return widgetOptions;
 		}
 
-		public void setWidgetOptions(Map<String, Object> widgetOptions) {
-			this.widgetOptions = widgetOptions;
-		}
+    public void setWidgetOptions(Map<String, Object> widgetOptions) {
+      this.widgetOptions = widgetOptions;
+    }
 
 		@Override
 		public String toString() {
@@ -169,15 +178,5 @@ public class DashboardResource extends OwnedResource {
 			sb.append('}');
 			return sb.toString();
 		}
-	}
-
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("DashboardResource{");
-		sb.append("dashboardId='").append(dashboardId).append('\'');
-		sb.append(", name='").append(name).append('\'');
-		sb.append(", widgets=").append(widgets);
-		sb.append('}');
-		return sb.toString();
 	}
 }

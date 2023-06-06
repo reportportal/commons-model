@@ -12,8 +12,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -21,66 +21,65 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Shared entity can used for sending information to client about shared resource.
- * Contains only information about name and owner of entity.
- * 
- * @author Aliaksei_Makayed
+ * Shared entity can used for sending information to client about shared resource. Contains only
+ * information about name and owner of entity.
  *
+ * @author Aliaksei_Makayed
  */
 @JsonInclude(Include.NON_NULL)
-public class OwnedEntityResource {
+public class SharedEntity {
 
-	@JsonProperty(value = "id")
-	private String id;
+  @JsonProperty(value = "id")
+  private String id;
 
-	@JsonProperty(value = "name")
-	private String name;
+  @JsonProperty(value = "name")
+  private String name;
 
-	@JsonProperty(value = "owner")
-	private String owner;
+  @JsonProperty(value = "owner")
+  private String owner;
 
-	@JsonProperty(value = "description")
-	private String description;
+  @JsonProperty(value = "description")
+  private String description;
 
-	public String getId() {
-		return id;
-	}
+  public String getId() {
+    return id;
+  }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+  public void setId(String id) {
+    this.id = id;
+  }
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public String getOwner() {
-		return owner;
-	}
+  public String getOwner() {
+    return owner;
+  }
 
-	public void setOwner(String owner) {
-		this.owner = owner;
-	}
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
 
-	public String getDescription() {
-		return description;
-	}
+  public String getDescription() {
+    return description;
+  }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("OwnedEntity{");
-		sb.append("name='").append(name).append('\'');
-		sb.append(", owner='").append(owner).append('\'');
-		sb.append(", description='").append(description).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("SharedEntity{");
+    sb.append("name='").append(name).append('\'');
+    sb.append(", owner='").append(owner).append('\'');
+    sb.append(", description='").append(description).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

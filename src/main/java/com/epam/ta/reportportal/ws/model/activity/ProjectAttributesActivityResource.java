@@ -18,7 +18,6 @@ package com.epam.ta.reportportal.ws.model.activity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,47 +26,47 @@ import java.util.Map;
  */
 public class ProjectAttributesActivityResource {
 
-	@JsonProperty(value = "projectId", required = true)
-	private Long projectId;
+  @JsonProperty(value = "projectId", required = true)
+  private Long projectId;
 
-	@JsonProperty(value = "projectName", required = true)
-	private String projectName;
+  @JsonProperty(value = "projectName", required = true)
+  private String projectName;
 
-	@JsonProperty(value = "config")
-	@JsonDeserialize(as = HashMap.class)
-	private Map<String, String> config;
+  @JsonProperty(value = "config")
+  @JsonDeserialize(as = HashMap.class)
+  private Map<String, String> config;
 
-	public Long getProjectId() {
-		return projectId;
-	}
+  public Long getProjectId() {
+    return projectId;
+  }
 
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
-	}
+  public void setProjectId(Long projectId) {
+    this.projectId = projectId;
+  }
 
-	public String getProjectName() {
-		return projectName;
-	}
+  public String getProjectName() {
+    return projectName;
+  }
 
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-	}
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
 
-	public Map<String, String> getConfig() {
-		return config;
-	}
+  public Map<String, String> getConfig() {
+    return config;
+  }
 
-	public void setConfig(Map<String, String> config) {
-		this.config = config;
-	}
+  public void setConfig(Map<String, String> config) {
+    this.config = config;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("ProjectAttributesActivityResource{");
-		sb.append("projectId=").append(projectId);
-		sb.append(", projectName='").append(projectName).append('\'');
-		sb.append(", config=").append(config);
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("ProjectAttributesActivityResource{");
+    sb.append("projectId=").append(projectId);
+    sb.append(", projectName='").append(projectName).append('\'');
+    sb.append(", config=").append(config);
+    sb.append('}');
+    return sb.toString();
+  }
 }

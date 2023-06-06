@@ -17,7 +17,6 @@
 package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.epam.ta.reportportal.ws.model.project.AnalyzerConfig;
-
 import java.util.List;
 
 /**
@@ -25,83 +24,83 @@ import java.util.List;
  */
 public class SearchRq {
 
-	private Long launchId;
+  private Long launchId;
 
-	private String launchName;
+  private String launchName;
 
-	private Long itemId;
+  private Long itemId;
 
-	private Long projectId;
+  private Long projectId;
 
-	private List<Long> filteredLaunchIds;
+  private List<Long> filteredLaunchIds;
 
-	private List<String> logMessages;
+  private List<String> logMessages;
 
-	private Integer logLines;
+  private Integer logLines;
 
-	private AnalyzerConfig analyzerConfig;
+  private AnalyzerConfig analyzerConfig;
 
-	public Long getLaunchId() {
-		return launchId;
-	}
+  public Long getLaunchId() {
+    return launchId;
+  }
 
-	public void setLaunchId(Long launchId) {
-		this.launchId = launchId;
-	}
+  public void setLaunchId(Long launchId) {
+    this.launchId = launchId;
+  }
 
-	public String getLaunchName() {
-		return launchName;
-	}
+  public String getLaunchName() {
+    return launchName;
+  }
 
-	public void setLaunchName(String launchName) {
-		this.launchName = launchName;
-	}
+  public void setLaunchName(String launchName) {
+    this.launchName = launchName;
+  }
 
-	public Long getItemId() {
-		return itemId;
-	}
+  public Long getItemId() {
+    return itemId;
+  }
 
-	public void setItemId(Long itemId) {
-		this.itemId = itemId;
-	}
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
 
-	public Long getProjectId() {
-		return projectId;
-	}
+  public Long getProjectId() {
+    return projectId;
+  }
 
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
-	}
+  public void setProjectId(Long projectId) {
+    this.projectId = projectId;
+  }
 
-	public Integer getLogLines() {
-		return logLines;
-	}
+  public Integer getLogLines() {
+    return logLines;
+  }
 
-	public void setLogLines(Integer logLines) {
-		this.logLines = logLines;
-	}
+  public void setLogLines(Integer logLines) {
+    this.logLines = logLines;
+  }
 
-	public List<Long> getFilteredLaunchIds() {
-		return filteredLaunchIds;
-	}
+  public List<Long> getFilteredLaunchIds() {
+    return filteredLaunchIds;
+  }
 
-	public void setFilteredLaunchIds(List<Long> filteredLaunchIds) {
-		this.filteredLaunchIds = filteredLaunchIds;
-	}
+  public void setFilteredLaunchIds(List<Long> filteredLaunchIds) {
+    this.filteredLaunchIds = filteredLaunchIds;
+  }
 
-	public List<String> getLogMessages() {
-		return logMessages;
-	}
+  public List<String> getLogMessages() {
+    return logMessages;
+  }
 
-	public void setLogMessages(List<String> logMessages) {
-		this.logMessages = logMessages;
-	}
+  public void setLogMessages(List<String> logMessages) {
+    this.logMessages = logMessages;
+  }
 
-	public AnalyzerConfig getAnalyzerConfig() {
-		return analyzerConfig;
-	}
+  public AnalyzerConfig getAnalyzerConfig() {
+    return analyzerConfig;
+  }
 
-	public void setAnalyzerConfig(AnalyzerConfig analyzerConfig) {
-		this.analyzerConfig = analyzerConfig;
-	}
+  public void setAnalyzerConfig(AnalyzerConfig analyzerConfig) {
+    this.analyzerConfig = analyzerConfig;
+  }
 }

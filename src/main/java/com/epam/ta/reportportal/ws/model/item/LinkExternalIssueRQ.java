@@ -20,11 +20,10 @@ import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 /**
  * Request model for add link to external system issue
@@ -35,23 +34,23 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class LinkExternalIssueRQ extends ExternalIssueRQ {
 
-	@NotEmpty
-	@Valid
-	@Size(max = 300)
-	@JsonProperty(value = "issues")
-	@ApiModelProperty(reference = "Issue.ExternalSystemIssue")
-	private List<Issue.ExternalSystemIssue> issues;
+  @NotEmpty
+  @Valid
+  @Size(max = 300)
+  @JsonProperty(value = "issues")
+  @ApiModelProperty(reference = "Issue.ExternalSystemIssue")
+  private List<Issue.ExternalSystemIssue> issues;
 
-	public void setIssues(List<Issue.ExternalSystemIssue> values) {
-		this.issues = values;
-	}
+  public List<Issue.ExternalSystemIssue> getIssues() {
+    return issues;
+  }
 
-	public List<Issue.ExternalSystemIssue> getIssues() {
-		return issues;
-	}
+  public void setIssues(List<Issue.ExternalSystemIssue> values) {
+    this.issues = values;
+  }
 
-	@Override
-	public String toString() {
-		return "LinkExternalIssueRQ{" + "issues=" + issues + '}';
-	}
+  @Override
+  public String toString() {
+    return "LinkExternalIssueRQ{" + "issues=" + issues + '}';
+  }
 }

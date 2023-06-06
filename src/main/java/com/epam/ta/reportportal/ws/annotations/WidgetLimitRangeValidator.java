@@ -1,15 +1,14 @@
 package com.epam.ta.reportportal.ws.annotations;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_WIDGET_LIMIT;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_WIDGET_LIMIT;
+
 import com.epam.ta.reportportal.ws.model.BaseEntityRQ;
 import com.epam.ta.reportportal.ws.model.widget.MaterializedWidgetType;
 import com.epam.ta.reportportal.ws.model.widget.WidgetRQ;
-
+import java.util.Arrays;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.util.Arrays;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_WIDGET_LIMIT;
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_WIDGET_LIMIT;
 
 /**
  * @author <a href="mailto:pavel_bortnik@epam.com">Pavel Bortnik</a>
@@ -30,8 +29,8 @@ public class WidgetLimitRangeValidator implements ConstraintValidator<WidgetLimi
 		return false;
 	}
 
-	public void updateValidationMessage(String message, ConstraintValidatorContext context) {
-		context.disableDefaultConstraintViolation();
-		context.buildConstraintViolationWithTemplate(message).addConstraintViolation();
-	}
+  public void updateValidationMessage(String message, ConstraintValidatorContext context) {
+    context.disableDefaultConstraintViolation();
+    context.buildConstraintViolationWithTemplate(message).addConstraintViolation();
+  }
 }

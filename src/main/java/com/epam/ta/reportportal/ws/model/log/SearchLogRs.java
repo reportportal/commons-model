@@ -20,7 +20,6 @@ import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.epam.ta.reportportal.ws.model.item.PathNameResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 import java.util.Set;
 
@@ -30,160 +29,161 @@ import java.util.Set;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SearchLogRs {
 
-	@JsonProperty(value = "launchId")
-	private Long launchId;
+  @JsonProperty(value = "launchId")
+  private Long launchId;
 
-	@JsonProperty(value = "itemId")
-	private Long itemId;
+  @JsonProperty(value = "itemId")
+  private Long itemId;
 
-	@JsonProperty(value = "itemName")
-	private String itemName;
+  @JsonProperty(value = "itemName")
+  private String itemName;
 
-	@JsonProperty(value = "path")
-	private String path;
+  @JsonProperty(value = "path")
+  private String path;
 
-	@JsonProperty(value = "pathNames")
-	private PathNameResource pathNames;
+  @JsonProperty(value = "pathNames")
+  private PathNameResource pathNames;
 
-	@JsonProperty(value = "duration")
-	private double duration;
+  @JsonProperty(value = "duration")
+  private double duration;
 
-	@JsonProperty(value = "status")
-	private String status;
+  @JsonProperty(value = "status")
+  private String status;
 
-	@JsonProperty(value = "issue")
-	private Issue issue;
+  @JsonProperty(value = "issue")
+  private Issue issue;
 
-	@JsonProperty(value = "patternTemplates")
-	private Set<String> patternTemplates;
+  @JsonProperty(value = "patternTemplates")
+  private Set<String> patternTemplates;
 
-	@JsonProperty(value = "logs")
-	private List<LogEntry> logs;
+  @JsonProperty(value = "logs")
+  private List<LogEntry> logs;
 
-	public static class LogEntry {
-		private String message;
-		private String level;
+  public Long getLaunchId() {
+    return launchId;
+  }
 
-		public String getMessage() {
-			return message;
-		}
+  public void setLaunchId(Long launchId) {
+    this.launchId = launchId;
+  }
 
-		public void setMessage(String message) {
-			this.message = message;
-		}
+  public PathNameResource getPathNames() {
+    return pathNames;
+  }
 
-		public String getLevel() {
-			return level;
-		}
+  public void setPathNames(PathNameResource pathNames) {
+    this.pathNames = pathNames;
+  }
 
-		public void setLevel(String level) {
-			this.level = level;
-		}
+  public Set<String> getPatternTemplates() {
+    return patternTemplates;
+  }
 
-		@Override
-		public String toString() {
-			final StringBuilder sb = new StringBuilder("LogEntry{");
-			sb.append("message='").append(message).append('\'');
-			sb.append(", level='").append(level).append('\'');
-			sb.append('}');
-			return sb.toString();
-		}
-	}
+  public void setPatternTemplates(Set<String> patternTemplates) {
+    this.patternTemplates = patternTemplates;
+  }
 
-	public Long getLaunchId() {
-		return launchId;
-	}
+  public String getPath() {
+    return path;
+  }
 
-	public void setLaunchId(Long launchId) {
-		this.launchId = launchId;
-	}
+  public void setPath(String path) {
+    this.path = path;
+  }
 
-	public PathNameResource getPathNames() {
-		return pathNames;
-	}
+  public Long getItemId() {
+    return itemId;
+  }
 
-	public void setPathNames(PathNameResource pathNames) {
-		this.pathNames = pathNames;
-	}
+  public void setItemId(Long itemId) {
+    this.itemId = itemId;
+  }
 
-	public Set<String> getPatternTemplates() {
-		return patternTemplates;
-	}
+  public String getItemName() {
+    return itemName;
+  }
 
-	public void setPatternTemplates(Set<String> patternTemplates) {
-		this.patternTemplates = patternTemplates;
-	}
+  public void setItemName(String itemName) {
+    this.itemName = itemName;
+  }
 
-	public String getPath() {
-		return path;
-	}
+  public double getDuration() {
+    return duration;
+  }
 
-	public void setPath(String path) {
-		this.path = path;
-	}
+  public void setDuration(double duration) {
+    this.duration = duration;
+  }
 
-	public Long getItemId() {
-		return itemId;
-	}
+  public String getStatus() {
+    return status;
+  }
 
-	public void setItemId(Long itemId) {
-		this.itemId = itemId;
-	}
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
-	public String getItemName() {
-		return itemName;
-	}
+  public Issue getIssue() {
+    return issue;
+  }
 
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
-	}
+  public void setIssue(Issue issue) {
+    this.issue = issue;
+  }
 
-	public double getDuration() {
-		return duration;
-	}
+  public List<LogEntry> getLogs() {
+    return logs;
+  }
 
-	public void setDuration(double duration) {
-		this.duration = duration;
-	}
+  public void setLogs(List<LogEntry> logs) {
+    this.logs = logs;
+  }
 
-	public String getStatus() {
-		return status;
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("SearchLogRs{");
+    sb.append(", launchId=").append(launchId);
+    sb.append(", itemId=").append(itemId);
+    sb.append(", itemName='").append(itemName).append('\'');
+    sb.append(", path='").append(path).append('\'');
+    sb.append(", pathNames=").append(pathNames);
+    sb.append(", duration=").append(duration);
+    sb.append(", status='").append(status).append('\'');
+    sb.append(", issue=").append(issue);
+    sb.append(", patternTemplates=").append(patternTemplates);
+    sb.append(", logs=").append(logs);
+    sb.append('}');
+    return sb.toString();
+  }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+  public static class LogEntry {
 
-	public Issue getIssue() {
-		return issue;
-	}
+    private String message;
+    private String level;
 
-	public void setIssue(Issue issue) {
-		this.issue = issue;
-	}
+    public String getMessage() {
+      return message;
+    }
 
-	public List<LogEntry> getLogs() {
-		return logs;
-	}
+    public void setMessage(String message) {
+      this.message = message;
+    }
 
-	public void setLogs(List<LogEntry> logs) {
-		this.logs = logs;
-	}
+    public String getLevel() {
+      return level;
+    }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("SearchLogRs{");
-		sb.append(", launchId=").append(launchId);
-		sb.append(", itemId=").append(itemId);
-		sb.append(", itemName='").append(itemName).append('\'');
-		sb.append(", path='").append(path).append('\'');
-		sb.append(", pathNames=").append(pathNames);
-		sb.append(", duration=").append(duration);
-		sb.append(", status='").append(status).append('\'');
-		sb.append(", issue=").append(issue);
-		sb.append(", patternTemplates=").append(patternTemplates);
-		sb.append(", logs=").append(logs);
-		sb.append('}');
-		return sb.toString();
-	}
+    public void setLevel(String level) {
+      this.level = level;
+    }
+
+    @Override
+    public String toString() {
+      final StringBuilder sb = new StringBuilder("LogEntry{");
+      sb.append("message='").append(message).append('\'');
+      sb.append(", level='").append(level).append('\'');
+      sb.append('}');
+      return sb.toString();
+    }
+  }
 }

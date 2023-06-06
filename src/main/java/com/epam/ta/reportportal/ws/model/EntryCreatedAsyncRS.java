@@ -24,28 +24,28 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EntryCreatedAsyncRS {
 
-	private String id;
+  private String id;
 
-	public EntryCreatedAsyncRS() {
-	}
+  public EntryCreatedAsyncRS() {
+  }
 
-	public EntryCreatedAsyncRS(String id) {
-		this.id = id;
-	}
+  public EntryCreatedAsyncRS(String id) {
+    this.id = id;
+  }
 
-	public String getId() {
-		return id;
-	}
+  public String getId() {
+    return id;
+  }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+  public void setId(String id) {
+    this.id = id;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("EntryCreatedAsyncRS{");
-		sb.append("id='").append(id).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("EntryCreatedAsyncRS{");
+    sb.append("id='").append(id).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

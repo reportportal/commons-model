@@ -24,9 +24,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.Valid;
 import java.util.List;
+import javax.validation.Valid;
 
 /**
  * Domain object for updating widget positions.
@@ -36,33 +35,33 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class UpdateDashboardRQ extends BaseEntityRQ {
 
-	@NotBlankWithSize(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
-	@JsonProperty(value = "name", required = true)
-	@ApiModelProperty(required = true)
-	private String name;
+  @NotBlankWithSize(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
+  @JsonProperty(value = "name", required = true)
+  @ApiModelProperty(required = true)
+  private String name;
 
-	@Valid
-	@JsonProperty(value = "updateWidgets")
-	private List<WidgetObjectModel> widgets;
+  @Valid
+  @JsonProperty(value = "updateWidgets")
+  private List<WidgetObjectModel> widgets;
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public void setWidgets(List<WidgetObjectModel> value) {
-		this.widgets = value;
-	}
+  public List<WidgetObjectModel> getWidgets() {
+    return widgets;
+  }
 
-	public List<WidgetObjectModel> getWidgets() {
-		return widgets;
-	}
+  public void setWidgets(List<WidgetObjectModel> value) {
+    this.widgets = value;
+  }
 
-	@Override
-	public String toString() {
-		return "UpdateDashboardRQ{" + "name='" + name + '\'' + ", widgets=" + widgets + '}';
-	}
+  @Override
+  public String toString() {
+    return "UpdateDashboardRQ{" + "name='" + name + '\'' + ", widgets=" + widgets + '}';
+  }
 }

@@ -18,10 +18,9 @@ package com.epam.ta.reportportal.ws.model.project;
 
 import com.epam.ta.reportportal.ws.model.integration.IntegrationResource;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
+import javax.validation.constraints.NotNull;
 
 /**
  * Project resource representation for responses
@@ -30,136 +29,136 @@ import java.util.List;
  */
 public class ProjectResource {
 
-	@NotNull
-	@JsonProperty(value = "projectId", required = true)
-	private Long projectId;
+  @NotNull
+  @JsonProperty(value = "projectId", required = true)
+  private Long projectId;
 
-	@NotNull
-	@JsonProperty(value = "projectName", required = true)
-	private String projectName;
+  @NotNull
+  @JsonProperty(value = "projectName", required = true)
+  private String projectName;
 
-	@JsonProperty(value = "entryType", required = true)
-	private String entryType;
+  @JsonProperty(value = "entryType", required = true)
+  private String entryType;
 
-	@NotNull
-	@JsonProperty(value = "configuration", required = true)
-	private ProjectConfiguration configuration;
+  @NotNull
+  @JsonProperty(value = "configuration", required = true)
+  private ProjectConfiguration configuration;
 
-	@JsonProperty(value = "users")
-	private List<ProjectUser> users;
+  @JsonProperty(value = "users")
+  private List<ProjectUser> users;
 
-	@JsonProperty(value = "integrations")
-	private List<IntegrationResource> integrations;
+  @JsonProperty(value = "integrations")
+  private List<IntegrationResource> integrations;
 
-	@JsonProperty(value = "organization")
-	private String organization;
+  @JsonProperty(value = "organization")
+  private String organization;
 
-	@JsonProperty(value = "allocatedStorage")
-	private Long allocatedStorage;
+  @JsonProperty(value = "allocatedStorage")
+  private Long allocatedStorage;
 
-	@NotNull
-	@JsonProperty(value = "creationDate")
-	private Date creationDate;
+  @NotNull
+  @JsonProperty(value = "creationDate")
+  private Date creationDate;
 
-	public Date getCreationDate() {
-		return creationDate;
-	}
+  public Date getCreationDate() {
+    return creationDate;
+  }
 
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
+  public void setCreationDate(Date creationDate) {
+    this.creationDate = creationDate;
+  }
 
-	public Long getProjectId() {
-		return projectId;
-	}
+  public Long getProjectId() {
+    return projectId;
+  }
 
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
-	}
+  public void setProjectId(Long projectId) {
+    this.projectId = projectId;
+  }
 
-	public String getProjectName() {
-		return projectName;
-	}
+  public String getProjectName() {
+    return projectName;
+  }
 
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-	}
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
 
-	public String getEntryType() {
-		return entryType;
-	}
+  public String getEntryType() {
+    return entryType;
+  }
 
-	public void setEntryType(String entryType) {
-		this.entryType = entryType;
-	}
+  public void setEntryType(String entryType) {
+    this.entryType = entryType;
+  }
 
-	public void setConfiguration(ProjectConfiguration configuration) {
-		this.configuration = configuration;
-	}
+  public ProjectConfiguration getConfiguration() {
+    return configuration;
+  }
 
-	public ProjectConfiguration getConfiguration() {
-		return configuration;
-	}
+  public void setConfiguration(ProjectConfiguration configuration) {
+    this.configuration = configuration;
+  }
 
-	public List<IntegrationResource> getIntegrations() {
-		return integrations;
-	}
+  public List<IntegrationResource> getIntegrations() {
+    return integrations;
+  }
 
-	public void setIntegrations(List<IntegrationResource> integrations) {
-		this.integrations = integrations;
-	}
+  public void setIntegrations(List<IntegrationResource> integrations) {
+    this.integrations = integrations;
+  }
 
-	public List<ProjectUser> getUsers() {
-		return users;
-	}
+  public List<ProjectUser> getUsers() {
+    return users;
+  }
 
-	public void setUsers(List<ProjectUser> users) {
-		this.users = users;
-	}
+  public void setUsers(List<ProjectUser> users) {
+    this.users = users;
+  }
 
-	public String getOrganization() {
-		return organization;
-	}
+  public String getOrganization() {
+    return organization;
+  }
 
-	public void setOrganization(String organization) {
-		this.organization = organization;
-	}
+  public void setOrganization(String organization) {
+    this.organization = organization;
+  }
 
-	public Long getAllocatedStorage() {
-		return allocatedStorage;
-	}
+  public Long getAllocatedStorage() {
+    return allocatedStorage;
+  }
 
-	public void setAllocatedStorage(Long allocatedStorage) {
-		this.allocatedStorage = allocatedStorage;
-	}
+  public void setAllocatedStorage(Long allocatedStorage) {
+    this.allocatedStorage = allocatedStorage;
+  }
 
-	public static class ProjectUser {
+  public static class ProjectUser {
 
-		@JsonProperty(value = "login")
-		private String login;
+    @JsonProperty(value = "login")
+    private String login;
 
-		@JsonProperty(value = "projectRole")
-		private String projectRole;
+    @JsonProperty(value = "projectRole")
+    private String projectRole;
 
-		public String getLogin() {
-			return login;
-		}
+    public String getLogin() {
+      return login;
+    }
 
-		public void setLogin(String login) {
-			this.login = login;
-		}
+    public void setLogin(String login) {
+      this.login = login;
+    }
 
-		public void setProjectRole(String value) {
-			this.projectRole = value;
-		}
+    public String getProjectRole() {
+      return projectRole;
+    }
 
-		public String getProjectRole() {
-			return projectRole;
-		}
+    public void setProjectRole(String value) {
+      this.projectRole = value;
+    }
 
-		@Override
-		public String toString() {
-			return "ProjectUser{" + "projectRole='" + projectRole + '\'' + '}';
-		}
-	}
+    @Override
+    public String toString() {
+      return "ProjectUser{" + "projectRole='" + projectRole + '\'' + '}';
+    }
+  }
 }

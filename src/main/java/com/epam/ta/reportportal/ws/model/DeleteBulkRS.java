@@ -17,7 +17,6 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 /**
@@ -25,50 +24,51 @@ import java.util.List;
  */
 public class DeleteBulkRS {
 
-	@JsonProperty("successfullyDeleted")
-	private List<Long> deleted;
+  @JsonProperty("successfullyDeleted")
+  private List<Long> deleted;
 
-	@JsonProperty("notFound")
-	private List<Long> notFound;
+  @JsonProperty("notFound")
+  private List<Long> notFound;
 
-	@JsonProperty("errors")
-	private List<ErrorRS> errors;
+  @JsonProperty("errors")
+  private List<ErrorRS> errors;
 
-	public DeleteBulkRS() {
-	}
+  public DeleteBulkRS() {
+  }
 
-	public DeleteBulkRS(List<Long> deleted, List<Long> notFound, List<ErrorRS> errors) {
-		this.deleted = deleted;
-		this.notFound = notFound;
-		this.errors = errors;
-	}
+  public DeleteBulkRS(List<Long> deleted, List<Long> notFound, List<ErrorRS> errors) {
+    this.deleted = deleted;
+    this.notFound = notFound;
+    this.errors = errors;
+  }
 
-	public List<Long> getDeleted() {
-		return deleted;
-	}
+  public List<Long> getDeleted() {
+    return deleted;
+  }
 
-	public void setDeleted(List<Long> deleted) {
-		this.deleted = deleted;
-	}
+  public void setDeleted(List<Long> deleted) {
+    this.deleted = deleted;
+  }
 
-	public List<Long> getNotFound() {
-		return notFound;
-	}
+  public List<Long> getNotFound() {
+    return notFound;
+  }
 
-	public void setNotFound(List<Long> notFound) {
-		this.notFound = notFound;
-	}
+  public void setNotFound(List<Long> notFound) {
+    this.notFound = notFound;
+  }
 
-	public List<ErrorRS> getErrors() {
-		return errors;
-	}
+  public List<ErrorRS> getErrors() {
+    return errors;
+  }
 
-	public void setErrors(List<ErrorRS> errors) {
-		this.errors = errors;
-	}
+  public void setErrors(List<ErrorRS> errors) {
+    this.errors = errors;
+  }
 
-	@Override
-	public String toString() {
-		return "DeleteBulkRS{" + "deleted=" + deleted + ", notFound=" + notFound + ", errors=" + errors + '}';
-	}
+  @Override
+  public String toString() {
+    return "DeleteBulkRS{" + "deleted=" + deleted + ", notFound=" + notFound + ", errors=" + errors
+        + '}';
+  }
 }

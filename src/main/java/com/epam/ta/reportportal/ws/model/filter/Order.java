@@ -17,7 +17,6 @@
 package com.epam.ta.reportportal.ws.model.filter;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.NotNull;
 
 /**
@@ -25,56 +24,57 @@ import javax.validation.constraints.NotNull;
  */
 public class Order {
 
-	@NotNull
-	@JsonProperty(value = "sortingColumn", required = true)
-	private String sortingColumnName;
+  @NotNull
+  @JsonProperty(value = "sortingColumn", required = true)
+  private String sortingColumnName;
 
-	@NotNull
-	@JsonProperty(value = "isAsc", required = true)
-	private boolean isAsc;
+  @NotNull
+  @JsonProperty(value = "isAsc", required = true)
+  private boolean isAsc;
 
-	public String getSortingColumnName() {
-		return sortingColumnName;
-	}
+  public String getSortingColumnName() {
+    return sortingColumnName;
+  }
 
-	public void setSortingColumnName(String sortingColumnName) {
-		this.sortingColumnName = sortingColumnName;
-	}
+  public void setSortingColumnName(String sortingColumnName) {
+    this.sortingColumnName = sortingColumnName;
+  }
 
-	public boolean getIsAsc() {
-		return isAsc;
-	}
+  public boolean getIsAsc() {
+    return isAsc;
+  }
 
-	public void setIsAsc(boolean isAsc) {
-		this.isAsc = isAsc;
-	}
+  public void setIsAsc(boolean isAsc) {
+    this.isAsc = isAsc;
+  }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
-		Order order = (Order) o;
+    Order order = (Order) o;
 
-		if (isAsc != order.isAsc) {
-			return false;
-		}
-		return sortingColumnName != null ? sortingColumnName.equals(order.sortingColumnName) : order.sortingColumnName == null;
-	}
+    if (isAsc != order.isAsc) {
+      return false;
+    }
+    return sortingColumnName != null ? sortingColumnName.equals(order.sortingColumnName)
+        : order.sortingColumnName == null;
+  }
 
-	@Override
-	public int hashCode() {
-		int result = sortingColumnName != null ? sortingColumnName.hashCode() : 0;
-		result = 31 * result + (isAsc ? 1 : 0);
-		return result;
-	}
+  @Override
+  public int hashCode() {
+    int result = sortingColumnName != null ? sortingColumnName.hashCode() : 0;
+    result = 31 * result + (isAsc ? 1 : 0);
+    return result;
+  }
 
-	@Override
-	public String toString() {
-		return "Order{" + "sortingColumnName='" + sortingColumnName + '\'' + ", isAsc=" + isAsc + '}';
-	}
+  @Override
+  public String toString() {
+    return "Order{" + "sortingColumnName='" + sortingColumnName + '\'' + ", isAsc=" + isAsc + '}';
+  }
 }

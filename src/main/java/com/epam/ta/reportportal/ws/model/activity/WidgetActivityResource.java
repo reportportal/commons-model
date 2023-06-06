@@ -18,104 +18,118 @@ package com.epam.ta.reportportal.ws.model.activity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 public class WidgetActivityResource {
 
-	@JsonProperty(value = "id", required = true)
-	private Long id;
+  @JsonProperty(value = "id", required = true)
+  private Long id;
 
-	@JsonProperty(value = "projectId", required = true)
-	private Long projectId;
+  @JsonProperty(value = "projectId", required = true)
+  private Long projectId;
 
-	@JsonProperty(value = "name", required = true)
-	private String name;
+  @JsonProperty(value = "name", required = true)
+  private String name;
 
-	@JsonProperty(value = "description")
-	private String description;
+  @JsonProperty(value = "shared")
+  private boolean shared;
 
-	@JsonProperty(value = "itemsCount")
-	private int itemsCount;
+  @JsonProperty(value = "description")
+  private String description;
 
-	@JsonProperty(value = "contentFields")
-	@JsonDeserialize(as = LinkedHashSet.class)
-	private Set<String> contentFields;
+  @JsonProperty(value = "itemsCount")
+  private int itemsCount;
 
-	@JsonProperty(value = "widgetOptions")
-	@JsonDeserialize(as = LinkedHashMap.class)
-	private Map<String, Object> widgetOptions;
+  @JsonProperty(value = "contentFields")
+  @JsonDeserialize(as = LinkedHashSet.class)
+  private Set<String> contentFields;
 
-	public Long getId() {
-		return id;
-	}
+  @JsonProperty(value = "widgetOptions")
+  @JsonDeserialize(as = LinkedHashMap.class)
+  private Map<String, Object> widgetOptions;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public Long getProjectId() {
-		return projectId;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
-	}
+  public Long getProjectId() {
+    return projectId;
+  }
 
-	public String getName() {
-		return name;
-	}
+  public void setProjectId(Long projectId) {
+    this.projectId = projectId;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public String getDescription() {
-		return description;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  public boolean isShared() {
+    return shared;
+  }
 
-	public int getItemsCount() {
-		return itemsCount;
-	}
+  public void setShared(boolean shared) {
+    this.shared = shared;
+  }
 
-	public void setItemsCount(int itemsCount) {
-		this.itemsCount = itemsCount;
-	}
+  public String getDescription() {
+    return description;
+  }
 
-	public Set<String> getContentFields() {
-		return contentFields;
-	}
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-	public void setContentFields(Set<String> contentFields) {
-		this.contentFields = contentFields;
-	}
+  public int getItemsCount() {
+    return itemsCount;
+  }
 
-	public Map<String, Object> getWidgetOptions() {
-		return widgetOptions;
-	}
+  public void setItemsCount(int itemsCount) {
+    this.itemsCount = itemsCount;
+  }
 
-	public void setWidgetOptions(Map<String, Object> widgetOptions) {
-		this.widgetOptions = widgetOptions;
-	}
+  public Set<String> getContentFields() {
+    return contentFields;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("WidgetActivityResource{");
-		sb.append("id=").append(id);
-		sb.append(", projectId=").append(projectId);
-		sb.append(", name='").append(name).append('\'');
-		sb.append(", description='").append(description).append('\'');
-		sb.append(", itemsCount=").append(itemsCount);
-		sb.append(", contentFields=").append(contentFields);
-		sb.append(", widgetOptions=").append(widgetOptions);
-		sb.append('}');
-		return sb.toString();
-	}
+  public void setContentFields(Set<String> contentFields) {
+    this.contentFields = contentFields;
+  }
+
+  public Map<String, Object> getWidgetOptions() {
+    return widgetOptions;
+  }
+
+  public void setWidgetOptions(Map<String, Object> widgetOptions) {
+    this.widgetOptions = widgetOptions;
+  }
+
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("WidgetActivityResource{");
+    sb.append("id=").append(id);
+    sb.append(", projectId=").append(projectId);
+    sb.append(", name='").append(name).append('\'');
+    sb.append(", shared=").append(shared);
+    sb.append(", description='").append(description).append('\'');
+    sb.append(", itemsCount=").append(itemsCount);
+    sb.append(", contentFields=").append(contentFields);
+    sb.append(", widgetOptions=").append(widgetOptions);
+    sb.append('}');
+    return sb.toString();
+  }
 }

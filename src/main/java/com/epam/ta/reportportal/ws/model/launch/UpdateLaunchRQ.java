@@ -16,17 +16,17 @@
 
 package com.epam.ta.reportportal.ws.model.launch;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
+
+import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.util.Set;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-import java.util.Set;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
 
 /**
  * Domain object for updating launch object.
@@ -36,47 +36,48 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAME
 @JsonInclude(Include.NON_NULL)
 public class UpdateLaunchRQ {
 
-	@JsonProperty("mode")
-	@ApiModelProperty(allowableValues = "DEFAULT, DEBUG")
-	private Mode mode;
+  @JsonProperty("mode")
+  @ApiModelProperty(allowableValues = "DEFAULT, DEBUG")
+  private Mode mode;
 
-	@JsonProperty("description")
-	private String description;
+  @JsonProperty("description")
+  @Size(max = ValidationConstraints.MAX_LAUNCH_DESCRIPTION_LENGTH)
+  private String description;
 
-	@Size(max = MAX_PARAMETERS_LENGTH)
-	@Valid
-	@JsonProperty("attributes")
-	private Set<ItemAttributeResource> attributes;
+  @Size(max = MAX_PARAMETERS_LENGTH)
+  @Valid
+  @JsonProperty("attributes")
+  private Set<ItemAttributeResource> attributes;
 
-	public String getDescription() {
-		return description;
-	}
+  public String getDescription() {
+    return description;
+  }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-	public Set<ItemAttributeResource> getAttributes() {
-		return attributes;
-	}
+  public Set<ItemAttributeResource> getAttributes() {
+    return attributes;
+  }
 
-	public void setAttributes(Set<ItemAttributeResource> attributes) {
-		this.attributes = attributes;
-	}
+  public void setAttributes(Set<ItemAttributeResource> attributes) {
+    this.attributes = attributes;
+  }
 
-	public Mode getMode() {
-		return mode;
-	}
+  public Mode getMode() {
+    return mode;
+  }
 
-	public void setMode(Mode mode) {
-		this.mode = mode;
-	}
+  public void setMode(Mode mode) {
+    this.mode = mode;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("UpdateLaunchRQ{");
-		sb.append("mode=").append(mode);
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("UpdateLaunchRQ{");
+    sb.append("mode=").append(mode);
+    sb.append('}');
+    return sb.toString();
+  }
 }

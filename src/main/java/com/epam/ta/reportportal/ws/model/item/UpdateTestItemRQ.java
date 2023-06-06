@@ -16,15 +16,14 @@
 
 package com.epam.ta.reportportal.ws.model.item;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
+
 import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.util.Set;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-import java.util.Set;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
 
 /**
  * @author Dzmitry_Kavalets
@@ -32,38 +31,38 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAME
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UpdateTestItemRQ {
 
-	@Size(max = MAX_PARAMETERS_LENGTH)
-	@Valid
-	@JsonProperty(value = "attributes")
-	private Set<ItemAttributeResource> attributes;
+  @Size(max = MAX_PARAMETERS_LENGTH)
+  @Valid
+  @JsonProperty(value = "attributes")
+  private Set<ItemAttributeResource> attributes;
 
-	@JsonProperty(value = "description")
-	private String description;
+  @JsonProperty(value = "description")
+  private String description;
 
-	@JsonProperty(value = "status")
-	private String status;
+  @JsonProperty(value = "status")
+  private String status;
 
-	public Set<ItemAttributeResource> getAttributes() {
-		return attributes;
-	}
+  public Set<ItemAttributeResource> getAttributes() {
+    return attributes;
+  }
 
-	public void setAttributes(Set<ItemAttributeResource> attributes) {
-		this.attributes = attributes;
-	}
+  public void setAttributes(Set<ItemAttributeResource> attributes) {
+    this.attributes = attributes;
+  }
 
-	public String getDescription() {
-		return description;
-	}
+  public String getDescription() {
+    return description;
+  }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-	public String getStatus() {
-		return status;
-	}
+  public String getStatus() {
+    return status;
+  }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+  public void setStatus(String status) {
+    this.status = status;
+  }
 }

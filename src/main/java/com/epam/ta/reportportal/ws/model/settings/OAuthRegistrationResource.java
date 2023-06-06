@@ -18,12 +18,11 @@ package com.epam.ta.reportportal.ws.model.settings;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.Map;
 import java.util.Set;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 /**
  * Settings for OAuth provider registration.
@@ -32,237 +31,246 @@ import java.util.Set;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OAuthRegistrationResource implements Serializable {
-	public static final String URL_PATTERN = "^(http://|https://)?(www\\.)?([a-zA-Z0-9-]+)(\\.[a-zA-Z0-9-]+)*(:[0-9]+)?(/[a-z_-]+)*$";
 
-	@JsonProperty(value = "id")
-	private String id;
+  public static final String URL_PATTERN = "^(http://|https://)?(www\\.)?([a-zA-Z0-9-]+)(\\.[a-zA-Z0-9-]+)*(:[0-9]+)?(/[a-z_-]+)*$";
 
-	@NotBlank
-	@JsonProperty(value = "clientId")
-	private String clientId;
+  @JsonProperty(value = "id")
+  private String id;
 
-	@NotBlank
-	@JsonProperty(value = "clientSecret")
-	private String clientSecret;
+  @NotBlank
+  @JsonProperty(value = "clientId")
+  private String clientId;
 
-	@JsonProperty(value = "clientAuthMethod")
-	private String clientAuthMethod;
+  @NotBlank
+  @JsonProperty(value = "clientSecret")
+  private String clientSecret;
 
-	@JsonProperty(value = "authGrantType")
-	private String authGrantType;
+  @JsonProperty(value = "clientAuthMethod")
+  private String clientAuthMethod;
 
-	@JsonProperty(value = "redirectUrlTemplate")
-	private String redirectUrlTemplate;
+  @JsonProperty(value = "authGrantType")
+  private String authGrantType;
 
-	@Pattern(regexp = URL_PATTERN)
-	@JsonProperty(value = "authorizationUri")
-	private String authorizationUri;
+  @JsonProperty(value = "redirectUrlTemplate")
+  private String redirectUrlTemplate;
 
-	@Pattern(regexp = URL_PATTERN)
-	@JsonProperty(value = "tokenUri")
-	private String tokenUri;
+  @Pattern(regexp = URL_PATTERN)
+  @JsonProperty(value = "authorizationUri")
+  private String authorizationUri;
 
-	@JsonProperty(value = "userInfoEndpointUri")
-	private String userInfoEndpointUri;
+  @Pattern(regexp = URL_PATTERN)
+  @JsonProperty(value = "tokenUri")
+  private String tokenUri;
 
-	@JsonProperty(value = "userInfoEndpointNameAttribute")
-	private String userInfoEndpointNameAttribute;
+  @JsonProperty(value = "userInfoEndpointUri")
+  private String userInfoEndpointUri;
 
-	@JsonProperty(value = "jwkSetUri")
-	private String jwkSetUri;
+  @JsonProperty(value = "userInfoEndpointNameAttribute")
+  private String userInfoEndpointNameAttribute;
 
-	@JsonProperty(value = "clientName")
-	private String clientName;
+  @JsonProperty(value = "jwkSetUri")
+  private String jwkSetUri;
 
-	@JsonProperty(value = "scopes")
-	private Set<String> scopes;
+  @JsonProperty(value = "clientName")
+  private String clientName;
 
-	@JsonProperty(value = "restrictions")
-	private Map<String, String> restrictions;
+  @JsonProperty(value = "scopes")
+  private Set<String> scopes;
 
-	public String getId() {
-		return id;
-	}
+  @JsonProperty(value = "restrictions")
+  private Map<String, String> restrictions;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+  public String getId() {
+    return id;
+  }
 
-	public String getClientId() {
-		return clientId;
-	}
+  public void setId(String id) {
+    this.id = id;
+  }
 
-	public void setClientId(String clientId) {
-		this.clientId = clientId;
-	}
+  public String getClientId() {
+    return clientId;
+  }
 
-	public String getClientSecret() {
-		return clientSecret;
-	}
+  public void setClientId(String clientId) {
+    this.clientId = clientId;
+  }
 
-	public void setClientSecret(String clientSecret) {
-		this.clientSecret = clientSecret;
-	}
+  public String getClientSecret() {
+    return clientSecret;
+  }
 
-	public String getClientAuthMethod() {
-		return clientAuthMethod;
-	}
+  public void setClientSecret(String clientSecret) {
+    this.clientSecret = clientSecret;
+  }
 
-	public void setClientAuthMethod(String clientAuthMethod) {
-		this.clientAuthMethod = clientAuthMethod;
-	}
+  public String getClientAuthMethod() {
+    return clientAuthMethod;
+  }
 
-	public String getAuthGrantType() {
-		return authGrantType;
-	}
+  public void setClientAuthMethod(String clientAuthMethod) {
+    this.clientAuthMethod = clientAuthMethod;
+  }
 
-	public void setAuthGrantType(String authGrantType) {
-		this.authGrantType = authGrantType;
-	}
+  public String getAuthGrantType() {
+    return authGrantType;
+  }
 
-	public String getRedirectUrlTemplate() {
-		return redirectUrlTemplate;
-	}
+  public void setAuthGrantType(String authGrantType) {
+    this.authGrantType = authGrantType;
+  }
 
-	public void setRedirectUrlTemplate(String redirectUrlTemplate) {
-		this.redirectUrlTemplate = redirectUrlTemplate;
-	}
+  public String getRedirectUrlTemplate() {
+    return redirectUrlTemplate;
+  }
 
-	public String getAuthorizationUri() {
-		return authorizationUri;
-	}
+  public void setRedirectUrlTemplate(String redirectUrlTemplate) {
+    this.redirectUrlTemplate = redirectUrlTemplate;
+  }
 
-	public void setAuthorizationUri(String authorizationUri) {
-		this.authorizationUri = authorizationUri;
-	}
+  public String getAuthorizationUri() {
+    return authorizationUri;
+  }
 
-	public String getTokenUri() {
-		return tokenUri;
-	}
+  public void setAuthorizationUri(String authorizationUri) {
+    this.authorizationUri = authorizationUri;
+  }
 
-	public void setTokenUri(String tokenUri) {
-		this.tokenUri = tokenUri;
-	}
+  public String getTokenUri() {
+    return tokenUri;
+  }
 
-	public String getUserInfoEndpointUri() {
-		return userInfoEndpointUri;
-	}
+  public void setTokenUri(String tokenUri) {
+    this.tokenUri = tokenUri;
+  }
 
-	public void setUserInfoEndpointUri(String userInfoEndpointUri) {
-		this.userInfoEndpointUri = userInfoEndpointUri;
-	}
+  public String getUserInfoEndpointUri() {
+    return userInfoEndpointUri;
+  }
 
-	public String getUserInfoEndpointNameAttribute() {
-		return userInfoEndpointNameAttribute;
-	}
+  public void setUserInfoEndpointUri(String userInfoEndpointUri) {
+    this.userInfoEndpointUri = userInfoEndpointUri;
+  }
 
-	public void setUserInfoEndpointNameAttribute(String userInfoEndpointNameAttribute) {
-		this.userInfoEndpointNameAttribute = userInfoEndpointNameAttribute;
-	}
+  public String getUserInfoEndpointNameAttribute() {
+    return userInfoEndpointNameAttribute;
+  }
 
-	public String getJwkSetUri() {
-		return jwkSetUri;
-	}
+  public void setUserInfoEndpointNameAttribute(String userInfoEndpointNameAttribute) {
+    this.userInfoEndpointNameAttribute = userInfoEndpointNameAttribute;
+  }
 
-	public void setJwkSetUri(String jwkSetUri) {
-		this.jwkSetUri = jwkSetUri;
-	}
+  public String getJwkSetUri() {
+    return jwkSetUri;
+  }
 
-	public String getClientName() {
-		return clientName;
-	}
+  public void setJwkSetUri(String jwkSetUri) {
+    this.jwkSetUri = jwkSetUri;
+  }
 
-	public void setClientName(String clientName) {
-		this.clientName = clientName;
-	}
+  public String getClientName() {
+    return clientName;
+  }
 
-	public Set<String> getScopes() {
-		return scopes;
-	}
+  public void setClientName(String clientName) {
+    this.clientName = clientName;
+  }
 
-	public void setScopes(Set<String> scopes) {
-		this.scopes = scopes;
-	}
+  public Set<String> getScopes() {
+    return scopes;
+  }
 
-	public Map<String, String> getRestrictions() {
-		return restrictions;
-	}
+  public void setScopes(Set<String> scopes) {
+    this.scopes = scopes;
+  }
 
-	public void setRestrictions(Map<String, String> restrictions) {
-		this.restrictions = restrictions;
-	}
+  public Map<String, String> getRestrictions() {
+    return restrictions;
+  }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
+  public void setRestrictions(Map<String, String> restrictions) {
+    this.restrictions = restrictions;
+  }
 
-		OAuthRegistrationResource that = (OAuthRegistrationResource) o;
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
-		if (id != null ? !id.equals(that.id) : that.id != null) {
-			return false;
-		}
-		if (clientId != null ? !clientId.equals(that.clientId) : that.clientId != null) {
-			return false;
-		}
-		if (clientSecret != null ? !clientSecret.equals(that.clientSecret) : that.clientSecret != null) {
-			return false;
-		}
-		if (clientAuthMethod != null ? !clientAuthMethod.equals(that.clientAuthMethod) : that.clientAuthMethod != null) {
-			return false;
-		}
-		if (authGrantType != null ? !authGrantType.equals(that.authGrantType) : that.authGrantType != null) {
-			return false;
-		}
-		if (redirectUrlTemplate != null ? !redirectUrlTemplate.equals(that.redirectUrlTemplate) : that.redirectUrlTemplate != null) {
-			return false;
-		}
-		if (authorizationUri != null ? !authorizationUri.equals(that.authorizationUri) : that.authorizationUri != null) {
-			return false;
-		}
-		if (tokenUri != null ? !tokenUri.equals(that.tokenUri) : that.tokenUri != null) {
-			return false;
-		}
-		if (userInfoEndpointUri != null ? !userInfoEndpointUri.equals(that.userInfoEndpointUri) : that.userInfoEndpointUri != null) {
-			return false;
-		}
-		if (userInfoEndpointNameAttribute != null ?
-				!userInfoEndpointNameAttribute.equals(that.userInfoEndpointNameAttribute) :
-				that.userInfoEndpointNameAttribute != null) {
-			return false;
-		}
-		if (jwkSetUri != null ? !jwkSetUri.equals(that.jwkSetUri) : that.jwkSetUri != null) {
-			return false;
-		}
-		if (clientName != null ? !clientName.equals(that.clientName) : that.clientName != null) {
-			return false;
-		}
-		if (scopes != null ? !scopes.equals(that.scopes) : that.scopes != null) {
-			return false;
-		}
-		return restrictions != null ? restrictions.equals(that.restrictions) : that.restrictions == null;
-	}
+    OAuthRegistrationResource that = (OAuthRegistrationResource) o;
 
-	@Override
-	public int hashCode() {
-		int result = id != null ? id.hashCode() : 0;
-		result = 31 * result + (clientId != null ? clientId.hashCode() : 0);
-		result = 31 * result + (clientSecret != null ? clientSecret.hashCode() : 0);
-		result = 31 * result + (clientAuthMethod != null ? clientAuthMethod.hashCode() : 0);
-		result = 31 * result + (authGrantType != null ? authGrantType.hashCode() : 0);
-		result = 31 * result + (redirectUrlTemplate != null ? redirectUrlTemplate.hashCode() : 0);
-		result = 31 * result + (authorizationUri != null ? authorizationUri.hashCode() : 0);
-		result = 31 * result + (tokenUri != null ? tokenUri.hashCode() : 0);
-		result = 31 * result + (userInfoEndpointUri != null ? userInfoEndpointUri.hashCode() : 0);
-		result = 31 * result + (userInfoEndpointNameAttribute != null ? userInfoEndpointNameAttribute.hashCode() : 0);
-		result = 31 * result + (jwkSetUri != null ? jwkSetUri.hashCode() : 0);
-		result = 31 * result + (clientName != null ? clientName.hashCode() : 0);
-		result = 31 * result + (scopes != null ? scopes.hashCode() : 0);
-		result = 31 * result + (restrictions != null ? restrictions.hashCode() : 0);
-		return result;
-	}
+    if (id != null ? !id.equals(that.id) : that.id != null) {
+      return false;
+    }
+    if (clientId != null ? !clientId.equals(that.clientId) : that.clientId != null) {
+      return false;
+    }
+    if (clientSecret != null ? !clientSecret.equals(that.clientSecret)
+        : that.clientSecret != null) {
+      return false;
+    }
+    if (clientAuthMethod != null ? !clientAuthMethod.equals(that.clientAuthMethod)
+        : that.clientAuthMethod != null) {
+      return false;
+    }
+    if (authGrantType != null ? !authGrantType.equals(that.authGrantType)
+        : that.authGrantType != null) {
+      return false;
+    }
+    if (redirectUrlTemplate != null ? !redirectUrlTemplate.equals(that.redirectUrlTemplate)
+        : that.redirectUrlTemplate != null) {
+      return false;
+    }
+    if (authorizationUri != null ? !authorizationUri.equals(that.authorizationUri)
+        : that.authorizationUri != null) {
+      return false;
+    }
+    if (tokenUri != null ? !tokenUri.equals(that.tokenUri) : that.tokenUri != null) {
+      return false;
+    }
+    if (userInfoEndpointUri != null ? !userInfoEndpointUri.equals(that.userInfoEndpointUri)
+        : that.userInfoEndpointUri != null) {
+      return false;
+    }
+    if (userInfoEndpointNameAttribute != null ?
+        !userInfoEndpointNameAttribute.equals(that.userInfoEndpointNameAttribute) :
+        that.userInfoEndpointNameAttribute != null) {
+      return false;
+    }
+    if (jwkSetUri != null ? !jwkSetUri.equals(that.jwkSetUri) : that.jwkSetUri != null) {
+      return false;
+    }
+    if (clientName != null ? !clientName.equals(that.clientName) : that.clientName != null) {
+      return false;
+    }
+    if (scopes != null ? !scopes.equals(that.scopes) : that.scopes != null) {
+      return false;
+    }
+    return restrictions != null ? restrictions.equals(that.restrictions)
+        : that.restrictions == null;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + (clientId != null ? clientId.hashCode() : 0);
+    result = 31 * result + (clientSecret != null ? clientSecret.hashCode() : 0);
+    result = 31 * result + (clientAuthMethod != null ? clientAuthMethod.hashCode() : 0);
+    result = 31 * result + (authGrantType != null ? authGrantType.hashCode() : 0);
+    result = 31 * result + (redirectUrlTemplate != null ? redirectUrlTemplate.hashCode() : 0);
+    result = 31 * result + (authorizationUri != null ? authorizationUri.hashCode() : 0);
+    result = 31 * result + (tokenUri != null ? tokenUri.hashCode() : 0);
+    result = 31 * result + (userInfoEndpointUri != null ? userInfoEndpointUri.hashCode() : 0);
+    result = 31 * result + (userInfoEndpointNameAttribute != null
+        ? userInfoEndpointNameAttribute.hashCode() : 0);
+    result = 31 * result + (jwkSetUri != null ? jwkSetUri.hashCode() : 0);
+    result = 31 * result + (clientName != null ? clientName.hashCode() : 0);
+    result = 31 * result + (scopes != null ? scopes.hashCode() : 0);
+    result = 31 * result + (restrictions != null ? restrictions.hashCode() : 0);
+    return result;
+  }
 }

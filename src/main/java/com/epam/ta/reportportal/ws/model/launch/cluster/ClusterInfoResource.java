@@ -18,7 +18,6 @@ package com.epam.ta.reportportal.ws.model.launch.cluster;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Map;
 
 /**
@@ -27,61 +26,61 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ClusterInfoResource {
 
-	@JsonProperty(value = "id")
-	private Long id;
+  @JsonProperty(value = "id")
+  private Long id;
 
-	@JsonProperty(value = "index")
-	private Long index;
+  @JsonProperty(value = "index")
+  private Long index;
 
-	@JsonProperty(value = "launchId")
-	private Long launchId;
+  @JsonProperty(value = "launchId")
+  private Long launchId;
 
-	@JsonProperty(value = "message")
-	private String message;
+  @JsonProperty(value = "message")
+  private String message;
 
-	@JsonProperty(value = "metadata")
-	private Map<String, Object> metadata;
+  @JsonProperty(value = "metadata")
+  private Map<String, Object> metadata;
 
-	public ClusterInfoResource() {
-	}
+  public ClusterInfoResource() {
+  }
 
-	public Long getId() {
-		return id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public Long getIndex() {
-		return index;
-	}
+  public Long getIndex() {
+    return index;
+  }
 
-	public void setIndex(Long index) {
-		this.index = index;
-	}
+  public void setIndex(Long index) {
+    this.index = index;
+  }
 
-	public Long getLaunchId() {
-		return launchId;
-	}
+  public Long getLaunchId() {
+    return launchId;
+  }
 
-	public void setLaunchId(Long launchId) {
-		this.launchId = launchId;
-	}
+  public void setLaunchId(Long launchId) {
+    this.launchId = launchId;
+  }
 
-	public String getMessage() {
-		return message;
-	}
+  public String getMessage() {
+    return message;
+  }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-	public Map<String, Object> getMetadata() {
-		return metadata;
-	}
+  public Map<String, Object> getMetadata() {
+    return metadata;
+  }
 
-	public void setMetadata(Map<String, Object> metadata) {
-		this.metadata = metadata;
-	}
+  public void setMetadata(Map<String, Object> metadata) {
+    this.metadata = metadata;
+  }
 }

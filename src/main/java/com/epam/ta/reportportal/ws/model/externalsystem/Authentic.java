@@ -12,74 +12,73 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model.externalsystem;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Basic class for accessible data
- * //TODO: AV - refactor to support polymorphism
- * 
+ * Basic class for accessible data //TODO: AV - refactor to support polymorphism
+ *
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
 public class Authentic {
-	
-	@JsonProperty(value = "username")
-	private String username;
-	
-	@JsonProperty(value = "password")
-	private String password;
 
-	@JsonProperty(value = "domain")
-	private String domain;
+  @JsonProperty(value = "username")
+  private String username;
 
-	@JsonProperty(value = "token")
-	private String token;
+  @JsonProperty(value = "password")
+  private String password;
 
-	public String getDomain() {
-		return domain;
-	}
+  @JsonProperty(value = "domain")
+  private String domain;
 
-	public void setDomain(String domain) {
-		this.domain = domain;
-	}
+  @JsonProperty(value = "token")
+  private String token;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	
-	public String getUsername() {
-		return username;
-	}
-	
-	public void setPassword(String pass) {
-		this.password = pass;
-	}
-	
-	public String getPassword() {
-		return password;
-	}
-	
-	public void setToken(String value) {
-		this.token = value;
-	}
-	
-	public String getToken() {
-		return token;
-	}
+  public String getDomain() {
+    return domain;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("Authentic{");
-		sb.append("username='").append(username).append('\'');
-		sb.append(", password='").append(password).append('\''); //NOSONAR
-		sb.append(", token='").append(token).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  public void setDomain(String domain) {
+    this.domain = domain;
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String pass) {
+    this.password = pass;
+  }
+
+  public String getToken() {
+    return token;
+  }
+
+  public void setToken(String value) {
+    this.token = value;
+  }
+
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("Authentic{");
+    sb.append("username='").append(username).append('\'');
+    sb.append(", password='").append(password).append('\''); //NOSONAR
+    sb.append(", token='").append(token).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

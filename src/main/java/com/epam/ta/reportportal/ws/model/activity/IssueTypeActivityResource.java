@@ -23,34 +23,34 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class IssueTypeActivityResource {
 
-	@JsonProperty(value = "id", required = true)
-	private Long id;
+  @JsonProperty(value = "id", required = true)
+  private Long id;
 
-	@JsonProperty(value = "longName", required = true)
-	private String longName;
+  @JsonProperty(value = "longName", required = true)
+  private String longName;
 
-	public Long getId() {
-		return id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public String getLongName() {
-		return longName;
-	}
+  public String getLongName() {
+    return longName;
+  }
 
-	public void setLongName(String longName) {
-		this.longName = longName;
-	}
+  public void setLongName(String longName) {
+    this.longName = longName;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("IssueTypeActivityResource{");
-		sb.append("id=").append(id);
-		sb.append(", longName='").append(longName).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("IssueTypeActivityResource{");
+    sb.append("id=").append(id);
+    sb.append(", longName='").append(longName).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

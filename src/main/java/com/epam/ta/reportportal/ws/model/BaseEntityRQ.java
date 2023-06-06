@@ -19,7 +19,6 @@ package com.epam.ta.reportportal.ws.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.Size;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ENTITY_DESCRIPTION;
@@ -36,12 +35,12 @@ public class BaseEntityRQ {
 	@JsonProperty(value = "description")
 	private String description;
 
-	public String getDescription() {
-		return description;
-	}
+  public String getDescription() {
+    return description;
+  }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
 }

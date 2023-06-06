@@ -12,25 +12,24 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
 
 /**
  * Set of Constant values related to Report Portal requests/responses
- * 
+ *
  * @author Andrei Varabyeu
- * 
  */
 public interface Constants {
 
-	/**
-	 * Save Log Request part with json data
-	 */
-	String LOG_REQUEST_JSON_PART = "json_request_part";
+  /**
+   * Save Log Request part with json data
+   */
+  String LOG_REQUEST_JSON_PART = "json_request_part";
 
-	/**
-	 * Save Log Request binary part
-	 */
-	String LOG_REQUEST_BINARY_PART = "binary_part";
+  /**
+   * Save Log Request binary part
+   */
+  String LOG_REQUEST_BINARY_PART = "binary_part";
 }

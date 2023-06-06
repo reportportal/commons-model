@@ -12,55 +12,53 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model.issue;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**
  * Test item issue with provided it
- * 
+ *
  * @author Dzianis Shlychkou
- * 
  */
 @JsonInclude(Include.NON_NULL)
 public class IssueDefinition {
 
-	@NotNull
-	@JsonProperty(value = "testItemId", required = true)
-	@ApiModelProperty(required = true)
-	private Long id;
+  @NotNull
+  @JsonProperty(value = "testItemId", required = true)
+  @ApiModelProperty(required = true)
+  private Long id;
 
-	@NotNull
-	@Valid
-	@JsonProperty(value = "issue", required = true)
-	private Issue issue;
+  @NotNull
+  @Valid
+  @JsonProperty(value = "issue", required = true)
+  private Issue issue;
 
-	public Long getId() {
-		return id;
-	}
+  public Long getId() {
+    return id;
+  }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public Issue getIssue() {
-		return issue;
-	}
+  public Issue getIssue() {
+    return issue;
+  }
 
-	public void setIssue(Issue issue) {
-		this.issue = issue;
-	}
+  public void setIssue(Issue issue) {
+    this.issue = issue;
+  }
 
-	@Override
-	public String toString() {
-		return "IssueDefinition{" + "id=" + id + ", issue=" + issue + '}';
-	}
+  @Override
+  public String toString() {
+    return "IssueDefinition{" + "id=" + id + ", issue=" + issue + '}';
+  }
 }

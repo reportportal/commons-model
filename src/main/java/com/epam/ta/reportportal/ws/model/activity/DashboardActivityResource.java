@@ -23,49 +23,49 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class DashboardActivityResource {
 
-	@JsonProperty(value = "id", required = true)
-	private Long id;
+  @JsonProperty(value = "id", required = true)
+  private Long id;
 
-	@JsonProperty(value = "name", required = true)
-	private String name;
+  @JsonProperty(value = "name", required = true)
+  private String name;
 
-	@JsonProperty(value = "projectId", required = true)
-	private Long projectId;
+  @JsonProperty(value = "projectId", required = true)
+  private Long projectId;
 
-	@JsonProperty(value = "description")
-	private String description;
+  @JsonProperty(value = "description")
+  private String description;
 
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public Long getProjectId() {
-		return projectId;
-	}
+  public Long getProjectId() {
+    return projectId;
+  }
 
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
-	}
+  public void setProjectId(Long projectId) {
+    this.projectId = projectId;
+  }
 
-	public String getDescription() {
-		return description;
-	}
+  public String getDescription() {
+    return description;
+  }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
 	@Override
 	public String toString() {

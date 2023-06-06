@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model;
 
@@ -23,124 +23,137 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
-import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import java.io.IOException;
 import java.io.Serializable;
 
 /**
  * Base Error response body for all Report Portal exceptions
- * 
+ *
  * @author Andrei Varabyeu
- * 
  */
-@JsonPropertyOrder({ "errorCode", "message", "stackTrace" })
+@JsonPropertyOrder({"errorCode", "message", "stackTrace"})
 @JsonInclude(Include.NON_NULL)
 public class ErrorRS implements Serializable {
-	/**
-	 * Generated SVUID
-	 */
-	private static final long serialVersionUID = -3717290684860161862L;
 
-	@JsonSerialize(using = ErrorTypeSerializer.class)
-	@JsonDeserialize(using = ErrorTypeDeserializer.class)
-	@JsonProperty("errorCode")
-	private ErrorType errorType;
+  /**
+   * Generated SVUID
+   */
+  private static final long serialVersionUID = -3717290684860161862L;
 
-	@JsonProperty("stackTrace")
-	private String stackTrace;
+  @JsonSerialize(using = ErrorTypeSerializer.class)
+  @JsonDeserialize(using = ErrorTypeDeserializer.class)
+  @JsonProperty("errorCode")
+  private ErrorType errorType;
 
-	@JsonProperty("message")
-	private String message;
+  @JsonProperty("stackTrace")
+  private String stackTrace;
 
-	public ErrorType getErrorType() {
-		return errorType;
-	}
+  @JsonProperty("message")
+  private String message;
 
-	public void setErrorType(ErrorType errorType) {
-		this.errorType = errorType;
-	}
+  public ErrorType getErrorType() {
+    return errorType;
+  }
 
-	public String getStackTrace() {
-		return stackTrace;
-	}
+  public void setErrorType(ErrorType errorType) {
+    this.errorType = errorType;
+  }
 
-	public void setStackTrace(String stackTrace) {
-		this.stackTrace = stackTrace;
-	}
+  public String getStackTrace() {
+    return stackTrace;
+  }
 
-	public String getMessage() {
-		return message;
-	}
+  public void setStackTrace(String stackTrace) {
+    this.stackTrace = stackTrace;
+  }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+  public String getMessage() {
+    return message;
+  }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((errorType == null) ? 0 : errorType.hashCode());
-		result = prime * result + ((message == null) ? 0 : message.hashCode());
-		result = prime * result + ((stackTrace == null) ? 0 : stackTrace.hashCode());
-		return result;
-	}
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ErrorRS other = (ErrorRS) obj;
-		if (errorType != other.errorType)
-			return false;
-		if (message == null) {
-			if (other.message != null)
-				return false;
-		} else if (!message.equals(other.message))
-			return false;
-		if (stackTrace == null) {
-			if (other.stackTrace != null)
-				return false;
-		} else if (!stackTrace.equals(other.stackTrace))
-			return false;
-		return true;
-	}
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((errorType == null) ? 0 : errorType.hashCode());
+    result = prime * result + ((message == null) ? 0 : message.hashCode());
+    result = prime * result + ((stackTrace == null) ? 0 : stackTrace.hashCode());
+    return result;
+  }
 
-	private static class ErrorTypeDeserializer extends JsonDeserializer<ErrorType> {
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    ErrorRS other = (ErrorRS) obj;
+    if (errorType != other.errorType) {
+      return false;
+    }
+    if (message == null) {
+      if (other.message != null) {
+        return false;
+      }
+    } else if (!message.equals(other.message)) {
+      return false;
+    }
+    if (stackTrace == null) {
+      if (other.stackTrace != null) {
+        return false;
+      }
+    } else if (!stackTrace.equals(other.stackTrace)) {
+      return false;
+    }
+    return true;
+  }
 
-		@Override
-		public ErrorType deserialize(JsonParser parser, DeserializationContext context) throws IOException {
-			ObjectCodec oc = parser.getCodec();
-			JsonNode node = oc.readTree(parser);
-			return ErrorType.getByCode(node.asInt());
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("ErrorRS{");
+    sb.append("errorType=").append(errorType);
+    sb.append(", stackTrace='").append(stackTrace).append('\'');
+    sb.append(", message='").append(message).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 
-		}
+  private static class ErrorTypeDeserializer extends JsonDeserializer<ErrorType> {
 
-	}
+    @Override
+    public ErrorType deserialize(JsonParser parser, DeserializationContext context)
+        throws IOException {
+      ObjectCodec oc = parser.getCodec();
+      JsonNode node = oc.readTree(parser);
+      return ErrorType.getByCode(node.asInt());
 
-	private static class ErrorTypeSerializer extends JsonSerializer<ErrorType> {
+    }
 
-		@Override
-		public void serialize(ErrorType error, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-			jsonGenerator.writeNumber(error.getCode());
-		}
+  }
 
-	}
+  private static class ErrorTypeSerializer extends JsonSerializer<ErrorType> {
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("ErrorRS{");
-		sb.append("errorType=").append(errorType);
-		sb.append(", stackTrace='").append(stackTrace).append('\'');
-		sb.append(", message='").append(message).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+    @Override
+    public void serialize(ErrorType error, JsonGenerator jsonGenerator,
+        SerializerProvider serializerProvider) throws IOException {
+      jsonGenerator.writeNumber(error.getCode());
+    }
+
+  }
 }

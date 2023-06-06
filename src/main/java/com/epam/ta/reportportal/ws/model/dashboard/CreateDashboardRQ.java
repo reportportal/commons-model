@@ -34,24 +34,24 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel
 public class CreateDashboardRQ extends BaseEntityRQ {
 
-	@NotBlankWithSize(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
-	@JsonProperty(value = "name", required = true)
-	@ApiModelProperty(required = true)
-	private String name;
+  @NotBlankWithSize(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
+  @JsonProperty(value = "name", required = true)
+  @ApiModelProperty(required = true)
+  private String name;
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("CreateDashboardRQ{");
-		sb.append("name='").append(name).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("CreateDashboardRQ{");
+    sb.append("name='").append(name).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

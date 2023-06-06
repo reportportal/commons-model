@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
+ */
 
 package com.epam.ta.reportportal.ws.model;
 
@@ -22,34 +22,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Basic token creation response
- * 
+ *
  * @author Andrei_Ramanchuk
  */
 @JsonInclude(Include.NON_NULL)
 public class TokenCreatedRS {
-	@JsonProperty("accessToken")
-	private String token;
 
-	public TokenCreatedRS() {
-	}
+  @JsonProperty("accessToken")
+  private String token;
 
-	public TokenCreatedRS(String token) {
-		this.token = token;
-	}
+  public TokenCreatedRS() {
+  }
 
-	public void setId(String token) {
-		this.token = token;
-	}
+  public TokenCreatedRS(String token) {
+    this.token = token;
+  }
 
-	public String getToken() {
-		return token;
-	}
+  public void setId(String token) {
+    this.token = token;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("TokenCreatedRS{");
-		sb.append("access_token='").append(token).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  public String getToken() {
+    return token;
+  }
+
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("TokenCreatedRS{");
+    sb.append("access_token='").append(token).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

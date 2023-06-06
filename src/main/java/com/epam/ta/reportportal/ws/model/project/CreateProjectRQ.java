@@ -16,18 +16,17 @@
 
 package com.epam.ta.reportportal.ws.model.project;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.PROJECT_NAME_REGEXP;
+
 import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.PROJECT_NAME_REGEXP;
 
 /**
  * Create project request initial model
@@ -38,41 +37,41 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.PROJECT_NA
 @JsonInclude(Include.NON_NULL)
 public class CreateProjectRQ {
 
-	@NotBlank
-	@Pattern(regexp = PROJECT_NAME_REGEXP)
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
-	@JsonProperty(value = "projectName", required = true)
-	@ApiModelProperty(required = true)
-	private String projectName;
+  @NotBlank
+  @Pattern(regexp = PROJECT_NAME_REGEXP)
+  @Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
+  @JsonProperty(value = "projectName", required = true)
+  @ApiModelProperty(required = true)
+  private String projectName;
 
-	@NotBlank
-	@JsonProperty(value = "entryType", required = true)
-	@In(allowedValues = "internal")
-	@ApiModelProperty(required = true, allowableValues = "INTERNAL")
-	private String entryType;
+  @NotBlank
+  @JsonProperty(value = "entryType", required = true)
+  @In(allowedValues = "internal")
+  @ApiModelProperty(required = true, allowableValues = "INTERNAL")
+  private String entryType;
 
-	public String getProjectName() {
-		return projectName;
-	}
+  public String getProjectName() {
+    return projectName;
+  }
 
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-	}
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
 
-	public String getEntryType() {
-		return entryType;
-	}
+  public String getEntryType() {
+    return entryType;
+  }
 
-	public void setEntryType(String value) {
-		this.entryType = value;
-	}
+  public void setEntryType(String value) {
+    this.entryType = value;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("CreateProjectRQ{");
-		sb.append("projectName='").append(projectName).append('\'');
-		sb.append(", entryType='").append(entryType).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("CreateProjectRQ{");
+    sb.append("projectName='").append(projectName).append('\'');
+    sb.append(", entryType='").append(entryType).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

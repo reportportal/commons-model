@@ -21,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
 import javax.validation.constraints.NotBlank;
 
 /**
@@ -32,53 +31,53 @@ import javax.validation.constraints.NotBlank;
 @JsonInclude(Include.NON_NULL)
 public class CreateUserRQ {
 
-	@NotBlank
-	@JsonProperty(value = "email", required = true)
-	@ApiModelProperty(required = true)
-	private String email;
+  @NotBlank
+  @JsonProperty(value = "email", required = true)
+  @ApiModelProperty(required = true)
+  private String email;
 
-	@NotBlank
-	@JsonProperty(value = "role", required = true)
-	@In(allowedValues = { "operator", "customer", "member", "project_manager" })
-	@ApiModelProperty(required = true)
-	private String role;
+  @NotBlank
+  @JsonProperty(value = "role", required = true)
+  @In(allowedValues = {"operator", "customer", "member", "project_manager"})
+  @ApiModelProperty(required = true)
+  private String role;
 
-	@NotBlank
-	@JsonProperty(value = "defaultProject", required = true)
-	@ApiModelProperty(required = true)
-	private String defaultProject;
+  @NotBlank
+  @JsonProperty(value = "defaultProject", required = true)
+  @ApiModelProperty(required = true)
+  private String defaultProject;
 
-	public String getEmail() {
-		return email;
-	}
+  public String getEmail() {
+    return email;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-	public String getRole() {
-		return role;
-	}
+  public String getRole() {
+    return role;
+  }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+  public void setRole(String role) {
+    this.role = role;
+  }
 
-	public String getDefaultProject() {
-		return defaultProject;
-	}
+  public String getDefaultProject() {
+    return defaultProject;
+  }
 
-	public void setDefaultProject(String value) {
-		this.defaultProject = value;
-	}
+  public void setDefaultProject(String value) {
+    this.defaultProject = value;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("CreateUserRQ{");
-		sb.append("email='").append(email).append('\'');
-		sb.append(", role='").append(role).append('\'');
-		sb.append(", defaultProject='").append(defaultProject).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("CreateUserRQ{");
+    sb.append("email='").append(email).append('\'');
+    sb.append(", role='").append(role).append('\'');
+    sb.append(", defaultProject='").append(defaultProject).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

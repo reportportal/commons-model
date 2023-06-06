@@ -12,53 +12,51 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */ 
- 
+ */
+
 package com.epam.ta.reportportal.ws.model;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import java.io.IOException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.IOException;
-
 /**
  * Serializer/Deserializer unit tests
- * 
+ *
  * @author Andrei Varabyeu
- * 
  */
 public class ErrorSerializationTest {
 
-	private static final String SERIALIZATION_RESULT = "{\"errorCode\":5000,\"message\":\"MESSAGE\",\"stackTrace\":\"STACK_TRACE\"}";
+  private static final String SERIALIZATION_RESULT = "{\"errorCode\":5000,\"message\":\"MESSAGE\",\"stackTrace\":\"STACK_TRACE\"}";
 
-	private ObjectMapper om = getObjectMapper();
+  private ObjectMapper om = getObjectMapper();
 
-	@Test
-	public void testSerializer() throws JsonProcessingException {
-		String json = om.writeValueAsString(getErrorResponse());
-		Assert.assertEquals(SERIALIZATION_RESULT, json);
-	}
+  @Test
+  public void testSerializer() throws JsonProcessingException {
+    String json = om.writeValueAsString(getErrorResponse());
+    Assert.assertEquals(SERIALIZATION_RESULT, json);
+  }
 
-	@Test
-	public void testDeserializer() throws IOException {
-		ErrorRS fromJson = om.readValue(SERIALIZATION_RESULT, ErrorRS.class);
-		Assert.assertEquals(getErrorResponse(), fromJson);
-	}
+  @Test
+  public void testDeserializer() throws IOException {
+    ErrorRS fromJson = om.readValue(SERIALIZATION_RESULT, ErrorRS.class);
+    Assert.assertEquals(getErrorResponse(), fromJson);
+  }
 
-	private ErrorRS getErrorResponse() {
-		ErrorRS error = new ErrorRS();
-		error.setMessage("MESSAGE");
-		error.setStackTrace("STACK_TRACE");
-		error.setErrorType(ErrorType.UNCLASSIFIED_ERROR);
-		return error;
-	}
+  private ErrorRS getErrorResponse() {
+    ErrorRS error = new ErrorRS();
+    error.setMessage("MESSAGE");
+    error.setStackTrace("STACK_TRACE");
+    error.setErrorType(ErrorType.UNCLASSIFIED_ERROR);
+    return error;
+  }
 
-	private ObjectMapper getObjectMapper() {
-		ObjectMapper om = new ObjectMapper();
-		om.configure(SerializationFeature.INDENT_OUTPUT, false);
-		return om;
-	}
+  private ObjectMapper getObjectMapper() {
+    ObjectMapper om = new ObjectMapper();
+    om.configure(SerializationFeature.INDENT_OUTPUT, false);
+    return om;
+  }
 }

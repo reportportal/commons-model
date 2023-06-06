@@ -17,7 +17,6 @@
 package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Objects;
 
 /**
@@ -25,42 +24,42 @@ import java.util.Objects;
  */
 public class SearchRs {
 
-	@JsonProperty(value = "logId")
-	private Long logId;
+  @JsonProperty(value = "logId")
+  private Long logId;
 
-	@JsonProperty(value = "testItemId")
-	private Long testItemId;
+  @JsonProperty(value = "testItemId")
+  private Long testItemId;
 
-	public Long getLogId() {
-		return logId;
-	}
+  public Long getLogId() {
+    return logId;
+  }
 
-	public void setLogId(Long logId) {
-		this.logId = logId;
-	}
+  public void setLogId(Long logId) {
+    this.logId = logId;
+  }
 
-	public Long getTestItemId() {
-		return testItemId;
-	}
+  public Long getTestItemId() {
+    return testItemId;
+  }
 
-	public void setTestItemId(Long testItemId) {
-		this.testItemId = testItemId;
-	}
+  public void setTestItemId(Long testItemId) {
+    this.testItemId = testItemId;
+  }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		SearchRs searchRs = (SearchRs) o;
-		return Objects.equals(logId, searchRs.logId) && Objects.equals(testItemId, searchRs.testItemId);
-	}
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SearchRs searchRs = (SearchRs) o;
+    return Objects.equals(logId, searchRs.logId) && Objects.equals(testItemId, searchRs.testItemId);
+  }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(logId, testItemId);
-	}
+  @Override
+  public int hashCode() {
+    return Objects.hash(logId, testItemId);
+  }
 }

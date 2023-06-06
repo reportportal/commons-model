@@ -28,47 +28,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(Include.NON_NULL)
 public class BatchElementCreatedRS extends EntryCreatedAsyncRS {
 
-	@JsonProperty("message")
-	private String message;
+  @JsonProperty("message")
+  private String message;
 
-	@JsonProperty("stackTrace")
-	private String stackTrace;
+  @JsonProperty("stackTrace")
+  private String stackTrace;
 
-	public BatchElementCreatedRS() {
+  public BatchElementCreatedRS() {
 
-	}
+  }
 
-	public BatchElementCreatedRS(String id) {
-		super.setId(id);
-	}
+  public BatchElementCreatedRS(String id) {
+    super.setId(id);
+  }
 
-	public BatchElementCreatedRS(String stackTrace, String message) {
-		setMessage(message);
-		setStackTrace(stackTrace);
-	}
+  public BatchElementCreatedRS(String stackTrace, String message) {
+    setMessage(message);
+    setStackTrace(stackTrace);
+  }
 
-	public String getMessage() {
-		return message;
-	}
+  public String getMessage() {
+    return message;
+  }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-	public String getStackTrace() {
-		return stackTrace;
-	}
+  public String getStackTrace() {
+    return stackTrace;
+  }
 
-	public void setStackTrace(String stackTrace) {
-		this.stackTrace = stackTrace;
-	}
+  public void setStackTrace(String stackTrace) {
+    this.stackTrace = stackTrace;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("BatchElementCreatedRS{");
-		sb.append("message='").append(message).append('\'');
-		sb.append(", stackTrace='").append(stackTrace).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("BatchElementCreatedRS{");
+    sb.append("message='").append(message).append('\'');
+    sb.append(", stackTrace='").append(stackTrace).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }
