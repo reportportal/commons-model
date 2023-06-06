@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author Aliaksei_Makayed
  */
 @JsonInclude(Include.NON_NULL)
-public class SharedEntity {
+public class OwnedEntityResource {
 
   @JsonProperty(value = "id")
   private String id;

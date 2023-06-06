@@ -17,7 +17,7 @@
 package com.epam.ta.reportportal.ws.model.dashboard;
 
 import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
-import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
+import com.epam.ta.reportportal.ws.model.BaseEntityRQ;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.epam.ta.reportportal.ws.model.dashboard.DashboardResource.WidgetObjectModel;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -33,7 +33,7 @@ import javax.validation.Valid;
  * @author Pavel Bortnik
  */
 @JsonInclude(Include.NON_NULL)
-public class UpdateDashboardRQ extends SharableEntityRQ {
+public class UpdateDashboardRQ extends BaseEntityRQ {
 
   @NotBlankWithSize(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
   @JsonProperty(value = "name", required = true)

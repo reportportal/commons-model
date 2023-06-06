@@ -47,7 +47,7 @@ public class ValidationConstraints {
   public static final int MAX_WIDGET_NAME_LENGTH = 128;
   public static final int MAX_DASHBOARD_NAME_LENGTH = 128;
   public static final int MAX_USER_FILTER_NAME_LENGTH = 128;
-  public static final int MAX_ATTRIBUTE_LENGTH = 128;
+  public static final int MAX_ATTRIBUTE_LENGTH = 512;
   public static final int MIN_PAGE_NUMBER = 1;
   public static final int MAX_PAGE_NUMBER = 1024;
   public static final int MAX_HISTORY_DEPTH_BOUND = 31;
@@ -73,7 +73,7 @@ public class ValidationConstraints {
   public static final int MAX_SUBTYPE_LONG_NAME = 55;
   public static final int MIN_ANALYSIS_PATTERN_NAME_LENGTH = 1;
   public static final int MAX_ANALYSIS_PATTERN_NAME_LENGTH = 55;
-  public static final int MAX_SHAREABLE_DESCRIPTION = 1500;
+  public static final int MAX_ENTITY_DESCRIPTION = 1500;
   public static final int MIN_DESCRIPTION = 1;
   public static final int MIN_SHOULD_MATCH = 50;
   public static final int MAX_SHOULD_MATCH = 100;

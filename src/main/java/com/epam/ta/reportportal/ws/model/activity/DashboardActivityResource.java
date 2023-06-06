@@ -35,9 +35,6 @@ public class DashboardActivityResource {
   @JsonProperty(value = "description")
   private String description;
 
-  @JsonProperty(value = "shared")
-  private boolean shared;
-
   public Long getId() {
     return id;
   }
@@ -70,14 +67,6 @@ public class DashboardActivityResource {
     this.description = description;
   }
 
-  public boolean isShared() {
-    return shared;
-  }
-
-  public void setShared(boolean shared) {
-    this.shared = shared;
-  }
-
   @Override
   public String toString() {
     final StringBuilder sb = new StringBuilder("DashboardActivityResource{");
@@ -85,7 +74,6 @@ public class DashboardActivityResource {
     sb.append(", name='").append(name).append('\'');
     sb.append(", projectId=").append(projectId);
     sb.append(", description='").append(description).append('\'');
-    sb.append(", shared=").append(shared);
     sb.append('}');
     return sb.toString();
   }

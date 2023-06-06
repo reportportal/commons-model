@@ -1,11 +1,11 @@
 /*
- * Copyright 2019 EPAM Systems
+ * Copyright 2023 EPAM Systems
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,42 +16,36 @@
 
 package com.epam.ta.reportportal.ws.model;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_SHAREABLE_DESCRIPTION;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import javax.validation.constraints.Size;
+import java.util.List;
+import javax.validation.constraints.NotNull;
 
 /**
- * Base entity for manipulating sharable resources
+ * Container for ApiKeysRS
  *
- * @author Aliaksei_Makayed
+ * @author Andrei Piankouski
  */
 @JsonInclude(Include.NON_NULL)
-public class SharableEntityRQ {
+public class ApiKeysRS {
 
-  @JsonProperty(value = "share")
-  private Boolean share;
+  @NotNull
+  @JsonProperty(value = "items", required = true)
+  private List<ApiKeyRS> apiKeys;
 
-  @Size(max = MAX_SHAREABLE_DESCRIPTION)
-  @JsonProperty(value = "description")
-  private String description;
-
-  public String getDescription() {
-    return description;
+  public List<ApiKeyRS> getApiKeys() {
+    return apiKeys;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setApiKeys(List<ApiKeyRS> apiKeys) {
+    this.apiKeys = apiKeys;
   }
 
-  public Boolean getShare() {
-    return share;
+  @Override
+  public String toString() {
+    return "ApiKeysRS{"
+        + "apiKeys=" + apiKeys
+        + '}';
   }
-
-  public void setShare(Boolean share) {
-    this.share = share;
-  }
-
 }

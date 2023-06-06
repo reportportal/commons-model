@@ -23,7 +23,7 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_NAME_L
 
 import com.epam.ta.reportportal.ws.annotations.In;
 import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
-import com.epam.ta.reportportal.ws.model.SharableEntityRQ;
+import com.epam.ta.reportportal.ws.model.BaseEntityRQ;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -43,7 +43,7 @@ import javax.validation.constraints.Size;
  * @author Aliaksei_Makayed
  */
 @JsonInclude(Include.NON_NULL)
-public class UpdateUserFilterRQ extends SharableEntityRQ {
+public class UpdateUserFilterRQ extends BaseEntityRQ {
 
   @NotBlankWithSize(min = MIN_NAME_LENGTH, max = MAX_USER_FILTER_NAME_LENGTH)
   @JsonProperty(value = "name", required = true)
