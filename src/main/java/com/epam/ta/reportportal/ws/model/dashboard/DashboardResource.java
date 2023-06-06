@@ -104,8 +104,8 @@ public class DashboardResource extends OwnedResource {
     @JsonProperty(value = "widgetPosition")
     private Position widgetPosition = new Position();
 
-		@JsonProperty(value = "widgetOptions")
-		private Map<String, Object> widgetOptions;
+    @JsonProperty(value = "widgetOptions")
+    private Map<String, Object> widgetOptions;
 
     public WidgetObjectModel() {
     }
@@ -158,25 +158,25 @@ public class DashboardResource extends OwnedResource {
       this.widgetPosition = widgetPosition;
     }
 
-		public Map<String, Object> getWidgetOptions() {
-			return widgetOptions;
-		}
+    public Map<String, Object> getWidgetOptions() {
+      return widgetOptions;
+    }
 
     public void setWidgetOptions(Map<String, Object> widgetOptions) {
       this.widgetOptions = widgetOptions;
     }
 
-		@Override
-		public String toString() {
-			final StringBuilder sb = new StringBuilder("WidgetObjectModel{");
-			sb.append("name='").append(name).append('\'');
-			sb.append(", widgetId=").append(widgetId);
-			sb.append(", widgetType='").append(widgetType).append('\'');
-			sb.append(", widgetSize=").append(widgetSize);
-			sb.append(", widgetPosition=").append(widgetPosition);
-			sb.append(", widgetOptions=").append(widgetOptions);
-			sb.append('}');
-			return sb.toString();
-		}
-	}
+    @Override
+    public String toString() {
+      final StringBuilder sb = new StringBuilder("WidgetObjectModel{");
+      sb.append("name='").append(name).append('\'');
+      sb.append(", widgetId=").append(widgetId);
+      sb.append(", widgetType='").append(widgetType).append('\'');
+      sb.append(", widgetSize=").append(widgetSize);
+      sb.append(", widgetPosition=").append(widgetPosition);
+      sb.append(", widgetOptions=").append(widgetOptions);
+      sb.append('}');
+      return sb.toString();
+    }
+  }
 }

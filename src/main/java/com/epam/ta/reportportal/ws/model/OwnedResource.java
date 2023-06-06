@@ -16,7 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_SHAREABLE_DESCRIPTION;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_ENTITY_DESCRIPTION;
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_DESCRIPTION;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -38,7 +38,7 @@ public class OwnedResource {
   @JsonProperty(value = "share")
   private boolean share;
 
-  @Size(min = MIN_DESCRIPTION, max = MAX_SHAREABLE_DESCRIPTION)
+  @Size(min = MIN_DESCRIPTION, max = MAX_ENTITY_DESCRIPTION)
   private String description;
 
   public String getDescription() {
