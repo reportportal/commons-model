@@ -44,12 +44,13 @@ public class ApiKeyRS {
   private Long userId;
 
   @NotNull
-  @JsonFormat(
-      shape = JsonFormat.Shape.STRING,
-      pattern = "yyyy-MM-dd'T'HH:mm:ssZ"
-  )
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
   @JsonProperty(value = "created_at")
   private Date createdAt;
+
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+  @JsonProperty(value = "last_used_at")
+  private Date lastUsedAt;
 
   @JsonProperty(value = "api_key")
   private String apiKey;
@@ -94,14 +95,18 @@ public class ApiKeyRS {
     this.apiKey = apiKey;
   }
 
+  public Date getLastUsedAt() {
+    return lastUsedAt;
+  }
+
+  public void setLastUsedAt(Date lastUsedAt) {
+    this.lastUsedAt = lastUsedAt;
+  }
+
   @Override
   public String toString() {
-    return "ApiKeyRS{"
-        + "id=" + id
-        + ", name='" + name + '\''
-        + ", userId=" + userId
-        + ", createdAt=" + createdAt
-        + ", apiKey='" + apiKey + '\''
+    return "ApiKeyRS{" + "id=" + id + ", name='" + name + '\'' + ", userId=" + userId
+        + ", createdAt=" + createdAt + ", lastUsedAt=" + lastUsedAt + ", apiKey='" + apiKey + '\''
         + '}';
   }
 }
