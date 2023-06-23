@@ -157,7 +157,7 @@ public class ActivityResource {
 
 	@Override
 	public String toString() {
-		String sb = "ActivityResource{" + "id=" + id
+		return "ActivityResource{" + "id=" + id
 				+ ", user='" + user + '\''
 				+ ", loggedObjectId='" + loggedObjectId + '\''
 				+ ", lastModified=" + lastModified
@@ -168,6 +168,5 @@ public class ActivityResource {
 				+ ", objectName='" + objectName + '\''
 				+ ", details=" + details
 				+ '}';
-		return sb;
 	}
 }
