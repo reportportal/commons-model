@@ -20,9 +20,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.constraints.NotNull;
 import java.util.Date;
+import javax.validation.constraints.NotNull;
 
 /**
  * JSON Representation of Report Portal's Activity domain object.
@@ -72,6 +71,9 @@ public class ActivityResource {
 
 	@JsonProperty(value = "details")
 	private Object details;
+
+	@JsonProperty(value = "objectName")
+	private String objectName;
 
 	public Long getId() {
 		return id;
@@ -145,19 +147,26 @@ public class ActivityResource {
 		this.details = details;
 	}
 
+	public String getObjectName() {
+		return objectName;
+	}
+
+	public void setObjectName(String objectName) {
+		this.objectName = objectName;
+	}
+
 	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder("ActivityResource{");
-		sb.append("id=").append(id);
-		sb.append(", user='").append(user).append('\'');
-		sb.append(", loggedObjectId='").append(loggedObjectId).append('\'');
-		sb.append(", lastModified=").append(lastModified);
-		sb.append(", actionType='").append(actionType).append('\'');
-		sb.append(", objectType='").append(objectType).append('\'');
-		sb.append(", projectId=").append(projectId);
-		sb.append(", projectName='").append(projectName).append('\'');
-		sb.append(", details=").append(details);
-		sb.append('}');
-		return sb.toString();
+		return "ActivityResource{" + "id=" + id
+				+ ", user='" + user + '\''
+				+ ", loggedObjectId='" + loggedObjectId + '\''
+				+ ", lastModified=" + lastModified
+				+ ", actionType='" + actionType + '\''
+				+ ", objectType='" + objectType + '\''
+				+ ", projectId=" + projectId
+				+ ", projectName='" + projectName + '\''
+				+ ", objectName='" + objectName + '\''
+				+ ", details=" + details
+				+ '}';
 	}
 }
