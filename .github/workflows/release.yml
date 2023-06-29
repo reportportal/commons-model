@@ -13,8 +13,8 @@ on:
 
 env:
   GH_USER_NAME: github.actor
-  SCRIPTS_VERSION: 5.7.0
-  RELEASE_VERSION: 5.8.0
+  SCRIPTS_VERSION: 5.8.0
+  RELEASE_VERSION: 5.8.1
 
 jobs:
   release:
