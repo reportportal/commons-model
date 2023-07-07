@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 import javax.validation.constraints.NotNull;
 
 @JsonInclude(Include.NON_NULL)
@@ -31,12 +32,22 @@ public class SearchCriteria {
   private String filterKey;
 
   @JsonProperty(value = "operation")
+  @ApiModelProperty(allowableValues = "EQ, NE, CNT, NON_CNT, BTW, IN")
   private String operation;
 
   @NotNull
   @JsonProperty(value = "value", required = true)
   @ApiModelProperty(required = true)
   private String value;
+
+  public SearchCriteria() {
+  }
+
+  public SearchCriteria(String filterKey, String operation, String value) {
+    this.filterKey = filterKey;
+    this.operation = operation;
+    this.value = value;
+  }
 
   public String getFilterKey() {
     return filterKey;
@@ -62,4 +73,20 @@ public class SearchCriteria {
     this.value = value;
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SearchCriteria that = (SearchCriteria) o;
+    return Objects.equals(filterKey, that.filterKey);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(filterKey);
+  }
 }

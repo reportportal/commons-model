@@ -19,7 +19,7 @@ package com.epam.ta.reportportal.ws.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.List;
+import java.util.Set;
 import javax.validation.constraints.NotNull;
 
 @JsonInclude(Include.NON_NULL)
@@ -27,14 +27,20 @@ public class SearchCriteriaRQ {
 
   @NotNull
   @JsonProperty(value = "search_criterias")
-  private List<SearchCriteria> criteriaList;
+  private Set<SearchCriteria> criteriaList;
 
-  public List<SearchCriteria> getCriteriaList() {
+  public SearchCriteriaRQ() {
+  }
+
+  public SearchCriteriaRQ(Set<SearchCriteria> criteriaList) {
+    this.criteriaList = criteriaList;
+  }
+
+  public Set<SearchCriteria> getCriteriaList() {
     return criteriaList;
   }
 
-  public void setCriteriaList(
-      List<SearchCriteria> criteriaList) {
+  public void setCriteriaList(Set<SearchCriteria> criteriaList) {
     this.criteriaList = criteriaList;
   }
 

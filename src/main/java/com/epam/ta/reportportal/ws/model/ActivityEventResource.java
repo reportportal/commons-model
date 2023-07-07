@@ -24,6 +24,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 
+/**
+ * JSON Representation of Report Portal's Activity domain object.
+ *
+ * @author Ryhor_Kukharenka
+ */
 @JsonInclude(Include.NON_NULL)
 public class ActivityEventResource {
 
@@ -38,20 +43,9 @@ public class ActivityEventResource {
   private Date createdAt;
 
   @NotNull
-  @JsonProperty(value = "action", required = true)
-  @ApiModelProperty(required = true)
-  private String action;
-
-  @NotNull
   @JsonProperty(value = "event_name", required = true)
   @ApiModelProperty(required = true)
   private String eventName;
-
-  @NotNull
-  @JsonProperty(value = "priority", required = true)
-  @ApiModelProperty(required = true)
-  private String priority;
-
 
   @JsonProperty(value = "object_id")
   @ApiModelProperty(required = true)
@@ -74,10 +68,6 @@ public class ActivityEventResource {
   @JsonProperty(value = "project_name")
   @ApiModelProperty(required = true)
   private String projectName;
-
-  @JsonProperty(value = "subject_id")
-  @ApiModelProperty(required = true)
-  private Long subjectId;
 
   @NotNull
   @JsonProperty(value = "subject_name", required = true)
@@ -111,28 +101,12 @@ public class ActivityEventResource {
     this.createdAt = createdAt;
   }
 
-  public String getAction() {
-    return action;
-  }
-
-  public void setAction(String action) {
-    this.action = action;
-  }
-
   public String getEventName() {
     return eventName;
   }
 
   public void setEventName(String eventName) {
     this.eventName = eventName;
-  }
-
-  public String getPriority() {
-    return priority;
-  }
-
-  public void setPriority(String priority) {
-    this.priority = priority;
   }
 
   public Long getObjectId() {
@@ -175,14 +149,6 @@ public class ActivityEventResource {
     this.projectName = projectName;
   }
 
-  public Long getSubjectId() {
-    return subjectId;
-  }
-
-  public void setSubjectId(Long subjectId) {
-    this.subjectId = subjectId;
-  }
-
   public String getSubjectName() {
     return subjectName;
   }
@@ -209,15 +175,14 @@ public class ActivityEventResource {
 
   @Override
   public String toString() {
-    return "ActivityEventResource{" + "id=" + id + ", createdAt="
-        + createdAt + ", action='" + action + '\'' + ", eventName='"
-        + eventName + '\'' + ", priority='" + priority + '\''
-        + ", objectId='" + objectId + '\'' + ", objectName='"
+    return "ActivityEventResource{" + "id=" + id
+        + ", createdAt=" + createdAt + ", eventName='" + eventName
+        + '\'' + ", objectId=" + objectId + ", objectName='"
         + objectName + '\'' + ", objectType='" + objectType + '\''
-        + ", projectId='" + projectId + '\'' + ", projectName='"
-        + projectName + '\'' + ", subjectId='" + subjectId + '\''
-        + ", subjectName='" + subjectName + '\'' + ", subjectType='"
-        + subjectType + '\'' + ", details=" + details + '}';
+        + ", projectId=" + projectId + ", projectName='" + projectName
+        + '\'' + ", subjectName='" + subjectName + '\''
+        + ", subjectType='" + subjectType + '\'' + ", details="
+        + details + '}';
   }
 
   public static ActivityEventResourceBuilder builder() {
@@ -242,18 +207,8 @@ public class ActivityEventResource {
       return this;
     }
 
-    public ActivityEventResourceBuilder action(String action) {
-      activityEventResource.action = action;
-      return this;
-    }
-
     public ActivityEventResourceBuilder eventName(String eventName) {
       activityEventResource.eventName = eventName;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder priority(String priority) {
-      activityEventResource.priority = priority;
       return this;
     }
 
@@ -279,11 +234,6 @@ public class ActivityEventResource {
 
     public ActivityEventResourceBuilder projectName(String projectName) {
       activityEventResource.projectName = projectName;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder subjectId(Long subjectId) {
-      activityEventResource.subjectId = subjectId;
       return this;
     }
 
