@@ -52,16 +52,13 @@ public class PagedResponse<T> {
   public PagedResponse() {
   }
 
-  public PagedResponse(Integer offset, Integer limit, Long totalCount, List<T> items) {
+  public PagedResponse(Integer offset, Integer limit, Long totalCount, String sort, String order,
+      List<T> items) {
     this.offset = offset;
     this.limit = limit;
     this.totalCount = totalCount;
-    this.items = items;
-  }
-
-  public PagedResponse(Integer limit, Long totalCount, List<T> items) {
-    this.limit = limit;
-    this.totalCount = totalCount;
+    this.sort = sort;
+    this.order = order;
     this.items = items;
   }
 
