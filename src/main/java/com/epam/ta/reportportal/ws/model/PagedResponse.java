@@ -27,7 +27,7 @@ public class PagedResponse<T> {
 
   @NotNull
   @JsonProperty(value = "offset")
-  private Integer offset;
+  private Long offset;
 
   @NotNull
   @JsonProperty(value = "limit")
@@ -52,7 +52,7 @@ public class PagedResponse<T> {
   public PagedResponse() {
   }
 
-  public PagedResponse(Integer offset, Integer limit, Long totalCount, String sort, String order,
+  public PagedResponse(Long offset, Integer limit, Long totalCount, String sort, String order,
       List<T> items) {
     this.offset = offset;
     this.limit = limit;
@@ -62,11 +62,11 @@ public class PagedResponse<T> {
     this.items = items;
   }
 
-  public Integer getOffset() {
+  public Long getOffset() {
     return offset;
   }
 
-  public void setOffset(Integer offset) {
+  public void setOffset(Long offset) {
     this.offset = offset;
   }
 
