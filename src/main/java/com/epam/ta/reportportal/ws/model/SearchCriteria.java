@@ -23,6 +23,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Search Criteria used for a compound query and subsequent conversion to a filter.
+ *
+ * @author Ryhor_Kukharenka
+ */
 @JsonInclude(Include.NON_NULL)
 public class SearchCriteria {
 

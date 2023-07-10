@@ -22,6 +22,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Set;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Keep all search criteria for request.
+ *
+ * @author Ryhor_Kukharenka
+ */
 @JsonInclude(Include.NON_NULL)
 public class SearchCriteriaRQ {
 

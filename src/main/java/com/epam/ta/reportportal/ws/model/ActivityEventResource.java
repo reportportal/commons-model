@@ -189,6 +189,11 @@ public class ActivityEventResource {
     return new ActivityEventResourceBuilder();
   }
 
+  /**
+   * Activity Event Resource builder.
+   *
+   * @author Ryhor_Kukharenka
+   */
   public static class ActivityEventResourceBuilder {
 
     private final ActivityEventResource activityEventResource;

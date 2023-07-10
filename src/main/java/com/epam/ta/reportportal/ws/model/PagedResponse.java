@@ -22,6 +22,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Paged representation.
+ *
+ * @param <T> Type of items
+ */
 @JsonInclude(Include.NON_NULL)
 public class PagedResponse<T> {
 
