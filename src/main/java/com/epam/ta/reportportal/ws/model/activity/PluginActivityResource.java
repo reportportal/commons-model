@@ -8,6 +8,12 @@ public class PluginActivityResource {
   @JsonProperty(value = "name")
   private String name;
 
+  @JsonProperty(value = "enabled")
+  private boolean enabled;
+
+  @JsonProperty(value = "version")
+  private String version;
+
   public Long getId() {
     return id;
   }
@@ -24,12 +30,25 @@ public class PluginActivityResource {
     this.name = name;
   }
 
+  public boolean isEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
   @Override
   public String toString() {
-    final StringBuilder sb = new StringBuilder("PluginActivityResource{");
-    sb.append("id=").append(id);
-    sb.append(", name='").append(name).append('\'');
-    sb.append('}');
-    return sb.toString();
+    return "PluginActivityResource{" + "id=" + id + ", name='" + name + '\'' + ", enabled="
+        + enabled + ", version='" + version + '\'' + '}';
   }
 }
