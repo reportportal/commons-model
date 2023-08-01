@@ -29,6 +29,10 @@ public class EmailNotificationRQ {
   @JsonProperty(value = "recipient")
   private String recipient;
 
+  @NotNull
+  @JsonProperty(value = "template")
+  private String template;
+
   @JsonProperty(value = "params")
   private Map<String, Object> params;
 
@@ -41,6 +45,13 @@ public class EmailNotificationRQ {
     this.recipient = recipient;
   }
 
+  public String getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(String template) {
+    this.template = template;
+  }
 
   public Map<String, Object> getParams() {
     return params;
@@ -54,6 +65,7 @@ public class EmailNotificationRQ {
   public String toString() {
     return "EmailNotificationRQ{" +
         "recipient='" + recipient + '\'' +
+        ", template='" + template + '\'' +
         ", params=" + params +
         '}';
   }
