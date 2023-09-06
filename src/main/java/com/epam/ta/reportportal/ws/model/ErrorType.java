@@ -189,6 +189,9 @@ public enum ErrorType {
 	 */
 	CLUSTER_NOT_FOUND(40428, "Cluster '{}' not found"),
 
+	/**
+	 * Common error in case if object not found
+	 */
 	NOT_FOUND(40430, "'{}' not found. Did you use correct ID?"),
 
 	/**
