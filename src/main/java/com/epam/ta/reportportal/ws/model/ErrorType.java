@@ -24,16 +24,6 @@ package com.epam.ta.reportportal.ws.model;
 public enum ErrorType {
 
 	/**
-	 * Access Denied
-	 */
-	ADDRESS_LOCKED(4004, "Address is locked due to several incorrect login attempts"),
-
-	/**
-	 * Access Denied
-	 */
-	ACCESS_DENIED(4003, "You do not have enough permissions. {}"),
-
-	/**
 	 * Incorrect Report Portal WS Request
 	 */
 	INCORRECT_REQUEST(4001, "Incorrect Request. {}"),
@@ -42,6 +32,16 @@ public enum ErrorType {
 	 * Incorrect Report Portal WS Request
 	 */
 	BINARY_DATA_CANNOT_BE_SAVED(4002, "Binary data cannot be saved. {}"),
+
+	/**
+	 * Access Denied
+	 */
+	ACCESS_DENIED(4003, "You do not have enough permissions. {}"),
+
+	/**
+	 * Access Denied
+	 */
+	ADDRESS_LOCKED(4004, "Address is locked due to several incorrect login attempts"),
 
 	/**
 	 * If specified by id Project or by ProjectName not found
@@ -188,6 +188,11 @@ public enum ErrorType {
 	 * If cluster with provided id not found
 	 */
 	CLUSTER_NOT_FOUND(40428, "Cluster '{}' not found"),
+
+	/**
+	 * Common error in case if object not found
+	 */
+	NOT_FOUND(40430, "'{}' not found. Did you use correct ID?"),
 
 	/**
 	 * If provided filtering parameters are incorrect
