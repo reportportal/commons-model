@@ -37,8 +37,8 @@ public class AnalyzeLaunchRQ {
 
 	@NotNull
 	@JsonProperty(value = "analyzerMode", required = true)
-	@In(allowedValues = { "all", "launch_name", "current_launch" })
-	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME, CURRENT_LAUNCH")
+	@In(allowedValues = { "all", "launch_name", "current_launch", "previous_launch", "current_and_the_same_name" })
+	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME, CURRENT_LAUNCH, PREVIOUS_LAUNCH, CURRENT_AND_THE_SAME_NAME")
 	private String analyzerHistoryMode;
 
 	@NotNull
