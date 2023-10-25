@@ -25,7 +25,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import java.util.Set;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
 
@@ -45,7 +44,6 @@ public class LaunchImportRQ {
   @JsonAlias({"attributes", "tags"})
   private Set<ItemAttributesRQ> attributes;
 
-  @NotNull
   @JsonProperty
   @JsonAlias({"startTime", "start_time"})
   @ApiModelProperty
