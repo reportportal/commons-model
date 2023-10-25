@@ -28,6 +28,9 @@ import javax.validation.Valid;
 import javax.validation.constraints.Size;
 import lombok.Data;
 
+/**
+ * @author <a href="mailto:pavel_bortnik@epam.com">Pavel Bortnik</a>
+ */
 @Data
 public class LaunchImportRQ {
 
