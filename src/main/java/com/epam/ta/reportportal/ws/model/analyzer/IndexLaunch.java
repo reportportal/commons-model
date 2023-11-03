@@ -53,6 +53,9 @@ public class IndexLaunch {
 	@JsonProperty("clusters")
 	private Map<Long, String> clusters;
 
+	@JsonProperty("launchNumber")
+	private Long launchNumber;
+
 	public IndexLaunch() {
 	}
 
@@ -110,5 +113,13 @@ public class IndexLaunch {
 
 	public void setClusters(Map<Long, String> clusters) {
 		this.clusters = clusters;
+	}
+
+	public Long getLaunchNumber() {
+		return launchNumber;
+	}
+
+	public void setLaunchNumber(Long launchNumber) {
+		this.launchNumber = launchNumber;
 	}
 }
