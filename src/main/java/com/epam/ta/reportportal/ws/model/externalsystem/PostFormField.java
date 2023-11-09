@@ -75,6 +75,12 @@ public class PostFormField implements Comparable<PostFormField>, Serializable {
   private List<NamedValue> namedValue;
 
   /**
+   * Command name that can be executed in plugin for current field
+   */
+  @JsonProperty(value = "commandName")
+  private String commandName;
+
+  /**
    * Values for fields with pre-defined set
    */
   @JsonProperty(value = "definedValues")
