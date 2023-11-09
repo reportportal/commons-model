@@ -1,5 +1,6 @@
 package com.epam.ta.reportportal.ws.model.externalsystem;
 
+import java.io.Serializable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,7 +9,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class NamedValue {
+public class NamedValue implements Serializable {
 
   private Long id;
   private String name;
