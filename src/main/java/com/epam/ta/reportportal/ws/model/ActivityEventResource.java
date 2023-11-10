@@ -23,6 +23,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * JSON Representation of Report Portal's Activity domain object.
@@ -30,6 +34,10 @@ import javax.validation.constraints.NotNull;
  * @author Ryhor_Kukharenka
  */
 @JsonInclude(Include.NON_NULL)
+@Getter
+@Setter
+@Builder
+@ToString
 public class ActivityEventResource {
 
   @NotNull
@@ -79,187 +87,15 @@ public class ActivityEventResource {
   @ApiModelProperty(required = true)
   private String subjectType;
 
+  @NotNull
+  @JsonProperty(value = "subject_id", required = true)
+  @ApiModelProperty(required = true)
+  private String subjectId;
+
   @JsonProperty(value = "details")
   private Object details;
 
   private ActivityEventResource() {
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public Date getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(Date createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public String getEventName() {
-    return eventName;
-  }
-
-  public void setEventName(String eventName) {
-    this.eventName = eventName;
-  }
-
-  public Long getObjectId() {
-    return objectId;
-  }
-
-  public void setObjectId(Long objectId) {
-    this.objectId = objectId;
-  }
-
-  public String getObjectName() {
-    return objectName;
-  }
-
-  public void setObjectName(String objectName) {
-    this.objectName = objectName;
-  }
-
-  public String getObjectType() {
-    return objectType;
-  }
-
-  public void setObjectType(String objectType) {
-    this.objectType = objectType;
-  }
-
-  public Long getProjectId() {
-    return projectId;
-  }
-
-  public void setProjectId(Long projectId) {
-    this.projectId = projectId;
-  }
-
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
-  public String getSubjectName() {
-    return subjectName;
-  }
-
-  public void setSubjectName(String subjectName) {
-    this.subjectName = subjectName;
-  }
-
-  public String getSubjectType() {
-    return subjectType;
-  }
-
-  public void setSubjectType(String subjectType) {
-    this.subjectType = subjectType;
-  }
-
-  public Object getDetails() {
-    return details;
-  }
-
-  public void setDetails(Object details) {
-    this.details = details;
-  }
-
-  @Override
-  public String toString() {
-    return "ActivityEventResource{" + "id=" + id
-        + ", createdAt=" + createdAt + ", eventName='" + eventName
-        + '\'' + ", objectId=" + objectId + ", objectName='"
-        + objectName + '\'' + ", objectType='" + objectType + '\''
-        + ", projectId=" + projectId + ", projectName='" + projectName
-        + '\'' + ", subjectName='" + subjectName + '\''
-        + ", subjectType='" + subjectType + '\'' + ", details="
-        + details + '}';
-  }
-
-  public static ActivityEventResourceBuilder builder() {
-    return new ActivityEventResourceBuilder();
-  }
-
-  /**
-   * Activity Event Resource builder.
-   *
-   * @author Ryhor_Kukharenka
-   */
-  public static class ActivityEventResourceBuilder {
-
-    private final ActivityEventResource activityEventResource;
-
-    private ActivityEventResourceBuilder() {
-      activityEventResource = new ActivityEventResource();
-    }
-
-    public ActivityEventResourceBuilder id(Long id) {
-      activityEventResource.id = id;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder createdAt(Date createdAt) {
-      activityEventResource.createdAt = createdAt;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder eventName(String eventName) {
-      activityEventResource.eventName = eventName;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder objectId(Long objectId) {
-      activityEventResource.objectId = objectId;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder objectName(String objectName) {
-      activityEventResource.objectName = objectName;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder objectType(String objectType) {
-      activityEventResource.objectType = objectType;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder projectId(Long projectId) {
-      activityEventResource.projectId = projectId;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder projectName(String projectName) {
-      activityEventResource.projectName = projectName;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder subjectName(String subjectName) {
-      activityEventResource.subjectName = subjectName;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder subjectType(String subjectType) {
-      activityEventResource.subjectType = subjectType;
-      return this;
-    }
-
-    public ActivityEventResourceBuilder details(Object details) {
-      activityEventResource.details = details;
-      return this;
-    }
-
-    public ActivityEventResource build() {
-      return activityEventResource;
-    }
   }
 
 }
