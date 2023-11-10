@@ -95,7 +95,4 @@ public class ActivityEventResource {
   @JsonProperty(value = "details")
   private Object details;
 
-  private ActivityEventResource() {
-  }
-
 }
