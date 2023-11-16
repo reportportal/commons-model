@@ -94,6 +94,16 @@ public class PostFormField implements Comparable<PostFormField>, Serializable {
   @JsonProperty(value = "definedValues")
   private List<AllowedValue> definedValues;
 
+  public PostFormField(String id, String name, String type, boolean isReq, List<String> values,
+      List<AllowedValue> defValues) {
+    this.id = id;
+    this.fieldName = name;
+    this.fieldType = type;
+    this.isRequired = isReq;
+    this.value = values;
+    this.definedValues = defValues;
+  }
+
   public PostFormField(String id, String fieldName, String fieldType, boolean isRequired,
       String commandName) {
     this.id = id;
@@ -109,4 +119,13 @@ public class PostFormField implements Comparable<PostFormField>, Serializable {
     Boolean byField = field.isRequired;
     return byField.compareTo(current);
   }
+
+  public void setIsRequired(boolean value) {
+    this.isRequired = value;
+  }
+
+  public boolean getIsRequired() {
+    return isRequired;
+  }
+
 }
