@@ -56,6 +56,9 @@ public class IndexLaunch {
 	@JsonProperty("launchNumber")
 	private Long launchNumber;
 
+	@JsonProperty("previousLaunchId")
+	private Long previousLaunchId;
+
 	public IndexLaunch() {
 	}
 
@@ -121,5 +124,13 @@ public class IndexLaunch {
 
 	public void setLaunchNumber(Long launchNumber) {
 		this.launchNumber = launchNumber;
+	}
+
+	public Long getPreviousLaunchId() {
+		return previousLaunchId;
+	}
+
+	public void setPreviousLaunchId(Long previousLaunchId) {
+		this.previousLaunchId = previousLaunchId;
 	}
 }
