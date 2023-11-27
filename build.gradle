@@ -46,6 +46,7 @@ dependencies {
     compile "javax.validation:validation-api:${validationApiVersion}"
     compile "org.apache.commons:commons-lang3:${commonsLangVersion}"
     compile group: 'com.google.guava', name: 'guava', version: '28.2-jre'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 
     // add lombok support
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
