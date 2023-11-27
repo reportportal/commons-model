@@ -20,7 +20,7 @@ import com.epam.ta.reportportal.ws.model.integration.IntegrationResource;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -59,13 +59,13 @@ public class ProjectResource {
 
 	@NotNull
 	@JsonProperty(value = "creationDate")
-	private Date creationDate;
+	private LocalDateTime creationDate;
 
-	public Date getCreationDate() {
+	public LocalDateTime getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(LocalDateTime creationDate) {
 		this.creationDate = creationDate;
 	}
 

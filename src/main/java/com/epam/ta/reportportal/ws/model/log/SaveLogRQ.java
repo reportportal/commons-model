@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
 import java.util.Arrays;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * @author Henadzi_Vrubleuski
@@ -48,7 +48,7 @@ public class SaveLogRQ {
 	@NotNull
 	@JsonProperty(value = "time", required = true)
 	@ApiModelProperty(required = true)
-	private Date logTime;
+	private LocalDateTime logTime;
 
 	@JsonProperty(value = "message")
 	private String message;
@@ -68,11 +68,11 @@ public class SaveLogRQ {
 		this.uuid = uuid;
 	}
 
-	public Date getLogTime() {
+	public LocalDateTime getLogTime() {
 		return logTime;
 	}
 
-	public void setLogTime(Date logTime) {
+	public void setLogTime(LocalDateTime logTime) {
 		this.logTime = logTime;
 	}
 

@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.Date;
+import java.time.LocalDateTime;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -46,11 +46,11 @@ public class ApiKeyRS {
   @NotNull
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
   @JsonProperty(value = "created_at")
-  private Date createdAt;
+  private LocalDateTime createdAt;
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
   @JsonProperty(value = "last_used_at")
-  private Date lastUsedAt;
+  private LocalDateTime lastUsedAt;
 
   @JsonProperty(value = "api_key")
   private String apiKey;
@@ -79,11 +79,11 @@ public class ApiKeyRS {
     this.userId = userId;
   }
 
-  public Date getCreatedAt() {
+  public LocalDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(Date createdAt) {
+  public void setCreatedAt(LocalDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -95,11 +95,11 @@ public class ApiKeyRS {
     this.apiKey = apiKey;
   }
 
-  public Date getLastUsedAt() {
+  public LocalDateTime getLastUsedAt() {
     return lastUsedAt;
   }
 
-  public void setLastUsedAt(Date lastUsedAt) {
+  public void setLastUsedAt(LocalDateTime lastUsedAt) {
     this.lastUsedAt = lastUsedAt;
   }
 

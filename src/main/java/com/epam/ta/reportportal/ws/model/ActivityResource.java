@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Date;
+import java.time.LocalDateTime;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -49,7 +49,7 @@ public class ActivityResource {
 	@NotNull
 	@JsonProperty(value = "lastModified", required = true)
 	@ApiModelProperty(required = true)
-	private Date lastModified;
+	private LocalDateTime lastModified;
 
 	@NotNull
 	@JsonProperty(value = "actionType", required = true)
@@ -99,11 +99,11 @@ public class ActivityResource {
 		this.loggedObjectId = loggedObjectId;
 	}
 
-	public Date getLastModified() {
+	public LocalDateTime getLastModified() {
 		return lastModified;
 	}
 
-	public void setLastModified(Date lastModified) {
+	public void setLastModified(LocalDateTime lastModified) {
 		this.lastModified = lastModified;
 	}
 

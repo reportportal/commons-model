@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
@@ -56,7 +56,7 @@ public class StartRQ {
 	@JsonProperty(required = true)
 	@JsonAlias({ "startTime", "start_time" })
 	@ApiModelProperty(required = true)
-	private Date startTime;
+	private LocalDateTime startTime;
 
 	@ApiModelProperty(hidden = true)
 	@JsonProperty(value = "uuid")
@@ -94,11 +94,11 @@ public class StartRQ {
 		this.uuid = uuid;
 	}
 
-	public Date getStartTime() {
+	public LocalDateTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Date startTime) {
+	public void setStartTime(LocalDateTime startTime) {
 		this.startTime = startTime;
 	}
 

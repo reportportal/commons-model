@@ -13,7 +13,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -118,7 +118,7 @@ public class TicketsValidationTest {
 	private FinishTestItemRQ getFinishTestItem() {
 		FinishTestItemRQ finishTestItemRQ = new FinishTestItemRQ();
 		finishTestItemRQ.setStatus("PASSED");
-		finishTestItemRQ.setEndTime(new Date());
+		finishTestItemRQ.setEndTime(LocalDateTime.now());
 		return finishTestItemRQ;
 	}
 

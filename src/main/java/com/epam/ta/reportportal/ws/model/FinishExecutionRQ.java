@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
@@ -45,7 +45,7 @@ public class FinishExecutionRQ {
 	@JsonProperty(value = "endTime", required = true)
 	@JsonAlias({ "endTime", "end_time" })
 	@ApiModelProperty(required = true)
-	private Date endTime;
+	private LocalDateTime endTime;
 
 	@JsonProperty(value = "status")
 	@In(allowedValues = { "passed", "failed", "stopped", "skipped", "interrupted", "cancelled", "info", "warn" })
@@ -77,11 +77,11 @@ public class FinishExecutionRQ {
 		this.attributes = attributes;
 	}
 
-	public Date getEndTime() {
+	public LocalDateTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Date endTime) {
+	public void setEndTime(LocalDateTime endTime) {
 		this.endTime = endTime;
 	}
 

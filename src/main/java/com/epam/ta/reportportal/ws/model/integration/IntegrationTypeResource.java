@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 /**
@@ -42,7 +42,7 @@ public class IntegrationTypeResource implements Serializable {
 	private AuthFlowEnum authFlow;
 
 	@JsonProperty("creationDate")
-	private Date creationDate;
+	private LocalDateTime creationDate;
 
 	@JsonProperty("groupType")
 	private String groupType;
@@ -83,11 +83,11 @@ public class IntegrationTypeResource implements Serializable {
 		this.authFlow = authFlow;
 	}
 
-	public Date getCreationDate() {
+	public LocalDateTime getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(LocalDateTime creationDate) {
 		this.creationDate = creationDate;
 	}
 

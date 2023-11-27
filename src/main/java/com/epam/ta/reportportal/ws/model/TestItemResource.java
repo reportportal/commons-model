@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -61,10 +61,10 @@ public class TestItemResource {
 	private String type;
 
 	@JsonProperty(value = "startTime")
-	private Date startTime;
+	private LocalDateTime startTime;
 
 	@JsonProperty(value = "endTime")
-	private Date endTime;
+	private LocalDateTime endTime;
 
 	@JsonProperty(value = "status")
 	private String status;
@@ -199,19 +199,19 @@ public class TestItemResource {
 		this.type = type;
 	}
 
-	public Date getStartTime() {
+	public LocalDateTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Date startTime) {
+	public void setStartTime(LocalDateTime startTime) {
 		this.startTime = startTime;
 	}
 
-	public Date getEndTime() {
+	public LocalDateTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Date endTime) {
+	public void setEndTime(LocalDateTime endTime) {
 		this.endTime = endTime;
 	}
 

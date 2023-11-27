@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * JSON Representation of Report Portal's Log domain object
@@ -105,7 +105,7 @@ public class LogResource {
 	private String uuid;
 
 	@JsonProperty(value = "time")
-	private Date logTime;
+	private LocalDateTime logTime;
 
 	@JsonProperty(value = "message")
 	private String message;
@@ -134,7 +134,7 @@ public class LogResource {
 		this.id = id;
 	}
 
-	public Date getLogTime() {
+	public LocalDateTime getLogTime() {
 		return logTime;
 	}
 
@@ -154,7 +154,7 @@ public class LogResource {
 		this.uuid = uuid;
 	}
 
-	public void setLogTime(Date logTime) {
+	public void setLogTime(LocalDateTime logTime) {
 		this.logTime = logTime;
 	}
 

@@ -19,15 +19,17 @@ package com.epam.ta.reportportal.ws.model;
 import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.epam.ta.reportportal.ws.model.launch.MergeLaunchesRQ;
 import com.epam.ta.reportportal.ws.model.launch.Mode;
+import com.epam.ta.reportportal.ws.utils.SingletonObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Assert;
-import org.junit.Test;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Collections;
 import java.util.Date;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @author Pavel Bortnik
@@ -35,10 +37,10 @@ import java.util.Date;
 public class MergeLaunchesSerializerTest {
 
 	private static final String EXPECTED_JSON = "{\"name\":\"name\","
-			+ "\"description\":\"description\",\"attributes\":[{\"key\":\"key\",\"value\":\"value\"}],\"startTime\":0,\"mode\":\"DEFAULT\","
-			+ "\"launches\":[1],\"endTime\":1,\"mergeType\":\"BASIC\",\"extendSuitesDescription\":true}";
+			+ "\"description\":\"description\",\"attributes\":[{\"key\":\"key\",\"value\":\"value\"}],\"startTime\":\"1970-01-01T00:00:00\",\"mode\":\"DEFAULT\","
+			+ "\"launches\":[1],\"endTime\":\"1970-01-01T00:00:00.001\",\"mergeType\":\"BASIC\",\"extendSuitesDescription\":true}";
 
-	private ObjectMapper om = new ObjectMapper();
+	private ObjectMapper om = SingletonObjectMapper.getInstance();
 
 	@Test
 	public void testSerializer() throws JsonProcessingException {
@@ -58,10 +60,14 @@ public class MergeLaunchesSerializerTest {
 		rq.setName("name");
 		rq.setDescription("description");
 		rq.setMode(Mode.DEFAULT);
-		rq.setStartTime(new Date(0));
+		rq.setStartTime(new Date(0).toInstant()
+        .atZone(ZoneOffset.UTC)
+        .toLocalDateTime());
 		ItemAttributeResource itemAttributeResource = new ItemAttributeResource("key", "value");
 		rq.setAttributes(Collections.singleton(itemAttributeResource));
-		rq.setEndTime(new Date(1));
+		rq.setEndTime(new Date(1).toInstant()
+        .atZone(ZoneOffset.UTC)
+        .toLocalDateTime());
 		rq.setExtendSuitesDescription(true);
 		rq.setLaunches(Collections.singleton(1L));
 		rq.setMergeStrategyType("BASIC");

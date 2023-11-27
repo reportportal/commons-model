@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 /**
@@ -51,7 +51,7 @@ public class IntegrationResource implements Serializable {
 	private String creator;
 
 	@JsonProperty("creationDate")
-	private Date creationDate;
+	private LocalDateTime creationDate;
 
 	public Long getId() {
 		return id;
@@ -109,11 +109,11 @@ public class IntegrationResource implements Serializable {
 		this.creator = creator;
 	}
 
-	public Date getCreationDate() {
+	public LocalDateTime getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(LocalDateTime creationDate) {
 		this.creationDate = creationDate;
 	}
 }

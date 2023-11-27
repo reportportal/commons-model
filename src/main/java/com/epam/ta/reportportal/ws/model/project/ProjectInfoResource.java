@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -67,11 +67,11 @@ public class ProjectInfoResource {
 
 	@NotNull
 	@JsonProperty(value = "lastRun")
-	private Date lastRun;
+	private LocalDateTime lastRun;
 
 	@NotNull
 	@JsonProperty(value = "creationDate")
-	private Date creationDate;
+	private LocalDateTime creationDate;
 
 	@JsonProperty(value = "entryType")
 	private String entryType;
@@ -138,19 +138,19 @@ public class ProjectInfoResource {
 		return launchesPerWeek;
 	}
 
-	public Date getLastRun() {
+	public LocalDateTime getLastRun() {
 		return lastRun;
 	}
 
-	public void setLastRun(Date lastRun) {
+	public void setLastRun(LocalDateTime lastRun) {
 		this.lastRun = lastRun;
 	}
 
-	public Date getCreationDate() {
+	public LocalDateTime getCreationDate() {
 		return creationDate;
 	}
 
-	public void setCreationDate(Date creationDate) {
+	public void setCreationDate(LocalDateTime creationDate) {
 		this.creationDate = creationDate;
 	}
 

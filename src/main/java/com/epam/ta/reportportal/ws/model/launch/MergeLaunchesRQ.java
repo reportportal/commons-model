@@ -28,7 +28,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
@@ -51,7 +51,7 @@ public class MergeLaunchesRQ {
 
 	@JsonProperty(value = "startTime")
 	@ApiModelProperty
-	private Date startTime;
+	private LocalDateTime startTime;
 
 	@JsonProperty("mode")
 	private Mode mode;
@@ -63,7 +63,7 @@ public class MergeLaunchesRQ {
 
 	@JsonProperty(value = "endTime")
 	@ApiModelProperty
-	private Date endTime;
+	private LocalDateTime endTime;
 
 	@NotNull
 	@JsonProperty("mergeType")
@@ -97,11 +97,11 @@ public class MergeLaunchesRQ {
 		this.attributes = attributes;
 	}
 
-	public Date getStartTime() {
+	public LocalDateTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Date startTime) {
+	public void setStartTime(LocalDateTime startTime) {
 		this.startTime = startTime;
 	}
 
@@ -122,11 +122,11 @@ public class MergeLaunchesRQ {
 		this.launches = launches;
 	}
 
-	public Date getEndTime() {
+	public LocalDateTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Date endTime) {
+	public void setEndTime(LocalDateTime endTime) {
 		this.endTime = endTime;
 	}
 
