@@ -16,10 +16,10 @@
 
 package com.epam.ta.reportportal.ws.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import javax.validation.constraints.NotNull;
 
@@ -44,13 +44,11 @@ public class ApiKeyRS {
   private Long userId;
 
   @NotNull
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
   @JsonProperty(value = "created_at")
   private LocalDateTime createdAt;
 
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
   @JsonProperty(value = "last_used_at")
-  private LocalDateTime lastUsedAt;
+  private LocalDate lastUsedAt;
 
   @JsonProperty(value = "api_key")
   private String apiKey;
@@ -95,11 +93,11 @@ public class ApiKeyRS {
     this.apiKey = apiKey;
   }
 
-  public LocalDateTime getLastUsedAt() {
+  public LocalDate getLastUsedAt() {
     return lastUsedAt;
   }
 
-  public void setLastUsedAt(LocalDateTime lastUsedAt) {
+  public void setLastUsedAt(LocalDate lastUsedAt) {
     this.lastUsedAt = lastUsedAt;
   }
 
