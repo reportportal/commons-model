@@ -1,10 +1,9 @@
 package com.epam.ta.reportportal.ws.model.log;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.constraints.NotNull;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
+import javax.validation.constraints.NotNull;
 
 public class GetLogsUnderRq {
 
@@ -14,7 +13,7 @@ public class GetLogsUnderRq {
 
 	@NotNull
 	@JsonProperty(value = "logLevel")
-	@ApiModelProperty(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
+	@Schema(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
 	private String logLevel;
 
 	public GetLogsUnderRq() {

@@ -20,14 +20,13 @@ import com.epam.ta.reportportal.ws.model.OwnedResource;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.epam.ta.reportportal.ws.model.filter.UserFilterResource;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.List;
+import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author Dzmitry_Kavalets
@@ -45,7 +44,7 @@ public class WidgetResource extends OwnedResource {
 
 	@NotNull
 	@JsonProperty(value = "widgetType", required = true)
-	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
+	@Schema(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
 			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
 			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
 			+ " productStatus, mostTimeConsuming, cumulative")

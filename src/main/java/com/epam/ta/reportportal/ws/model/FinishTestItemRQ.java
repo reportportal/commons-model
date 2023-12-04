@@ -20,8 +20,7 @@ import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.Valid;
 
 @JsonInclude(Include.NON_NULL)
@@ -35,7 +34,7 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 	private Boolean retry;
 
 	@JsonProperty(value = "launchUuid")
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private String launchUuid;
 
 	@JsonProperty(value = "testCaseId")

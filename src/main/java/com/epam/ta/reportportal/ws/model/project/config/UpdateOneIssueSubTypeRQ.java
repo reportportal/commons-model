@@ -15,17 +15,16 @@
  */
 package com.epam.ta.reportportal.ws.model.project.config;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.HEX_COLOR_REGEXP;
+
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.HEX_COLOR_REGEXP;
 
 /**
  * One settings sub-type update request representation
@@ -37,12 +36,12 @@ public class UpdateOneIssueSubTypeRQ {
 
 	@NotBlank
 	@JsonProperty(value = "locator", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private String locator;
 
 	@NotBlank
 	@JsonProperty(value = "typeRef", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private String typeRef;
 
 	@NotBlank

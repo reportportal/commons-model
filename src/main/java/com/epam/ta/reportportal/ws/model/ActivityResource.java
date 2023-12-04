@@ -19,7 +19,7 @@ package com.epam.ta.reportportal.ws.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 
@@ -33,37 +33,37 @@ public class ActivityResource {
 
 	@NotNull
 	@JsonProperty(value = "id", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private Long id;
 
 	@NotNull
 	@JsonProperty(value = "user", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private String user;
 
 	@NotNull
 	@JsonProperty(value = "loggedObjectId", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private Long loggedObjectId;
 
 	@NotNull
 	@JsonProperty(value = "lastModified", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private Date lastModified;
 
 	@NotNull
 	@JsonProperty(value = "actionType", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private String actionType;
 
 	@NotNull
 	@JsonProperty(value = "objectType", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private String objectType;
 
 	@NotNull
 	@JsonProperty(value = "projectId", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private Long projectId;
 
 	@JsonProperty(value = "projectName")

@@ -34,11 +34,10 @@ package com.epam.ta.reportportal.ws.model.project.config;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
-import java.util.List;
 
 /**
  * Request model for existing issue sub type update for specified project.<br>
@@ -51,7 +50,7 @@ public class UpdateIssueSubTypeRQ {
 	@Valid
 	@NotEmpty
 	@JsonProperty(value = "ids", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private List<UpdateOneIssueSubTypeRQ> ids;
 
 	public UpdateIssueSubTypeRQ() {

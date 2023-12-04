@@ -16,15 +16,13 @@
 package com.epam.ta.reportportal.ws.model.widget;
 
 import com.epam.ta.reportportal.ws.annotations.In;
-import com.epam.ta.reportportal.ws.annotations.WidgetLimitRange;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
  * Model object for getting widget preview content
@@ -41,7 +39,7 @@ public class WidgetPreviewRQ {
 			"overallStatistics", "uniqueBugTable", "bugTrend", "activityStream", "launchesComparisonChart", "launchesDurationChart",
 			"launchesTable", "topTestCases", "flakyTestCases", "passingRateSummary", "passingRatePerLaunch", "productStatus",
 			"mostTimeConsuming", "cumulative" })
-	@ApiModelProperty(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
+	@Schema(required = true, allowableValues = "oldLineChart, investigatedTrend, launchStatistics, statisticTrend,"
 			+ " casesTrend, notPassed, overallStatistics, uniqueBugTable, bugTrend, activityStream, launchesComparisonChart,"
 			+ " launchesDurationChart, launchesTable, topTestCases, flakyTestCases, passingRateSummary, passingRatePerLaunch,"
 			+ " productStatus, mostTimeConsuming, cumulative")

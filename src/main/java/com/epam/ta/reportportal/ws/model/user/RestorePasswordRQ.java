@@ -18,8 +18,7 @@ package com.epam.ta.reportportal.ws.model.user;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.NotBlank;
 
 /**
@@ -30,7 +29,7 @@ public class RestorePasswordRQ {
 
 	@NotBlank
 	@JsonProperty(value = "email")
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private String email;
 
 	public String getEmail() {

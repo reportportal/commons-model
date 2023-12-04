@@ -16,29 +16,28 @@
 
 package com.epam.ta.reportportal.ws.model.launch;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
+
 import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
 import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.Date;
+import java.util.Set;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.Set;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
 
 @JsonInclude(Include.NON_NULL)
 public class MergeLaunchesRQ {
 
 	@NotBlankWithSize(min = ValidationConstraints.MIN_LAUNCH_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private String name;
 
 	@JsonProperty(value = "description")
@@ -50,7 +49,7 @@ public class MergeLaunchesRQ {
 	private Set<ItemAttributeResource> attributes;
 
 	@JsonProperty(value = "startTime")
-	@ApiModelProperty
+	@Schema
 	private Date startTime;
 
 	@JsonProperty("mode")
@@ -58,16 +57,16 @@ public class MergeLaunchesRQ {
 
 	@NotEmpty
 	@JsonProperty(value = "launches", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private Set<Long> launches;
 
 	@JsonProperty(value = "endTime")
-	@ApiModelProperty
+	@Schema
 	private Date endTime;
 
 	@NotNull
 	@JsonProperty("mergeType")
-	@ApiModelProperty(allowableValues = "BASIC, DEEP")
+	@Schema(allowableValues = "BASIC, DEEP")
 	private String mergeStrategyType;
 
 	@JsonProperty(value = "extendSuitesDescription", required = true)

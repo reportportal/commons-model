@@ -23,10 +23,9 @@ import com.epam.ta.reportportal.ws.model.dashboard.DashboardResource.WidgetObjec
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.Valid;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
+import javax.validation.Valid;
 
 /**
  * Domain object for updating widget positions.
@@ -38,7 +37,7 @@ public class UpdateDashboardRQ extends BaseEntityRQ {
 
 	@NotBlankWithSize(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_DASHBOARD_NAME_LENGTH)
 	@JsonProperty(value = "name", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(required = true)
 	private String name;
 
 	@Valid

@@ -16,17 +16,16 @@
 
 package com.epam.ta.reportportal.ws.model.launch;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
+
 import com.epam.ta.reportportal.ws.model.attribute.ItemAttributeResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.Set;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-import java.util.Set;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
 
 /**
  * Domain object for updating launch object.
@@ -37,7 +36,7 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAME
 public class UpdateLaunchRQ {
 
 	@JsonProperty("mode")
-	@ApiModelProperty(allowableValues = "DEFAULT, DEBUG")
+	@Schema(allowableValues = "DEFAULT, DEBUG")
 	private Mode mode;
 
 	@JsonProperty("description")

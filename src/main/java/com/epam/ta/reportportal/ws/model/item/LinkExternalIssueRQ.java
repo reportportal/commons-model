@@ -19,12 +19,11 @@ package com.epam.ta.reportportal.ws.model.item;
 import com.epam.ta.reportportal.ws.model.issue.Issue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 /**
  * Request model for add link to external system issue
@@ -39,7 +38,7 @@ public class LinkExternalIssueRQ extends ExternalIssueRQ {
 	@Valid
 	@Size(max = 300)
 	@JsonProperty(value = "issues")
-	@ApiModelProperty(reference = "Issue.ExternalSystemIssue")
+	@Schema(reference = "Issue.ExternalSystemIssue")
 	private List<Issue.ExternalSystemIssue> issues;
 
 	public void setIssues(List<Issue.ExternalSystemIssue> values) {
