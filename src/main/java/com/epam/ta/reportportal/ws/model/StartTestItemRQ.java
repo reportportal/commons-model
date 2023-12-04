@@ -34,7 +34,6 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.List;
@@ -63,7 +62,6 @@ public class StartTestItemRQ extends StartRQ {
 	@NotNull
 	@JsonAlias({ "launchUuid", "launch_id" })
 	@Schema(description  = "UUID of parent launch", required = true)
-	@ApiModelProperty
 	private String launchUuid;
 
 	@NotNull

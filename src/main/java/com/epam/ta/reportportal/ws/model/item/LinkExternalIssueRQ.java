@@ -38,7 +38,7 @@ public class LinkExternalIssueRQ extends ExternalIssueRQ {
 	@Valid
 	@Size(max = 300)
 	@JsonProperty(value = "issues")
-	@Schema(reference = "Issue.ExternalSystemIssue")
+	@Schema(implementation = Issue.ExternalSystemIssue.class)
 	private List<Issue.ExternalSystemIssue> issues;
 
 	public void setIssues(List<Issue.ExternalSystemIssue> values) {

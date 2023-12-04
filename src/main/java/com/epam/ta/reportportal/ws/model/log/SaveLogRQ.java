@@ -37,7 +37,7 @@ public class SaveLogRQ {
 	private String uuid;
 
 	@JsonAlias({ "itemUuid", "item_id" })
-	@Schema(value = "UUID of test item owned this log")
+	@Schema(description = "UUID of test item owned this log")
 	private String itemUuid;
 
 	@JsonProperty(value = "launchUuid")

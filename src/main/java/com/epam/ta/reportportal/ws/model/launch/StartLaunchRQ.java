@@ -34,7 +34,7 @@ public class StartLaunchRQ extends StartRQ {
 	private boolean rerun;
 
 	@JsonProperty("rerunOf")
-	@Schema(value = "UUID of desired launch to rerun")
+	@Schema(description = "UUID of desired launch to rerun")
 	private String rerunOf;
 
 	@Override
