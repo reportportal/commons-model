@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import java.util.Objects;
 import javax.validation.constraints.NotNull;
 
@@ -33,7 +34,7 @@ public class SearchCriteria {
 
   @NotNull
   @JsonProperty(value = "filter_key", required = true)
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String filterKey;
 
   @JsonProperty(value = "operation")
@@ -42,7 +43,7 @@ public class SearchCriteria {
 
   @NotNull
   @JsonProperty(value = "value", required = true)
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String value;
 
   public SearchCriteria() {

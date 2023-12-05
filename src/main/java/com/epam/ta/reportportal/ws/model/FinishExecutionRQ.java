@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import java.util.Date;
 import java.util.Set;
 import javax.validation.Valid;
@@ -43,7 +44,7 @@ public class FinishExecutionRQ {
 	@NotNull
 	@JsonProperty(value = "endTime", required = true)
 	@JsonAlias({ "endTime", "end_time" })
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private Date endTime;
 
 	@JsonProperty(value = "status")

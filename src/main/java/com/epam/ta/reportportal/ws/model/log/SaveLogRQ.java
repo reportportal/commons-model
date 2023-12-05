@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import java.util.Arrays;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -41,12 +42,12 @@ public class SaveLogRQ {
 	private String itemUuid;
 
 	@JsonProperty(value = "launchUuid")
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String launchUuid;
 
 	@NotNull
 	@JsonProperty(value = "time", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private Date logTime;
 
 	@JsonProperty(value = "message")

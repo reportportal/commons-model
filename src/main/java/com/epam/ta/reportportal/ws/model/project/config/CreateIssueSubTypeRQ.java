@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -37,25 +38,25 @@ public class CreateIssueSubTypeRQ {
 
 	@NotBlank
 	@JsonProperty(value = "typeRef", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String typeRef;
 
 	@NotBlank
 	@Size(min = ValidationConstraints.MIN_SUBTYPE_LONG_NAME, max = ValidationConstraints.MAX_SUBTYPE_LONG_NAME)
 	@JsonProperty(value = "longName", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String longName;
 
 	@NotBlank
 	@Size(min = ValidationConstraints.MIN_SUBTYPE_SHORT_NAME, max = ValidationConstraints.MAX_SUBTYPE_SHORT_NAME)
 	@JsonProperty(value = "shortName", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String shortName;
 
 	@NotBlank
 	@Pattern(regexp = HEX_COLOR_REGEXP)
 	@JsonProperty(value = "color", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String color;
 
 	public void setTypeRef(String typeRef) {

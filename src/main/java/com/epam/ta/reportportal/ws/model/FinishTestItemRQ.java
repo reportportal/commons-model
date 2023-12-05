@@ -34,7 +34,7 @@ public class FinishTestItemRQ extends FinishExecutionRQ {
 	private Boolean retry;
 
 	@JsonProperty(value = "launchUuid")
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String launchUuid;
 
 	@JsonProperty(value = "testCaseId")

@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 
@@ -33,37 +34,37 @@ public class ActivityResource {
 
 	@NotNull
 	@JsonProperty(value = "id", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private Long id;
 
 	@NotNull
 	@JsonProperty(value = "user", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String user;
 
 	@NotNull
 	@JsonProperty(value = "loggedObjectId", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private Long loggedObjectId;
 
 	@NotNull
 	@JsonProperty(value = "lastModified", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private Date lastModified;
 
 	@NotNull
 	@JsonProperty(value = "actionType", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String actionType;
 
 	@NotNull
 	@JsonProperty(value = "objectType", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String objectType;
 
 	@NotNull
 	@JsonProperty(value = "projectId", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private Long projectId;
 
 	@JsonProperty(value = "projectName")

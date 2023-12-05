@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -36,12 +37,12 @@ public class UpdateOneIssueSubTypeRQ {
 
 	@NotBlank
 	@JsonProperty(value = "locator", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String locator;
 
 	@NotBlank
 	@JsonProperty(value = "typeRef", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String typeRef;
 
 	@NotBlank

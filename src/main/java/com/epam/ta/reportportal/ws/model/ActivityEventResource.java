@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import lombok.Builder;
@@ -42,7 +43,7 @@ public class ActivityEventResource {
 
   @NotNull
   @JsonProperty(value = "id", required = true)
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private Long id;
 
   @NotNull
@@ -52,44 +53,44 @@ public class ActivityEventResource {
 
   @NotNull
   @JsonProperty(value = "event_name", required = true)
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String eventName;
 
   @JsonProperty(value = "object_id")
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private Long objectId;
 
   @NotNull
   @JsonProperty(value = "object_name", required = true)
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String objectName;
 
   @NotNull
   @JsonProperty(value = "object_type", required = true)
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String objectType;
 
   @JsonProperty(value = "project_id")
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private Long projectId;
 
   @JsonProperty(value = "project_name")
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String projectName;
 
   @NotNull
   @JsonProperty(value = "subject_name", required = true)
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String subjectName;
 
   @NotNull
   @JsonProperty(value = "subject_type", required = true)
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String subjectType;
 
   @NotNull
   @JsonProperty(value = "subject_id", required = true)
-  @Schema(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String subjectId;
 
   @JsonProperty(value = "details")

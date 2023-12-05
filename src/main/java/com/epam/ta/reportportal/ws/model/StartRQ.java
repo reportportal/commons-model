@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import java.util.Date;
 import java.util.Set;
 import javax.validation.Valid;
@@ -39,7 +40,7 @@ import javax.validation.constraints.Size;
 public class StartRQ {
 
 	@JsonProperty(value = "name", required = true)
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	protected String name;
 
 	@JsonProperty(value = "description")
@@ -54,7 +55,7 @@ public class StartRQ {
 	@NotNull
 	@JsonProperty(required = true)
 	@JsonAlias({ "startTime", "start_time" })
-	@Schema(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private Date startTime;
 
 	@Schema(hidden = true)
