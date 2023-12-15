@@ -16,7 +16,9 @@
 
 package com.epam.ta.reportportal.ws.model.launch;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_NAME_LENGTH;
 import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_LAUNCH_NAME_LENGTH;
 
 import com.epam.ta.reportportal.ws.model.attribute.ItemAttributesRQ;
 import com.fasterxml.jackson.annotation.JsonAlias;
@@ -36,6 +38,7 @@ public class LaunchImportRQ {
 
   @JsonProperty(value = "name")
   @ApiModelProperty
+  @Size(min = MIN_LAUNCH_NAME_LENGTH, max = MAX_NAME_LENGTH)
   protected String name;
 
   @JsonProperty(value = "description")
