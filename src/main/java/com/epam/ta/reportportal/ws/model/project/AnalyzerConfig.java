@@ -51,8 +51,8 @@ public class AnalyzerConfig {
 	private Boolean isAutoAnalyzerEnabled;
 
 	@JsonProperty(value = "analyzerMode")
-	@In(allowedValues = { "all", "launch_name", "current_launch" })
-	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME")
+	@In(allowedValues = { "all", "launch_name", "current_launch", "previous_launch", "current_and_the_same_name" })
+	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME, CURRENT_LAUNCH, PREVIOUS_LAUNCH, CURRENT_AND_THE_SAME_NAME")
 	private String analyzerMode;
 
 	@JsonProperty(value = "indexingRunning")
