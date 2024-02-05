@@ -16,20 +16,20 @@
 
 package com.epam.ta.reportportal.ws.model;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
+
 import com.epam.ta.reportportal.ws.model.attribute.ItemAttributesRQ;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
+import java.time.LocalDateTime;
+import java.util.Set;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.Set;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAMETERS_LENGTH;
+import lombok.Data;
 
 /**
  * Base entity for start requests
@@ -37,6 +37,7 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_PARAME
  * @author Andrei Varabyeu
  */
 @JsonInclude(Include.NON_NULL)
+@Data
 public class StartRQ {
 
 	@JsonProperty(value = "name", required = true)
@@ -56,62 +57,11 @@ public class StartRQ {
 	@JsonProperty(required = true)
 	@JsonAlias({ "startTime", "start_time" })
 	@ApiModelProperty(required = true)
-	private Date startTime;
+	private LocalDateTime startTime;
 
 	@ApiModelProperty(hidden = true)
 	@JsonProperty(value = "uuid")
 	private String uuid;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Set<ItemAttributesRQ> getAttributes() {
-		return attributes;
-	}
-
-	public void setAttributes(Set<ItemAttributesRQ> attributes) {
-		this.attributes = attributes;
-	}
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
-
-	public Date getStartTime() {
-		return startTime;
-	}
-
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
-	}
-
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("StartRQ{");
-		sb.append("name='").append(name).append('\'');
-		sb.append(", description='").append(description).append('\'');
-		sb.append(", attributes=").append(attributes);
-		sb.append(", startTime=").append(startTime);
-		sb.append('}');
-		return sb.toString();
-	}
 
 	@Override
 	public boolean equals(Object o) {

@@ -23,15 +23,16 @@ import com.epam.ta.reportportal.ws.model.statistics.StatisticsResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.time.LocalDateTime;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * JSON Representation of Report Portal's Launch domain object
@@ -39,229 +40,68 @@ import java.util.Set;
  * @author Andrei Varabyeu
  */
 @JsonInclude(Include.NON_NULL)
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class LaunchResource extends OwnedResource {
 
-	@NotNull
-	@JsonProperty(value = "id", required = true)
-	private Long launchId;
+  @NotNull
+  @JsonProperty(value = "id", required = true)
+  private Long launchId;
 
-	@NotBlank
-	@JsonProperty(value = "uuid", required = true)
-	private String uuid;
+  @NotBlank
+  @JsonProperty(value = "uuid", required = true)
+  private String uuid;
 
-	@NotBlank
-	@Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
-	@JsonProperty(value = "name", required = true)
-	private String name;
+  @NotBlank
+  @Size(min = ValidationConstraints.MIN_NAME_LENGTH, max = ValidationConstraints.MAX_NAME_LENGTH)
+  @JsonProperty(value = "name", required = true)
+  private String name;
 
-	@NotNull
-	@JsonProperty(value = "number", required = true)
-	private Long number;
+  @NotNull
+  @JsonProperty(value = "number", required = true)
+  private Long number;
 
-	@JsonProperty(value = "description")
-	@Size(max = ValidationConstraints.MAX_LAUNCH_DESCRIPTION_LENGTH)
-	private String description;
+  @JsonProperty(value = "description")
+  @Size(max = ValidationConstraints.MAX_LAUNCH_DESCRIPTION_LENGTH)
+  private String description;
 
-	@NotNull
-	@JsonProperty(value = "startTime", required = true)
-	private Date startTime;
+  @NotNull
+  @JsonProperty(value = "startTime", required = true)
+  private LocalDateTime startTime;
 
-	@JsonProperty(value = "endTime")
-	private Date endTime;
+  @JsonProperty(value = "endTime")
+  private LocalDateTime endTime;
 
-	@JsonProperty(value = "lastModified")
-	private Date lastModified;
+  @JsonProperty(value = "lastModified")
+  private LocalDateTime lastModified;
 
-	@NotNull
-	@JsonProperty(value = "status", required = true)
-	private String status;
+  @NotNull
+  @JsonProperty(value = "status", required = true)
+  private String status;
 
-	@JsonProperty(value = "statistics")
-	@Valid
-	private StatisticsResource statisticsResource;
+  @JsonProperty(value = "statistics")
+  @Valid
+  private StatisticsResource statisticsResource;
 
-	@JsonProperty(value = "attributes")
-	private Set<ItemAttributeResource> attributes;
+  @JsonProperty(value = "attributes")
+  private Set<ItemAttributeResource> attributes;
 
-	@JsonProperty(value = "mode")
-	private Mode mode;
+  @JsonProperty(value = "mode")
+  private Mode mode;
 
-	@JsonProperty(value = "analysing")
-	private Set<String> analyzers = new LinkedHashSet<>();
+  @JsonProperty(value = "analysing")
+  private Set<String> analyzers = new LinkedHashSet<>();
 
-	@JsonProperty(value = "approximateDuration")
-	private double approximateDuration;
+  @JsonProperty(value = "approximateDuration")
+  private double approximateDuration;
 
-	@JsonProperty(value = "hasRetries")
-	private boolean hasRetries;
+  @JsonProperty(value = "hasRetries")
+  private boolean hasRetries;
 
-	@JsonProperty(value = "rerun")
-	private boolean rerun;
+  @JsonProperty(value = "rerun")
+  private boolean rerun;
 
-	@JsonProperty(value = "metadata")
-	private Map<String, Object> metadata;
+  @JsonProperty(value = "metadata")
+  private Map<String, Object> metadata;
 
-	public double getApproximateDuration() {
-		return approximateDuration;
-	}
-
-	public void setApproximateDuration(double approximateDuration) {
-		this.approximateDuration = approximateDuration;
-	}
-
-	public Long getLaunchId() {
-		return launchId;
-	}
-
-	public void setLaunchId(Long launchId) {
-		this.launchId = launchId;
-	}
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Long getNumber() {
-		return number;
-	}
-
-	public void setNumber(Long number) {
-		this.number = number;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Date getStartTime() {
-		return startTime;
-	}
-
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
-	}
-
-	public Date getEndTime() {
-		return endTime;
-	}
-
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
-	}
-
-	public Date getLastModified() {
-		return lastModified;
-	}
-
-	public void setLastModified(Date lastModified) {
-		this.lastModified = lastModified;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public StatisticsResource getStatisticsResource() {
-		return statisticsResource;
-	}
-
-	public void setStatisticsResource(StatisticsResource statisticsResource) {
-		this.statisticsResource = statisticsResource;
-	}
-
-	public Set<ItemAttributeResource> getAttributes() {
-		return attributes;
-	}
-
-	public void setAttributes(Set<ItemAttributeResource> attributes) {
-		this.attributes = attributes;
-	}
-
-	public Mode getMode() {
-		return mode;
-	}
-
-	public void setMode(Mode mode) {
-		this.mode = mode;
-	}
-
-	public Set<String> getAnalyzers() {
-		return analyzers;
-	}
-
-	public void setAnalyzers(Set<String> analyzers) {
-		this.analyzers = analyzers;
-	}
-
-	public boolean isHasRetries() {
-		return hasRetries;
-	}
-
-	public boolean getHasRetries() {
-		return hasRetries;
-	}
-
-	public void setHasRetries(boolean hasRetries) {
-		this.hasRetries = hasRetries;
-	}
-
-	public boolean isRerun() {
-		return rerun;
-	}
-
-	public void setRerun(boolean rerun) {
-		this.rerun = rerun;
-	}
-
-	public Map<String, Object> getMetadata() {
-		return metadata;
-	}
-
-	public void setMetadata(Map<String, Object> metadata) {
-		this.metadata = metadata;
-	}
-
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("LaunchResource{");
-		sb.append("launchId=").append(launchId);
-		sb.append(", uuid='").append(uuid).append('\'');
-		sb.append(", name='").append(name).append('\'');
-		sb.append(", number=").append(number);
-		sb.append(", description='").append(description).append('\'');
-		sb.append(", startTime=").append(startTime);
-		sb.append(", endTime=").append(endTime);
-		sb.append(", lastModified=").append(lastModified);
-		sb.append(", status='").append(status).append('\'');
-		sb.append(", statisticsResource=").append(statisticsResource);
-		sb.append(", attributes=").append(attributes);
-		sb.append(", mode=").append(mode);
-		sb.append(", analyzers=").append(analyzers);
-		sb.append(", approximateDuration=").append(approximateDuration);
-		sb.append(", hasRetries=").append(hasRetries);
-		sb.append(", rerun=").append(rerun);
-		sb.append(", metadata=").append(metadata);
-		sb.append('}');
-		return sb.toString();
-	}
 }
