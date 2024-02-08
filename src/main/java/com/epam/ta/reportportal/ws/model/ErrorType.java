@@ -189,6 +189,11 @@ public enum ErrorType {
 	 */
 	CLUSTER_NOT_FOUND(40428, "Cluster '{}' not found"),
 
+  /**
+   * If specified by id Organization not found
+   */
+  ORGANIZATION_NOT_FOUND(40429, "Organization '{}' not found. Did you use correct Organization ID?"),
+
 	/**
 	 * Common error in case if object not found
 	 */
