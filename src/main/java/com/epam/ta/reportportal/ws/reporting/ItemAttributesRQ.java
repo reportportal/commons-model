@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model.attribute;
+package com.epam.ta.reportportal.ws.reporting;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;

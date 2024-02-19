@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
 
-package com.epam.ta.reportportal.ws.model.launch;
+package com.epam.ta.reportportal.ws.reporting;
 
 /**
  * Defile possible executing modes. Executing mode specify visibility of launch.

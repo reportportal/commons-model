@@ -18,6 +18,7 @@ package com.epam.ta.reportportal.ws.model.attribute;
 
 import com.epam.ta.reportportal.ws.model.BulkInfoUpdateRQ;
 
+import com.epam.ta.reportportal.ws.reporting.ItemAttributeResource;
 import javax.validation.Valid;
 
 /**

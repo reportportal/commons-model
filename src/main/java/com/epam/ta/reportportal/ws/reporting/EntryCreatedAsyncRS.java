@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model;
+package com.epam.ta.reportportal.ws.reporting;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

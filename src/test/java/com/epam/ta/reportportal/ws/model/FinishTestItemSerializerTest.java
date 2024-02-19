@@ -16,8 +16,9 @@
 
 package com.epam.ta.reportportal.ws.model;
 
-import com.epam.ta.reportportal.ws.model.attribute.ItemAttributesRQ;
+import com.epam.ta.reportportal.ws.reporting.ItemAttributesRQ;
 import com.epam.ta.reportportal.ws.model.issue.Issue;
+import com.epam.ta.reportportal.ws.reporting.FinishTestItemRQ;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

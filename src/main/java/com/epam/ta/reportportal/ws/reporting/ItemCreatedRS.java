@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.epam.ta.reportportal.ws.model.item;
+package com.epam.ta.reportportal.ws.reporting;
 
-import com.epam.ta.reportportal.ws.model.EntryCreatedAsyncRS;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**

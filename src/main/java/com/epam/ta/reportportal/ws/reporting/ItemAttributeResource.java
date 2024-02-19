@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.epam.ta.reportportal.ws.model.attribute;
+package com.epam.ta.reportportal.ws.reporting;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
