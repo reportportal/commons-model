@@ -19,7 +19,6 @@ package com.epam.ta.reportportal.ws.model.project;
 import com.epam.ta.reportportal.ws.annotations.In;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiParam;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.Max;
@@ -31,6 +30,7 @@ import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
  * @author Pavel Bortnik
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Schema
 public class AnalyzerConfig {
 
 	@Min(value = MIN_SHOULD_MATCH)
@@ -56,7 +56,7 @@ public class AnalyzerConfig {
 	private String analyzerMode;
 
 	@JsonProperty(value = "indexingRunning")
-	@ApiParam(hidden = true)
+	@Schema(hidden = true)
 	private boolean indexingRunning;
 
 	@JsonProperty(value = "allMessagesShouldMatch")

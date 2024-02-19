@@ -16,7 +16,6 @@
 
 package com.epam.ta.reportportal.ws.model.attribute;
 
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serializable;
 

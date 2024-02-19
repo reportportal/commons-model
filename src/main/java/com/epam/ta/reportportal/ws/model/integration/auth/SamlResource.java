@@ -18,15 +18,15 @@ package com.epam.ta.reportportal.ws.model.integration.auth;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.NotEmpty;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 
-@ApiModel
+@Schema
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SamlResource extends AbstractAuthResource {
 
