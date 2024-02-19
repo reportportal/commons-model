@@ -19,6 +19,7 @@ package com.epam.ta.reportportal.ws.model.settings;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
@@ -56,10 +57,12 @@ public class OAuthRegistrationResource implements Serializable {
 
 	@Pattern(regexp = URL_PATTERN)
 	@JsonProperty(value = "authorizationUri")
+	@Schema(type = "string", pattern = URL_PATTERN, example = "string")
 	private String authorizationUri;
 
 	@Pattern(regexp = URL_PATTERN)
 	@JsonProperty(value = "tokenUri")
+	@Schema(type = "string", pattern = URL_PATTERN, example = "string")
 	private String tokenUri;
 
 	@JsonProperty(value = "userInfoEndpointUri")

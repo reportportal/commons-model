@@ -21,8 +21,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import javax.validation.constraints.NotNull;
 import java.util.Arrays;
 import java.util.Date;
@@ -38,23 +39,23 @@ public class SaveLogRQ {
 	private String uuid;
 
 	@JsonAlias({ "itemUuid", "item_id" })
-	@ApiModelProperty(value = "UUID of test item owned this log")
+	@Schema(description = "UUID of test item owned this log")
 	private String itemUuid;
 
 	@JsonProperty(value = "launchUuid")
-	@ApiModelProperty(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private String launchUuid;
 
 	@NotNull
 	@JsonProperty(value = "time", required = true)
-	@ApiModelProperty(required = true)
+	@Schema(requiredMode = RequiredMode.REQUIRED)
 	private Date logTime;
 
 	@JsonProperty(value = "message")
 	private String message;
 
 	@JsonProperty(value = "level")
-	@ApiModelProperty(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
+	@Schema(allowableValues = "error, warn, info, debug, trace, fatal, unknown")
 	private String level;
 
 	@JsonProperty(value = "file")
