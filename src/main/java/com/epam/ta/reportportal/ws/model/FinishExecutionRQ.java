@@ -24,6 +24,9 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -44,13 +47,13 @@ public class FinishExecutionRQ {
   @NotNull
   @JsonProperty(value = "endTime", required = true)
   @JsonAlias({"endTime", "end_time"})
-  @ApiModelProperty(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private LocalDateTime endTime;
 
   @JsonProperty(value = "status")
   @In(allowedValues = {"passed", "failed", "stopped", "skipped", "interrupted", "cancelled", "info",
       "warn"})
-  @ApiModelProperty(allowableValues = "PASSED, FAILED, STOPPED, SKIPPED, INTERRUPTED, CANCELLED, INFO, WARN")
+  @Schema(allowableValues = "PASSED, FAILED, STOPPED, SKIPPED, INTERRUPTED, CANCELLED, INFO, WARN")
   private String status;
 
   @JsonProperty(value = "description")

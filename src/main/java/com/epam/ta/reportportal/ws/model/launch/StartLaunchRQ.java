@@ -22,7 +22,7 @@ import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 @JsonInclude(Include.NON_NULL)
 public class StartLaunchRQ extends StartRQ {
@@ -34,7 +34,7 @@ public class StartLaunchRQ extends StartRQ {
 	private boolean rerun;
 
 	@JsonProperty("rerunOf")
-	@ApiModelProperty(value = "UUID of desired launch to rerun")
+	@Schema(description = "UUID of desired launch to rerun")
 	private String rerunOf;
 
 	@Override

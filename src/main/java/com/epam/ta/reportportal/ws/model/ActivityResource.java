@@ -19,7 +19,8 @@ package com.epam.ta.reportportal.ws.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
 import java.time.LocalDateTime;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -35,37 +36,37 @@ public class ActivityResource {
 
   @NotNull
   @JsonProperty(value = "id", required = true)
-  @ApiModelProperty(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private Long id;
 
   @NotNull
   @JsonProperty(value = "user", required = true)
-  @ApiModelProperty(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String user;
 
   @NotNull
   @JsonProperty(value = "loggedObjectId", required = true)
-  @ApiModelProperty(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private Long loggedObjectId;
 
   @NotNull
   @JsonProperty(value = "lastModified", required = true)
-  @ApiModelProperty(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private LocalDateTime lastModified;
 
   @NotNull
   @JsonProperty(value = "actionType", required = true)
-  @ApiModelProperty(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String actionType;
 
   @NotNull
   @JsonProperty(value = "objectType", required = true)
-  @ApiModelProperty(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private String objectType;
 
   @NotNull
   @JsonProperty(value = "projectId", required = true)
-  @ApiModelProperty(required = true)
+  @Schema(requiredMode = RequiredMode.REQUIRED)
   private Long projectId;
 
   @JsonProperty(value = "projectName")
