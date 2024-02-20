@@ -16,7 +16,7 @@
 
 package com.epam.ta.reportportal.ws.model.attribute;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serializable;
 
 /**
@@ -24,7 +24,7 @@ import java.io.Serializable;
  */
 public class ItemAttributesRQ extends ItemAttributeResource implements Serializable {
 
-	@ApiModelProperty(example = "false")
+	@Schema(example = "false")
 	private boolean system;
 
 	public ItemAttributesRQ() {
