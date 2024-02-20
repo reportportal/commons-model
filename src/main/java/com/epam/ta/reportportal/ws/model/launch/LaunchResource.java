@@ -23,7 +23,7 @@ import com.epam.ta.reportportal.ws.model.statistics.StatisticsResource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -67,13 +67,13 @@ public class LaunchResource extends OwnedResource {
 
   @NotNull
   @JsonProperty(value = "startTime", required = true)
-  private LocalDateTime startTime;
+  private Instant startTime;
 
   @JsonProperty(value = "endTime")
-  private LocalDateTime endTime;
+  private Instant endTime;
 
   @JsonProperty(value = "lastModified")
-  private LocalDateTime lastModified;
+  private Instant lastModified;
 
   @NotNull
   @JsonProperty(value = "status", required = true)

@@ -18,7 +18,7 @@ package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.Objects;
 import java.util.Set;
 
@@ -38,7 +38,7 @@ public class IndexTestItem {
     @JsonProperty("issueType")
     private String issueTypeLocator;
 
-    private LocalDateTime startTime;
+    private Instant startTime;
 
     @JsonProperty("logs")
     private Set<IndexLog> logs;
@@ -88,11 +88,11 @@ public class IndexTestItem {
         this.issueTypeLocator = issueTypeLocator;
     }
 
-    public LocalDateTime getStartTime() {
+    public Instant getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
+    public void setStartTime(Instant startTime) {
         this.startTime = startTime;
     }
 

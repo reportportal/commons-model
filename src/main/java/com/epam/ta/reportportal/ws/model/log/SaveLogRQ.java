@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
-import java.time.LocalDateTime;
+import java.time.Instant;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.Getter;
@@ -52,7 +52,7 @@ public class SaveLogRQ {
   @NotNull
   @JsonProperty(value = "time", required = true)
   @Schema(requiredMode = RequiredMode.REQUIRED)
-  private LocalDateTime logTime;
+  private Instant logTime;
 
   @JsonProperty(value = "message")
   private String message;

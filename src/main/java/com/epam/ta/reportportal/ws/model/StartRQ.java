@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.Set;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -58,7 +58,7 @@ public class StartRQ {
 	@JsonProperty(required = true)
 	@JsonAlias({ "startTime", "start_time" })
 	@Schema(requiredMode = RequiredMode.REQUIRED)
-	private LocalDateTime startTime;
+	private Instant startTime;
 
 	@Schema(hidden = true)
 	@JsonProperty(value = "uuid")

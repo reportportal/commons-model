@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
-import java.time.LocalDateTime;
+import java.time.Instant;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -52,7 +52,7 @@ public class ActivityResource {
   @NotNull
   @JsonProperty(value = "lastModified", required = true)
   @Schema(requiredMode = RequiredMode.REQUIRED)
-  private LocalDateTime lastModified;
+  private Instant lastModified;
 
   @NotNull
   @JsonProperty(value = "actionType", required = true)
