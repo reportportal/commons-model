@@ -37,51 +37,51 @@ import lombok.ToString;
 @ToString
 public class ActivityResource {
 
-	@NotNull
-	@JsonProperty(value = "id", required = true)
-	@ApiModelProperty(required = true)
-	private Long id;
+  @NotNull
+  @JsonProperty(value = "id", required = true)
+  @ApiModelProperty(required = true)
+  private Long id;
 
-	@NotNull
-	@JsonProperty(value = "user", required = true)
-	@ApiModelProperty(required = true)
-	private String user;
+  @NotNull
+  @JsonProperty(value = "user", required = true)
+  @ApiModelProperty(required = true)
+  private String user;
 
-	@NotNull
-	@JsonProperty(value = "loggedObjectId", required = true)
-	@ApiModelProperty(required = true)
-	private Long loggedObjectId;
+  @NotNull
+  @JsonProperty(value = "loggedObjectId", required = true)
+  @ApiModelProperty(required = true)
+  private Long loggedObjectId;
 
-	@NotNull
-	@JsonProperty(value = "lastModified", required = true)
-	@ApiModelProperty(required = true)
-	private Date lastModified;
+  @NotNull
+  @JsonProperty(value = "lastModified", required = true)
+  @ApiModelProperty(required = true)
+  private Date lastModified;
 
-	@NotNull
-	@JsonProperty(value = "actionType", required = true)
-	@ApiModelProperty(required = true)
-	private String actionType;
+  @NotNull
+  @JsonProperty(value = "actionType", required = true)
+  @ApiModelProperty(required = true)
+  private String actionType;
 
-	@NotNull
-	@JsonProperty(value = "objectType", required = true)
-	@ApiModelProperty(required = true)
-	private String objectType;
+  @NotNull
+  @JsonProperty(value = "objectType", required = true)
+  @ApiModelProperty(required = true)
+  private String objectType;
 
-	@NotNull
-	@JsonProperty(value = "projectId", required = true)
-	@ApiModelProperty(required = true)
-	private Long projectId;
+  @NotNull
+  @JsonProperty(value = "projectId", required = true)
+  @ApiModelProperty(required = true)
+  private Long projectId;
 
-	@JsonProperty(value = "projectName")
-	private String projectName;
+  @JsonProperty(value = "projectName")
+  private String projectName;
 
   @JsonProperty(value = "projectKey")
   private String projectKey;
 
-	@JsonProperty(value = "details")
-	private Object details;
+  @JsonProperty(value = "details")
+  private Object details;
 
-	@JsonProperty(value = "objectName")
-	private String objectName;
+  @JsonProperty(value = "objectName")
+  private String objectName;
 
 }
