@@ -16,7 +16,6 @@
  
 package com.epam.ta.reportportal.ws.reporting;
 
-import com.epam.ta.reportportal.ws.model.BatchElementCreatedRS;
 import java.util.ArrayList;
 import java.util.List;
 
