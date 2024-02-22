@@ -16,6 +16,8 @@
  
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.reporting.ErrorRS;
+import com.epam.ta.reportportal.ws.reporting.ErrorType;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

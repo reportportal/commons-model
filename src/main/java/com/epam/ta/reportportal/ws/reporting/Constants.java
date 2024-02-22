@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
  
-package com.epam.ta.reportportal.ws.model;
+package com.epam.ta.reportportal.ws.reporting;
 
 /**
  * Set of Constant values related to Report Portal requests/responses

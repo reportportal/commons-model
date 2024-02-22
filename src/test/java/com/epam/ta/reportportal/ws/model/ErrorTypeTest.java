@@ -15,6 +15,7 @@
  */ 
 package com.epam.ta.reportportal.ws.model;
 
+import com.epam.ta.reportportal.ws.reporting.ErrorType;
 import org.junit.Assert;
 import org.junit.Test;
 
