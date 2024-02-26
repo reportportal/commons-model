@@ -16,16 +16,17 @@
 
 package com.epam.ta.reportportal.ws.model.project;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_SHOULD_MATCH;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_NUMBER_OF_LOG_LINES;
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_SHOULD_MATCH;
+
 import com.epam.ta.reportportal.ws.annotations.In;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 
 /**
  * @author Pavel Bortnik

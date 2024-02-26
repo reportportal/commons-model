@@ -17,8 +17,6 @@
 package com.epam.ta.reportportal.ws.model.attribute;
 
 import com.epam.ta.reportportal.ws.model.BulkInfoUpdateRQ;
-
-import com.epam.ta.reportportal.ws.reporting.ItemAttributeResource;
 import javax.validation.Valid;
 
 /**
@@ -26,35 +24,35 @@ import javax.validation.Valid;
  */
 public class UpdateItemAttributeRQ {
 
-	@Valid
-	private ItemAttributeResource from;
+  @Valid
+  private ItemAttributeResource from;
 
-	@Valid
-	private ItemAttributeResource to;
+  @Valid
+  private ItemAttributeResource to;
 
-	private BulkInfoUpdateRQ.Action action;
+  private BulkInfoUpdateRQ.Action action;
 
-	public ItemAttributeResource getFrom() {
-		return from;
-	}
+  public ItemAttributeResource getFrom() {
+    return from;
+  }
 
-	public void setFrom(ItemAttributeResource from) {
-		this.from = from;
-	}
+  public void setFrom(ItemAttributeResource from) {
+    this.from = from;
+  }
 
-	public ItemAttributeResource getTo() {
-		return to;
-	}
+  public ItemAttributeResource getTo() {
+    return to;
+  }
 
-	public void setTo(ItemAttributeResource to) {
-		this.to = to;
-	}
+  public void setTo(ItemAttributeResource to) {
+    this.to = to;
+  }
 
-	public BulkInfoUpdateRQ.Action getAction() {
-		return action;
-	}
+  public BulkInfoUpdateRQ.Action getAction() {
+    return action;
+  }
 
-	public void setAction(BulkInfoUpdateRQ.Action action) {
-		this.action = action;
-	}
+  public void setAction(BulkInfoUpdateRQ.Action action) {
+    this.action = action;
+  }
 }
