@@ -16,22 +16,21 @@
 
 package com.epam.ta.reportportal.ws.model.project;
 
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MAX_SHOULD_MATCH;
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_NUMBER_OF_LOG_LINES;
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_SHOULD_MATCH;
-
 import com.epam.ta.reportportal.ws.annotations.In;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiParam;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.*;
 
 /**
  * @author Pavel Bortnik
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Schema
 public class AnalyzerConfig {
 
 	@Min(value = MIN_SHOULD_MATCH)
@@ -53,11 +52,11 @@ public class AnalyzerConfig {
 
 	@JsonProperty(value = "analyzerMode")
 	@In(allowedValues = { "all", "launch_name", "current_launch", "previous_launch", "current_and_the_same_name" })
-	@ApiModelProperty(allowableValues = "ALL, LAUNCH_NAME, CURRENT_LAUNCH, PREVIOUS_LAUNCH, CURRENT_AND_THE_SAME_NAME")
+	@Schema(allowableValues = "ALL, LAUNCH_NAME, CURRENT_LAUNCH, PREVIOUS_LAUNCH, CURRENT_AND_THE_SAME_NAME")
 	private String analyzerMode;
 
 	@JsonProperty(value = "indexingRunning")
-	@ApiParam(hidden = true)
+	@Schema(hidden = true)
 	private boolean indexingRunning;
 
 	@JsonProperty(value = "allMessagesShouldMatch")
