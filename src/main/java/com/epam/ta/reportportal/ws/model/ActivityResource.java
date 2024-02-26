@@ -22,6 +22,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * JSON Representation of Report Portal's Activity domain object.
@@ -29,144 +32,56 @@ import javax.validation.constraints.NotNull;
  * @see <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS Description</a>
  */
 @JsonInclude(Include.NON_NULL)
+@Getter
+@Setter
+@ToString
 public class ActivityResource {
 
-	@NotNull
-	@JsonProperty(value = "id", required = true)
-	@ApiModelProperty(required = true)
-	private Long id;
+  @NotNull
+  @JsonProperty(value = "id", required = true)
+  @ApiModelProperty(required = true)
+  private Long id;
 
-	@NotNull
-	@JsonProperty(value = "user", required = true)
-	@ApiModelProperty(required = true)
-	private String user;
+  @NotNull
+  @JsonProperty(value = "user", required = true)
+  @ApiModelProperty(required = true)
+  private String user;
 
-	@NotNull
-	@JsonProperty(value = "loggedObjectId", required = true)
-	@ApiModelProperty(required = true)
-	private Long loggedObjectId;
+  @NotNull
+  @JsonProperty(value = "loggedObjectId", required = true)
+  @ApiModelProperty(required = true)
+  private Long loggedObjectId;
 
-	@NotNull
-	@JsonProperty(value = "lastModified", required = true)
-	@ApiModelProperty(required = true)
-	private Date lastModified;
+  @NotNull
+  @JsonProperty(value = "lastModified", required = true)
+  @ApiModelProperty(required = true)
+  private Date lastModified;
 
-	@NotNull
-	@JsonProperty(value = "actionType", required = true)
-	@ApiModelProperty(required = true)
-	private String actionType;
+  @NotNull
+  @JsonProperty(value = "actionType", required = true)
+  @ApiModelProperty(required = true)
+  private String actionType;
 
-	@NotNull
-	@JsonProperty(value = "objectType", required = true)
-	@ApiModelProperty(required = true)
-	private String objectType;
+  @NotNull
+  @JsonProperty(value = "objectType", required = true)
+  @ApiModelProperty(required = true)
+  private String objectType;
 
-	@NotNull
-	@JsonProperty(value = "projectId", required = true)
-	@ApiModelProperty(required = true)
-	private Long projectId;
+  @NotNull
+  @JsonProperty(value = "projectId", required = true)
+  @ApiModelProperty(required = true)
+  private Long projectId;
 
-	@JsonProperty(value = "projectName")
-	private String projectName;
+  @JsonProperty(value = "projectName")
+  private String projectName;
 
-	@JsonProperty(value = "details")
-	private Object details;
+  @JsonProperty(value = "projectKey")
+  private String projectKey;
 
-	@JsonProperty(value = "objectName")
-	private String objectName;
+  @JsonProperty(value = "details")
+  private Object details;
 
-	public Long getId() {
-		return id;
-	}
+  @JsonProperty(value = "objectName")
+  private String objectName;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-	public Long getLoggedObjectId() {
-		return loggedObjectId;
-	}
-
-	public void setLoggedObjectId(Long loggedObjectId) {
-		this.loggedObjectId = loggedObjectId;
-	}
-
-	public Date getLastModified() {
-		return lastModified;
-	}
-
-	public void setLastModified(Date lastModified) {
-		this.lastModified = lastModified;
-	}
-
-	public String getActionType() {
-		return actionType;
-	}
-
-	public void setActionType(String actionType) {
-		this.actionType = actionType;
-	}
-
-	public String getObjectType() {
-		return objectType;
-	}
-
-	public void setObjectType(String objectType) {
-		this.objectType = objectType;
-	}
-
-	public Long getProjectId() {
-		return projectId;
-	}
-
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
-	}
-
-	public String getProjectName() {
-		return projectName;
-	}
-
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-	}
-
-	public Object getDetails() {
-		return details;
-	}
-
-	public void setDetails(Object details) {
-		this.details = details;
-	}
-
-	public String getObjectName() {
-		return objectName;
-	}
-
-	public void setObjectName(String objectName) {
-		this.objectName = objectName;
-	}
-
-	@Override
-	public String toString() {
-		return "ActivityResource{" + "id=" + id
-				+ ", user='" + user + '\''
-				+ ", loggedObjectId='" + loggedObjectId + '\''
-				+ ", lastModified=" + lastModified
-				+ ", actionType='" + actionType + '\''
-				+ ", objectType='" + objectType + '\''
-				+ ", projectId=" + projectId
-				+ ", projectName='" + projectName + '\''
-				+ ", objectName='" + objectName + '\''
-				+ ", details=" + details
-				+ '}';
-	}
 }

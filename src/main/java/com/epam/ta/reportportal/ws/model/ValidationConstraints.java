@@ -81,8 +81,9 @@ public class ValidationConstraints {
 	public static final int MIN_NUMBER_OF_LOG_LINES = -1;
 	public static final String HEX_COLOR_REGEXP = "#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
 	public static final String PROJECT_NAME_REGEXP = "[a-zA-Z0-9-_]+";
+  public static final String PROJECT_SLUG_REGEXP = "^[a-z0-9-_]+$";
 
-	private ValidationConstraints() {
+  private ValidationConstraints() {
 
 	}
 
