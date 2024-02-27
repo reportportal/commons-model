@@ -17,7 +17,6 @@
 package com.epam.ta.reportportal.ws.model.integration.auth;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import java.io.Serializable;
 
 /**

@@ -17,10 +17,9 @@
 package com.epam.ta.reportportal.ws.model.validation;
 
 import com.epam.ta.reportportal.ws.annotations.NotBlankWithSize;
-import org.apache.commons.lang3.StringUtils;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author <a href="mailto:tatyana_gladysheva@epam.com">Tatyana Gladysheva</a>

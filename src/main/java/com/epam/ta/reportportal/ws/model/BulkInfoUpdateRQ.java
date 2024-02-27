@@ -17,11 +17,10 @@
 package com.epam.ta.reportportal.ws.model;
 
 import com.epam.ta.reportportal.ws.model.attribute.UpdateItemAttributeRQ;
-
+import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>

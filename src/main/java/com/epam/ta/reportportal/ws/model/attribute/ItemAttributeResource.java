@@ -16,77 +16,75 @@
 
 package com.epam.ta.reportportal.ws.model.attribute;
 
+import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_ITEM_ATTRIBUTE_VALUE_LENGTH;
+
+import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
-
-import static com.epam.ta.reportportal.ws.model.ValidationConstraints.MIN_ITEM_ATTRIBUTE_VALUE_LENGTH;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
  */
 public class ItemAttributeResource implements Serializable {
 
-	private String key;
+  private String key;
 
-	@NotBlank
-	@Size(min = MIN_ITEM_ATTRIBUTE_VALUE_LENGTH)
-	private String value;
+  @NotBlank
+  @Size(min = MIN_ITEM_ATTRIBUTE_VALUE_LENGTH)
+  private String value;
 
-	public ItemAttributeResource() {
-	}
+  public ItemAttributeResource() {
+  }
 
-	public ItemAttributeResource(String key, String value) {
-		this.key = key;
-		this.value = value;
-	}
+  public ItemAttributeResource(String key, String value) {
+    this.key = key;
+    this.value = value;
+  }
 
-	public String getKey() {
-		return key;
-	}
+  public String getKey() {
+    return key;
+  }
 
-	public void setKey(String key) {
-		this.key = key;
-	}
+  public void setKey(String key) {
+    this.key = key;
+  }
 
-	public String getValue() {
-		return value;
-	}
+  public String getValue() {
+    return value;
+  }
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+  public void setValue(String value) {
+    this.value = value;
+  }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("ItemAttributeResource{");
-		sb.append("key='").append(key).append('\'');
-		sb.append(", value='").append(value).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+  @Override
+  public String toString() {
+    return "ItemAttributeResource{" + "key='" + key + '\''
+        + ", value='" + value + '\''
+        + '}';
+  }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
-		ItemAttributeResource that = (ItemAttributeResource) o;
+    ItemAttributeResource that = (ItemAttributeResource) o;
 
-		if (key != null ? !key.equals(that.key) : that.key != null) {
-			return false;
-		}
-		return value != null ? value.equals(that.value) : that.value == null;
-	}
+    if (key != null ? !key.equals(that.key) : that.key != null) {
+      return false;
+    }
+    return value != null ? value.equals(that.value) : that.value == null;
+  }
 
-	@Override
-	public int hashCode() {
-		int result = key != null ? key.hashCode() : 0;
-		result = 31 * result + (value != null ? value.hashCode() : 0);
-		return result;
-	}
+  @Override
+  public int hashCode() {
+    int result = key != null ? key.hashCode() : 0;
+    result = 31 * result + (value != null ? value.hashCode() : 0);
+    return result;
+  }
 }

@@ -20,12 +20,11 @@ import com.epam.ta.reportportal.ws.model.ValidationConstraints;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.util.List;
+import java.util.Map;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Domain object for creating ticket in bug tracking system.

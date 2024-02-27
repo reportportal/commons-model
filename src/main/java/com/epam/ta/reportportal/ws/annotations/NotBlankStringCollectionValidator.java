@@ -16,9 +16,9 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
+import java.util.Collection;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.util.Collection;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
