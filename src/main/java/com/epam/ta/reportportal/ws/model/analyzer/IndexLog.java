@@ -18,7 +18,6 @@ package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.time.LocalDateTime;
 import java.util.Objects;
 

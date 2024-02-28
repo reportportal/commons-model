@@ -16,12 +16,12 @@
 
 package com.epam.ta.reportportal.ws.annotations;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 /**
  * @author <a href="mailto:ihar_kahadouski@epam.com">Ihar Kahadouski</a>
@@ -40,7 +40,7 @@ public class InCollectionValidator implements ConstraintValidator<In, Collection
 
 	@Override
 	public boolean isValid(Collection<String> value, ConstraintValidatorContext context) {
-		List<String> upperCaseList = new ArrayList<String>();
+		List<String> upperCaseList = new ArrayList<>();
 		for (String next : value) {
 			upperCaseList.add(next.toUpperCase());
 		}

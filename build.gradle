@@ -41,11 +41,11 @@ wrapper {
 }
 
 dependencies {
-    compile "io.swagger:swagger-annotations:${swaggerAnnotationsVersion}"
-    compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
-    compile "javax.validation:validation-api:${validationApiVersion}"
-    compile "org.apache.commons:commons-lang3:${commonsLangVersion}"
-    compile group: 'com.google.guava', name: 'guava', version: '28.2-jre'
+    implementation "org.springdoc:springdoc-openapi-data-rest:${sprindocAnnotationsVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation "javax.validation:validation-api:${validationApiVersion}"
+    implementation "org.apache.commons:commons-lang3:${commonsLangVersion}"
+    implementation group: 'com.google.guava', name: 'guava', version: '28.2-jre'
 
     // add lombok support
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
