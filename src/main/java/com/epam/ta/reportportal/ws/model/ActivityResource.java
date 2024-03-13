@@ -21,8 +21,12 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.media.Schema.RequiredMode;
-import java.util.Date;
+import java.time.Instant;
 import javax.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * JSON Representation of Report Portal's Activity domain object.
@@ -30,6 +34,10 @@ import javax.validation.constraints.NotNull;
  * @see <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS Description</a>
  */
 @JsonInclude(Include.NON_NULL)
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class ActivityResource {
 
 	@NotNull
@@ -50,7 +58,7 @@ public class ActivityResource {
 	@NotNull
 	@JsonProperty(value = "lastModified", required = true)
 	@Schema(requiredMode = RequiredMode.REQUIRED)
-	private Date lastModified;
+	private Instant lastModified;
 
 	@NotNull
 	@JsonProperty(value = "actionType", required = true)
@@ -76,98 +84,4 @@ public class ActivityResource {
 	@JsonProperty(value = "objectName")
 	private String objectName;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-	public Long getLoggedObjectId() {
-		return loggedObjectId;
-	}
-
-	public void setLoggedObjectId(Long loggedObjectId) {
-		this.loggedObjectId = loggedObjectId;
-	}
-
-	public Date getLastModified() {
-		return lastModified;
-	}
-
-	public void setLastModified(Date lastModified) {
-		this.lastModified = lastModified;
-	}
-
-	public String getActionType() {
-		return actionType;
-	}
-
-	public void setActionType(String actionType) {
-		this.actionType = actionType;
-	}
-
-	public String getObjectType() {
-		return objectType;
-	}
-
-	public void setObjectType(String objectType) {
-		this.objectType = objectType;
-	}
-
-	public Long getProjectId() {
-		return projectId;
-	}
-
-	public void setProjectId(Long projectId) {
-		this.projectId = projectId;
-	}
-
-	public String getProjectName() {
-		return projectName;
-	}
-
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-	}
-
-	public Object getDetails() {
-		return details;
-	}
-
-	public void setDetails(Object details) {
-		this.details = details;
-	}
-
-	public String getObjectName() {
-		return objectName;
-	}
-
-	public void setObjectName(String objectName) {
-		this.objectName = objectName;
-	}
-
-	@Override
-	public String toString() {
-		return "ActivityResource{" + "id=" + id
-				+ ", user='" + user + '\''
-				+ ", loggedObjectId='" + loggedObjectId + '\''
-				+ ", lastModified=" + lastModified
-				+ ", actionType='" + actionType + '\''
-				+ ", objectType='" + objectType + '\''
-				+ ", projectId=" + projectId
-				+ ", projectName='" + projectName + '\''
-				+ ", objectName='" + objectName + '\''
-				+ ", details=" + details
-				+ '}';
-	}
 }
