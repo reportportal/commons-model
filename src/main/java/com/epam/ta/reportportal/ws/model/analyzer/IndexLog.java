@@ -18,8 +18,11 @@ package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.Objects;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * Represents log container in index/analysis request/response.
@@ -27,65 +30,26 @@ import java.util.Objects;
  * @author Ivan Sharamet
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Getter
+@Setter
+@ToString
 public class IndexLog {
 
-	@JsonProperty("logId")
-	private Long logId;
+  @JsonProperty("logId")
+  private Long logId;
 
-	@JsonProperty("logLevel")
-	private int logLevel;
+  @JsonProperty("logLevel")
+  private int logLevel;
 
-	@JsonProperty("logTime")
-	private LocalDateTime logTime;
+  @JsonProperty("logTime")
+  private Instant logTime;
 
-	@JsonProperty("message")
-	private String message;
+  @JsonProperty("message")
+  private String message;
 
-	@JsonProperty("clusterId")
-	private Long clusterId;
+  @JsonProperty("clusterId")
+  private Long clusterId;
 
-	public IndexLog() {
-	}
-
-	public Long getLogId() {
-		return logId;
-	}
-
-	public void setLogId(Long logId) {
-		this.logId = logId;
-	}
-
-	public int getLogLevel() {
-		return logLevel;
-	}
-
-	public void setLogLevel(int logLevel) {
-		this.logLevel = logLevel;
-	}
-
-	public LocalDateTime getLogTime() {
-		return logTime;
-	}
-
-	public void setLogTime(LocalDateTime logTime) {
-		this.logTime = logTime;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public Long getClusterId() {
-		return clusterId;
-	}
-
-	public void setClusterId(Long clusterId) {
-		this.clusterId = clusterId;
-	}
 
 	@Override
 	public boolean equals(Object o) {
@@ -104,8 +68,4 @@ public class IndexLog {
 		return Objects.hash(logLevel, message, clusterId);
 	}
 
-	@Override
-	public String toString() {
-		return "IndexLog{" + "logLevel=" + logLevel + ", message='" + message + '\'' + '}';
-	}
 }
