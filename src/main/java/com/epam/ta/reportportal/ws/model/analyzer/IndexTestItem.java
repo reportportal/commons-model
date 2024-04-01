@@ -18,6 +18,7 @@ package com.epam.ta.reportportal.ws.model.analyzer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Set;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,7 +42,7 @@ public class IndexTestItem {
   @JsonProperty("issueType")
   private String issueTypeLocator;
 
-  private Instant startTime;
+  private LocalDateTime startTime;
 
   @JsonProperty("logs")
   private Set<IndexLog> logs;

@@ -19,6 +19,7 @@ package com.epam.ta.reportportal.ws.model.analyzer;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,7 +43,7 @@ public class IndexLog {
   private int logLevel;
 
   @JsonProperty("logTime")
-  private Instant logTime;
+  private LocalDateTime logTime;
 
   @JsonProperty("message")
   private String message;
